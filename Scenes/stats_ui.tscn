@@ -1,7 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://cn31jxeya8jq7"]
+[gd_scene load_steps=12 format=3 uid="uid://cn31jxeya8jq7"]
 
 [ext_resource type="Script" uid="uid://cna0e7pkfcfu6" path="res://Scripts/Stats/stats_ui.gd" id="1_dv0x8"]
-[ext_resource type="Texture2D" uid="uid://bkdwbnaw1pvvn" path="res://icon.svg" id="1_wacwo"]
+[ext_resource type="Texture2D" uid="uid://cfbqj41xyq81q" path="res://Assets/Sprites/Heat.png" id="2_sw22t"]
+[ext_resource type="Texture2D" uid="uid://bexr0jyftupgh" path="res://Assets/Sprites/hope.png" id="2_yvg2w"]
+[ext_resource type="Texture2D" uid="uid://ctjdvlbkx3oo4" path="res://Assets/Sprites/HeatProgress.png" id="3_bqow0"]
+[ext_resource type="Texture2D" uid="uid://dtvklll7faloj" path="res://Assets/Sprites/hopeprogress.png" id="3_wvi1r"]
+[ext_resource type="Texture2D" uid="uid://okm7m2ikcj8i" path="res://Assets/Sprites/OrderIcon.png" id="4_8v0cf"]
+[ext_resource type="Texture2D" uid="uid://5aojfa44gxo6" path="res://Assets/Sprites/OrderProgress.png" id="5_ftspl"]
+[ext_resource type="Texture2D" uid="uid://4jd4rq75iylb" path="res://Assets/Sprites/Survivors.png" id="8_oysga"]
+[ext_resource type="Texture2D" uid="uid://d17rtmhetajgi" path="res://Assets/Sprites/SurvivorsProgress.png" id="9_yyw1w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sw22t"]
+bg_color = Color(0.10980392, 0.10980392, 0.10980392, 0.59607846)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_dv0x8"]
 
@@ -21,6 +39,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sw22t")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -30,9 +52,12 @@ theme_override_constants/separation = 20
 [node name="Heat" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-value = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+value = 42.0
 fill_mode = 3
-texture_progress = ExtResource("1_wacwo")
+texture_under = ExtResource("2_sw22t")
+texture_progress = ExtResource("3_bqow0")
 
 [node name="HeatPoint" type="TextureRect" parent="MarginContainer/HBoxContainer/Heat"]
 unique_name_in_owner = true
@@ -48,14 +73,15 @@ offset_bottom = -12.0
 grow_horizontal = 2
 texture = SubResource("CanvasTexture_dv0x8")
 
-[node name="Discontent" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
+[node name="Order" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 value = 31.0
 fill_mode = 3
-texture_progress = ExtResource("1_wacwo")
+texture_under = ExtResource("4_8v0cf")
+texture_progress = ExtResource("5_ftspl")
 
-[node name="DiscontentPoint" type="TextureRect" parent="MarginContainer/HBoxContainer/Discontent"]
+[node name="OrderPoint" type="TextureRect" parent="MarginContainer/HBoxContainer/Order"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -74,7 +100,8 @@ unique_name_in_owner = true
 layout_mode = 2
 value = 71.0
 fill_mode = 3
-texture_progress = ExtResource("1_wacwo")
+texture_under = ExtResource("2_yvg2w")
+texture_progress = ExtResource("3_wvi1r")
 
 [node name="HopePoint" type="TextureRect" parent="MarginContainer/HBoxContainer/Hope"]
 unique_name_in_owner = true
@@ -95,7 +122,8 @@ unique_name_in_owner = true
 layout_mode = 2
 value = 31.0
 fill_mode = 3
-texture_progress = ExtResource("1_wacwo")
+texture_under = ExtResource("8_oysga")
+texture_progress = ExtResource("9_yyw1w")
 
 [node name="SurvivorsPoint" type="TextureRect" parent="MarginContainer/HBoxContainer/Survivors"]
 unique_name_in_owner = true

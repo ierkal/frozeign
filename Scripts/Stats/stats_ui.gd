@@ -2,12 +2,12 @@ extends Control
 class_name StatsUI
 
 @onready var heat: TextureProgressBar = %Heat
-@onready var discontent: TextureProgressBar = %Discontent
+@onready var discontent: TextureProgressBar = %Order
 @onready var hope: TextureProgressBar = %Hope
 @onready var survivors: TextureProgressBar = %Survivors
 
 @onready var heat_point: TextureRect = %HeatPoint
-@onready var discontent_point: TextureRect = %DiscontentPoint
+@onready var discontent_point: TextureRect = %OrderPoint
 @onready var hope_point: TextureRect = %HopePoint
 @onready var survivors_point: TextureRect = %SurvivorsPoint
 

@@ -1,15 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://dh3iui73lwbai"]
+[gd_scene load_steps=7 format=3 uid="uid://dh3iui73lwbai"]
 
 [ext_resource type="Script" uid="uid://c7xwphipltatm" path="res://Scripts/Card/card_ui.gd" id="1_y8epe"]
 [ext_resource type="PackedScene" uid="uid://b8bsyifay8tjn" path="res://Scenes/card.tscn" id="2_y8epe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8epe"]
-bg_color = Color(1.7602391, 0.7143807, 0.37025955, 1)
+bg_color = Color(0.34117648, 0.5529412, 0.627451, 0.3647059)
+border_width_left = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ndah"]
 font_size = 31
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_lgc0u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lgc0u"]
 font_size = 21
@@ -79,7 +84,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.92
-texture = SubResource("CanvasTexture_lgc0u")
 stretch_mode = 5
 
 [node name="DecisionTexts" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/Control"]

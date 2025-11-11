@@ -1,23 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8bsyifay8tjn"]
+[gd_scene load_steps=8 format=3 uid="uid://b8bsyifay8tjn"]
 
 [ext_resource type="Script" uid="uid://bbi164prxkiwl" path="res://Scripts/Card/card.gd" id="1_eumee"]
+[ext_resource type="Resource" uid="uid://cc3rgolfuk36k" path="res://Resources/Card.tres" id="2_bnspj"]
 [ext_resource type="PackedScene" uid="uid://d1ea2cdb8c3vy" path="res://Scenes/card_texture.tscn" id="2_e6po8"]
 [ext_resource type="Script" uid="uid://2ake0pica1o4" path="res://Scripts/Card/card_decision.gd" id="3_bnspj"]
 [ext_resource type="Script" uid="uid://cqty5jwcwwwb6" path="res://Scripts/Card/card_drag.gd" id="3_e6po8"]
+[ext_resource type="Texture2D" uid="uid://dvnrrh86p1mx7" path="res://Assets/Sprites/ChatGPT Image Nov 11, 2025, 02_39_01 PM.png" id="4_u5wvb"]
 [ext_resource type="Script" uid="uid://bnq6gvx10hwgu" path="res://Scripts/Card/card_tweener.gd" id="4_xnv4g"]
-[ext_resource type="Script" uid="uid://d2glxrarjscq3" path="res://Scripts/Card/card_config.gd" id="6_bnspj"]
-
-[sub_resource type="Resource" id="Resource_bnspj"]
-script = ExtResource("6_bnspj")
-metadata/_custom_type_script = "uid://d2glxrarjscq3"
-
-[sub_resource type="Resource" id="Resource_xnv4g"]
-script = ExtResource("6_bnspj")
-metadata/_custom_type_script = "uid://d2glxrarjscq3"
-
-[sub_resource type="Resource" id="Resource_u5wvb"]
-script = ExtResource("6_bnspj")
-metadata/_custom_type_script = "uid://d2glxrarjscq3"
 
 [node name="Card" type="Control"]
 layout_mode = 3
@@ -29,10 +18,12 @@ grow_vertical = 2
 pivot_offset = Vector2(324, 576)
 mouse_filter = 2
 script = ExtResource("1_eumee")
-cfg = SubResource("Resource_bnspj")
+cfg = ExtResource("2_bnspj")
 
 [node name="CardTexture" parent="." instance=ExtResource("2_e6po8")]
 layout_mode = 1
+texture = ExtResource("4_u5wvb")
+expand_mode = 1
 script = null
 
 [node name="CardDrag" type="Control" parent="."]
@@ -43,13 +34,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_e6po8")
-cfg = SubResource("Resource_xnv4g")
+cfg = ExtResource("2_bnspj")
 
 [node name="CardDecision" type="Node" parent="."]
 script = ExtResource("3_bnspj")
 
 [node name="CardTweener" type="Node" parent="."]
 script = ExtResource("4_xnv4g")
-cfg = SubResource("Resource_u5wvb")
+cfg = ExtResource("2_bnspj")
 
 [connection signal="gui_input" from="CardDrag" to="CardDrag" method="_on_gui_input"]

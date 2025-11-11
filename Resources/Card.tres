@@ -4,4 +4,7 @@
 
 [resource]
 script = ExtResource("1_0v71l")
+rotate_speed = 0.001
+position_threshold = 140
+input_position_threshold = 80
 metadata/_custom_type_script = "uid://d2glxrarjscq3"
