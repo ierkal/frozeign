@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://dihplp2ct2wv4"]
+
+[ext_resource type="Script" uid="uid://dfg8yyl72e2v8" path="res://Scripts/Manager/game_manager.gd" id="1_3dryh"]
+[ext_resource type="PackedScene" uid="uid://b570hdnewxoqv" path="res://Scenes/container_ui.tscn" id="1_wrm1d"]
+[ext_resource type="Script" uid="uid://dlaltmw1yx7a3" path="res://Scripts/Deck/deck.gd" id="2_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://dh3iui73lwbai" path="res://Scenes/card_ui.tscn" id="2_3dryh"]
+[ext_resource type="Script" uid="uid://b4ks5i6nsxgy2" path="res://Scripts/Stats/stats_manager.gd" id="3_v158k"]
+[ext_resource type="PackedScene" uid="uid://cn31jxeya8jq7" path="res://Scenes/stats_ui.tscn" id="3_wowpa"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_3dryh")
+
+[node name="Deck" type="Node2D" parent="."]
+script = ExtResource("2_1l0tm")
+
+[node name="StatsManager" type="Node2D" parent="."]
+script = ExtResource("3_v158k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Container_UI" parent="CanvasLayer" instance=ExtResource("1_wrm1d")]
+
+[node name="Card_UI" parent="CanvasLayer/Container_UI" instance=ExtResource("2_3dryh")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="StatsUI" parent="CanvasLayer/Container_UI" instance=ExtResource("3_wowpa")]
+unique_name_in_owner = true
+layout_mode = 1

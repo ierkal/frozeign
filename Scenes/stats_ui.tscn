@@ -1,0 +1,112 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn31jxeya8jq7"]
+
+[ext_resource type="Script" uid="uid://cna0e7pkfcfu6" path="res://Scripts/Stats/stats_ui.gd" id="1_dv0x8"]
+[ext_resource type="Texture2D" uid="uid://bkdwbnaw1pvvn" path="res://icon.svg" id="1_wacwo"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dv0x8"]
+
+[node name="Stats_UI" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.167
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dv0x8")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="Heat" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("1_wacwo")
+
+[node name="HeatPoint" type="TextureRect" parent="MarginContainer/HBoxContainer/Heat"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 4.0
+offset_bottom = -12.0
+grow_horizontal = 2
+texture = SubResource("CanvasTexture_dv0x8")
+
+[node name="Discontent" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 31.0
+fill_mode = 3
+texture_progress = ExtResource("1_wacwo")
+
+[node name="DiscontentPoint" type="TextureRect" parent="MarginContainer/HBoxContainer/Discontent"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 4.0
+offset_bottom = -12.0
+grow_horizontal = 2
+texture = SubResource("CanvasTexture_dv0x8")
+
+[node name="Hope" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 71.0
+fill_mode = 3
+texture_progress = ExtResource("1_wacwo")
+
+[node name="HopePoint" type="TextureRect" parent="MarginContainer/HBoxContainer/Hope"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 4.0
+offset_bottom = -12.0
+grow_horizontal = 2
+texture = SubResource("CanvasTexture_dv0x8")
+
+[node name="Survivors" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 31.0
+fill_mode = 3
+texture_progress = ExtResource("1_wacwo")
+
+[node name="SurvivorsPoint" type="TextureRect" parent="MarginContainer/HBoxContainer/Survivors"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 4.0
+offset_bottom = -12.0
+grow_horizontal = 2
+texture = SubResource("CanvasTexture_dv0x8")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1ea2cdb8c3vy"]
+
+[ext_resource type="Texture2D" uid="uid://bkdwbnaw1pvvn" path="res://icon.svg" id="1_4ntvn"]
+[ext_resource type="Script" uid="uid://dh2wfns2d5yg8" path="res://Scripts/Card/card_texture.gd" id="2_1ku8j"]
+
+[node name="CardTexture" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(309, 215)
+texture = ExtResource("1_4ntvn")
+stretch_mode = 5
+script = ExtResource("2_1ku8j")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

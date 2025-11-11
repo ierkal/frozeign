@@ -1,0 +1,146 @@
+[gd_scene load_steps=8 format=3 uid="uid://dh3iui73lwbai"]
+
+[ext_resource type="Script" uid="uid://c7xwphipltatm" path="res://Scripts/Card/card_ui.gd" id="1_y8epe"]
+[ext_resource type="PackedScene" uid="uid://b8bsyifay8tjn" path="res://Scenes/card.tscn" id="2_y8epe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8epe"]
+bg_color = Color(1.7602391, 0.7143807, 0.37025955, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ndah"]
+font_size = 31
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_lgc0u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lgc0u"]
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_y8epe"]
+font_size = 25
+
+[node name="Card_UI" type="Control"]
+layout_mode = 3
+anchor_top = 0.167
+anchor_right = 1.0
+anchor_bottom = 0.874
+offset_top = -0.38401794
+offset_bottom = 0.15197754
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y8epe")
+card_scene = ExtResource("2_y8epe")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y8epe")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="CardDescription" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_stretch_ratio = 0.2
+text = "Our coal is running out of stock. How should we proceed, Chief?"
+label_settings = SubResource("LabelSettings_2ndah")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Control" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureParent" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -309.0
+offset_top = -326.5
+offset_right = 309.0
+offset_bottom = 326.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.92
+texture = SubResource("CanvasTexture_lgc0u")
+stretch_mode = 5
+
+[node name="DecisionTexts" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Control/DecisionTexts"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChoiceBGLeft" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LeftText" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer/ChoiceBGLeft"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_lgc0u")
+vertical_alignment = 1
+
+[node name="ChoiceBGRight" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RightText" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer/ChoiceBGRight"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+label_settings = SubResource("LabelSettings_lgc0u")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CardOwnerName" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(186.865, 32.04)
+layout_mode = 2
+size_flags_vertical = 10
+size_flags_stretch_ratio = 0.0
+text = "The Steward"
+label_settings = SubResource("LabelSettings_y8epe")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

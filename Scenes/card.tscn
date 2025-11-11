@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://b8bsyifay8tjn"]
+
+[ext_resource type="Script" uid="uid://bbi164prxkiwl" path="res://Scripts/Card/card.gd" id="1_eumee"]
+[ext_resource type="PackedScene" uid="uid://d1ea2cdb8c3vy" path="res://Scenes/card_texture.tscn" id="2_e6po8"]
+[ext_resource type="Script" uid="uid://2ake0pica1o4" path="res://Scripts/Card/card_decision.gd" id="3_bnspj"]
+[ext_resource type="Script" uid="uid://cqty5jwcwwwb6" path="res://Scripts/Card/card_drag.gd" id="3_e6po8"]
+[ext_resource type="Script" uid="uid://bnq6gvx10hwgu" path="res://Scripts/Card/card_tweener.gd" id="4_xnv4g"]
+[ext_resource type="Script" uid="uid://d2glxrarjscq3" path="res://Scripts/Card/card_config.gd" id="6_bnspj"]
+
+[sub_resource type="Resource" id="Resource_bnspj"]
+script = ExtResource("6_bnspj")
+metadata/_custom_type_script = "uid://d2glxrarjscq3"
+
+[sub_resource type="Resource" id="Resource_xnv4g"]
+script = ExtResource("6_bnspj")
+metadata/_custom_type_script = "uid://d2glxrarjscq3"
+
+[sub_resource type="Resource" id="Resource_u5wvb"]
+script = ExtResource("6_bnspj")
+metadata/_custom_type_script = "uid://d2glxrarjscq3"
+
+[node name="Card" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(324, 576)
+mouse_filter = 2
+script = ExtResource("1_eumee")
+cfg = SubResource("Resource_bnspj")
+
+[node name="CardTexture" parent="." instance=ExtResource("2_e6po8")]
+layout_mode = 1
+script = null
+
+[node name="CardDrag" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_e6po8")
+cfg = SubResource("Resource_xnv4g")
+
+[node name="CardDecision" type="Node" parent="."]
+script = ExtResource("3_bnspj")
+
+[node name="CardTweener" type="Node" parent="."]
+script = ExtResource("4_xnv4g")
+cfg = SubResource("Resource_u5wvb")
+
+[connection signal="gui_input" from="CardDrag" to="CardDrag" method="_on_gui_input"]
