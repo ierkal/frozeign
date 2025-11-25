@@ -5,6 +5,8 @@ class_name GameManager
 @onready var stats: StatsManager = $StatsManager
 @onready var card_ui: CardUI = %Card_UI
 @onready var stats_ui: StatsUI = %StatsUI
+@onready var survived_days: SurvivedDaysUI = %SurvivedDays
+
 
 func _ready() -> void:
 	# 1️⃣ CardUI wants a card
@@ -13,6 +15,8 @@ func _ready() -> void:
 	card_ui.card_effect_committed.connect(_on_card_effect_committed)
 	# 3️⃣ StatsManager notifies stat changes
 	stats.stats_changed.connect(_on_stats_changed)
+	
+	card_ui.card_count_reached.connect(_on_card_count_reach)
 
 	await deck.load_from_file("res://Json/frozeign.json")
 	_on_request_deck_draw()  # draw the first card
@@ -28,4 +32,5 @@ func _on_card_effect_committed(effect: Dictionary) -> void:
 func _on_stats_changed(h, d, ho, s) -> void:
 	stats_ui.update_stats(h, d, ho, s)
 
-	
+func _on_card_count_reach():
+	survived_days.on_day_survive()

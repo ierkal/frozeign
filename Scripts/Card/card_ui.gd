@@ -3,6 +3,7 @@ class_name CardUI
 
 signal request_deck_draw
 signal card_effect_committed(effect: Dictionary)
+signal card_count_reached
 
 const SIDE_LEFT := "left"
 const SIDE_RIGHT := "right"
@@ -18,6 +19,8 @@ const SIDE_RIGHT := "right"
 @onready var left_text: Label = %LeftText
 @onready var right_text: Label = %RightText
 
+
+var commited_card_count : int = 0
 var _card: Node = null
 var _current_presented: Dictionary = {}
 var _preview_side: String = ""
@@ -37,7 +40,6 @@ func _ready() -> void:
 func receive_presented_card(presented: Dictionary) -> void:
 	_current_presented = presented
 
-	# Bind UI text
 	card_owner_name.text = str(_current_presented.get("title", ""))
 	card_description.text = str(_current_presented.get("desc", ""))
 
@@ -46,12 +48,8 @@ func receive_presented_card(presented: Dictionary) -> void:
 	left_text.text = str(left_dict.get("text", ""))
 	right_text.text = str(right_dict.get("text", ""))
 
-	# Spawn a fresh card visual and wire its signals
 	_spawn_card()
 
-# --------------------
-# Card lifecycle
-# --------------------
 func _spawn_card() -> void:
 	_clear_texture_parent()
 	_reset_preview_ui()
@@ -59,7 +57,6 @@ func _spawn_card() -> void:
 	_card = card_scene.instantiate()
 	texture_parent.add_child(_card)
 
-	# Wire signals from the card orchestrator (Card / CardTexture)
 	_card.card_died.connect(_on_card_died)
 	_card.card_idle.connect(_on_card_idle)
 	_card.card_decision.connect(_on_card_decision)
@@ -78,23 +75,16 @@ func _reset_preview_ui() -> void:
 	_tween_left = null
 	_tween_right = null
 
-# --------------------
-# Signals from Card
-# --------------------
 func _on_card_died() -> void:
-	# Don’t spawn or draw here; ask director to supply the next presented card.
 	request_deck_draw.emit()
 
 func _on_card_decision(side: String) -> void:
-	# Close previous side if switching
 	if _preview_side != "" and _preview_side != side:
 		_set_side_open(_preview_side, false)
 
-	# Open the new/current side
 	_set_side_open(side, true)
 	_preview_side = side
 
-	# Notify stats preview UI
 	var effect := _effect_for(side)
 	get_tree().call_group("StatsUI", "show_preview", effect)
 
@@ -107,16 +97,13 @@ func _on_card_idle() -> void:
 func _on_card_committed(side: String) -> void:
 	var effect := _effect_for(side)
 
-	# Tell the outside world to apply effects; CardUI doesn't touch StatsManager directly.
 	card_effect_committed.emit(effect)
-
-	# brief hold so the user reads the highlight
+	commited_card_count+=1
 	await get_tree().create_timer(0.15).timeout
 	get_tree().call_group("StatsUI", "clear_preview")
+	
+	card_count_reached.emit()
 
-# --------------------
-# UI helpers
-# --------------------
 func _effect_for(side: String) -> Dictionary:
 	return _side_dict(side)
 

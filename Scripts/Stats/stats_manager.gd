@@ -4,7 +4,7 @@ class_name StatsManager
 signal stats_changed(heat, discontent, hope, survivors)
 
 var heat: int = 50
-var discontent: int = 20
+var discontent: int = 50
 var hope: int = 50
 var survivors: int = 50
 

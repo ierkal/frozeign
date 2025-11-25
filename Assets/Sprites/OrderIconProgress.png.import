@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5aojfa44gxo6"
-path="res://.godot/imported/OrderProgress.png-92fd09205f24a640a83e46502959f3cb.ctex"
+uid="uid://ckbedcs11irim"
+path="res://.godot/imported/OrderIconProgress.png-9eb9dd3da100eebfd266bf0c025d2418.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/OrderProgress.png"
-dest_files=["res://.godot/imported/OrderProgress.png-92fd09205f24a640a83e46502959f3cb.ctex"]
+source_file="res://Assets/Sprites/OrderIconProgress.png"
+dest_files=["res://.godot/imported/OrderIconProgress.png-9eb9dd3da100eebfd266bf0c025d2418.ctex"]
 
 [params]
 
