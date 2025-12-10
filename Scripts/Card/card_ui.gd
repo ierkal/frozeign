@@ -8,7 +8,6 @@ signal card_count_reached
 const SIDE_LEFT := "left"
 const SIDE_RIGHT := "right"
 
-# Your card orchestrator scene
 @export var card_scene: PackedScene
 
 @onready var card_owner_name: Label = %CardOwnerName
@@ -19,7 +18,6 @@ const SIDE_RIGHT := "right"
 @onready var left_text: Label = %LeftText
 @onready var right_text: Label = %RightText
 
-
 var commited_card_count : int = 0
 var _card: Node = null
 var _current_presented: Dictionary = {}
@@ -29,13 +27,11 @@ var _tween_left: Tween = null
 var _tween_right: Tween = null
 
 func _ready() -> void:
-	# Ask the outside world (GameDirector/Deck) to provide the first presented card.
-	# The director should respond by calling: receive_presented_card(presented)
 	_reset_preview_ui()
 	request_deck_draw.emit()
 
 # --------------------
-# External entrypoint (called by GameDirector)
+# External entrypoint (called by GameManager)
 # --------------------
 func receive_presented_card(presented: Dictionary) -> void:
 	_current_presented = presented
@@ -98,7 +94,7 @@ func _on_card_committed(side: String) -> void:
 	var effect := _effect_for(side)
 
 	card_effect_committed.emit(effect)
-	commited_card_count+=1
+	commited_card_count += 1
 	await get_tree().create_timer(0.15).timeout
 	get_tree().call_group("StatsUI", "clear_preview")
 	
@@ -137,3 +133,20 @@ func _toggle_panel(p: Panel, open: bool, is_left: bool) -> void:
 			_tween_right.tween_property(p, "scale:y", 1.0, 0.1).from_current()
 		else:
 			_tween_right.tween_property(p, "scale:y", 0.0, 0.1).from_current()
+
+# --------------------
+# SOFT RESET SUPPORT
+# --------------------
+func reset() -> void:
+	commited_card_count = 0
+	_current_presented.clear()
+	_clear_texture_parent()
+	_reset_preview_ui()
+
+	card_owner_name.text = ""
+	card_description.text = ""
+	left_text.text = ""
+	right_text.text = ""
+
+	# Just in case any preview is left on-screen
+	get_tree().call_group("StatsUI", "clear_preview")

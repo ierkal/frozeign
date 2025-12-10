@@ -17,10 +17,8 @@ func load_from_json_string(json_text: String) -> void:
 	_raw_cards = parsed.duplicate(true)
 	_refill_deck()
 
-# Awaitable loader (so you can: await Deck.load_from_file("res://cards.json"))
 @warning_ignore("redundant_await")
 func load_from_file(path: String) -> void:
-	# make this function awaitable and let the scene settle for one frame
 	await get_tree().process_frame
 
 	var f := FileAccess.open(path, FileAccess.READ)
@@ -34,23 +32,32 @@ func load_from_file(path: String) -> void:
 # ---- Deck ops ----
 
 func _refill_deck() -> void:
-	_deck = _raw_cards.duplicate(true)
+	_deck.clear()
+
+	for card in _raw_cards:
+		var id = card.get("Id", "")
+		var is_death := false
+		if id.begins_with("DEATH_"):
+			is_death = true
+
+		if not is_death:
+			_deck.append(card)
+
 	_deck.shuffle()
 
 func draw() -> Dictionary:
 	if _deck.is_empty():
 		_refill_deck()
 	if _deck.is_empty():
-		return {}  # still empty -> nothing loaded yet
+		return {}
 	return _deck.pop_back()
 
-# Build a UI-ready card with possibly swapped choices for randomness
-# Returns:
-# {
-#   id, title, desc,
-#   left:  { text, Heat, Discontent, Hope, Survivors },
-#   right: { text, Heat, Discontent, Hope, Survivors }
-# }
+func find_card_by_id(id: String) -> Dictionary:
+	for card in _raw_cards:
+		if card.get("Id", "") == id:
+			return card
+	return {}
+
 func prepare_presented(card: Dictionary) -> Dictionary:
 	var present := {
 		"id": card.get("Id", ""),
@@ -84,3 +91,5 @@ func prepare_presented(card: Dictionary) -> Dictionary:
 		present.right = right
 
 	return present
+func reset_deck() -> void:
+	_refill_deck()
