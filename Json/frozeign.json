@@ -1,770 +1,3963 @@
 [
   {
-	"Id":"ANYA_WIDOW_02",
-	"Title":"Anya – The Widow",
-	"Description":"I can gather the widows to sew memorial banners, but it will pull them from work.",
-	"LeftText":"Let us sew banners",
-	"RightText":"Keep them at work",
-	"LeftHeat":0,
-	"LeftDiscontent":-10,
-	"LeftHope":15,
-	"LeftSurvivors":0,
-	"RightHeat":0,
-	"RightDiscontent":10,
-	"RightHope":-10,
-	"RightSurvivors":10,
-	"Tags":"npc:Anya,faith,morale,work"
-  },
-  {
-	"Id":"ANYA_WIDOW_03",
-	"Title":"Anya – The Widow",
-	"Description":"I keep a small stash of candles for the dead; I can share them or save them for harsher nights.",
-	"LeftText":"Share the candles",
-	"RightText":"Save them",
-	"LeftHeat":10,
-	"LeftDiscontent":-10,
-	"LeftHope":15,
-	"LeftSurvivors":0,
-	"RightHeat":0,
-	"RightDiscontent":5,
-	"RightHope":-10,
-	"RightSurvivors":0,
-	"Tags":"npc:Anya,ritual,comfort"
-  },
-  {
-	"Id":"ARTHUR_GENERATOR_02",
-	"Title":"Arthur – The Generator Chief",
-	"Description":"I can reroute extra steam to the housing blocks, but it will strain the vents.",
-	"LeftText":"Reroute extra steam",
-	"RightText":"Keep settings safe",
-	"LeftHeat":20,
-	"LeftDiscontent":10,
-	"LeftHope":-10,
-	"LeftSurvivors":0,
-	"RightHeat":0,
-	"RightDiscontent":-10,
-	"RightHope":10,
-	"RightSurvivors":0,
-	"Tags":"npc:Arthur,generator,heat"
-  },
-  {
-	"Id":"ARTHUR_GENERATOR_03",
-	"Title":"Arthur – The Generator Chief",
-	"Description":"I can schedule an emergency shutdown for deep maintenance, but the city will freeze for a while.",
-	"LeftText":"Approve shutdown",
-	"RightText":"Postpone again",
-	"LeftHeat":-20,
-	"LeftDiscontent":15,
-	"LeftHope":-10,
-	"LeftSurvivors":0,
-	"RightHeat":10,
-	"RightDiscontent":-10,
-	"RightHope":10,
-	"RightSurvivors":0,
-	"Tags":"npc:Arthur,maintenance,risk"
-  },
-  {
-	"Id":"HARROW_EXPLORER_02",
-	"Title":"Harrow – The Explorer Admiral",
-	"Description":"I can redirect scouts to search for lost families instead of resources, if you wish.",
-	"LeftText":"Search for families",
-	"RightText":"Search for resources",
-	"LeftHeat":0,
-	"LeftDiscontent":-10,
-	"LeftHope":15,
-	"LeftSurvivors":10,
-	"RightHeat":0,
-	"RightDiscontent":10,
-	"RightHope":-10,
-	"RightSurvivors":15,
-	"Tags":"npc:Harrow,expedition,families"
-  },
-  {
-	"Id":"HARROW_EXPLORER_03",
-	"Title":"Harrow – The Explorer Admiral",
-	"Description":"I spotted a frozen convoy; I can risk a quick salvage or map it for later.",
-	"LeftText":"Risk quick salvage",
-	"RightText":"Map it for later",
-	"LeftHeat":0,
-	"LeftDiscontent":10,
-	"LeftHope":0,
-	"LeftSurvivors":15,
-	"RightHeat":0,
-	"RightDiscontent":-10,
-	"RightHope":10,
-	"RightSurvivors":0,
-	"Tags":"npc:Harrow,convoy,loot"
-  },
-  {
-	"Id":"ELEANOR_TEACHER_02",
-	"Title":"Eleanor – The Teacher",
-	"Description":"I can turn the classroom into a warm storytelling circle tonight, but we will burn extra coal.",
-	"LeftText":"Light the stoves",
-	"RightText":"Keep stoves cold",
-	"LeftHeat":15,
-	"LeftDiscontent":-10,
-	"LeftHope":15,
-	"LeftSurvivors":0,
-	"RightHeat":-10,
-	"RightDiscontent":0,
-	"RightHope":-10,
-	"RightSurvivors":0,
-	"Tags":"npc:Eleanor,children,stories"
-  },
-  {
-	"Id":"ELEANOR_TEACHER_03",
-	"Title":"Eleanor – The Teacher",
-	"Description":"I can add safety drills to our lessons, though it might frighten the younger ones.",
-	"LeftText":"Teach safety drills",
-	"RightText":"Keep lessons gentle",
-	"LeftHeat":0,
-	"LeftDiscontent":-10,
-	"LeftHope":-10,
-	"LeftSurvivors":10,
-	"RightHeat":0,
-	"RightDiscontent":0,
-	"RightHope":10,
-	"RightSurvivors":0,
-	"Tags":"npc:Eleanor,education,safety"
-  },
-  {
-	"Id":"ELIOR_FAITH_02",
-	"Title":"Elior – The Faith Enforcer",
-	"Description":"I can call for a strict fast, claiming sacrifice will earn salvation.",
-	"LeftText":"Declare a fast",
-	"RightText":"Discourage fasting",
-	"LeftHeat":0,
-	"LeftDiscontent":15,
-	"LeftHope":10,
-	"LeftSurvivors":-10,
-	"RightHeat":0,
-	"RightDiscontent":-10,
-	"RightHope":-10,
-	"RightSurvivors":10,
-	"Tags":"npc:Elior,faith,asceticism"
-  },
-  {
-	"Id":"ELIOR_FAITH_03",
-	"Title":"Elior – The Faith Enforcer",
-	"Description":"I can post watchful acolytes in the streets to correct doubtful talk.",
-	"LeftText":"Post acolyte watchers",
-	"RightText":"Leave streets alone",
-	"LeftHeat":0,
-	"LeftDiscontent":15,
-	"LeftHope":-10,
-	"LeftSurvivors":0,
-	"RightHeat":0,
-	"RightDiscontent":-10,
-	"RightHope":10,
-	"RightSurvivors":0,
-	"Tags":"npc:Elior,discipline,streets"
-  },
-  {
-	"Id":"MAEVE_COOK_02",
-	"Title":"Maeve – The Cook",
-	"Description":"I can spice the stew with the last herbs to lift spirits, though they won’t last.",
-	"LeftText":"Use the herbs",
-	"RightText":"Save the herbs",
-	"LeftHeat":0,
-	"LeftDiscontent":-10,
-	"LeftHope":15,
-	"LeftSurvivors":0,
-	"RightHeat":0,
-	"RightDiscontent":0,
-	"RightHope":-10,
-	"RightSurvivors":0,
-	"Tags":"npc:Maeve,food,herbs"
-  },
-  {
-	"Id":"MAEVE_COOK_03",
-	"Title":"Maeve – The Cook",
-	"Description":"I can serve a thin extra meal at night or keep rations strict and stable.",
-	"LeftText":"Serve extra meal",
-	"RightText":"Keep rations strict",
-	"LeftHeat":0,
-	"LeftDiscontent":-15,
-	"LeftHope":10,
-	"LeftSurvivors":10,
-	"RightHeat":0,
-	"RightDiscontent":15,
-	"RightHope":-10,
-	"RightSurvivors":0,
-	"Tags":"npc:Maeve,rations,morale"
-  },
-  {
-	"Id":"NIKOLAI_ARCHIVIST_02",
-	"Title":"Nikolai – The Archivist",
-	"Description":"I can publicly display old laws from the Old World, or keep them locked in the archive.",
-	"LeftText":"Display old laws",
-	"RightText":"Keep them hidden",
-	"LeftHeat":0,
-	"LeftDiscontent":10,
-	"LeftHope":-10,
-	"LeftSurvivors":0,
-	"RightHeat":0,
-	"RightDiscontent":-10,
-	"RightHope":10,
-	"RightSurvivors":0,
-	"Tags":"npc:Nikolai,archive,politics"
-  },
-  {
-	"Id":"NIKOLAI_ARCHIVIST_03",
-	"Title":"Nikolai – The Archivist",
-	"Description":"I can compile a Book of the Fallen and read names aloud each week.",
-	"LeftText":"Create the book",
-	"RightText":"Keep grief private",
-	"LeftHeat":0,
-	"LeftDiscontent":-10,
-	"LeftHope":15,
-	"LeftSurvivors":0,
-	"RightHeat":0,
-	"RightDiscontent":5,
-	"RightHope":-10,
-	"RightSurvivors":0,
-	"Tags":"npc:Nikolai,memorial,ritual"
-  },
-  {
-	"Id":"OLEG_SMUGGLER_02",
-	"Title":"Oleg – The Smuggler",
-	"Description":"I can bring in a batch of coal from questionable sources, no questions asked.",
-	"LeftText":"Take the coal",
-	"RightText":"Refuse shady deal",
-	"LeftHeat":20,
-	"LeftDiscontent":10,
-	"LeftHope":-10,
-	"LeftSurvivors":0,
-	"RightHeat":0,
-	"RightDiscontent":-10,
-	"RightHope":10,
-	"RightSurvivors":0,
-	"Tags":"npc:Oleg,trade,coal"
-  },
-  {
-	"Id":"OLEG_SMUGGLER_03",
-	"Title":"Oleg – The Smuggler",
-	"Description":"I can smuggle a few desperate families into the city if you turn a blind eye.",
-	"LeftText":"Let them in",
-	"RightText":"Turn them away",
-	"LeftHeat":-10,
-	"LeftDiscontent":10,
-	"LeftHope":10,
-	"LeftSurvivors":15,
-	"RightHeat":0,
-	"RightDiscontent":-10,
-	"RightHope":-10,
-	"RightSurvivors":-10,
-	"Tags":"npc:Oleg,refugees,border"
-  },
-  {
-	"Id":"SILAS_INVENTOR_02",
-	"Title":"Silas – The Inventor",
-	"Description":"I can build a crude automaton from scrap to help, though it might fail catastrophically.",
-	"LeftText":"Build the automaton",
-	"RightText":"Deny the project",
-	"LeftHeat":10,
-	"LeftDiscontent":15,
-	"LeftHope":-10,
-	"LeftSurvivors":10,
-	"RightHeat":0,
-	"RightDiscontent":-10,
-	"RightHope":10,
-	"RightSurvivors":0,
-	"Tags":"npc:Silas,automation,experiment"
-  },
-  {
-	"Id":"SILAS_INVENTOR_03",
-	"Title":"Silas – The Inventor",
-	"Description":"I can retrofit heaters in the infirmary or in the workers’ barracks, but not both.",
-	"LeftText":"Prioritize infirmary",
-	"RightText":"Prioritize barracks",
-	"LeftHeat":15,
-	"LeftDiscontent":0,
-	"LeftHope":10,
-	"LeftSurvivors":10,
-	"RightHeat":15,
-	"RightDiscontent":10,
-	"RightHope":0,
-	"RightSurvivors":15,
-	"Tags":"npc:Silas,heaters,choice"
-  },
-  {
-	"Id":"JONAS_CAPTAIN_02",
-	"Title":"Jonas – The Captain",
-	"Description":"I can enforce a nightly curfew to keep order, though people will resent it.",
-	"LeftText":"Impose curfew",
-	"RightText":"Trust the citizens",
-	"LeftHeat":0,
-	"LeftDiscontent":15,
-	"LeftHope":-10,
-	"LeftSurvivors":10,
-	"RightHeat":0,
-	"RightDiscontent":-10,
-	"RightHope":10,
-	"RightSurvivors":0,
-	"Tags":"npc:Jonas,security,curfew"
-  },
-  {
-	"Id":"JONAS_CAPTAIN_03",
-	"Title":"Jonas – The Captain",
-	"Description":"I can lead a dangerous drill on the ice to prepare for attacks.",
-	"LeftText":"Hold the drill",
-	"RightText":"Skip the drill",
-	"LeftHeat":0,
-	"LeftDiscontent":10,
-	"LeftHope":0,
-	"LeftSurvivors":15,
-	"RightHeat":0,
-	"RightDiscontent":-10,
-	"RightHope":-10,
-	"RightSurvivors":0,
-	"Tags":"npc:Jonas,drill,training"
-  },
-  {
-	"Id":"AMARA_CHAPLAIN_02",
-	"Title":"Amara – The Chaplain",
-	"Description":"I can open the chapel all night for those who can’t sleep.",
-	"LeftText":"Open all night",
-	"RightText":"Limit the hours",
-	"LeftHeat":10,
-	"LeftDiscontent":-10,
-	"LeftHope":15,
-	"LeftSurvivors":0,
-	"RightHeat":0,
-	"RightDiscontent":0,
-	"RightHope":-10,
-	"RightSurvivors":0,
-	"Tags":"npc:Amara,chapel,comfort"
-  },
-  {
-	"Id":"AMARA_CHAPLAIN_03",
-	"Title":"Amara – The Chaplain",
-	"Description":"I can preach that suffering is holy, or instead speak softly about kindness.",
-	"LeftText":"Preach holy suffering",
-	"RightText":"Preach kindness",
-	"LeftHeat":0,
-	"LeftDiscontent":10,
-	"LeftHope":-10,
-	"LeftSurvivors":0,
-	"RightHeat":0,
-	"RightDiscontent":-10,
-	"RightHope":15,
-	"RightSurvivors":0,
-	"Tags":"npc:Amara,sermon,doctrine"
-  },
-  {
-	"Id":"LINA_CHILD_02",
-	"Title":"Lina – The Child",
-	"Description":"I can help organize a game in the snow, even if some might catch a cold.",
-	"LeftText":"Let us play outside",
-	"RightText":"Keep us indoors",
-	"LeftHeat":-10,
-	"LeftDiscontent":-10,
-	"LeftHope":15,
-	"LeftSurvivors":-10,
-	"RightHeat":10,
-	"RightDiscontent":0,
-	"RightHope":-10,
-	"RightSurvivors":10,
-	"Tags":"npc:Lina,children,play"
-  },
-  {
-	"Id":"LINA_CHILD_03",
-	"Title":"Lina – The Child",
-	"Description":"I can help the medics by bringing water and blankets, if you allow it.",
-	"LeftText":"Let her help",
-	"RightText":"Send her to school",
-	"LeftHeat":0,
-	"LeftDiscontent":-10,
-	"LeftHope":10,
-	"LeftSurvivors":10,
-	"RightHeat":0,
-	"RightDiscontent":0,
-	"RightHope":10,
-	"RightSurvivors":0,
-	"Tags":"npc:Lina,help,medics"
-  },
-  {
-	"Id":"HOLLOW_MACHINE_02",
-	"Title":"Unit C-7 “Hollow” – The Machine",
-	"Description":"I can optimize coal distribution schedules, reducing comfort breaks.",
-	"LeftText":"Optimize strictly",
-	"RightText":"Allow comfort breaks",
-	"LeftHeat":10,
-	"LeftDiscontent":15,
-	"LeftHope":-10,
-	"LeftSurvivors":10,
-	"RightHeat":-10,
-	"RightDiscontent":-10,
-	"RightHope":10,
-	"RightSurvivors":0,
-	"Tags":"npc:Hollow,efficiency,coal"
-  },
-  {
-	"Id":"HOLLOW_MACHINE_03",
-	"Title":"Unit C-7 “Hollow” – The Machine",
-	"Description":"I can assign myself to constant generator monitoring or to medical triage support.",
-	"LeftText":"Monitor generator",
-	"RightText":"Support triage",
-	"LeftHeat":15,
-	"LeftDiscontent":0,
-	"LeftHope":0,
-	"LeftSurvivors":10,
-	"RightHeat":0,
-	"RightDiscontent":-10,
-	"RightHope":10,
-	"RightSurvivors":10,
-	"Tags":"npc:Hollow,allocation,systems"
-  },
-  {
-	"Id":"HELENA_MEDIC_02",
-	"Title":"Helena – The Medic",
-	"Description":"I can tighten admission rules so only the worst cases get beds.",
-	"LeftText":"Tighten admissions",
-	"RightText":"Keep doors open",
-	"LeftHeat":0,
-	"LeftDiscontent":15,
-	"LeftHope":-10,
-	"LeftSurvivors":10,
-	"RightHeat":0,
-	"RightDiscontent":-10,
-	"RightHope":10,
-	"RightSurvivors":0,
-	"Tags":"npc:Helena,triage,ethics"
-  },
-  {
-	"Id":"HELENA_MEDIC_03",
-	"Title":"Helena – The Medic",
-	"Description":"I can train a few workers in basic first aid, though it will slow production.",
-	"LeftText":"Train first aid",
-	"RightText":"Leave them working",
-	"LeftHeat":0,
-	"LeftDiscontent":-10,
-	"LeftHope":10,
-	"LeftSurvivors":10,
-	"RightHeat":0,
-	"RightDiscontent":10,
-	"RightHope":-10,
-	"RightSurvivors":0,
-	"Tags":"npc:Helena,training,health"
-  },
-  {
-	"Id":"MALIK_SCOUT_02",
-	"Title":"Malik – The Scout",
-	"Description":"I can scout the crevasse the children talk about, or chase that weak radio echo again.",
-	"LeftText":"Scout crevasse",
-	"RightText":"Chase radio echo",
-	"LeftHeat":0,
-	"LeftDiscontent":0,
-	"LeftHope":10,
-	"LeftSurvivors":15,
-	"RightHeat":0,
-	"RightDiscontent":10,
-	"RightHope":0,
-	"RightSurvivors":10,
-	"Tags":"npc:Malik,scouting,rumours"
-  },
-  {
-	"Id":"MALIK_SCOUT_03",
-	"Title":"Malik – The Scout",
-	"Description":"I can mark a shortcut over thin ice, saving time but risking lives.",
-	"LeftText":"Use the shortcut",
-	"RightText":"Avoid thin ice",
-	"LeftHeat":0,
-	"LeftDiscontent":10,
-	"LeftHope":0,
-	"LeftSurvivors":15,
-	"RightHeat":0,
-	"RightDiscontent":-10,
-	"RightHope":0,
-	"RightSurvivors":-10,
-	"Tags":"npc:Malik,shortcut,danger"
-  },
-  {
-	"Id":"ELIAS_STEWARD_02",
-	"Title":"Elias – The Steward",
-	"Description":"I can introduce a food stamp system to track every portion given.",
-	"LeftText":"Issue food stamps",
-	"RightText":"Keep it informal",
-	"LeftHeat":0,
-	"LeftDiscontent":15,
-	"LeftHope":-10,
-	"LeftSurvivors":10,
-	"RightHeat":0,
-	"RightDiscontent":-10,
-	"RightHope":10,
-	"RightSurvivors":0,
-	"Tags":"npc:Elias,bureaucracy,food"
-  },
-  {
-	"Id":"ELIAS_STEWARD_03",
-	"Title":"Elias – The Steward",
-	"Description":"I can quietly divert a small reserve for emergencies or put everything on public ledgers.",
-	"LeftText":"Keep secret reserve",
-	"RightText":"Declare all stores",
-	"LeftHeat":10,
-	"LeftDiscontent":10,
-	"LeftHope":-10,
-	"LeftSurvivors":10,
-	"RightHeat":0,
-	"RightDiscontent":-10,
-	"RightHope":10,
-	"RightSurvivors":0,
-	"Tags":"npc:Elias,reserves,trust"
-  },
-  {
-	"Id":"STRANGER_02",
-	"Title":"The Stranger",
-	"Description":"I can show you a path through the storm, but it will cost you in bodies, not in coal.",
-	"LeftText":"Take the path",
-	"RightText":"Refuse the bargain",
-	"LeftHeat":10,
-	"LeftDiscontent":10,
-	"LeftHope":-10,
-	"LeftSurvivors":-15,
-	"RightHeat":0,
-	"RightDiscontent":-10,
-	"RightHope":10,
-	"RightSurvivors":10,
-	"Tags":"npc:Stranger,deal,storm"
-  },
-  {
-	"Id":"STRANGER_03",
-	"Title":"The Stranger",
-	"Description":"I can whisper a prophecy of coming calm, or of coming ruin; both will spread quickly.",
-	"LeftText":"Whisper calm",
-	"RightText":"Whisper ruin",
-	"LeftHeat":0,
-	"LeftDiscontent":-10,
-	"LeftHope":15,
-	"LeftSurvivors":0,
-	"RightHeat":0,
-	"RightDiscontent":10,
-	"RightHope":-15,
-	"RightSurvivors":0,
-	"Tags":"npc:Stranger,prophecy,rumour"
-  },
-  {
-	"Id":"MARA_WORKERREP_02",
-	"Title":"Mara – The Worker Representative",
-	"Description":"I can call for a brief strike to demand safer gear.",
-	"LeftText":"Back the strike",
-	"RightText":"Break the strike",
-	"LeftHeat":0,
-	"LeftDiscontent":15,
-	"LeftHope":10,
-	"LeftSurvivors":10,
-	"RightHeat":0,
-	"RightDiscontent":-15,
-	"RightHope":-10,
-	"RightSurvivors":0,
-	"Tags":"npc:Mara,strike,workers"
-  },
-  {
-	"Id":"MARA_WORKERREP_03",
-	"Title":"Mara – The Worker Representative",
-	"Description":"I can promise the workers extra warmth later if they accept harsh hours now.",
-	"LeftText":"Promise warmth later",
-	"RightText":"Offer nothing",
-	"LeftHeat":10,
-	"LeftDiscontent":-10,
-	"LeftHope":10,
-	"LeftSurvivors":0,
-	"RightHeat":0,
-	"RightDiscontent":10,
-	"RightHope":-10,
-	"RightSurvivors":0,
-	"Tags":"npc:Mara,negotiation,promise"
-  },
-  {
-	"Id":"TOMAS_PROPAGANDIST_02",
-	"Title":"Tomas – The Propagandist",
-	"Description":"I can paint you as a stern savior or a gentle guardian in our posters.",
-	"LeftText":"Stern savior",
-	"RightText":"Gentle guardian",
-	"LeftHeat":0,
-	"LeftDiscontent":-10,
-	"LeftHope":-10,
-	"LeftSurvivors":10,
-	"RightHeat":0,
-	"RightDiscontent":-10,
-	"RightHope":15,
-	"RightSurvivors":0,
-	"Tags":"npc:Tomas,posters,image"
-  },
-  {
-	"Id":"TOMAS_PROPAGANDIST_03",
-	"Title":"Tomas – The Propagandist",
-	"Description":"I can censor bad news from the frontier or publish every grim detail.",
-	"LeftText":"Censor bad news",
-	"RightText":"Publish everything",
-	"LeftHeat":0,
-	"LeftDiscontent":-10,
-	"LeftHope":10,
-	"LeftSurvivors":0,
-	"RightHeat":0,
-	"RightDiscontent":10,
-	"RightHope":-15,
-	"RightSurvivors":0,
-	"Tags":"npc:Tomas,censorship,news"
-  },
-  {
-	"Id":"VERA_QUARTERMASTER_02",
-	"Title":"Vera – The Quartermaster",
-	"Description":"I can issue heavier coats to the night shift, but we don’t have enough for everyone.",
-	"LeftText":"Coats for nights",
-	"RightText":"Store them away",
-	"LeftHeat":15,
-	"LeftDiscontent":-10,
-	"LeftHope":10,
-	"LeftSurvivors":10,
-	"RightHeat":0,
-	"RightDiscontent":10,
-	"RightHope":-10,
-	"RightSurvivors":0,
-	"Tags":"npc:Vera,clothing,nightshift"
-  },
-  {
-	"Id":"VERA_QUARTERMASTER_03",
-	"Title":"Vera – The Quartermaster",
-	"Description":"I can loosen the tallying rules to move supplies faster, or keep everything strictly counted.",
-	"LeftText":"Loosen tallies",
-	"RightText":"Stay strict",
-	"LeftHeat":10,
-	"LeftDiscontent":-10,
-	"LeftHope":0,
-	"LeftSurvivors":10,
-	"RightHeat":0,
-	"RightDiscontent":10,
-	"RightHope":0,
-	"RightSurvivors":0,
-	"Tags":"npc:Vera,inventory,control"
-  },
-{
-	"Id": "DEATH_HEAT_0",
-	"Title": "Arthur – The Last Ember",
-	"Description": "You knew the core was dying. You saw the warnings, the frost creeping in… and you still pushed us into this cold grave. Why didn’t you listen?",
-	"LeftText": "No…",
-	"RightText": "What…?",
-	"LeftHeat": 0,
-	"LeftDiscontent": 0,
+	"Id": "WELCOME_JONAS_01",
+	"Title": "Captain Jonas",
+	"Description": "Hello, I'm the captain of the city. You are elected for the new chieftain of this city.",
+
+	"LeftText": "Thank you.",
+	"RightText": "I'm excited...",
+
 	"LeftHope": 0,
-	"LeftSurvivors": 0,
-	"RightHeat": 0,
-	"RightDiscontent": 0,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
 	"RightHope": 0,
-	"RightSurvivors": 0,
-	"Tags": "death,heat,zero,ending,npc:Arthur"
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Starter",
+
+	"OnLeftAddFlags": ["welcome_jonas_01_decided"],
+	"OnRightAddFlags": ["welcome_jonas_01_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "never",
+
+	"StoryId": "welcome_chief_1",
+	"StoryStep": 1,
+	"StoryMinGap": 0,
+
+	"SequenceId": "welcome_chief_1",
+	"SequenceIndex": 1,
+	"SequenceMode": "Immediate",
+
+	"RunMin": 0,
+	"RunMax": 0
+  },
+
+  {
+	"Id": "WELCOME_JONAS_02",
+	"Title": "Captain Jonas",
+	"Description": "Our neighbor cities are fallen... We must not.",
+
+	"LeftText": "I'll do everything",
+	"RightText": "We'll see",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Starter",
+
+	"OnLeftAddFlags": ["welcome_jonas_02_decided"],
+	"OnRightAddFlags": ["welcome_jonas_02_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["welcome_jonas_01_decided"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "never",
+
+	"StoryId": "welcome_chief_1",
+	"StoryStep": 2,
+	"StoryMinGap": 0,
+
+	"SequenceId": "welcome_chief_1",
+	"SequenceIndex": 2,
+	"SequenceMode": "Immediate",
+
+	"RunMin": 0,
+	"RunMax": 0
   },
   {
-	"Id": "DEATH_HEAT_100",
-	"Title": "Arthur – The Melted Heart",
-	"Description": "You wanted warmth so desperately that you burned the city alive. You told me to push harder… and now everything is ash. This was your call.",
-	"LeftText": "No…",
-	"RightText": "Why…?",
-	"LeftHeat": 0,
-	"LeftDiscontent": 0,
+	"Id": "WELCOME_GHOST_01",
+	"Title": "Ghost Chief",
+	"Description": "This city can't be saved...",
+
+	"LeftText": "Who are you?",
+	"RightText": "What?",
+
 	"LeftHope": 0,
-	"LeftSurvivors": 0,
-	"RightHeat": 0,
-	"RightDiscontent": 0,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
 	"RightHope": 0,
-	"RightSurvivors": 0,
-	"Tags": "death,heat,hundred,overheat,ending,npc:Arthur"
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Starter",
+
+	"OnLeftAddFlags": [],
+	"OnRightAddFlags": [],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "never",
+
+	"StoryId": "welcome_chief_2",
+	"StoryStep": 1,
+	"StoryMinGap": 0,
+
+	"SequenceId": "welcome_chief_2",
+	"SequenceIndex": 1,
+	"SequenceMode": "Immediate",
+
+	"RunMin": 1,
+	"RunMax": 1
   },
   {
-	"Id": "DEATH_HOPE_0",
-	"Title": "Amara – Empty Chapel",
-	"Description": "You drained them, piece by piece. Every choice you made tore hope from their hands. Even I cannot pray for what you’ve done to them… to us.",
-	"LeftText": "No…",
-	"RightText": "You…?",
-	"LeftHeat": 0,
-	"LeftDiscontent": 0,
+	"Id": "WELCOME_GHOST_02",
+	"Title": "Ghost Chief",
+	"Description": "I tried everything. I've given all for this city. But we are all doomed.",
+
+	"LeftText": "Stop!",
+	"RightText": "It can't be...",
+
 	"LeftHope": 0,
-	"LeftSurvivors": 0,
-	"RightHeat": 0,
-	"RightDiscontent": 0,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
 	"RightHope": 0,
-	"RightSurvivors": 0,
-	"Tags": "death,hope,zero,despair,ending,npc:Amara"
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Starter",
+
+	"OnLeftAddFlags": [],
+	"OnRightAddFlags": [],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "never",
+
+	"StoryId": "welcome_chief_2",
+	"StoryStep": 2,
+	"StoryMinGap": 0,
+
+	"SequenceId": "welcome_chief_2",
+	"SequenceIndex": 2,
+	"SequenceMode": "Immediate",
+
+	"RunMin": 1,
+	"RunMax": 1
   },
   {
-	"Id": "DEATH_HOPE_100",
-	"Title": "Amara – Burning Faith",
-	"Description": "You fed their faith until it blinded them. You told them what to believe, and they followed you into madness. Their worship has turned into a weapon—your weapon.",
-	"LeftText": "No…",
-	"RightText": "What have I…?",
-	"LeftHeat": 0,
-	"LeftDiscontent": 0,
-	"LeftHope": 0,
-	"LeftSurvivors": 0,
-	"RightHeat": 0,
-	"RightDiscontent": 0,
-	"RightHope": 0,
-	"RightSurvivors": 0,
-	"Tags": "death,hope,hundred,fanaticism,ending,npc:Amara"
+	"Id": "cook_soup",
+	"Title": "Cook Maeve",
+	"Description": "If we cook soup, we can feed more people. ",
+
+	"LeftText": "Do it",
+	"RightText": "It will not fill",
+
+	"LeftHope": -10,
+	"LeftDiscontent": 10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -10,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Cook",
+
+	"OnLeftAddFlags": ["cook_soup_yes","cook_soup_decided"],
+	"OnRightAddFlags": ["cook_soup_no","cook_soup_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "cook_soup",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
   },
   {
-	"Id": "DEATH_DISCONTENT_0",
-	"Title": "Jonas – Silent Streets",
-	"Description": "You crushed every voice, every doubt, every complaint. Now there’s nothing left but fear—and that fear is eating us alive. This silence… you created it.",
-	"LeftText": "Why…?",
-	"RightText": "No…",
-	"LeftHeat": 0,
-	"LeftDiscontent": 0,
-	"LeftHope": 0,
-	"LeftSurvivors": 0,
-	"RightHeat": 0,
-	"RightDiscontent": 0,
-	"RightHope": 0,
-	"RightSurvivors": 0,
-	"Tags": "death,discontent,zero,tyranny,ending,npc:Jonas"
+	"Id": "cook_food_additives",
+	"Title": "Cook Maeve",
+	"Description": "If we mix in a little sawdust, the meals will feel fuller… but it’s not good for their health. ",
+
+	"LeftText": "Good idea",
+	"RightText": "Not healthy...",
+
+	"LeftHope": -10,
+	"LeftDiscontent": 10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -10,
+	"RightDiscontent": 15,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Cook",
+
+	"OnLeftAddFlags": ["cook_food_additives_yes","cook_food_additives_decided"],
+	"OnRightAddFlags": ["cook_food_additives_no","cook_food_additives_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "cook_food_additives",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
   },
   {
-	"Id": "DEATH_DISCONTENT_100",
-	"Title": "Jonas – Riot in the Snow",
-	"Description": "They begged you to ease their suffering, and you ignored them. Now the city tears itself apart—and they scream your name with hatred. This riot is your legacy.",
-	"LeftText": "What…?",
-	"RightText": "You’re blaming me…?",
-	"LeftHeat": 0,
-	"LeftDiscontent": 0,
-	"LeftHope": 0,
-	"LeftSurvivors": 0,
-	"RightHeat": 0,
-	"RightDiscontent": 0,
-	"RightHope": 0,
-	"RightSurvivors": 0,
-	"Tags": "death,discontent,hundred,riot,ending,npc:Jonas"
+	"Id": "cook_gruel",
+	"Title": "Cook Maeve",
+	"Description": "If we switch to simple gruel, we can feed more people… even if it’s far from satisfying.",
+
+	"LeftText": "Cook gruel",
+	"RightText": "Keep proper meals",
+
+	"LeftHope": -10,
+	"LeftDiscontent": 15,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -10,
+	"RightDiscontent": 15,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Cook",
+
+	"OnLeftAddFlags": ["cook_gruel_yes","cook_gruel_decided"],
+	"OnRightAddFlags": ["cook_gruel_no","cook_gruel_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["cook_food_additives_yes", "cook_soup_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "cook_gruel",
+	"StoryStep": 2,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
   },
   {
-	"Id": "DEATH_SURVIVORS_0",
-	"Title": "Helena – The Last Patient",
-	"Description": "One by one, they died under your watch. You had the power to save them… and you chose paths that led us here. I’m standing in an empty infirmary. You did this.",
-	"LeftText": "No…",
-	"RightText": "Why me…?",
-	"LeftHeat": 0,
-	"LeftDiscontent": 0,
-	"LeftHope": 0,
-	"LeftSurvivors": 0,
-	"RightHeat": 0,
-	"RightDiscontent": 0,
-	"RightHope": 0,
-	"RightSurvivors": 0,
-	"Tags": "death,survivors,zero,extinction,ending,npc:Helena"
+	"Id": "cook_alternative_food_source",
+	"Title": "Cook Maeve",
+	"Description": "We shouldn’t let anything go to waste… even the bodies of the dead. Using them would stretch our food further.",
+
+	"LeftText": "Use the bodies",
+	"RightText": "What?...",
+
+	"LeftHope": -10,
+	"LeftDiscontent": 15,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -10,
+	"RightDiscontent": 15,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Cook",
+
+	"OnLeftAddFlags": ["cook_alternative_food_source_yes","cook_alternative_food_source_decided"],
+	"OnRightAddFlags": ["cook_alternative_food_source_no","cook_alternative_food_source_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["cook_food_additives_yes", "cook_soup_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "never",
+
+	"StoryId": "cook_alternative_food_source",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
   },
   {
-	"Id": "DEATH_SURVIVORS_100",
-	"Title": "Helena – Too Many to Save",
-	"Description": "You opened the gates, again and again, without thinking what we could handle. Now the wounded drown us, and I can’t save them. This chaos… it’s your kindness turned cruel.",
-	"LeftText": "What…?",
-	"RightText": "No… please…",
-	"LeftHeat": 0,
-	"LeftDiscontent": 0,
-	"LeftHope": 0,
-	"LeftSurvivors": 0,
-	"RightHeat": 0,
+	"Id": "cook_hearty_meals",
+	"Title": "Cook Maeve",
+	"Description": "If we prepare tastier, more nutritious meals, it might lift everyone’s spirits and keep them going.",
+
+	"LeftText": "Improve the meals",
+	"RightText": "Stick to basics",
+
+	"LeftHope": 20,
+	"LeftDiscontent": -15,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -10,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Cook",
+
+	"OnLeftAddFlags": ["cook_hearty_meals_yes","cook_hearty_meals_decided"],
+	"OnRightAddFlags": ["cook_hearty_meals_no","cook_hearty_meals_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["cook_gruel_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "cook_alternative_food_source",
+	"StoryStep": 3,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "cook_pills",
+	"Title": "Cook Maeve",
+	"Description": "We could slip a few pills into their breakfast. It would make the workers push harder through the day.",
+
+	"LeftText": "Add the pills",
+	"RightText": "No, keep it natural",
+
+	"LeftHope": -20,
+	"LeftDiscontent": 15,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 15,
 	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Cook",
+
+	"OnLeftAddFlags": ["cook_pills_yes","cook_pills_decided"],
+	"OnRightAddFlags": ["cook_pills_no","cook_pills_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["cook_hearty_meals_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "cook_pills",
+	"StoryStep": 4,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "medic_radical_treatment",
+	"Title": "Medic Helena",
+	"Description": "Some of our people won’t heal unless I operate… but the surgery carries an amputation risk. What should I do?",
+
+	"LeftText": "Save them...",
+	"RightText": "No risks.",
+
+	"LeftHope": 15,
+	"LeftDiscontent": 10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -10,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Medic",
+
+	"OnLeftAddFlags": ["medic_radical_treatment_yes","medic_radical_treatment_decided"],
+	"OnRightAddFlags": ["medic_radical_treatment_no","medic_radical_treatment_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "medic_radical_treatment",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "medic_sustain_life",
+	"Title": "Medic Helena",
+	"Description": "I can keep the injured alive but our medical posts will fill up fast.",
+
+	"LeftText": "Do what we can",
+	"RightText": "Send them home",
+
+	"LeftHope": 10,
+	"LeftDiscontent": 10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Medic",
+
+	"OnLeftAddFlags": ["medic_sustain_life_yes","medic_sustain_life_decided"],
+	"OnRightAddFlags": ["medic_sustain_life_no","medic_sustain_life_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "medic_sustain_life",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "medic_overcrowding",
+	"Title": "Medic Helena",
+	"Description": "If we fully use the facility, I can take more patients even if it means treating some on the floor. Do you allow it?",
+
+	"LeftText": "Do necessary.",
+	"RightText": "Send them home",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 20,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": -15,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Medic",
+
+	"OnLeftAddFlags": ["medic_overcrowding_yes","medic_overcrowding_decided"],
+	"OnRightAddFlags": ["medic_overcrowding_no","medic_overcrowding_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["medic_radical_treatment_yes", "medic_sustain_life_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "medic_overcrowding",
+	"StoryStep": 2,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "medic_extra_rations",
+	"Title": "Medic Helena",
+	"Description": "If we give them extra rations, they’ll recover faster.",
+
+	"LeftText": "Give rations",
+	"RightText": "We can't afford it",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Medic",
+
+	"OnLeftAddFlags": ["medic_extra_rations_yes","medic_extra_rations_decided"],
+	"OnRightAddFlags": ["medic_extra_rations_no","medic_extra_rations_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["medic_radical_treatment_yes", "medic_sustain_life_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "medic_extra_rations",
+	"StoryStep": 2,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "medic_care_house",
+	"Title": "Medic Helena",
+	"Description": "A Care House would ease the strain on our medical posts and let me treat more people properly.",
+
+	"LeftText": "Build a Care House",
+	"RightText": "Keep current capacity",
+
+	"LeftHope": 15,
+	"LeftDiscontent": 10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": -10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Medic",
+
+	"OnLeftAddFlags": ["medic_care_house_yes","medic_care_house_decided"],
+	"OnRightAddFlags": ["medic_care_house_no","medic_care_house_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["medic_radical_treatment_yes", "medic_sustain_life_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "medic_extra_rations",
+	"StoryStep": 2,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "medic_triage",
+	"Title": "Medic Helena",
+	"Description": "If we start using triage, I can focus on the most critical cases first… but it won’t be without a cost.",
+
+	"LeftText": "Use triage",
+	"RightText": "Treat equally",
+
+	"LeftHope": 15,
+	"LeftDiscontent": 20,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Medic",
+
+	"OnLeftAddFlags": ["medic_triage_yes","medic_triage_decided"],
+	"OnRightAddFlags": ["medic_triage_no","medic_triage_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["medic_overcrowding_yes", "medic_extra_rations_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "medic_triage",
+	"StoryStep": 3,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "chaplain_cemetery",
+	"Title": "Sister Amara",
+	"Description": "Our dead deserve a proper place to rest. A cemetery would give us the dignity to lay them to peace.",
+
+	"LeftText": "Build the cemetery",
+	"RightText": "We have no space",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 20,
+
+	"RightHope": -20,
+	"RightDiscontent": 25,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Chaplain",
+
+	"OnLeftAddFlags": ["chaplain_cemetery_yes","chaplain_cemetery_decided"],
+	"OnRightAddFlags": ["chaplain_cemetery_no","chaplain_cemetery_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "chaplain_cemetery",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "captain_corpse_disposal",
+	"Title": "Captain Jonas",
+	"Description": "We must decide how to handle the bodies. For now… covering them with snow is the quickest way to keep things orderly.",
+
+	"LeftText": "Cover with snow",
+	"RightText": "Find another way",
+
+	"LeftHope": 20,
+	"LeftDiscontent": 20,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 10,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Captain",
+
+	"OnLeftAddFlags": ["captain_corpse_disposal_yes","captain_corpse_disposal_decided"],
+	"OnRightAddFlags": ["captain_corpse_disposal_no","captain_corpse_disposal_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "captain_corpse_disposal",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "chaplain_ceremonial_funerals",
+	"Title": "Sister Amara",
+	"Description": "A ceremonial funeral would honor the fallen… and remind the living of the strength we still share.",
+
+	"LeftText": "Hold ceremonies",
+	"RightText": "Keep it simple",
+
+	"LeftHope": 20,
+	"LeftDiscontent": -15,
+	"LeftOrder": 0,
+	"LeftFaith": 20,
+
+	"RightHope": -15,
+	"RightDiscontent": 15,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Chaplain",
+
+	"OnLeftAddFlags": ["chaplain_ceremonial_funerals_yes","chaplain_ceremonial_funerals_decided"],
+	"OnRightAddFlags": ["chaplain_ceremonial_funerals_no","chaplain_ceremonial_funerals_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["chaplain_cemetery_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "chaplain_ceremonial_funerals",
+	"StoryStep": 2,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "medic_organ_transplants",
+	"Title": "Medic Helena",
+	"Description": "If we take organs from the dead, we could save the living. It’s difficult to ask… but it may be our only chance.\n",
+
+	"LeftText": "Use their organs",
+	"RightText": "Let them rest",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Medic",
+
+	"OnLeftAddFlags": ["medic_organ_transplants_yes","medic_organ_transplants_decided"],
+	"OnRightAddFlags": ["medic_organ_transplants_no","medic_organ_transplants_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["captain_corpse_disposal_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "medic_organ_transplants",
+	"StoryStep": 2,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "inventor_organic_fertiliser",
+	"Title": "Inventor Silas",
+	"Description": "If we use the bodies to fertilise the soil in our hothouses, the yield would improve. It’s unconventional… but effective.",
+
+	"LeftText": "Fertilise… creatively",
+	"RightText": "Let’s not compost people",
+
+	"LeftHope": -15,
+	"LeftDiscontent": 25,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Inventor",
+
+	"OnLeftAddFlags": ["inventor_organic_fertiliser_yes","inventor_organic_fertiliser_decided"],
+	"OnRightAddFlags": ["inventor_organic_fertiliser_no","inventor_organic_fertiliser_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "inventor_organic_fertiliser",
+	"StoryStep": 3,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "foreman_emergency_shift",
+	"Title": "Foreman Oswin",
+	"Description": "If we run emergency shifts, we can push our tasks through. It’s harsh… but the alternative is worse.",
+
+	"LeftText": "Run emergency shifts",
+	"RightText": "No burnout today",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 15,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Foreman",
+
+	"OnLeftAddFlags": ["foreman_emergency_shift_yes","foreman_emergency_shift_decided"],
+	"OnRightAddFlags": ["foreman_emergency_shift_no","foreman_emergency_shift_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "foreman_emergency_shift",
+	"StoryStep": 1,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "foreman_extended_shift",
+	"Title": "Foreman Oswin",
+	"Description": "If we extend the shifts, we’ll get more work done. It’ll wear them down… but output will rise.",
+
+	"LeftText": "Extend the shifts",
+	"RightText": "Let them breathe",
+
+	"LeftHope": -10,
+	"LeftDiscontent": 15,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Foreman",
+
+	"OnLeftAddFlags": ["foreman_extended_shift_yes","foreman_extended_shift_decided"],
+	"OnRightAddFlags": ["foreman_extended_shift_no","foreman_extended_shift_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["foreman_emergency_shift_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "foreman_extended_shift",
+	"StoryStep": 2,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "foreman_child_jobs_safe",
+	"Title": "Foreman Oswin",
+	"Description": "We could send the children to the safer workplaces. They’d help the settlement without facing real danger.",
+
+	"LeftText": "Send them to work",
+	"RightText": "Let kids stay kids",
+
+	"LeftHope": -15,
+	"LeftDiscontent": 15,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 10,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Foreman",
+
+	"OnLeftAddFlags": ["foreman_child_jobs_safe_yes","foreman_child_jobs_safe_decided"],
+	"OnRightAddFlags": ["foreman_child_jobs_safe_no","foreman_child_jobs_safe_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "foreman_child_jobs_safe",
+	"StoryStep": 1,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "foreman_child_jobs_all",
+	"Title": "Foreman Oswin",
+	"Description": "We’re short on hands. Everyone who can work must go where they’re needed… children included.",
+
+	"LeftText": "All hands will work",
+	"RightText": "I can't do that",
+
+	"LeftHope": -15,
+	"LeftDiscontent": 20,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Foreman",
+
+	"OnLeftAddFlags": ["foreman_child_jobs_all_yes","foreman_child_jobs_all_decided"],
+	"OnRightAddFlags": ["foreman_child_jobs_all_no","foreman_child_jobs_all_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["foreman_child_jobs_safe_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "foreman_child_jobs_all",
+	"StoryStep": 2,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "foreman_child_shelters",
+	"Title": "Foreman Oswin",
+	"Description": "If we build shelters for the children, we can keep them safe while the rest of us work.",
+
+	"LeftText": "Build the shelters",
+	"RightText": "They’ll manage…",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Foreman",
+
+	"OnLeftAddFlags": ["foreman_child_shelters_yes","foreman_child_shelters_decided"],
+	"OnRightAddFlags": ["foreman_child_shelters_no","foreman_child_shelters_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "foreman_child_shelters",
+	"StoryStep": 1,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "medic_medic_apprentices",
+	"Title": "Medic Helena",
+	"Description": "If we teach the children basic medicine, they could help us care for the sick. It would make a real difference.",
+
+	"LeftText": "Train young medics",
+	"RightText": "Maybe not… yet",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Medic",
+
+	"OnLeftAddFlags": ["medic_medic_apprentices_yes","medic_medic_apprentices_decided"],
+	"OnRightAddFlags": ["medic_medic_apprentices_no","medic_medic_apprentices_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["foreman_child_shelters_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "medic_medic_apprentices",
+	"StoryStep": 2,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "engineer_engineer_apprentices",
+	"Title": "Senior Engineer David",
+	"Description": "If we teach the children engineering, they could help with future designs and lighten our workload in time.",
+
+	"LeftText": "Train young engineers",
+	"RightText": "Not the kids",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Engineer",
+
+	"OnLeftAddFlags": ["engineer_engineer_apprentices_yes","engineer_engineer_apprentices_decided"],
+	"OnRightAddFlags": ["engineer_engineer_apprentices_no","engineer_engineer_apprentices_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["foreman_child_shelters_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "engineer_engineer_apprentices",
+	"StoryStep": 2,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_fighting_arena",
+	"Title": "Steward Elias",
+	"Description": "A Fighting Arena would give people a way to vent and distract themselves from the cold. It might lift spirits, even if briefly.",
+
+	"LeftText": "Build the arena",
+	"RightText": "No brawls in city",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -15,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Steward",
+
+	"OnLeftAddFlags": ["steward_fighting_arena_yes","steward_fighting_arena_decided"],
+	"OnRightAddFlags": ["steward_fighting_arena_no","steward_fighting_arena_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_fighting_arena",
+	"StoryStep": 1,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_duelling",
+	"Title": "Steward Elias",
+	"Description": "When disputes flare up, we could settle them through a formal duel. It might keep the peace… in its own way.",
+
+	"LeftText": "Allow duels",
+	"RightText": "No dueling",
+
+	"LeftHope": 0,
+	"LeftDiscontent": -25,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
 	"RightHope": 0,
-	"RightSurvivors": 0,
-	"Tags": "death,survivors,hundred,overcrowding,ending,npc:Helena"
+	"RightDiscontent": 15,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Steward",
+
+	"OnLeftAddFlags": ["steward_duelling_yes","steward_duelling_decided"],
+	"OnRightAddFlags": ["steward_duelling_no","steward_duelling_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["steward_fighting_arena_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_duelling",
+	"StoryStep": 2,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_public_house",
+	"Title": "Steward Elias",
+	"Description": "A Public House would give people a place to unwind after work. It could lift the settlement’s spirits.",
+
+	"LeftText": "Open the Public House",
+	"RightText": "Focus on work",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -15,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Steward",
+
+	"OnLeftAddFlags": ["steward_public_house_yes","steward_public_house_decided"],
+	"OnRightAddFlags": ["steward_public_house_no","steward_public_house_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["steward_public_house_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_public_house",
+	"StoryStep": 1,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_house_of_pleasure",
+	"Title": "Steward Elias",
+	"Description": "Sir… after such punishing days, our people deserve every bit of relief they can find. A House of Pleasure would certainly provide it.",
+
+	"LeftText": "Build the House",
+	"RightText": "Not in our city",
+
+	"LeftHope": -10,
+	"LeftDiscontent": -25,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 0,
+	"RightDiscontent": 20,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Steward",
+
+	"OnLeftAddFlags": ["steward_house_of_pleasure_yes","steward_house_of_pleasure_decided"],
+	"OnRightAddFlags": ["steward_house_of_pleasure_no","steward_house_of_pleasure_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["steward_public_house_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_house_of_pleasure",
+	"StoryStep": 2,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_moonshine",
+	"Title": "Steward Elias",
+	"Description": "A small amount of liquor could warm their spirits and ease the strain of these days.",
+
+	"LeftText": "Share liquor",
+	"RightText": "They warm at work",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -15,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -10,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Steward",
+
+	"OnLeftAddFlags": ["steward_moonshine_yes","steward_moonshine_decided"],
+	"OnRightAddFlags": ["steward_moonshine_no","steward_moonshine_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["steward_house_of_pleasure_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_moonshine",
+	"StoryStep": 3,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "chaplain_house_of_prayer",
+	"Title": "Sister Amara",
+	"Description": "A House of Prayer would give our people a quiet place to practice their faith and find a moment of peace.",
+
+	"LeftText": "Build the House of Prayer",
+	"RightText": "Not a priority now",
+
+	"LeftHope": 0,
+	"LeftDiscontent": -15,
+	"LeftOrder": -10,
+	"LeftFaith": 10,
+
+	"RightHope": 0,
+	"RightDiscontent": 15,
+	"RightOrder": 10,
+	"RightFaith": -10,
+
+	"Pool": "Chaplain",
+
+	"OnLeftAddFlags": ["chaplain_house_of_prayer_yes","chaplain_house_of_prayer_decided"],
+	"OnRightAddFlags": ["chaplain_house_of_prayer_no","chaplain_house_of_prayer_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "chaplain_house_of_prayer",
+	"StoryStep": 1,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "chaplain_shrines",
+	"Title": "Sister Amara",
+	"Description": "If we build shrines around the settlement, they’ll give people quiet strength to face their work each day.",
+
+	"LeftText": "Build the shrines",
+	"RightText": "No shrines now",
+
+	"LeftHope": 0,
+	"LeftDiscontent": -15,
+	"LeftOrder": 0,
+	"LeftFaith": 15,
+
+	"RightHope": 0,
+	"RightDiscontent": 15,
+	"RightOrder": 0,
+	"RightFaith": -10,
+
+	"Pool": "Chaplain",
+
+	"OnLeftAddFlags": ["chaplain_shrines_yes","chaplain_shrines_decided"],
+	"OnRightAddFlags": ["chaplain_shrines_no","chaplain_shrines_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["chaplain_house_of_prayer_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "chaplain_shrines",
+	"StoryStep": 2,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "priest_evening_prayers",
+	"Title": "Priest Elior",
+	"Description": "If we gather in the shrine each evening, we can pray together and steady the hearts of our people.",
+
+	"LeftText": "Evening prayers",
+	"RightText": "No gatherings",
+
+	"LeftHope": 10,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 15,
+
+	"RightHope": -10,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": -15,
+
+	"Pool": "Priest",
+
+	"OnLeftAddFlags": ["priest_evening_prayers_yes","priest_evening_prayers_decided"],
+	"OnRightAddFlags": ["priest_evening_prayers_no","priest_evening_prayers_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["chaplain_house_of_prayer_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "priest_evening_prayers",
+	"StoryStep": 2,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "chaplain_field_kitchens",
+	"Title": "Sister Amara",
+	"Description": "If we open Field Kitchens, we can give people hot meals that keep them warm and steady through the day.",
+
+	"LeftText": "Open Field Kitchens",
+	"RightText": "Stick to basics",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -20,
+	"LeftOrder": 0,
+	"LeftFaith": 15,
+
+	"RightHope": -15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": -15,
+
+	"Pool": "Chaplain",
+
+	"OnLeftAddFlags": ["chaplain_field_kitchens_yes","chaplain_field_kitchens_decided"],
+	"OnRightAddFlags": ["chaplain_field_kitchens_no","chaplain_field_kitchens_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["chaplain_shrines_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "chaplain_field_kitchens",
+	"StoryStep": 2,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "medic_house_of_healing",
+	"Title": "Medic Helena",
+	"Description": "A House of Healing would let us care for the sick properly… and give them a place to pray for strength.",
+
+	"LeftText": "Build the House of Healing",
+	"RightText": "Use what we have",
+
+	"LeftHope": 10,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 15,
+
+	"RightHope": 0,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": -15,
+
+	"Pool": "Medic",
+
+	"OnLeftAddFlags": ["medic_house_of_healing_yes","medic_house_of_healing_decided"],
+	"OnRightAddFlags": ["medic_house_of_healing_no","medic_house_of_healing_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["chaplain_shrines_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "medic_house_of_healing",
+	"StoryStep": 3,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "priest_temple",
+	"Title": "Priest Elior",
+	"Description": "A Temple would kindle hope in the hearts of the faithful… a light our people sorely need.",
+
+	"LeftText": "Build the Temple",
+	"RightText": "Not now",
+
+	"LeftHope": 10,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 20,
+
+	"RightHope": -10,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": -15,
+
+	"Pool": "Priest",
+
+	"OnLeftAddFlags": ["priest_temple_yes","priest_temple_decided"],
+	"OnRightAddFlags": ["priest_temple_no","priest_temple_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["priest_evening_prayers_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "priest_temple",
+	"StoryStep": 3,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "priest_faith_keepers",
+	"Title": "Priest Elior",
+	"Description": "If we form the Faith Keepers, they will patrol our streets and help keep the city faithful and safe.",
+
+	"LeftText": "Form Faith Keepers",
+	"RightText": "No",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 15,
+	"LeftOrder": -15,
+	"LeftFaith": 15,
+
+	"RightHope": -10,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": -15,
+
+	"Pool": "Priest",
+
+	"OnLeftAddFlags": ["priest_faith_keepers_yes","priest_faith_keepers_decided"],
+	"OnRightAddFlags": ["priest_faith_keepers_no","priest_faith_keepers_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["priest_evening_prayers_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "priest_faith_keepers",
+	"StoryStep": 3,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "priest_righteous_denunciation",
+	"Title": "Priest Elior",
+	"Description": "We must stand against wickedness. If the people denounce wrongdoing openly, the wicked will be brought to light.",
+
+	"LeftText": "Encourage denouncements",
+	"RightText": "Stay out of it",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 15,
+	"LeftOrder": -15,
+	"LeftFaith": 20,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": 10,
+	"RightFaith": -15,
+
+	"Pool": "Priest",
+
+	"OnLeftAddFlags": ["priest_righteous_denunciation_yes","priest_righteous_denunciation_decided"],
+	"OnRightAddFlags": ["priest_righteous_denunciation_no","priest_righteous_denunciation_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["priest_temple_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "priest_righteous_denunciation",
+	"StoryStep": 4,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "priest_public_penance",
+	"Title": "Priest Elior",
+	"Description": "Those who stray must face public penance. It may guide them back to the right path and remind others to stay on it.",
+
+	"LeftText": "Impose penance",
+	"RightText": "No public shame",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 15,
+	"LeftOrder": -10,
+	"LeftFaith": 20,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": 10,
+	"RightFaith": -15,
+
+	"Pool": "Priest",
+
+	"OnLeftAddFlags": ["priest_public_penance_yes","priest_public_penance_decided"],
+	"OnRightAddFlags": ["priest_public_penance_no","priest_public_penance_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["priest_faith_keepers_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "priest_public_penance",
+	"StoryStep": 4,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "priest_protector_of_truth",
+	"Title": "Priest Elior",
+	"Description": "If we proclaim you as the Protector of Truth, the people will see you as the one chosen to guide us through this darkness.",
+
+	"LeftText": "Accept the title",
+	"RightText": "Reject the title",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 20,
+	"LeftOrder": -20,
+	"LeftFaith": 20,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": 15,
+	"RightFaith": -20,
+
+	"Pool": "Priest",
+
+	"OnLeftAddFlags": ["priest_protector_of_truth_yes","priest_protector_of_truth_decided"],
+	"OnRightAddFlags": ["priest_protector_of_truth_no","priest_protector_of_truth_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["priest_faith_keepers_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "priest_protector_of_truth",
+	"StoryStep": 5,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "captain_neighbourhood_watch",
+	"Title": "Captain Jonas",
+	"Description": "If we build Watchtowers, we can keep the streets under guard and protect our people from troublemakers.",
+
+	"LeftText": "Build Watchtowers",
+	"RightText": "No patrol posts",
+
+	"LeftHope": 0,
+	"LeftDiscontent": -10,
+	"LeftOrder": 15,
+	"LeftFaith": -10,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": -10,
+	"RightFaith": 10,
+
+	"Pool": "Captain",
+
+	"OnLeftAddFlags": ["captain_neighbourhood_watch_yes","captain_neighbourhood_watch_decided"],
+	"OnRightAddFlags": ["captain_neighbourhood_watch_no","captain_neighbourhood_watch_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "captain_neighbourhood_watch",
+	"StoryStep": 1,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "captain_morning_gathering",
+	"Title": "Captain Jonas",
+	"Description": "If we gather everyone each morning, we can set the day’s tasks clearly and keep the city working in order.",
+
+	"LeftText": "Hold morning meetings",
+	"RightText": "Skip the gatherings",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 15,
+	"LeftFaith": 0,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": -10,
+	"RightFaith": 10,
+
+	"Pool": "Captain",
+
+	"OnLeftAddFlags": ["captain_morning_gathering_yes","captain_morning_gathering_decided"],
+	"OnRightAddFlags": ["captain_morning_gathering_no","captain_morning_gathering_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["captain_neighbourhood_watch_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "captain_morning_gathering",
+	"StoryStep": 2,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "captain_guard_stations",
+	"Title": "Captain Jonas",
+	"Description": "If we build Guard Stations, we can form an organised militia to keep peace and order throughout the city.",
+
+	"LeftText": "Build Guard Stations",
+	"RightText": "Rely on what we have",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 15,
+	"LeftOrder": 15,
+	"LeftFaith": -10,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": -15,
+	"RightFaith": 10,
+
+	"Pool": "Captain",
+
+	"OnLeftAddFlags": ["captain_guard_stations_yes","captain_guard_stations_decided"],
+	"OnRightAddFlags": ["captain_guard_stations_no","captain_guard_stations_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["captain_neighbourhood_watch_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "captain_guard_stations",
+	"StoryStep": 2,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "captain_patrol",
+	"Title": "Captain Jonas",
+	"Description": "We can form dedicated groups to keep the streets safe and maintain order throughout the settlement.",
+
+	"LeftText": "Form the groups",
+	"RightText": "Not needed now",
+
+	"LeftHope": 10,
+	"LeftDiscontent": 15,
+	"LeftOrder": 15,
+	"LeftFaith": -10,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": -15,
+	"RightFaith": 10,
+
+	"Pool": "Captain",
+
+	"OnLeftAddFlags": ["captain_patrol_yes","captain_patrol_decided"],
+	"OnRightAddFlags": ["captain_patrol_no","captain_patrol_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["captain_neighbourhood_watch_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "captain_patrol",
+	"StoryStep": 2,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "captain_foreman",
+	"Title": "Captain Jonas",
+	"Description": "If the Foremen patrol each work site, they can keep everyone focused and working as efficiently as possible.",
+
+	"LeftText": "Send Foreman to patrol",
+	"RightText": "No extra pressure",
+
+	"LeftHope": 15,
+	"LeftDiscontent": 0,
+	"LeftOrder": 15,
+	"LeftFaith": -10,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": -10,
+	"RightFaith": 10,
+
+	"Pool": "Captain",
+
+	"OnLeftAddFlags": ["captain_foreman_yes","captain_foreman_decided"],
+	"OnRightAddFlags": ["captain_foreman_no","captain_foreman_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["captain_morning_gathering_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "captain_foreman",
+	"StoryStep": 2,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "captain_propaganda_centre",
+	"Title": "Captain Jonas",
+	"Description": "A Propaganda Centre would help us guide public opinion and keep the city aligned with our efforts.",
+
+	"LeftText": "Build the Centre",
+	"RightText": "Not this approach",
+
+	"LeftHope": 10,
+	"LeftDiscontent": 15,
+	"LeftOrder": 15,
+	"LeftFaith": -15,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": -15,
+	"RightFaith": 10,
+
+	"Pool": "Captain",
+
+	"OnLeftAddFlags": ["captain_propaganda_centre_yes","captain_propaganda_centre_decided"],
+	"OnRightAddFlags": ["captain_propaganda_centre_no","captain_propaganda_centre_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["captain_guard_stations_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "captain_propaganda_centre",
+	"StoryStep": 3,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "captain_prison",
+	"Title": "Captain Jonas",
+	"Description": "If we build a Prison, we can isolate those who threaten the stability of our city and keep the rest of our people safe.",
+
+	"LeftText": "Build the Prison",
+	"RightText": "Avoid imprisonment",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 15,
+	"LeftOrder": 15,
+	"LeftFaith": -10,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": -15,
+	"RightFaith": 10,
+
+	"Pool": "Captain",
+
+	"OnLeftAddFlags": ["captain_prison_yes","captain_prison_decided"],
+	"OnRightAddFlags": ["captain_prison_no","captain_prison_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["captain_guard_stations_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "captain_prison",
+	"StoryStep": 3,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "captain_agitator",
+	"Title": "Captain Jonas",
+	"Description": "An Agitator would remind our citizens how vital their work is. The loudspeakers could push efficiency higher across the city.",
+
+	"LeftText": "Build Agitators",
+	"RightText": "No loudspeakers",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -15,
+	"LeftOrder": 15,
+	"LeftFaith": -10,
+
+	"RightHope": -10,
+	"RightDiscontent": 0,
+	"RightOrder": -10,
+	"RightFaith": 10,
+
+	"Pool": "Captain",
+
+	"OnLeftAddFlags": ["captain_agitator_yes","captain_agitator_decided"],
+	"OnRightAddFlags": ["captain_agitator_no","captain_agitator_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["captain_propaganda_centre_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "captain_agitator",
+	"StoryStep": 4,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "captain_pledge_of_loyalty",
+	"Title": "Captain Jonas",
+	"Description": "We can ask every citizen to pledge their loyalty. It would bind the city together under a single, clear purpose.",
+
+	"LeftText": "Enforce loyalty",
+	"RightText": "No forced oaths",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 15,
+	"LeftOrder": 15,
+	"LeftFaith": -15,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": -10,
+	"RightFaith": 10,
+
+	"Pool": "Captain",
+
+	"OnLeftAddFlags": ["captain_pledge_of_loyalty_yes","captain_pledge_of_loyalty_decided"],
+	"OnRightAddFlags": ["captain_pledge_of_loyalty_no","captain_pledge_of_loyalty_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["captain_propaganda_centre_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "captain_pledge_of_loyalty",
+	"StoryStep": 4,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "captain_forceful_persuasion",
+	"Title": "Captain Jonas",
+	"Description": "If discipline in the Prison breaks, we may need to use force to restore order. It’s not a choice I take lightly.",
+
+	"LeftText": "Allow force",
+	"RightText": "No violence",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 20,
+	"LeftOrder": 25,
+	"LeftFaith": -15,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": -15,
+	"RightFaith": 15,
+
+	"Pool": "Captain",
+
+	"OnLeftAddFlags": ["captain_forceful_persuasion_yes","captain_forceful_persuasion_decided"],
+	"OnRightAddFlags": ["captain_forceful_persuasion_no","captain_forceful_persuasion_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["captain_prison_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "captain_forceful_persuasion",
+	"StoryStep": 4,
+	"StoryMinGap": 10,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "captain_new_order",
+	"Title": "Captain Jonas",
+	"Description": "If the city fully embraces Order, we can guide every aspect of daily life and keep everything under control.",
+
+	"LeftText": "Impose Order",
+	"RightText": "Deny this path",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 20,
+	"LeftOrder": 25,
+	"LeftFaith": -15,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": -15,
+	"RightFaith": 15,
+
+	"Pool": "Captain",
+
+	"OnLeftAddFlags": ["captain_new_order_yes","captain_new_order_decided"],
+	"OnRightAddFlags": ["captain_new_order_no","captain_new_order_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["captain_pledge_of_loyalty_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "captain_new_order",
+	"StoryStep": 5,
+	"StoryMinGap": 20,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "engineer_steam_hub",
+	"Title": "Senior Engineer David",
+	"Description": "If we research Steam Hubs, we can heat the streets the generator can’t reach. It would keep more of our people safe.",
+
+	"LeftText": "Research Steam Hubs",
+	"RightText": "Not needed now",
+
+	"LeftHope": 15,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Engineer",
+
+	"OnLeftAddFlags": ["engineer_steam_hub_yes","engineer_steam_hub_decided"],
+	"OnRightAddFlags": ["engineer_steam_hub_no","engineer_steam_hub_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "engineer_steam_hub",
+	"StoryStep": 1,
+	"StoryMinGap": 20,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_steam_hub",
+	"Title": "Steward Elias",
+	"Description": "Placing Steam Hubs along certain streets would keep those areas warm and help people endure the cold.",
+
+	"LeftText": "Place Steam Hubs",
+	"RightText": "Later",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Steward",
+
+	"OnLeftAddFlags": ["steward_steam_hub_yes","steward_steam_hub_decided"],
+	"OnRightAddFlags": ["steward_steam_hub_no","steward_steam_hub_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["engineer_steam_hub_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_steam_hub",
+	"StoryStep": 1,
+	"StoryMinGap": 20,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_steam_hub",
+	"Title": "Steward Elias",
+	"Description": "Placing Steam Hubs along certain streets would keep those areas warm and help people endure the cold.",
+
+	"LeftText": "Place Steam Hubs",
+	"RightText": "Later",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Steward",
+
+	"OnLeftAddFlags": ["steward_steam_hub_yes","steward_steam_hub_decided"],
+	"OnRightAddFlags": ["steward_steam_hub_no","steward_steam_hub_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["engineer_steam_hub_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_steam_hub",
+	"StoryStep": 1,
+	"StoryMinGap": 20,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "senior_engineer_heaters",
+	"Title": "Senior Engineer David",
+	"Description": "If we research additional heaters, we can warm the buildings that don’t get enough heat from the generator.",
+
+	"LeftText": "Research heaters",
+	"RightText": "Not necessary",
+
+	"LeftHope": 15,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Engineer",
+
+	"OnLeftAddFlags": ["senior_engineer_heaters_yes","senior_engineer_heaters_decided"],
+	"OnRightAddFlags": ["senior_engineer_heaters_no","senior_engineer_heaters_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "senior_engineer_heaters",
+	"StoryStep": 1,
+	"StoryMinGap": 20,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_medical_heat",
+	"Title": "Steward Elias",
+	"Description": "Sir, if we place heaters in the medical buildings, we can keep the patients warm and help them recover faster.",
+
+	"LeftText": "Place heaters",
+	"RightText": "Leave as it is",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Steward",
+
+	"OnLeftAddFlags": ["steward_medical_heat_yes","steward_medical_heat_decided"],
+	"OnRightAddFlags": ["steward_medical_heat_no","steward_medical_heat_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["senior_engineer_heaters_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_medical_heat",
+	"StoryStep": 2,
+	"StoryMinGap": 20,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_cookhouse_heat",
+	"Title": "Steward Elias",
+	"Description": "Placing heaters in the Cookhouses would keep the food warm and help our people manage the cold better.",
+
+	"LeftText": "Heat the Cookhouses",
+	"RightText": "No heaters there",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -10,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Steward",
+
+	"OnLeftAddFlags": ["steward_cookhouse_heat_yes","steward_cookhouse_heat_decided"],
+	"OnRightAddFlags": ["steward_cookhouse_heat_no","steward_cookhouse_heat_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["senior_engineer_heaters_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_cookhouse_heat",
+	"StoryStep": 2,
+	"StoryMinGap": 20,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_hothouse",
+	"Title": "Steward Elias",
+	"Description": "If we build a Hothouse, we won’t have to rely solely on hunters. It will keep food coming even when the hunt fails.",
+
+	"LeftText": "Build the Hothouse",
+	"RightText": "Rely on hunters",
+
+	"LeftHope": 15,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -10,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Steward",
+
+	"OnLeftAddFlags": ["steward_hothouse_yes","steward_hothouse_decided"],
+	"OnRightAddFlags": ["steward_hothouse_no","steward_hothouse_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_hothouse",
+	"StoryStep": 1,
+	"StoryMinGap": 20,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "inventor_golden_hothouse",
+	"Title": "Inventor Silas",
+	"Description": "Our latest harvest from the Hothouse was excellent. The yield is growing stronger each cycle.",
+
+	"LeftText": "Celebrate",
+	"RightText": "Stay focused",
+
+	"LeftHope": 25,
+	"LeftDiscontent": -20,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 25,
+	"RightDiscontent": -20,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Inventor",
+
+	"OnLeftAddFlags": ["inventor_golden_hothouse_yes","inventor_golden_hothouse_decided"],
+	"OnRightAddFlags": ["inventor_golden_hothouse_no","inventor_golden_hothouse_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["steward_hothouse_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "inventor_golden_hothouse",
+	"StoryStep": 2,
+	"StoryMinGap": 20,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "inventor_plague_hothouse",
+	"Title": "Inventor Silas",
+	"Description": "All the crops in the Hothouse have died. If this continues, starvation may follow.",
+
+	"LeftText": "Investigate",
+	"RightText": "We’ll endure",
+
+	"LeftHope": -15,
+	"LeftDiscontent": 20,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 20,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Inventor",
+
+	"OnLeftAddFlags": ["inventor_plague_hothouse_yes","inventor_plague_hothouse_decided"],
+	"OnRightAddFlags": ["inventor_plague_hothouse_no","inventor_plague_hothouse_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["steward_hothouse_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "inventor_plague_hothouse",
+	"StoryStep": 2,
+	"StoryMinGap": 20,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "inventor_hothouse_thief",
+	"Title": "Inventor Silas",
+	"Description": "There’s a thief breaking into the Hothouse. Someone has been stealing our crops.",
+
+	"LeftText": "Find the thief",
+	"RightText": "Ignore it",
+
+	"LeftHope": 0,
+	"LeftDiscontent": -10,
+	"LeftOrder": 10,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 20,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Inventor",
+
+	"OnLeftAddFlags": ["inventor_hothouse_thief_yes","inventor_hothouse_thief_decided"],
+	"OnRightAddFlags": ["inventor_hothouse_thief_no","inventor_hothouse_thief_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["steward_hothouse_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "inventor_hothouse_thief",
+	"StoryStep": 2,
+	"StoryMinGap": 20,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "inventor_plague_hothouse_2",
+	"Title": "Inventor Silas",
+	"Description": "The crops died because a plague struck them… something we’ve never seen before.",
+
+	"LeftText": "Continue to investigate",
+	"RightText": "We’ll endure",
+
+	"LeftHope": 15,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -10,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Inventor",
+
+	"OnLeftAddFlags": ["inventor_plague_hothouse_2_yes","inventor_plague_hothouse_2_decided"],
+	"OnRightAddFlags": ["inventor_plague_hothouse_2_no","inventor_plague_hothouse_2_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["inventor_plague_hothouse_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "inventor_plague_hothouse_2",
+	"StoryStep": 3,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "inventor_plague_hothouse_3",
+	"Title": "Inventor Silas",
+	"Description": "We’ve examined the dying plants, and the plague is spreading faster than we expected.",
+
+	"LeftText": "Seal the Hothouse",
+	"RightText": "Keep it running",
+
+	"LeftHope": -10,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -20,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Inventor",
+
+	"OnLeftAddFlags": ["inventor_plague_hothouse_3_yes","inventor_plague_hothouse_3_decided"],
+	"OnRightAddFlags": ["inventor_plague_hothouse_3_no","inventor_plague_hothouse_3_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["inventor_plague_hothouse_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "inventor_plague_hothouse_3",
+	"StoryStep": 4,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "inventor_plague_hothouse_4",
+	"Title": "Inventor Silas",
+	"Description": "The Hothouse is sealed. It will take several days before it’s safe to reopen… and until then, we’ll have no harvests.",
+
+	"LeftText": "Wait it out",
+	"RightText": "Alright",
+
+	"LeftHope": -10,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -10,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Inventor",
+
+	"OnLeftAddFlags": ["inventor_plague_hothouse_4_yes","inventor_plague_hothouse_4_decided"],
+	"OnRightAddFlags": ["inventor_plague_hothouse_4_no","inventor_plague_hothouse_4_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["inventor_plague_hothouse_3_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "inventor_plague_hothouse_4",
+	"StoryStep": 5,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "inventor_plague_hothouse_5",
+	"Title": "Inventor Silas",
+	"Description": "The plague spread. Half of our people are gone… the cost of keeping the Hothouse running was far greater than we feared.",
+
+	"LeftText": "It can't be...",
+	"RightText": "No...",
+
+	"LeftHope": -50,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -50,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Inventor",
+
+	"OnLeftAddFlags": ["inventor_plague_hothouse_5_yes","inventor_plague_hothouse_5_decided"],
+	"OnRightAddFlags": ["inventor_plague_hothouse_5_no","inventor_plague_hothouse_5_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["inventor_plague_hothouse_3_no"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "inventor_plague_hothouse_5",
+	"StoryStep": 6,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_hunters",
+	"Title": "Steward Elias",
+	"Description": "Sir, we should build hunter tents and send a hunter party to not starve.",
+
+	"LeftText": "Build the tents",
+	"RightText": "Not necessary",
+
+	"LeftHope": 15,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Steward",
+
+	"OnLeftAddFlags": ["steward_hunters_yes","steward_hunters_decided"],
+	"OnRightAddFlags": ["steward_hunters_no","steward_hunters_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_hunters",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "nerisa_hunters_2",
+	"Title": "Hunter Nerisa",
+	"Description": "Our hunting party… they’re gone. I’m the only one who made it back.",
+
+	"LeftText": "Call medic",
+	"RightText": "I'm sorry",
+
+	"LeftHope": -15,
+	"LeftDiscontent": 10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Hunter",
+
+	"OnLeftAddFlags": ["nerisa_hunters_2_yes","nerisa_hunters_2_decided"],
+	"OnRightAddFlags": ["nerisa_hunters_2_no","nerisa_hunters_2_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["steward_hunters_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_hunters",
+	"StoryStep": 2,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "nerisa_hunters_3",
+	"Title": "Hunter Nerisa",
+	"Description": "We’ve tracked something rare… a white deer. If we move fast, we might bring it down.",
+
+	"LeftText": "Go after it",
+	"RightText": "Let it live",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 15,
+	"RightDiscontent": -10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Hunter",
+
+	"OnLeftAddFlags": ["nerisa_hunters_3_yes","nerisa_hunters_3_decided"],
+	"OnRightAddFlags": ["nerisa_hunters_3_no","nerisa_hunters_3_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["steward_hunters_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_hunters",
+	"StoryStep": 3,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "nerisa_hunters_4",
+	"Title": "Hunter Nerisa",
+	"Description": "We chased the white deer through the frost… and we brought it down. Its meat will feed many.",
+
+	"LeftText": "Honor the hunt",
+	"RightText": "Nice one",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 15,
+	"RightDiscontent": -10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Hunter",
+
+	"OnLeftAddFlags": ["nerisa_hunters_4_yes","nerisa_hunters_4_decided"],
+	"OnRightAddFlags": ["nerisa_hunters_4_no","nerisa_hunters_4_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["nerisa_hunters_3_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_hunters",
+	"StoryStep": 2,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "engineer_beacon_start",
+	"Title": "Senior Engineer David",
+	"Description": "We’ve discovered a way to explore the surrounding areas. With the right preparation, we can send expeditions beyond the city.",
+
+	"LeftText": "Begin preparations",
+	"RightText": "Stay within the city",
+
+	"LeftHope": 20,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -25,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Engineer",
+
+	"OnLeftAddFlags": ["engineer_beacon_start_yes","engineer_beacon_start_decided"],
+	"OnRightAddFlags": ["engineer_beacon_start_no","engineer_beacon_start_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "engineer_beacon_start",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "explorer_beacon_1",
+	"Title": "Explorer Harrow",
+	"Description": "If we venture into the frozen world, we might find refugees… or resources we desperately need.",
+
+	"LeftText": "Send an expedition",
+	"RightText": "Not allowed",
+
+	"LeftHope": 20,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -20,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Explorer",
+
+	"OnLeftAddFlags": ["explorer_beacon_1_yes","explorer_beacon_1_decided"],
+	"OnRightAddFlags": ["explorer_beacon_1_no","explorer_beacon_1_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["engineer_beacon_start_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "explorer_beacon_1",
+	"StoryStep": 2,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "explorer_beacon_2",
+	"Title": "Explorer Harrow",
+	"Description": "We’ve found a group of refugees out there. They want to join our city… if we’ll take them in.",
+
+	"LeftText": "Bring them home",
+	"RightText": "Turn them away",
+
+	"LeftHope": 15,
+	"LeftDiscontent": 15,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -20,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Explorer",
+
+	"OnLeftAddFlags": ["explorer_beacon_2_yes","explorer_beacon_2_decided"],
+	"OnRightAddFlags": ["explorer_beacon_2_no","explorer_beacon_2_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["explorer_beacon_1_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "explorer_beacon_2",
+	"StoryStep": 3,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "explorer_beacon_storm_start",
+	"Title": "Explorer Harrow",
+	"Description": "A storm is heading our way. It will be effective for five days… and it looks brutal.",
+
+	"LeftText": "Prepare the city",
+	"RightText": "Lets be hopeful",
+
+	"LeftHope": -15,
+	"LeftDiscontent": 15,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 15,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Explorer",
+
+	"OnLeftAddFlags": ["explorer_beacon_storm_start_yes","explorer_beacon_storm_start_decided"],
+	"OnRightAddFlags": ["explorer_beacon_storm_start_no","explorer_beacon_storm_start_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["explorer_beacon_1_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "explorer_beacon_storm_start",
+	"StoryStep": 4,
+	"StoryMinGap": 5,
+
+	"SequenceId": "storm_event",
+	"SequenceIndex": 1,
+	"SequenceMode": "Immediate",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "explorer_beacon_automaton_start",
+	"Title": "Explorer Harrow",
+	"Description": "We’ve come across an automaton and still functional. I can send it back to the city if you want it.",
+
+	"LeftText": "Send it home",
+	"RightText": "Leave it be",
+
+	"LeftHope": 20,
+	"LeftDiscontent": 10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Explorer",
+
+	"OnLeftAddFlags": ["explorer_beacon_automaton_start_yes","explorer_beacon_automaton_start_decided"],
+	"OnRightAddFlags": ["explorer_beacon_automaton_start_no","explorer_beacon_automaton_start_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["explorer_beacon_1_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "explorer_beacon_automaton_start",
+	"StoryStep": 4,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_event_storm_1",
+	"Title": "Steward Elias",
+	"Description": "Sir, the storm is here. The whole city is bracing for what’s coming.",
+
+	"LeftText": "Hold the door",
+	"RightText": "Call expeditions back",
+
+	"LeftHope": -15,
+	"LeftDiscontent": 10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "storm_event",
+
+	"OnLeftAddFlags": ["steward_event_storm_1_yes","steward_event_storm_1_decided"],
+	"OnRightAddFlags": ["steward_event_storm_1_no","steward_event_storm_1_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["explorer_beacon_storm_start_decided"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_event_storm_1",
+	"StoryStep": 4,
+	"StoryMinGap": 5,
+
+	"SequenceId": "storm_event",
+	"SequenceIndex": 2,
+	"SequenceMode": "Immediate",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_event_storm_2",
+	"Title": "Steward Elias",
+	"Description": "Many homes are freezing. People are falling ill faster than we can treat them.",
+
+	"LeftText": "Overload the Generator!",
+	"RightText": "We can’t help now",
+
+	"LeftHope": -15,
+	"LeftDiscontent": 10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -25,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "storm_event",
+
+	"OnLeftAddFlags": ["steward_event_storm_2_yes","steward_event_storm_2_decided"],
+	"OnRightAddFlags": ["steward_event_storm_2_no","steward_event_storm_2_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["steward_event_storm_1_decided"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_event_storm_2",
+	"StoryStep": 4,
+	"StoryMinGap": 5,
+
+	"SequenceId": "storm_event",
+	"SequenceIndex": 3,
+	"SequenceMode": "Immediate",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "foreman_event_storm_3",
+	"Title": "Foreman Oswin",
+	"Description": "The deeper levels of the mines are frozen solid. Our workers can’t continue down there.",
+
+	"LeftText": "Shut those levels",
+	"RightText": "Push them to continue",
+
+	"LeftHope": 10,
+	"LeftDiscontent": 5,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -20,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "storm_event",
+
+	"OnLeftAddFlags": ["foreman_event_storm_3_yes","foreman_event_storm_3_decided"],
+	"OnRightAddFlags": ["foreman_event_storm_3_no","foreman_event_storm_3_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["steward_event_storm_2_decided"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "foreman_event_storm_3",
+	"StoryStep": 4,
+	"StoryMinGap": 5,
+
+	"SequenceId": "storm_event",
+	"SequenceIndex": 4,
+	"SequenceMode": "Immediate",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "foreman_event_storm_4",
+	"Title": "Foreman Oswin",
+	"Description": "We’ve lost people in the deeper floors of the mines. The cold down there was worse than we feared.",
+
+	"LeftText": "Keep the mines running",
+	"RightText": "Shut those floors down",
+
+	"LeftHope": -15,
+	"LeftDiscontent": 15,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 15,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "storm_event",
+
+	"OnLeftAddFlags": ["foreman_event_storm_4_yes","foreman_event_storm_4_decided"],
+	"OnRightAddFlags": ["foreman_event_storm_4_no","foreman_event_storm_4_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["foreman_event_storm_3_no"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "foreman_event_storm_4",
+	"StoryStep": 4,
+	"StoryMinGap": 5,
+
+	"SequenceId": "storm_event",
+	"SequenceIndex": 5,
+	"SequenceMode": "Immediate",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "foreman_event_storm_5",
+	"Title": "Foreman Oswin",
+	"Description": "I sent the workers home today. Forcing them to stay would’ve only led to more losses.",
+
+	"LeftText": "You did right",
+	"RightText": "Good thinking",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 15,
+	"RightDiscontent": -10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "storm_event",
+
+	"OnLeftAddFlags": ["foreman_event_storm_5_yes","foreman_event_storm_5_decided"],
+	"OnRightAddFlags": ["foreman_event_storm_5_no","foreman_event_storm_5_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["foreman_event_storm_3_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "foreman_event_storm_5",
+	"StoryStep": 4,
+	"StoryMinGap": 5,
+
+	"SequenceId": "storm_event",
+	"SequenceIndex": 6,
+	"SequenceMode": "Immediate",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "cook_event_storm_6",
+	"Title": "Cook Maeve",
+	"Description": "We’ve run out of raw food. With the hunters unable to go out, there’s nothing left to cook.",
+
+	"LeftText": "We can endure!",
+	"RightText": "Oh...",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 15,
+	"RightDiscontent": -10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "storm_event",
+
+	"OnLeftAddFlags": ["cook_event_storm_6_yes","cook_event_storm_6_decided"],
+	"OnRightAddFlags": ["cook_event_storm_6_no","cook_event_storm_6_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["foreman_event_storm_4_decided","foreman_event_storm_5_decided"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "cook_event_storm_6",
+	"StoryStep": 4,
+	"StoryMinGap": 5,
+
+	"SequenceId": "storm_event",
+	"SequenceIndex": 7,
+	"SequenceMode": "Immediate",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_event_storm_7",
+	"Title": "Steward Elias",
+	"Description": "Sir, the storm has passed. The city can finally breathe again.",
+
+	"LeftText": "Assess the damage",
+	"RightText": "Return to routine",
+
+	"LeftHope": 25,
+	"LeftDiscontent": -15,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 25,
+	"RightDiscontent": -15,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "storm_event",
+
+	"OnLeftAddFlags": ["steward_event_storm_7_yes","steward_event_storm_7_decided"],
+	"OnRightAddFlags": ["steward_event_storm_7_no","steward_event_storm_7_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["cook_event_storm_6_decided"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_event_storm_7",
+	"StoryStep": 4,
+	"StoryMinGap": 5,
+
+	"SequenceId": "storm_event",
+	"SequenceIndex": 8,
+	"SequenceMode": "Immediate",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_event_storm_fail",
+	"Title": "Steward Elias",
+	"Description": "The generator has gone cold… and the city with it. There’s no one left to save.",
+
+	"LeftText": "Accept the end",
+	"RightText": "Refuse to yield",
+
+	"LeftHope": -100,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -100,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "storm_event",
+
+	"OnLeftAddFlags": ["steward_event_storm_fail_yes","steward_event_storm_fail_decided"],
+	"OnRightAddFlags": ["steward_event_storm_fail_no","steward_event_storm_fail_decided"],
+
+	"RequireFlagsAll": ["foreman_event_storm_3_no" , "steward_event_storm_2_no"],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_event_storm_fail",
+	"StoryStep": 4,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Immediate",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "engineer_automaton_1",
+	"Title": "Senior Engineer David",
+	"Description": "If we study the automaton, we might improve its design or even build more of our own.",
+
+	"LeftText": "Begin the research",
+	"RightText": "Leave it untouched",
+
+	"LeftHope": -10,
+	"LeftDiscontent": 10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 0,
+	"RightDiscontent": -10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "engineer_automaton",
+
+	"OnLeftAddFlags": ["engineer_automaton_1_yes","engineer_automaton_1_decided"],
+	"OnRightAddFlags": ["engineer_automaton_1_no","engineer_automaton_1_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["explorer_beacon_automaton_start_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "engineer_automaton_1",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "engineer_automaton_event",
+	"Title": "Senior Engineer David",
+	"Description": "The automaton malfunctioned… it crippled one of our people. We need to decide what to do about it.",
+
+	"LeftText": "Shut it today",
+	"RightText": "Let Automaton work",
+
+	"LeftHope": -10,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 0,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "engineer_automaton",
+
+	"OnLeftAddFlags": ["engineer_automaton_event_yes","engineer_automaton_event_decided"],
+	"OnRightAddFlags": ["engineer_automaton_event_no","engineer_automaton_event_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["explorer_beacon_automaton_start_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "engineer_automaton_event",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "engineer_automaton_2",
+	"Title": "Senior Engineer David",
+	"Description": "I'm making progress on the research about the automatons. I should keep going.",
+
+	"LeftText": "Continue the research",
+	"RightText": "I hope you are right",
+
+	"LeftHope": -10,
+	"LeftDiscontent": 10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 10,
+	"RightDiscontent": -10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "engineer_automaton",
+
+	"OnLeftAddFlags": ["engineer_automaton_2_yes","engineer_automaton_2_decided"],
+	"OnRightAddFlags": ["engineer_automaton_2_no","engineer_automaton_2_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["engineer_automaton_1_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "engineer_automaton_2",
+	"StoryStep": 2,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "engineer_automaton_3",
+	"Title": "Senior Engineer David",
+	"Description": "If the workshop dedicates the whole day to automaton upgrades, we might make real progress but we stop all other work.",
+
+	"LeftText": "Focus on automatons",
+	"RightText": "Stop this",
+
+	"LeftHope": -10,
+	"LeftDiscontent": 10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 10,
+	"RightDiscontent": -10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "engineer_automaton",
+
+	"OnLeftAddFlags": ["engineer_automaton_3_yes","engineer_automaton_3_decided"],
+	"OnRightAddFlags": ["engineer_automaton_3_no","engineer_automaton_3_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["engineer_automaton_2_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "engineer_automaton_3",
+	"StoryStep": 3,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "engineer_automaton_4",
+	"Title": "Senior Engineer David",
+	"Description": "The automatons are now running smoothly. Their efficiency has improved far beyond what we expected.",
+
+	"LeftText": "Excellent news",
+	"RightText": "Awesome",
+
+	"LeftHope": 25,
+	"LeftDiscontent": -20,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 25,
+	"RightDiscontent": -20,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "engineer_automaton",
+
+	"OnLeftAddFlags": ["engineer_automaton_4_yes","engineer_automaton_4_decided"],
+	"OnRightAddFlags": ["engineer_automaton_4_no","engineer_automaton_4_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["engineer_automaton_3_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "engineer_automaton_4",
+	"StoryStep": 4,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "engineer_workshop",
+	"Title": "Senior Engineer David",
+	"Description": "If we build Workshop, we can speed up our research and push new ideas forward faster.",
+
+	"LeftText": "Build the Workshop",
+	"RightText": "Later",
+
+	"LeftHope": 10,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "engineer_workshop",
+
+	"OnLeftAddFlags": ["engineer_workshop_yes","engineer_workshop_decided"],
+	"OnRightAddFlags": ["engineer_workshop_no","engineer_workshop_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["engineer_automaton_3_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "engineer_workshop",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "engineer_workshop_prosthetics",
+	"Title": "Senior Engineer David",
+	"Description": "If we craft prosthetics, some of the injured could return to work again.",
+
+	"LeftText": "Make prosthetics",
+	"RightText": "Leave them be",
+
+	"LeftHope": 20,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -25,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "engineer_workshop",
+
+	"OnLeftAddFlags": ["engineer_workshop_prosthetics_yes","engineer_workshop_prosthetics_decided"],
+	"OnRightAddFlags": ["engineer_workshop_prosthetics_no","engineer_workshop_prosthetics_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["engineer_workshop_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "engineer_workshop_prosthetics",
+	"StoryStep": 2,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "medic_prosthetics_order",
+	"Title": "Medic Helena",
+	"Description": "If we order prostheses, our amputees could regain the ability to work and a sense of purpose.",
+
+	"LeftText": "Order prostheses",
+	"RightText": "No resources for it",
+
+	"LeftHope": 20,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "engineer_workshop",
+
+	"OnLeftAddFlags": ["medic_prosthetics_order_yes","medic_prosthetics_order_decided"],
+	"OnRightAddFlags": ["medic_prosthetics_order_no","medic_prosthetics_order_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["engineer_workshop_prosthetics_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "medic_prosthetics_order",
+	"StoryStep": 3,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "medic_repatriation",
+	"Title": "Medic Helena",
+	"Description": "We can’t afford to feed those who can’t work anymore… they may have to return to London.",
+
+	"LeftText": "Send them back",
+	"RightText": "Keep them here",
+
+	"LeftHope": 20,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "engineer_workshop",
+
+	"OnLeftAddFlags": ["medic_repatriation_yes","medic_repatriation_decided"],
+	"OnRightAddFlags": ["medic_repatriation_no","medic_repatriation_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["engineer_workshop_prosthetics_no"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "medic_repatriation",
+	"StoryStep": 3,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_bath_house",
+	"Title": "Steward Elias",
+	"Description": "A Bath House would help prevent sickness. Cleanliness could spare our people from falling ill.",
+
+	"LeftText": "Build the Bath House",
+	"RightText": "Not a priority",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "bath_house",
+
+	"OnLeftAddFlags": ["steward_bath_house_yes","steward_bath_house_decided"],
+	"OnRightAddFlags": ["steward_bath_house_no","steward_bath_house_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_bath_house",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_bath_house_2",
+	"Title": "Steward Elias",
+	"Description": "There’s a fight breaking out in the Bath House. We need to act before it gets worse.",
+
+	"LeftText": "Break it up",
+	"RightText": "Let them settle it",
+
+	"LeftHope": 0,
+	"LeftDiscontent": -10,
+	"LeftOrder": 15,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "bath_house",
+
+	"OnLeftAddFlags": ["steward_bath_house_2_yes","steward_bath_house_2_decided"],
+	"OnRightAddFlags": ["steward_bath_house_2_no","steward_bath_house_2_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["steward_bath_house_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_bath_house_2",
+	"StoryStep": 2,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_comforted_house",
+	"Title": "Steward Elias",
+	"Description": "Sir, if we redesign the houses, we can give families more space in their living quarters.",
+
+	"LeftText": "Redesign the homes",
+	"RightText": "Keep them as they are",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Steward",
+
+	"OnLeftAddFlags": ["steward_comforted_house_yes","steward_comforted_house_decided"],
+	"OnRightAddFlags": ["steward_comforted_house_no","steward_comforted_house_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_comforted_house",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "steward_crowded_house",
+	"Title": "Steward Elias",
+	"Description": "If we redesign the houses, we can make room for more people inside each one.",
+
+	"LeftText": "Increase capacity",
+	"RightText": "Leave them be",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Steward",
+
+	"OnLeftAddFlags": ["steward_crowded_house_yes","steward_crowded_house_decided"],
+	"OnRightAddFlags": ["steward_crowded_house_no","steward_crowded_house_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "steward_crowded_house",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "medic_dispensary",
+	"Title": "Medic Helena",
+	"Description": "If we build a Dispensary, we can use new experimental medicines to treat the gravely ill. It might save lives we can’t reach otherwise.",
+
+	"LeftText": "Build the Dispensary",
+	"RightText": "Too risky",
+
+	"LeftHope": -15,
+	"LeftDiscontent": 10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 15,
+	"RightDiscontent": -10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Medic",
+
+	"OnLeftAddFlags": ["medic_dispensary_yes","medic_dispensary_decided"],
+	"OnRightAddFlags": ["medic_dispensary_no","medic_dispensary_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "medic_dispensary",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
   }
 ]

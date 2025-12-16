@@ -1,13 +1,42 @@
 extends Node
 class_name Deck
 
-var _raw_cards: Array = []   # cards as loaded from JSON
-var _deck: Array = []        # working deck (shuffled)
+var _raw_cards: Array = []         # all cards loaded from JSON
+var _deck: Array = []              # working deck (shuffled)
+var _flags: Dictionary = {}        # active flag set { "flag": true }
+var _card_states: Dictionary = {}  # per-card states { id: { "locked": bool } }
+var _sequence_queue: Array = []    # forced next cards (Immediate sequences)
+var current_chief_index: int = 0   # controlled by GameManager
+
+var _use_starter_phase: bool = false  # draw starter cards first
+
 
 func _ready() -> void:
 	randomize()
 
-# ---- Loading ----
+
+# ---------------------------------------------------
+# Public control interface
+# ---------------------------------------------------
+
+func begin_starter_phase() -> void:
+	_use_starter_phase = true
+
+func set_current_chief_index(idx: int) -> void:
+	current_chief_index = idx
+
+func add_flag(flag_name: String) -> void:
+	if flag_name == "":
+		return
+	_flags[flag_name] = true
+
+func has_flag(flag_name: String) -> bool:
+	return _flags.get(flag_name, false)
+
+
+# ---------------------------------------------------
+# Loading
+# ---------------------------------------------------
 
 func load_from_json_string(json_text: String) -> void:
 	var parsed = JSON.parse_string(json_text)
@@ -20,43 +49,174 @@ func load_from_json_string(json_text: String) -> void:
 @warning_ignore("redundant_await")
 func load_from_file(path: String) -> void:
 	await get_tree().process_frame
-
 	var f := FileAccess.open(path, FileAccess.READ)
 	if f == null:
 		push_error("Deck: cannot open %s" % path)
 		return
-
 	var text := f.get_as_text()
 	load_from_json_string(text)
 
-# ---- Deck ops ----
+
+# ---------------------------------------------------
+# Deck ops
+# ---------------------------------------------------
 
 func _refill_deck() -> void:
 	_deck.clear()
-
 	for card in _raw_cards:
 		var id = card.get("Id", "")
-		var is_death := false
-		if id.begins_with("DEATH_"):
-			is_death = true
-
+		var is_death = id.begins_with("DEATH_")
 		if not is_death:
 			_deck.append(card)
-
 	_deck.shuffle()
 
+func reset_deck() -> void:
+	_refill_deck()
+
+
+# ---------------------------------------------------
+# Draw logic
+# ---------------------------------------------------
+
 func draw() -> Dictionary:
+	# 1) Sequence queue has priority
+	if _sequence_queue.size() > 0:
+		return _sequence_queue.pop_front()
+
+	# 2) Starter phase → draw only Pool:"Starter"
+	if _use_starter_phase:
+		if _deck.is_empty():
+			_refill_deck()
+
+		var starter := _draw_from_starter_pool()
+		if not starter.is_empty():
+			return starter
+
+		# No starter cards left → disable phase
+		_use_starter_phase = false
+
+	# 3) Normal deck draw with conditions
 	if _deck.is_empty():
 		_refill_deck()
+
 	if _deck.is_empty():
 		return {}
-	return _deck.pop_back()
 
-func find_card_by_id(id: String) -> Dictionary:
-	for card in _raw_cards:
-		if card.get("Id", "") == id:
+	var attempts := _deck.size()
+	while attempts > 0 and not _deck.is_empty():
+		attempts -= 1
+		var card = _deck.pop_back()
+		if _is_card_drawable(card):
+			_enqueue_sequence_if_needed(card)
 			return card
-	return {}
+
+	# Try once more after refill
+	if _deck.is_empty():
+		_refill_deck()
+
+	attempts = _deck.size()
+	while attempts > 0 and not _deck.is_empty():
+		attempts -= 1
+		var card2 = _deck.pop_back()
+		if _is_card_drawable(card2):
+			_enqueue_sequence_if_needed(card2)
+			return card2
+
+	return {}  # nothing found
+
+
+func _draw_from_starter_pool() -> Dictionary:
+	var i := _deck.size() - 1
+	while i >= 0:
+		var card = _deck[i]
+		if card.get("Pool", "") == "Starter" and _is_card_drawable(card):
+			_deck.remove_at(i)
+			_enqueue_sequence_if_needed(card)
+			return card
+		i -= 1
+	return {}  # no usable Starter cards left
+
+
+# ---------------------------------------------------
+# Availability filters
+# ---------------------------------------------------
+
+func _is_card_drawable(card: Dictionary) -> bool:
+	var id: String = card.get("Id", "")
+
+	# Locked card? Skip.
+	if _is_locked(id):
+		return false
+
+	# RunMin / RunMax (chief-based progression)
+	var run_min := int(card.get("RunMin", 0))
+	var run_max := int(card.get("RunMax", 999))
+	if current_chief_index < run_min or current_chief_index > run_max:
+		return false
+
+	# RequireFlagsAll
+	for f in card.get("RequireFlagsAll", []):
+		if not has_flag(str(f)):
+			return false
+
+	# RequireFlagsAny
+	var any_list: Array = card.get("RequireFlagsAny", [])
+	if any_list.size() > 0:
+		var ok := false
+		for f2 in any_list:
+			if has_flag(str(f2)):
+				ok = true
+				break
+		if not ok:
+			return false
+
+	# BlockFlags
+	for bf in card.get("BlockFlags", []):
+		if has_flag(str(bf)):
+			return false
+
+	return true
+
+
+# ---------------------------------------------------
+# Lock system (RepeatPolicy)
+# ---------------------------------------------------
+
+func _is_locked(card_id: String) -> bool:
+	if not _card_states.has(card_id):
+		return false
+	return _card_states[card_id].get("locked", false)
+
+func _lock_card(card_id: String) -> void:
+	var state = _card_states.get(card_id, {})
+	state["locked"] = true
+	_card_states[card_id] = state
+
+
+# ---------------------------------------------------
+# Sequence system
+# ---------------------------------------------------
+
+func _enqueue_sequence_if_needed(card: Dictionary) -> void:
+	if card.get("SequenceMode", "Normal") != "Immediate":
+		return
+
+	var sid: String = card.get("SequenceId", "")
+	if sid == "":
+		return
+
+	var current_index := int(card.get("SequenceIndex", 0))
+	var next_index := current_index + 1
+
+	for c in _raw_cards:
+		if c.get("SequenceId", "") == sid and int(c.get("SequenceIndex", 0)) == next_index:
+			_sequence_queue.append(c)
+			break
+
+
+# ---------------------------------------------------
+# Presentation (given to CardUI)
+# ---------------------------------------------------
 
 func prepare_presented(card: Dictionary) -> Dictionary:
 	var present := {
@@ -64,32 +224,78 @@ func prepare_presented(card: Dictionary) -> Dictionary:
 		"title": card.get("Title", ""),
 		"desc": card.get("Description", ""),
 		"left": {},
-		"right": {}
+		"right": {},
+		"ui_left_original": "",
+		"ui_right_original": ""
 	}
 
 	var left := {
 		"text": card.get("LeftText", ""),
-		"Heat": card.get("LeftHeat", 0),
-		"Discontent": card.get("LeftDiscontent", 0),
 		"Hope": card.get("LeftHope", 0),
-		"Survivors": card.get("LeftSurvivors", 0)
+		"Discontent": card.get("LeftDiscontent", 0),
+		"Order": card.get("LeftOrder", 0),
+		"Faith": card.get("LeftFaith", 0)
 	}
 	var right := {
 		"text": card.get("RightText", ""),
-		"Heat": card.get("RightHeat", 0),
-		"Discontent": card.get("RightDiscontent", 0),
 		"Hope": card.get("RightHope", 0),
-		"Survivors": card.get("RightSurvivors", 0)
+		"Discontent": card.get("RightDiscontent", 0),
+		"Order": card.get("RightOrder", 0),
+		"Faith": card.get("RightFaith", 0)
 	}
 
 	var swap := randi() % 2 == 0
 	if swap:
+		# UI'de sol tarafta aslında JSON'daki RIGHT branch var
 		present.left = right
 		present.right = left
+		present["ui_left_original"] = "right"
+		present["ui_right_original"] = "left"
 	else:
+		# UI sol = JSON sol, UI sağ = JSON sağ
 		present.left = left
 		present.right = right
+		present["ui_left_original"] = "left"
+		present["ui_right_original"] = "right"
 
 	return present
-func reset_deck() -> void:
-	_refill_deck()
+
+
+# ---------------------------------------------------
+# Commit event: flags + RepeatPolicy
+# ---------------------------------------------------
+
+func on_card_committed(card_id: String, side: String) -> void:
+	var card = find_card_by_id(card_id)
+	if card.is_empty():
+		return
+
+	# Add flags
+	var flist: Array = []
+	if side == "left":
+		flist = card.get("OnLeftAddFlags", [])
+	else:
+		flist = card.get("OnRightAddFlags", [])
+
+	for f in flist:
+		add_flag(str(f))
+
+	# RepeatPolicy
+	var policy: String = card.get("RepeatPolicy", "never")
+
+	if policy == "never":
+		_lock_card(card_id)
+
+	elif policy == "repeat_on_negative":
+		# Default: left = positive, right = negative
+		if side == "left":
+			_lock_card(card_id)
+		else:
+			pass  # right side → card stays in deck
+
+	# policy == "always" → do nothing
+func find_card_by_id(id: String) -> Dictionary:
+	for card in _raw_cards:
+		if card.get("Id", "") == id:
+			return card
+	return {}

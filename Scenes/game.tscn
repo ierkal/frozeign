@@ -12,6 +12,7 @@
 script = ExtResource("1_3dryh")
 
 [node name="Deck" type="Node2D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("2_1l0tm")
 
 [node name="StatsManager" type="Node2D" parent="."]

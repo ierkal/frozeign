@@ -101,7 +101,26 @@ func _on_card_committed(side: String) -> void:
 	card_count_reached.emit()
 
 func _effect_for(side: String) -> Dictionary:
-	return _side_dict(side)
+	var base := _side_dict(side)
+	var effect := base.duplicate(true)
+
+	# Bu kartın ID'sini ekle
+	effect["card_id"] = _current_presented.get("id", "")
+
+	# Kullanıcının tıkladığı UI tarafı (sol/sağ) - istersen debug için
+	effect["side"] = side
+
+	# JSON'daki orijinal taraf (left/right)
+	var original_side := ""
+	if side == SIDE_LEFT:
+		original_side = String(_current_presented.get("ui_left_original", "left"))
+	else:
+		original_side = String(_current_presented.get("ui_right_original", "right"))
+
+	effect["original_side"] = original_side
+
+	return effect
+
 
 func _side_dict(side: String) -> Dictionary:
 	if side == SIDE_LEFT:

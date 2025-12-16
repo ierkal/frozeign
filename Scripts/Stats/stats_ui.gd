@@ -1,15 +1,15 @@
 extends Control
 class_name StatsUI
 
-@onready var heat: TextureProgressBar = %Heat
-@onready var discontent: TextureProgressBar = %Order
 @onready var hope: TextureProgressBar = %Hope
-@onready var survivors: TextureProgressBar = %Survivors
+@onready var discontent: TextureProgressBar = %Discontent
+@onready var order: TextureProgressBar = %Order
+@onready var faith: TextureProgressBar = %Faith
 
-@onready var heat_point: TextureRect = %HeatPoint
-@onready var discontent_point: TextureRect = %OrderPoint
 @onready var hope_point: TextureRect = %HopePoint
-@onready var survivors_point: TextureRect = %SurvivorsPoint
+@onready var discontent_point: TextureRect = %DiscontentPoint
+@onready var order_point: TextureRect = %OrderPoint
+@onready var faith_point: TextureRect = %FaithPoint
 
 var _tweens := {}          # value tweens
 var _color_tweens := {}    # color tweens
@@ -17,18 +17,17 @@ var _base_tint := {}       # default fill tints per bar
 
 func _ready() -> void:
 	add_to_group("StatsUI")
-	_store_default_tint(heat)
-	_store_default_tint(discontent)
 	_store_default_tint(hope)
-	_store_default_tint(survivors)
+	_store_default_tint(discontent)
+	_store_default_tint(order)
+	_store_default_tint(faith)
 	clear_preview()
 
 func _store_default_tint(bar: TextureProgressBar) -> void:
 	_base_tint[bar] = bar.tint_progress
 
-
 # --------------------------------------------------------
-# Smooth bar animation (unchanged)
+# Smooth bar animation
 # --------------------------------------------------------
 func animate_bar(bar: TextureProgressBar, target: int, duration: float = 0.35) -> void:
 	if _tweens.has(bar) and _tweens[bar].is_valid():
@@ -37,7 +36,6 @@ func animate_bar(bar: TextureProgressBar, target: int, duration: float = 0.35) -
 	var tween := get_tree().create_tween()
 	tween.tween_property(bar, "value", target, duration).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	_tweens[bar] = tween
-
 
 # --------------------------------------------------------
 # Red/Green flash on FILL image only
@@ -66,15 +64,14 @@ func flash_change(bar: TextureProgressBar, old_value: int, new_value: int) -> vo
 	tween.tween_property(bar, "tint_progress", base_color, 0.4).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	_color_tweens[bar] = tween
 
-
 # --------------------------------------------------------
 # Public: Update + animate + flash
 # --------------------------------------------------------
-func update_stats(h: int, d: int, ho: int, s: int) -> void:
-	apply_stat_change(heat, h)
+func update_stats(h: int, d: int, o: int, f: int) -> void:
+	apply_stat_change(hope, h)
 	apply_stat_change(discontent, d)
-	apply_stat_change(hope, ho)
-	apply_stat_change(survivors, s)
+	apply_stat_change(order, o)
+	apply_stat_change(faith, f)
 
 func apply_stat_change(bar: TextureProgressBar, new_value: int) -> void:
 	var clamped_value = clamp(new_value, int(bar.min_value), int(bar.max_value))
@@ -86,23 +83,22 @@ func apply_stat_change(bar: TextureProgressBar, new_value: int) -> void:
 	flash_change(bar, old_value, clamped_value)
 	animate_bar(bar, clamped_value)
 
-
 # --------------------------------------------------------
-# Preview system (unchanged)
+# Preview system
 # --------------------------------------------------------
 func show_preview(effect: Dictionary) -> void:
-	var h = int(effect.get("Heat", 0))
+	var h = int(effect.get("Hope", 0))
 	var d = int(effect.get("Discontent", 0))
-	var ho = int(effect.get("Hope", 0))
-	var s = int(effect.get("Survivors", 0))
+	var o = int(effect.get("Order", 0))
+	var f = int(effect.get("Faith", 0))
 
-	heat_point.visible = h != 0
+	hope_point.visible = h != 0
 	discontent_point.visible = d != 0
-	hope_point.visible = ho != 0
-	survivors_point.visible = s != 0
+	order_point.visible = o != 0
+	faith_point.visible = f != 0
 
 func clear_preview() -> void:
-	heat_point.visible = false
-	discontent_point.visible = false
 	hope_point.visible = false
-	survivors_point.visible = false
+	discontent_point.visible = false
+	order_point.visible = false
+	faith_point.visible = false
