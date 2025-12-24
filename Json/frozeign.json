@@ -3959,5 +3959,2245 @@
 
 	"RunMin": 0,
 	"RunMax": 999
+  },
+  {
+	"Id": "foreman_safety_procedures",
+	"Title": "Foreman Oswin",
+	"Description": "If we enforce stricter safety procedures, people will work with less haste and greater care.",
+
+	"LeftText": "Enforce safety",
+	"RightText": "Keep current pace",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -15,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Foreman",
+
+	"OnLeftAddFlags": ["foreman_safety_procedures_yes","foreman_safety_procedures_decided"],
+	"OnRightAddFlags": ["foreman_safety_procedures_no","foreman_safety_procedures_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "foreman_safety_procedures",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "foreman_safety_procedures_2",
+	"Title": "Foreman Oswin",
+	"Description": "If we require workers to clean and maintain their equipment, we can keep everything in safe operating condition.",
+
+	"LeftText": "Start maintenance",
+	"RightText": "Skip it",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -15,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 15,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Foreman",
+
+	"OnLeftAddFlags": ["foreman_safety_procedures_2_yes","foreman_safety_procedures_2_decided"],
+	"OnRightAddFlags": ["foreman_safety_procedures_2_no","foreman_safety_procedures_2_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["foreman_safety_procedures_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "foreman_safety_procedures_2",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "foreman_short_shift",
+	"Title": "Foreman Oswin",
+	"Description": "If we switch to shorter shifts, people won’t be overworked — and they’ll make fewer mistakes.",
+
+	"LeftText": "Shorten the shifts",
+	"RightText": "Keep them same",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -15,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 15,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Foreman",
+
+	"OnLeftAddFlags": ["foreman_short_shift_yes","foreman_short_shift_decided"],
+	"OnRightAddFlags": ["foreman_short_shift_no","foreman_short_shift_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "foreman_short_shift",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "foreman_work_standardisation",
+	"Title": "Foreman Oswin",
+	"Description": "People are rested and working less. If we push them now, we can use their full potential.",
+
+	"LeftText": "Push productivity",
+	"RightText": "Keep the pace",
+
+	"LeftHope": 15,
+	"LeftDiscontent": 10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Foreman",
+
+	"OnLeftAddFlags": ["foreman_work_standardisation_yes","foreman_work_standardisation_decided"],
+	"OnRightAddFlags": ["foreman_work_standardisation_no","foreman_work_standardisation_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["foreman_short_shift_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "foreman_work_standardisation",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "foreman_two_shift",
+	"Title": "Foreman Oswin",
+	"Description": "If we run two full shifts, we can accomplish our key goals twice as fast.",
+
+	"LeftText": "Run double shifts",
+	"RightText": "Keep single shifts",
+
+	"LeftHope": 10,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Foreman",
+
+	"OnLeftAddFlags": ["foreman_two_shift_yes","foreman_two_shift_decided"],
+	"OnRightAddFlags": ["foreman_two_shift_no","foreman_two_shift_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "foreman_two_shift",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "foreman_two_shift",
+	"Title": "Foreman Oswin",
+	"Description": "If we run two full shifts, we can accomplish our key goals twice as fast.",
+
+	"LeftText": "Run double shifts",
+	"RightText": "Keep single shifts",
+
+	"LeftHope": 10,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Foreman",
+
+	"OnLeftAddFlags": ["foreman_two_shift_yes","foreman_two_shift_decided"],
+	"OnRightAddFlags": ["foreman_two_shift_no","foreman_two_shift_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "foreman_two_shift",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "foreman_extended_shift_compensations",
+	"Title": "Foreman Oswin",
+	"Description": "If we give extra rations to those working extended shifts, they’ll have the strength to keep going.",
+
+	"LeftText": "Give extra rations",
+	"RightText": "No bonuses",
+
+	"LeftHope": 10,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 15,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Foreman",
+
+	"OnLeftAddFlags": ["foreman_extended_shift_compensations_yes","foreman_extended_shift_compensations_decided"],
+	"OnRightAddFlags": ["foreman_extended_shift_compensations_no","foreman_extended_shift_compensations_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["foreman_two_shift_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "foreman_extended_shift_compensations",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "foreman_shift_work_coordination",
+	"Title": "Foreman Oswin",
+	"Description": "If I coordinate the work between both shifts, we can reduce downtime and keep everything running smoothly.",
+
+	"LeftText": "Coordinate shifts",
+	"RightText": "Let them manage",
+
+	"LeftHope": 10,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Foreman",
+
+	"OnLeftAddFlags": ["foreman_shift_work_coordination_yes","foreman_shift_work_coordination_decided"],
+	"OnRightAddFlags": ["foreman_shift_work_coordination_no","foreman_shift_work_coordination_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["foreman_extended_shift_compensations_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "foreman_shift_work_coordination",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "workers_council_labour",
+	"Title": "Steward Elias",
+	"Description": "Sir, the workers have begun forming their own council. They’re organizing among themselves… and it may challenge our authority.",
+
+	"LeftText": "Let them form",
+	"RightText": "Not allowed",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Steward",
+
+	"OnLeftAddFlags": ["workers_council_labour_yes","workers_council_labour_decided"],
+	"OnRightAddFlags": ["workers_council_labour_no","workers_council_labour_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "workers_council_labour",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "workers_council_introduction",
+	"SequenceIndex": 1,
+	"SequenceMode": "Immediate",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "workers_council_introduction",
+	"Title": "Foreman Oswin",
+	"Description": "The Workers Council will represent the interests of the working people. They’re expecting us to acknowledge their voice.",
+
+	"LeftText": "Acknowledge them",
+	"RightText": "Okay..",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Workers_Council",
+
+	"OnLeftAddFlags": ["workers_council_introduction_yes","workers_council_introduction_decided"],
+	"OnRightAddFlags": ["workers_council_introduction_no","workers_council_introduction_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["workers_council_labour_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "workers_council_introduction",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "workers_council_introduction",
+	"SequenceIndex": 2,
+	"SequenceMode": "Immediate",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "workers_council_introduction_2",
+	"Title": "Workers Council Rowan",
+	"Description": "I’m Rowan, leader of the Workers Council. We speak for those who keep this city standing.",
+
+	"LeftText": "Hmm...",
+	"RightText": "Okay",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Workers_Council",
+
+	"OnLeftAddFlags": ["workers_council_introduction_2_yes","workers_council_introduction_2_decided"],
+	"OnRightAddFlags": ["workers_council_introduction_2_no","workers_council_introduction_2_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["workers_council_introduction_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "workers_council_introduction_2",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "workers_council_introduction",
+	"SequenceIndex": 3,
+	"SequenceMode": "Immediate",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "workers_council_work_conditions",
+	"Title": "Workers Council Rowan",
+	"Description": "If the conditions don’t improve, our workers can and will strike. They won’t suffer in silence.",
+
+	"LeftText": "Support the workers",
+	"RightText": "Conditions are fine",
+
+	"LeftHope": 10,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 0,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Workers_Council",
+
+	"OnLeftAddFlags": ["workers_council_work_conditions_yes","workers_council_work_conditions_decided"],
+	"OnRightAddFlags": ["workers_council_work_conditions_no","workers_council_work_conditions_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["workers_council_introduction_2_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "workers_council_work_conditions",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "workers_council_hall",
+	"Title": "Workers Council Rowan",
+	"Description": "We need a place of our own a hall where the Workers Council can meet and speak freely.",
+
+	"LeftText": "Build them a place",
+	"RightText": "No resources now",
+
+	"LeftHope": 10,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -10,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Workers_Council",
+
+	"OnLeftAddFlags": ["workers_council_hall_yes","workers_council_hall_decided"],
+	"OnRightAddFlags": ["workers_council_hall_no","workers_council_hall_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["workers_council_work_conditions_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "workers_council_hall",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "workers_council_collective_bargaining",
+	"Title": "Workers Council Rowan",
+	"Description": "The workers are uneasy. If this continues, a strike is coming. But… for a fair price, I can calm things down.",
+
+	"LeftText": "Pay the price",
+	"RightText": "I don't want your help",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -20,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -20,
+	"RightDiscontent": 20,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Workers_Council",
+
+	"OnLeftAddFlags": ["workers_council_collective_bargaining_yes","workers_council_collective_bargaining_decided"],
+	"OnRightAddFlags": ["workers_council_collective_bargaining_no","workers_council_collective_bargaining_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["workers_council_hall_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "workers_council_collective_bargaining",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "workers_council_official_doctrine",
+	"Title": "Steward Elias",
+	"Description": "Sir, if we don’t keep the Workers Council in check, they may go astray and undermine our authority.",
+
+	"LeftText": "Control their leader",
+	"RightText": "Let them lead workers",
+
+	"LeftHope": 10,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -10,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Workers_Council",
+
+	"OnLeftAddFlags": ["workers_council_official_doctrine_yes","workers_council_official_doctrine_decided"],
+	"OnRightAddFlags": ["workers_council_official_doctrine_no","workers_council_official_doctrine_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["workers_council_hall_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "workers_council_official_doctrine",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "workers_council_abolition_of_privileges",
+	"Title": "Workers Council Rowan",
+	"Description": "Everyone should work wherever they’re sent worker or engineer, no exceptions.",
+
+	"LeftText": "You're right",
+	"RightText": "No way",
+
+	"LeftHope": 15,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -10,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Workers_Council",
+
+	"OnLeftAddFlags": ["workers_council_abolition_of_privileges_yes","workers_council_abolition_of_privileges_decided"],
+	"OnRightAddFlags": ["workers_council_abolition_of_privileges_no","workers_council_abolition_of_privileges_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["workers_council_official_doctrine_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "workers_council_abolition_of_privileges",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "workers_council_selfless_sacrifice",
+	"Title": "Workers Council Rowan",
+	"Description": "Work must be done on time. If we want results, we sacrifice everything else. Efficiency comes first.",
+
+	"LeftText": "Push the pace",
+	"RightText": "Not at that cost",
+
+	"LeftHope": 15,
+	"LeftDiscontent": 10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -10,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Workers_Council",
+
+	"OnLeftAddFlags": ["workers_council_selfless_sacrifice_yes","workers_council_selfless_sacrifice_decided"],
+	"OnRightAddFlags": ["workers_council_selfless_sacrifice_no","workers_council_selfless_sacrifice_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["workers_council_official_doctrine_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "workers_council_selfless_sacrifice",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "workers_council_militia",
+	"Title": "Workers Council Rowan",
+	"Description": "The Council will provide its own militia to ensure the workers’ security. We’ll look after our own.",
+
+	"LeftText": "Allow their militia",
+	"RightText": "Not in this city",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Workers_Council",
+
+	"OnLeftAddFlags": ["workers_council_militia_yes","workers_council_militia_decided"],
+	"OnRightAddFlags": ["workers_council_militia_no","workers_council_militia_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["workers_council_abolition_of_privileges_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "workers_council_militia",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "workers_council_terror",
+	"Title": "Workers Council Rowan",
+	"Description": "We need an Execution Place… to deal with the enemies of the working masses.",
+
+	"LeftText": "Approve it",
+	"RightText": "Absolutely not",
+
+	"LeftHope": 15,
+	"LeftDiscontent": 25,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": -15,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Workers_Council",
+
+	"OnLeftAddFlags": ["workers_council_terror_yes","workers_council_terror_decided"],
+	"OnRightAddFlags": ["workers_council_terror_no","workers_council_terror_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["workers_council_militia_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "workers_council_terror",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "factory_inspectorate",
+	"Title": "Steward Elias",
+	"Description": "The engineers have begun forming their own council. They’re organizing separately from the workers now.",
+
+	"LeftText": "Approve it",
+	"RightText": "Don't let them",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Steward",
+
+	"OnLeftAddFlags": ["factory_inspectorate_yes","factory_inspectorate_decided"],
+	"OnRightAddFlags": ["factory_inspectorate_no","factory_inspectorate_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": [],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "factory_inspectorate",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "factory_inspectorate_introduction",
+	"SequenceIndex": 1,
+	"SequenceMode": "Immediate",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "factory_inspector_introduction",
+	"Title": "Inspector Arthur",
+	"Description": "I’m Arthur, the Factory Inspector. I oversee the safety and discipline of every workshop and assembly line in our city.",
+
+	"LeftText": "Greet him",
+	"RightText": "Okay",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 0,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": 0,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Factory_Inspectorate",
+
+	"OnLeftAddFlags": ["factory_inspector_introduction_yes","factory_inspector_introduction_decided"],
+	"OnRightAddFlags": ["factory_inspector_introduction_no","factory_inspector_introduction_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["factory_inspectorate_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "factory_inspector_introduction",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "factory_inspectorate_introduction",
+	"SequenceIndex": 2,
+	"SequenceMode": "Immediate",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "factory_inspector_employee_motivating",
+	"Title": "Inspector Arthur",
+	"Description": "I’ll be visiting the workplaces. A bit of oversight tends to motivate the employees.",
+
+	"LeftText": "Good idea",
+	"RightText": "Not necessary",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Factory_Inspectorate",
+
+	"OnLeftAddFlags": ["factory_inspector_employee_motivating_yes","factory_inspector_employee_motivating_decided"],
+	"OnRightAddFlags": ["factory_inspector_employee_motivating_no","factory_inspector_employee_motivating_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["factory_inspector_introduction_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "factory_inspector_employee_motivating",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "factory_inspector_internal_promotion",
+	"Title": "Inspector Arthur",
+	"Description": "Competent and loyal workers should be promoted. It will set a proper example for the rest.",
+
+	"LeftText": "Approve promotions",
+	"RightText": "No changes",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Factory_Inspectorate",
+
+	"OnLeftAddFlags": ["factory_inspector_internal_promotion_yes","factory_inspector_internal_promotion_decided"],
+	"OnRightAddFlags": ["factory_inspector_internal_promotion_no","factory_inspector_internal_promotion_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["factory_inspector_introduction_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "factory_inspector_internal_promotion",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "factory_inspector_security_outposts",
+	"Title": "Inspector Arthur",
+	"Description": "We should build Security Outposts. They’ll ensure the safety of our employees while they work.",
+
+	"LeftText": "Build the outposts",
+	"RightText": "Decline the request",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 15,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": -10,
+	"RightFaith": 0,
+
+	"Pool": "Factory_Inspectorate",
+
+	"OnLeftAddFlags": ["factory_inspector_security_outposts_yes","factory_inspector_security_outposts_decided"],
+	"OnRightAddFlags": ["factory_inspector_security_outposts_no","factory_inspector_security_outposts_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["factory_inspector_employee_motivating_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "factory_inspector_security_outposts",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "factory_inspector_class_segregation",
+	"Title": "Inspector Arthur",
+	"Description": "Our best employees deserve better accommodations. Excellence should be rewarded properly.",
+
+	"LeftText": "Improve their housing",
+	"RightText": "Keep things equal",
+
+	"LeftHope": 15,
+	"LeftDiscontent": 15,
+	"LeftOrder": 0,
+	"LeftFaith": 15,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Factory_Inspectorate",
+
+	"OnLeftAddFlags": ["factory_inspector_class_segregation_yes","factory_inspector_class_segregation_decided"],
+	"OnRightAddFlags": ["factory_inspector_class_segregation_no","factory_inspector_class_segregation_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["factory_inspector_security_outposts_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "factory_inspector_class_segregation",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "factory_inspector_penal_colony",
+	"Title": "Inspector Arthur",
+	"Description": "To maintain the level of efficiency we need, we should build a Penal Colony. Convicts can be put to work there.",
+
+	"LeftText": "Approve the colony",
+	"RightText": "Bad idea",
+
+	"LeftHope": 15,
+	"LeftDiscontent": -10,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Factory_Inspectorate",
+
+	"OnLeftAddFlags": ["factory_inspector_penal_colony_yes","factory_inspector_penal_colony_decided"],
+	"OnRightAddFlags": ["factory_inspector_penal_colony_no","factory_inspector_penal_colony_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["factory_inspector_security_outposts_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "factory_inspector_penal_colony",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "factory_inspector_strike_busting",
+	"Title": "Inspector Arthur",
+	"Description": "Guards from the outposts should ensure every employee returns to work. Discipline must be maintained.",
+
+	"LeftText": "Enforce it",
+	"RightText": "Call them off",
+
+	"LeftHope": 15,
+	"LeftDiscontent": 15,
+	"LeftOrder": 15,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 0,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Factory_Inspectorate",
+
+	"OnLeftAddFlags": ["factory_inspector_strike_busting_yes","factory_inspector_strike_busting_decided"],
+	"OnRightAddFlags": ["factory_inspector_strike_busting_no","factory_inspector_strike_busting_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["factory_inspector_security_outposts_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "factory_inspector_strike_busting",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "factory_inspector_roundups",
+	"Title": "Inspector Arthur",
+	"Description": "Troublemakers can be convicted without trial. It would keep order… and expand our workforce when needed.",
+
+	"LeftText": "Authorize it",
+	"RightText": "Absolutely not",
+
+	"LeftHope": 10,
+	"LeftDiscontent": 15,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -15,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Factory_Inspectorate",
+
+	"OnLeftAddFlags": ["factory_inspector_roundups_yes","factory_inspector_roundups_decided"],
+	"OnRightAddFlags": ["factory_inspector_roundups_no","factory_inspector_roundups_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["factory_inspector_penal_colony_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "factory_inspector_roundups",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+	"Id": "factory_inspector_rationalised_healthcare",
+	"Title": "Inspector Arthur",
+	"Description": "Convicts should be kept out of our health facilities. Resources must go to those who serve the city.",
+
+	"LeftText": "Keep them out",
+	"RightText": "Allow them access",
+
+	"LeftHope": 0,
+	"LeftDiscontent": 20,
+	"LeftOrder": 0,
+	"LeftFaith": 0,
+
+	"RightHope": -10,
+	"RightDiscontent": 10,
+	"RightOrder": 0,
+	"RightFaith": 0,
+
+	"Pool": "Factory_Inspectorate",
+
+	"OnLeftAddFlags": ["factory_inspector_rationalised_healthcare_yes","factory_inspector_rationalised_healthcare_decided"],
+	"OnRightAddFlags": ["factory_inspector_rationalised_healthcare_no","factory_inspector_rationalised_healthcare_decided"],
+
+	"RequireFlagsAll": [],
+	"RequireFlagsAny": ["factory_inspector_roundups_yes"],
+	"BlockFlags": [],
+
+	"RepeatPolicy": "repeat_on_negative",
+
+	"StoryId": "factory_inspector_rationalised_healthcare",
+	"StoryStep": 1,
+	"StoryMinGap": 5,
+
+	"SequenceId": "",
+	"SequenceIndex": 1,
+	"SequenceMode": "Normal",
+
+	"RunMin": 0,
+	"RunMax": 999
+  },
+  {
+    "Id": "steward_carehouse_thanks_note",
+    "Title": "Steward Elias",
+    "Description": "Someone left a note at the Care House… thanking us for building it. It seems it truly helped.",
+
+    "LeftText": "Glad to hear it",
+    "RightText": "Back to work",
+
+    "LeftHope": 10,
+    "LeftDiscontent": 0,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": 10,
+    "RightDiscontent": 0,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Steward",
+
+    "OnLeftAddFlags": ["steward_carehouse_thanks_note_decided"],
+    "OnRightAddFlags": ["steward_carehouse_thanks_note_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["medic_care_house_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "never",
+
+    "StoryId": "steward_carehouse_thanks_note",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "steward_child_shelters_thanks_note",
+    "Title": "Steward Elias",
+    "Description": "Sir, someone left a note at the Child Shelters, thanking us for building them. It seems they brought real comfort.",
+
+    "LeftText": "Good to hear",
+    "RightText": "Awesome",
+
+    "LeftHope": 10,
+    "LeftDiscontent": 0,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": 10,
+    "RightDiscontent": 0,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Steward",
+
+    "OnLeftAddFlags": ["steward_child_shelters_thanks_note_decided"],
+    "OnRightAddFlags": ["steward_child_shelters_thanks_note_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["foreman_child_shelters_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "never",
+
+    "StoryId": "steward_thanks_note",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "foreman_child_injury",
+    "Title": "Foreman Oswin",
+    "Description": "One of the children was injured at work. Do we give them a day off to recover?",
+
+    "LeftText": "Give the day off",
+    "RightText": "Keep them working",
+
+    "LeftHope": 10,
+    "LeftDiscontent": 0,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": -10,
+    "RightDiscontent": 10,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Foreman",
+
+    "OnLeftAddFlags": ["foreman_child_injury_yes","foreman_child_injury_decided"],
+    "OnRightAddFlags": ["foreman_child_injury_no","foreman_child_injury_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["foreman_child_jobs_safe_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "foreman_child_injury",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "foreman_protective_mother",
+    "Title": "Foreman Oswin",
+    "Description": "A mother refused to send her daughter to work. How should we respond?",
+
+    "LeftText": "Respect her choice",
+    "RightText": "No exceptions",
+
+    "LeftHope": 10,
+    "LeftDiscontent": 10,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": -10,
+    "RightDiscontent": 0,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Foreman",
+
+    "OnLeftAddFlags": ["foreman_protective_mother_yes","foreman_protective_mother_decided"],
+    "OnRightAddFlags": ["foreman_protective_mother_no","foreman_protective_mother_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["foreman_child_jobs_safe_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "foreman_protective_mother",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "foreman_kids_double_rations",
+    "Title": "Foreman Oswin",
+    "Description": "People are demanding double rations for the children who work. They say it’s only fair.",
+
+    "LeftText": "Give double rations",
+    "RightText": "Deny the request",
+
+    "LeftHope": 10,
+    "LeftDiscontent": -5,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": -10,
+    "RightDiscontent": 0,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Foreman",
+
+    "OnLeftAddFlags": ["foreman_kids_double_rations_yes","foreman_kids_double_rations_decided"],
+    "OnRightAddFlags": ["foreman_kids_double_rations_no","foreman_kids_double_rations_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["foreman_child_jobs_safe_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "foreman_kids_double_rations",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "steward_woman_in_despair",
+    "Title": "Steward Elias",
+    "Description": "Sir… a woman is sitting in the snow pit, holding her dead husband’s hand. She won’t leave him. Should we bury him now?",
+
+    "LeftText": "We need cemetery",
+    "RightText": "Nowhere to bury",
+
+    "LeftHope": 0,
+    "LeftDiscontent": 10,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": -10,
+    "RightDiscontent": 0,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Steward",
+
+    "OnLeftAddFlags": ["steward_woman_in_despair_yes","steward_woman_in_despair_decided"],
+    "OnRightAddFlags": ["steward_woman_in_despair_no","steward_woman_in_despair_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["captain_corpse_disposal_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "steward_woman_in_despair",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "foreman_overwork_death",
+    "Title": "Foreman Oswin",
+    "Description": "A man collapsed and died during the emergency shift. Do we end the shifts now?",
+
+    "LeftText": "End the shifts",
+    "RightText": "Keep them running",
+
+    "LeftHope": 10,
+    "LeftDiscontent": 0,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": -10,
+    "RightDiscontent": 10,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Foreman",
+
+    "OnLeftAddFlags": ["foreman_overwork_death_yes","foreman_overwork_death_decided"],
+    "OnRightAddFlags": ["foreman_overwork_death_no","foreman_overwork_death_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["foreman_emergency_shift_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "foreman_overwork_death",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "steward_first_duel_death",
+    "Title": "Steward Elias",
+    "Description": "A man has died after a duel. The people are unsettled… and some are questioning the practice.",
+
+    "LeftText": "Say nothing",
+    "RightText": "Hope its settled",
+
+    "LeftHope": 0,
+    "LeftDiscontent": 15,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": 0,
+    "RightDiscontent": 15,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Steward",
+
+    "OnLeftAddFlags": ["steward_first_duel_death_yes","steward_first_duel_death_decided"],
+    "OnRightAddFlags": ["steward_first_duel_death_no","steward_first_duel_death_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["steward_duelling_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "steward_first_duel_death",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "foreman_refusal_to_work",
+    "Title": "Foreman Oswin",
+    "Description": "One of the men assigned to the emergency shift has refused to work. How should we respond?",
+
+    "LeftText": "Discipline him",
+    "RightText": "Let it go this time",
+
+    "LeftHope": 0,
+    "LeftDiscontent": 15,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": 0,
+    "RightDiscontent": 15,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Foreman",
+
+    "OnLeftAddFlags": ["foreman_refusal_to_work_yes","foreman_refusal_to_work_decided"],
+    "OnRightAddFlags": ["foreman_refusal_to_work_no","foreman_refusal_to_work_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["foreman_emergency_shift_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "foreman_refusal_to_work",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "foreman_overtime_food",
+    "Title": "Foreman Oswin",
+    "Description": "The emergency workers are demanding extra rations for all the overtime they’ve put in.",
+
+    "LeftText": "Give extra",
+    "RightText": "Keep equal",
+
+    "LeftHope": 10,
+    "LeftDiscontent": -10,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": 0,
+    "RightDiscontent": 15,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Foreman",
+
+    "OnLeftAddFlags": ["foreman_overtime_food_yes","foreman_overtime_food_decided"],
+    "OnRightAddFlags": ["foreman_overtime_food_no","foreman_overtime_food_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["foreman_emergency_shift_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "foreman_overtime_food",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "foreman_apathy",
+    "Title": "Foreman Oswin",
+    "Description": "The people you pushed to work harder are moving slowly now. They don’t believe we’ll survive this hell. Should we end the shift?",
+
+    "LeftText": "End the shift",
+    "RightText": "Keep it going",
+
+    "LeftHope": 15,
+    "LeftDiscontent": -10,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": -15,
+    "RightDiscontent": 10,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Foreman",
+
+    "OnLeftAddFlags": ["foreman_apathy_yes","foreman_apathy_decided"],
+    "OnRightAddFlags": ["foreman_apathy_no","foreman_apathy_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["foreman_emergency_shift_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "foreman_apathy",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "foreman_high_spirits",
+    "Title": "Foreman Oswin",
+    "Description": "The workers you ordered to stay for the emergency shift returned to work without a single complaint.",
+
+    "LeftText": "Good to hear",
+    "RightText": "That's the spirit!",
+
+    "LeftHope": 15,
+    "LeftDiscontent": -10,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": 15,
+    "RightDiscontent": -10,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Foreman",
+
+    "OnLeftAddFlags": ["foreman_high_spirits_yes","foreman_high_spirits_decided"],
+    "OnRightAddFlags": ["foreman_high_spirits_no","foreman_high_spirits_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["foreman_emergency_shift_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "foreman_high_spirits",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "foreman_many_shifts",
+    "Title": "Foreman Oswin",
+    "Description": "People are starting to question why we keep calling so many emergency shifts. Should we stop them for now?",
+
+    "LeftText": "Stop the shifts",
+    "RightText": "No questioning",
+
+    "LeftHope": 10,
+    "LeftDiscontent": -10,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": -15,
+    "RightDiscontent": 10,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Foreman",
+
+    "OnLeftAddFlags": ["foreman_many_shifts_yes","foreman_many_shifts_decided"],
+    "OnRightAddFlags": ["foreman_many_shifts_no","foreman_many_shifts_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["foreman_emergency_shift_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "foreman_many_shifts",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "foreman_extended_shift_break",
+    "Title": "Foreman Oswin",
+    "Description": "The workers are exhausted from these extended shifts. Should we grant them a break?",
+
+    "LeftText": "Let them rest",
+    "RightText": "No break yet",
+
+    "LeftHope": 10,
+    "LeftDiscontent": -10,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": -15,
+    "RightDiscontent": 10,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Foreman",
+
+    "OnLeftAddFlags": ["foreman_extended_shift_break_yes","foreman_extended_shift_break_decided"],
+    "OnRightAddFlags": ["foreman_extended_shift_break_no","foreman_extended_shift_break_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["foreman_extended_shift_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "foreman_extended_shift_break",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "steward_pleasure_suicide",
+    "Title": "Steward Elias",
+    "Description": "Someone took their own life in the House of Pleasure. The staff are shaken… and people are already talking.",
+
+    "LeftText": "Close it temporarily",
+    "RightText": "Nothing to say",
+
+    "LeftHope": 0,
+    "LeftDiscontent": 10,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": 0,
+    "RightDiscontent": 10,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Steward",
+
+    "OnLeftAddFlags": ["steward_pleasure_suicide_yes","steward_pleasure_suicide_decided"],
+    "OnRightAddFlags": ["steward_pleasure_suicide_no","steward_pleasure_suicide_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["steward_house_of_pleasure_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "steward_pleasure_suicide",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "cook_drunken_venting",
+    "Title": "Cook Maeve",
+    "Description": "There’s a drunken man shouting in the Cookhouse… saying there’s no hope left. He’s stirring everyone up.",
+
+    "LeftText": "Calm him down",
+    "RightText": "Take him away",
+
+    "LeftHope": 10,
+    "LeftDiscontent": 10,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": -10,
+    "RightDiscontent": 10,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Cook",
+
+    "OnLeftAddFlags": ["cook_drunken_venting_yes","cook_drunken_venting_decided"],
+    "OnRightAddFlags": ["cook_drunken_venting_no","cook_drunken_venting_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["steward_house_of_pleasure_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "cook_drunken_venting",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "cook_drunken_venting",
+    "Title": "Cook Maeve",
+    "Description": "There’s a drunken man shouting in the Cookhouse… saying there’s no hope left. He’s stirring everyone up.",
+
+    "LeftText": "Calm him down",
+    "RightText": "Take him away",
+
+    "LeftHope": 10,
+    "LeftDiscontent": 10,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": -10,
+    "RightDiscontent": 10,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Cook",
+
+    "OnLeftAddFlags": ["cook_drunken_venting_yes","cook_drunken_venting_decided"],
+    "OnRightAddFlags": ["cook_drunken_venting_no","cook_drunken_venting_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": [],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "cook_drunken_venting",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "cook_drunken_venting_2",
+    "Title": "Cook Maeve",
+    "Description": "There’s a drunken man shouting in the Cookhouse again… saying there’s no hope left. He’s upsetting everyone.",
+
+    "LeftText": "Calm him down",
+    "RightText": "Guards!",
+
+    "LeftHope": 10,
+    "LeftDiscontent": 10,
+    "LeftOrder": 10,
+    "LeftFaith": 0,
+
+    "RightHope": -10,
+    "RightDiscontent": 10,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Cook",
+
+    "OnLeftAddFlags": ["cook_drunken_venting_2_yes","cook_drunken_venting_2_decided"],
+    "OnRightAddFlags": ["cook_drunken_venting_2_no","cook_drunken_venting_2_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["cook_drunken_venting_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "cook_drunken_venting",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "engineer_radical_treatment_upgrade",
+    "Title": "Senior Engineer David",
+    "Description": "One of our engineers wants to pursue Radical Treatment. He’s devised a method that could reduce the number of amputations.",
+
+    "LeftText": "Let him proceed",
+    "RightText": "Not now",
+
+    "LeftHope": 10,
+    "LeftDiscontent": 0,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": -10,
+    "RightDiscontent": 0,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Engineer",
+
+    "OnLeftAddFlags": ["engineer_radical_treatment_upgrade_yes","engineer_radical_treatment_upgrade_decided"],
+    "OnRightAddFlags": ["engineer_radical_treatment_upgrade_no","engineer_radical_treatment_upgrade_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["medic_radical_treatment_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "engineer_radical_treatment_upgrade",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "steward_proud_man_ch",
+    "Title": "Steward Elias",
+    "Description": "A man who’s lost his hand says he can’t work… and can’t pay for a house. He’s asking us to build a Care House.",
+
+    "LeftText": "Build the Care House",
+    "RightText": "We can't afford it",
+
+    "LeftHope": 10,
+    "LeftDiscontent": -10,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": -10,
+    "RightDiscontent": 10,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Steward",
+
+    "OnLeftAddFlags": ["steward_proud_man_ch_yes","steward_proud_man_ch_decided"],
+    "OnRightAddFlags": ["steward_proud_man_ch_no","steward_proud_man_ch_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["medic_care_house_no"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "steward_proud_man_ch",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "foreman_locked_up",
+    "Title": "Foreman Oswin",
+    "Description": "One of our men didn’t arrive for work today. He says the Faith Keepers blocked his way… trying to force him to change his beliefs.",
+
+    "LeftText": "Punish Faith Keepers",
+    "RightText": "Force the man",
+
+    "LeftHope": 10,
+    "LeftDiscontent": -10,
+    "LeftOrder": 10,
+    "LeftFaith": 0,
+
+    "RightHope": -10,
+    "RightDiscontent": 10,
+    "RightOrder": 0,
+    "RightFaith": 10,
+
+    "Pool": "Foreman",
+
+    "OnLeftAddFlags": ["foreman_locked_up_yes","foreman_locked_up_decided"],
+    "OnRightAddFlags": ["foreman_locked_up_no","foreman_locked_up_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["priest_faith_keepers_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "foreman_locked_up",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "steward_cookhouse_helpers",
+    "Title": "Steward Elias",
+    "Description": "Sir, some of the amputees are asking to work in the Cookhouse. They can’t return to the mines, but they still want to contribute.",
+
+    "LeftText": "Let them work",
+    "RightText": "They should rest",
+
+    "LeftHope": 10,
+    "LeftDiscontent": -10,
+    "LeftOrder": 10,
+    "LeftFaith": 0,
+
+    "RightHope": -10,
+    "RightDiscontent": 10,
+    "RightOrder": 0,
+    "RightFaith": 10,
+
+    "Pool": "Steward",
+
+    "OnLeftAddFlags": ["steward_cookhouse_helpers_yes","steward_cookhouse_helpers_decided"],
+    "OnRightAddFlags": ["steward_cookhouse_helpers_no","steward_cookhouse_helpers_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": [],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "steward_cookhouse_helpers",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "inventor_desperate_thief",
+    "Title": "Inventor Silas",
+    "Description": "An amputee was caught stealing from the stockpiles. He took materials to try making a prosthesis for himself.",
+
+    "LeftText": "Let him keep them",
+    "RightText": "Take the materials",
+
+    "LeftHope": 10,
+    "LeftDiscontent": -10,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": -10,
+    "RightDiscontent": 0,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Inventor",
+
+    "OnLeftAddFlags": ["inventor_desperate_thief_yes","inventor_desperate_thief_decided"],
+    "OnRightAddFlags": ["inventor_desperate_thief_no","inventor_desperate_thief_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["engineer_workshop_prosthetics_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "inventor_desperate_thief",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "medic_amputation_1",
+    "Title": "Medic Helena",
+    "Description": "To save a patient’s life, I had to perform an amputation. They’ll survive… but they won’t be able to work anymore.",
+
+    "LeftText": "Support the patient",
+    "RightText": "You did everything",
+
+    "LeftHope": 10,
+    "LeftDiscontent": 0,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": 10,
+    "RightDiscontent": 0,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Medic",
+
+    "OnLeftAddFlags": ["medic_amputation_1_yes","medic_amputation_1_decided"],
+    "OnRightAddFlags": ["medic_amputation_1_no","medic_amputation_1_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["medic_radical_treatment_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "medic_amputation_1",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "medic_amputation_2",
+    "Title": "Medic Helena",
+    "Description": "One of our people is close to death. If we don’t remove the leg, we may lose him entirely.",
+
+    "LeftText": "Perform the amputation",
+    "RightText": "Risk it without surgery",
+
+    "LeftHope": 10,
+    "LeftDiscontent": 10,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": -10,
+    "RightDiscontent": -10,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Medic",
+
+    "OnLeftAddFlags": ["medic_amputation_2_yes","medic_amputation_2_decided"],
+    "OnRightAddFlags": ["medic_amputation_2_no","medic_amputation_2_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["medic_radical_treatment_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "medic_amputation_2",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "medic_amputation_3",
+    "Title": "Medic Helena",
+    "Description": "The man whose leg we removed is thanking us. He knows we saved his life.",
+
+    "LeftText": "Accept his gratitude",
+    "RightText": "Nice to hear",
+
+    "LeftHope": 15,
+    "LeftDiscontent": 0,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": 15,
+    "RightDiscontent": 0,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Medic",
+
+    "OnLeftAddFlags": ["medic_amputation_3_yes","medic_amputation_3_decided"],
+    "OnRightAddFlags": ["medic_amputation_3_no","medic_amputation_3_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["medic_amputation_2_yes"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "never",
+
+    "StoryId": "medic_amputation_3",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
+  },
+  {
+    "Id": "medic_amputation_4",
+    "Title": "Medic Helena",
+    "Description": "The man whose leg we didn’t remove… he’s died from gangrene. We couldn’t stop it.",
+
+    "LeftText": "Oh no...",
+    "RightText": "My fault...",
+
+    "LeftHope": -15,
+    "LeftDiscontent": 0,
+    "LeftOrder": 0,
+    "LeftFaith": 0,
+
+    "RightHope": -15,
+    "RightDiscontent": 0,
+    "RightOrder": 0,
+    "RightFaith": 0,
+
+    "Pool": "Medic",
+
+    "OnLeftAddFlags": ["medic_amputation_4_yes","medic_amputation_4_decided"],
+    "OnRightAddFlags": ["medic_amputation_4_no","medic_amputation_4_decided"],
+
+    "RequireFlagsAll": [],
+    "RequireFlagsAny": ["medic_amputation_2_no"],
+    "BlockFlags": [],
+
+    "RepeatPolicy": "repeat_on_negative",
+
+    "StoryId": "medic_amputation_4",
+    "StoryStep": 1,
+    "StoryMinGap": 5,
+
+    "SequenceId": "",
+    "SequenceIndex": 1,
+    "SequenceMode": "Normal",
+
+    "RunMin": 0,
+    "RunMax": 999
   }
 ]
