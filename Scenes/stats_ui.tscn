@@ -25,10 +25,12 @@ corner_radius_bottom_left = 5
 
 [node name="Stats_UI" type="Control"]
 layout_mode = 3
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 0.167
+offset_bottom = 180.0
 grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_dv0x8")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -132,9 +134,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -1.0
+offset_left = -2.5
 offset_top = -17.0
-offset_right = 4.0
+offset_right = 2.5
 offset_bottom = -12.0
 grow_horizontal = 2
 texture = SubResource("CanvasTexture_dv0x8")

@@ -93,10 +93,10 @@ func _on_stat_threshold_reached(stat_name: String, value: int) -> void:
 
 func _get_death_card_id() -> String:
 	var upper := _death_stat.to_upper()
-	var t := 0
-	if _death_value >= 100:
-		t = 100
-	return "DEATH_%s_%d" % [upper, t]
+	var suffix := "LOW"
+	if _death_value > 100:
+		suffix = "HIGH"
+	return "DEATH_%s_%s" % [upper, suffix]
 
 
 func _build_final_death_card() -> Dictionary:

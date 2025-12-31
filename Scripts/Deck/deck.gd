@@ -107,7 +107,6 @@ func draw() -> Dictionary:
 		attempts -= 1
 		var card = _deck.pop_back()
 		if _is_card_drawable(card):
-			_enqueue_sequence_if_needed(card)
 			return card
 
 	# Try once more after refill
@@ -119,7 +118,6 @@ func draw() -> Dictionary:
 		attempts -= 1
 		var card2 = _deck.pop_back()
 		if _is_card_drawable(card2):
-			_enqueue_sequence_if_needed(card2)
 			return card2
 
 	return {}  # nothing found
@@ -131,7 +129,6 @@ func _draw_from_starter_pool() -> Dictionary:
 		var card = _deck[i]
 		if card.get("Pool", "") == "Starter" and _is_card_drawable(card):
 			_deck.remove_at(i)
-			_enqueue_sequence_if_needed(card)
 			return card
 		i -= 1
 	return {}  # no usable Starter cards left
@@ -194,13 +191,26 @@ func _lock_card(card_id: String) -> void:
 
 
 # ---------------------------------------------------
-# Sequence system
+# Sequence system (Immediate + SequenceAdvanceOn)
 # ---------------------------------------------------
 
-func _enqueue_sequence_if_needed(card: Dictionary) -> void:
+func _should_advance_sequence(card: Dictionary, chosen_side: String) -> bool:
+	# chosen_side is JSON original side: "left" or "right"
 	if card.get("SequenceMode", "Normal") != "Immediate":
-		return
+		return false
 
+	var advance_on: String = card.get("SequenceAdvanceOn", "Any")
+	if advance_on == "Any":
+		return true
+	if advance_on == "Positive":
+		return chosen_side == "left"
+	if advance_on == "Negative":
+		return chosen_side == "right"
+
+	# unknown value -> safe default
+	return true
+
+func _queue_next_sequence_step(card: Dictionary) -> void:
 	var sid: String = card.get("SequenceId", "")
 	if sid == "":
 		return
@@ -210,7 +220,9 @@ func _enqueue_sequence_if_needed(card: Dictionary) -> void:
 
 	for c in _raw_cards:
 		if c.get("SequenceId", "") == sid and int(c.get("SequenceIndex", 0)) == next_index:
-			_sequence_queue.append(c)
+			# IMPORTANT: still apply normal gating (flags/runmin/blockflags/locks)
+			if _is_card_drawable(c):
+				_sequence_queue.append(c)
 			break
 
 
@@ -262,15 +274,16 @@ func prepare_presented(card: Dictionary) -> Dictionary:
 
 
 # ---------------------------------------------------
-# Commit event: flags + RepeatPolicy
+# Commit event: flags + sequence advance + RepeatPolicy
 # ---------------------------------------------------
 
 func on_card_committed(card_id: String, side: String) -> void:
+	# side is JSON original side: "left" or "right"
 	var card = find_card_by_id(card_id)
 	if card.is_empty():
 		return
 
-	# Add flags
+	# 1) Add flags
 	var flist: Array = []
 	if side == "left":
 		flist = card.get("OnLeftAddFlags", [])
@@ -280,20 +293,26 @@ func on_card_committed(card_id: String, side: String) -> void:
 	for f in flist:
 		add_flag(str(f))
 
-	# RepeatPolicy
+	# 2) Immediate sequence advance (choice-dependent)
+	if _should_advance_sequence(card, side):
+		_queue_next_sequence_step(card)
+
+	# 3) RepeatPolicy
 	var policy: String = card.get("RepeatPolicy", "never")
 
 	if policy == "never":
 		_lock_card(card_id)
 
 	elif policy == "repeat_on_negative":
-		# Default: left = positive, right = negative
+		# Default: JSON left = positive, JSON right = negative
 		if side == "left":
 			_lock_card(card_id)
 		else:
 			pass  # right side → card stays in deck
 
 	# policy == "always" → do nothing
+
+
 func find_card_by_id(id: String) -> Dictionary:
 	for card in _raw_cards:
 		if card.get("Id", "") == id:

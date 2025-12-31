@@ -10,14 +10,33 @@ var order: int = 50
 var faith: int = 50
 
 func apply_effects(effect: Dictionary) -> void:
+	# apply deltas
 	hope += int(effect.get("Hope", 0))
 	discontent += int(effect.get("Discontent", 0))
 	order += int(effect.get("Order", 0))
 	faith += int(effect.get("Faith", 0))
 
+	# check death BEFORE clamping (so we can detect <0 or >100)
+	_check_out_of_bounds()
+
+	# now clamp for UI display
 	_clamp_stats()
 	_emit()
-	_check_thresholds()
+
+func _check_out_of_bounds() -> void:
+	# Emit only one, fixed priority
+	if hope < 0 or hope > 100:
+		stat_threshold_reached.emit("hope", hope)
+		return
+	if discontent < 0 or discontent > 100:
+		stat_threshold_reached.emit("discontent", discontent)
+		return
+	if order < 0 or order > 100:
+		stat_threshold_reached.emit("order", order)
+		return
+	if faith < 0 or faith > 100:
+		stat_threshold_reached.emit("faith", faith)
+		return
 
 func _clamp_stats() -> void:
 	hope = clamp(hope, 0, 100)
@@ -26,25 +45,7 @@ func _clamp_stats() -> void:
 	faith = clamp(faith, 0, 100)
 
 func _emit() -> void:
-	emit_signal("stats_changed", hope, discontent, order, faith)
-
-func _check_thresholds() -> void:
-	# Only emit one threshold per apply, in a fixed priority
-	if hope == 0 or hope == 100:
-		emit_signal("stat_threshold_reached", "hope", hope)
-		return
-
-	if discontent == 0 or discontent == 100:
-		emit_signal("stat_threshold_reached", "discontent", discontent)
-		return
-
-	if order == 0 or order == 100:
-		emit_signal("stat_threshold_reached", "order", order)
-		return
-
-	if faith == 0 or faith == 100:
-		emit_signal("stat_threshold_reached", "faith", faith)
-		return
+	stats_changed.emit(hope, discontent, order, faith)
 
 func reset() -> void:
 	hope = 50

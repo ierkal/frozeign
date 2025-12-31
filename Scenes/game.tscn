@@ -29,6 +29,7 @@ layout_mode = 1
 [node name="StatsUI" parent="CanvasLayer/Container_UI" instance=ExtResource("3_wowpa")]
 unique_name_in_owner = true
 layout_mode = 1
+offset_bottom = 192.0
 
 [node name="SurvivedDays" parent="CanvasLayer/Container_UI" instance=ExtResource("7_1l0tm")]
 unique_name_in_owner = true

@@ -153,6 +153,8 @@ func _toggle_panel(p: Panel, open: bool, is_left: bool) -> void:
 		else:
 			_tween_right.tween_property(p, "scale:y", 0.0, 0.1).from_current()
 
+
+
 # --------------------
 # SOFT RESET SUPPORT
 # --------------------
