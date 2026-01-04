@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cn31jxeya8jq7"]
+[gd_scene load_steps=18 format=3 uid="uid://cn31jxeya8jq7"]
 
 [ext_resource type="Script" uid="uid://cna0e7pkfcfu6" path="res://Scripts/Stats/stats_ui.gd" id="1_dv0x8"]
+[ext_resource type="Script" uid="uid://3rnobee1mk67" path="res://Scripts/Stats/stats_ui_button.gd" id="2_bqow0"]
 [ext_resource type="Texture2D" uid="uid://cfbqj41xyq81q" path="res://Assets/Sprites/Heat.png" id="2_sw22t"]
 [ext_resource type="Texture2D" uid="uid://bexr0jyftupgh" path="res://Assets/Sprites/hope.png" id="2_yvg2w"]
 [ext_resource type="Texture2D" uid="uid://ctjdvlbkx3oo4" path="res://Assets/Sprites/HeatProgress.png" id="3_bqow0"]
@@ -23,14 +24,24 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_dv0x8"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sw22t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqow0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8v0cf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ftspl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oysga"]
+
 [node name="Stats_UI" type="Control"]
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 180.0
+offset_bottom = 148.0
 grow_horizontal = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_dv0x8")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -49,15 +60,18 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_sw22t")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 20
+theme_override_constants/separation = 55
+alignment = 1
 
 [node name="Faith" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(84, 84)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 value = 50.0
 fill_mode = 3
+nine_patch_stretch = true
 texture_under = ExtResource("2_sw22t")
 texture_progress = ExtResource("3_bqow0")
 
@@ -68,18 +82,22 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -1.0
+offset_left = -2.5
 offset_top = -17.0
-offset_right = 4.0
+offset_right = 2.5
 offset_bottom = -12.0
 grow_horizontal = 2
 texture = SubResource("CanvasTexture_dv0x8")
 
 [node name="Hope" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(84, 84)
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 value = 50.0
 fill_mode = 3
+nine_patch_stretch = true
 texture_under = ExtResource("8_oysga")
 texture_progress = ExtResource("9_yyw1w")
 
@@ -99,9 +117,13 @@ texture = SubResource("CanvasTexture_dv0x8")
 
 [node name="Order" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(84, 84)
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 value = 50.0
 fill_mode = 3
+nine_patch_stretch = true
 texture_under = ExtResource("4_8v0cf")
 texture_progress = ExtResource("5_sw22t")
 
@@ -121,9 +143,13 @@ texture = SubResource("CanvasTexture_dv0x8")
 
 [node name="Discontent" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(84, 84)
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 value = 50.0
 fill_mode = 3
+nine_patch_stretch = true
 texture_under = ExtResource("2_yvg2w")
 texture_progress = ExtResource("3_wvi1r")
 
@@ -140,3 +166,18 @@ offset_right = 2.5
 offset_bottom = -12.0
 grow_horizontal = 2
 texture = SubResource("CanvasTexture_dv0x8")
+
+[node name="MenuButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sw22t")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bqow0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8v0cf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ftspl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oysga")
+script = ExtResource("2_bqow0")

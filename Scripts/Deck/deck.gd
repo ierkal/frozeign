@@ -1,6 +1,9 @@
 extends Node
 class_name Deck
 
+
+signal flag_added_signal(flag_name)
+
 var _raw_cards: Array = []         # all cards loaded from JSON
 var _deck: Array = []              # working deck (shuffled)
 var _flags: Dictionary = {}        # active flag set { "flag": true }
@@ -8,11 +11,15 @@ var _card_states: Dictionary = {}  # per-card states { id: { "locked": bool } }
 var _sequence_queue: Array = []    # forced next cards (Immediate sequences)
 var current_chief_index: int = 0   # controlled by GameManager
 
+# NEW: Tracks which pools are currently unlocked
+var _unlocked_pools: Dictionary = {}
+
 var _use_starter_phase: bool = false  # draw starter cards first
 
 
 func _ready() -> void:
 	randomize()
+	_reset_unlocked_pools()
 
 
 # ---------------------------------------------------
@@ -28,12 +35,40 @@ func set_current_chief_index(idx: int) -> void:
 func add_flag(flag_name: String) -> void:
 	if flag_name == "":
 		return
+	
+	# Eğer bu bayrak zaten varsa tekrar ekleme/sinyal gönderme (isteğe bağlı)
+	if _flags.has(flag_name):
+		return
+
 	_flags[flag_name] = true
+	
+	# YENİ: Görev yöneticisine (veya dinleyen herkese) haber ver
+	emit_signal("flag_added_signal", flag_name)
 
 func has_flag(flag_name: String) -> bool:
 	return _flags.get(flag_name, false)
 
+# NEW: Pool Management
+func unlock_pool(pool_name: String) -> void:
+	if pool_name == "":
+		return
+	_unlocked_pools[pool_name] = true
+	# Optional: If you want to immediately shuffle in cards from this new pool,
+	# you might want to call _refill_deck() here, or wait until the deck runs out.
+	# For now, we'll wait for the next refill or user interaction.
 
+func is_pool_unlocked(pool_name: String) -> bool:
+	return _unlocked_pools.has(pool_name)
+
+func _reset_unlocked_pools() -> void:
+	_unlocked_pools.clear()
+	# Only Starter is unlocked by default
+	_unlocked_pools["Starter"] = true
+	
+func soft_reset_deck() -> void:
+	_deck.clear()
+	_refill_deck() # Sadece desteyi kartlarla tekrar dolduruyoruz
+	#_sequence_queue.clear() # Varsa yarım kalmış sequenceleri temizle
 # ---------------------------------------------------
 # Loading
 # ---------------------------------------------------
@@ -71,6 +106,7 @@ func _refill_deck() -> void:
 	_deck.shuffle()
 
 func reset_deck() -> void:
+	_reset_unlocked_pools()
 	_refill_deck()
 
 
@@ -127,6 +163,7 @@ func _draw_from_starter_pool() -> Dictionary:
 	var i := _deck.size() - 1
 	while i >= 0:
 		var card = _deck[i]
+		# Even in starter phase, we check if it's drawable (locked, etc.)
 		if card.get("Pool", "") == "Starter" and _is_card_drawable(card):
 			_deck.remove_at(i)
 			return card
@@ -140,23 +177,28 @@ func _draw_from_starter_pool() -> Dictionary:
 
 func _is_card_drawable(card: Dictionary) -> bool:
 	var id: String = card.get("Id", "")
+	var pool: String = card.get("Pool", "")
 
-	# Locked card? Skip.
+	# 1. Pool Lock Check (NEW)
+	if not is_pool_unlocked(pool):
+		return false
+
+	# 2. Locked card (RepeatPolicy)? Skip.
 	if _is_locked(id):
 		return false
 
-	# RunMin / RunMax (chief-based progression)
+	# 3. RunMin / RunMax (chief-based progression)
 	var run_min := int(card.get("RunMin", 0))
 	var run_max := int(card.get("RunMax", 999))
 	if current_chief_index < run_min or current_chief_index > run_max:
 		return false
 
-	# RequireFlagsAll
+	# 4. RequireFlagsAll
 	for f in card.get("RequireFlagsAll", []):
 		if not has_flag(str(f)):
 			return false
 
-	# RequireFlagsAny
+	# 5. RequireFlagsAny
 	var any_list: Array = card.get("RequireFlagsAny", [])
 	if any_list.size() > 0:
 		var ok := false
@@ -167,7 +209,7 @@ func _is_card_drawable(card: Dictionary) -> bool:
 		if not ok:
 			return false
 
-	# BlockFlags
+	# 6. BlockFlags
 	for bf in card.get("BlockFlags", []):
 		if has_flag(str(bf)):
 			return false
@@ -207,7 +249,6 @@ func _should_advance_sequence(card: Dictionary, chosen_side: String) -> bool:
 	if advance_on == "Negative":
 		return chosen_side == "right"
 
-	# unknown value -> safe default
 	return true
 
 func _queue_next_sequence_step(card: Dictionary) -> void:
@@ -219,13 +260,18 @@ func _queue_next_sequence_step(card: Dictionary) -> void:
 	var next_index := current_index + 1
 
 	for c in _raw_cards:
+		# Sequence ID ve Index eşleşiyor mu?
 		if c.get("SequenceId", "") == sid and int(c.get("SequenceIndex", 0)) == next_index:
-			# IMPORTANT: still apply normal gating (flags/runmin/blockflags/locks)
+			
+			# Kart çekilebilir durumda mı? (Flag'ler, kilitler vs.)
+			# NOT: Bir önceki cevabımdaki 'ignore_pool_lock' parametresini eklediysen
+			# burayı: if _is_card_drawable(c, true): yapmalısın.
 			if _is_card_drawable(c):
 				_sequence_queue.append(c)
-			break
-
-
+				break # SADECE uygun kartı bulup eklediysek döngüyü bitir!
+			
+			# Eğer kart uygun değilse (örn: yanlış flag), döngü KIRILMAZ,
+			# sıradaki diğer (alternatif) kartı aramaya devam eder.
 # ---------------------------------------------------
 # Presentation (given to CardUI)
 # ---------------------------------------------------
@@ -258,13 +304,13 @@ func prepare_presented(card: Dictionary) -> Dictionary:
 
 	var swap := randi() % 2 == 0
 	if swap:
-		# UI'de sol tarafta aslında JSON'daki RIGHT branch var
+		# UI Left = JSON Right
 		present.left = right
 		present.right = left
 		present["ui_left_original"] = "right"
 		present["ui_right_original"] = "left"
 	else:
-		# UI sol = JSON sol, UI sağ = JSON sağ
+		# UI Left = JSON Left
 		present.left = left
 		present.right = right
 		present["ui_left_original"] = "left"
@@ -292,12 +338,22 @@ func on_card_committed(card_id: String, side: String) -> void:
 
 	for f in flist:
 		add_flag(str(f))
+		
+	# 2) Unlock Pools (NEW)
+	var unlock_list: Array = []
+	if side == "left":
+		unlock_list = card.get("OnLeftUnlockPools", [])
+	else:
+		unlock_list = card.get("OnRightUnlockPools", [])
+		
+	for p in unlock_list:
+		unlock_pool(str(p))
 
-	# 2) Immediate sequence advance (choice-dependent)
+	# 3) Immediate sequence advance (choice-dependent)
 	if _should_advance_sequence(card, side):
 		_queue_next_sequence_step(card)
 
-	# 3) RepeatPolicy
+	# 4) RepeatPolicy
 	var policy: String = card.get("RepeatPolicy", "never")
 
 	if policy == "never":
@@ -318,3 +374,4 @@ func find_card_by_id(id: String) -> Dictionary:
 		if card.get("Id", "") == id:
 			return card
 	return {}
+	
