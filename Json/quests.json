@@ -1,0 +1,47 @@
+﻿[
+  {
+    "id": "quest_hire_foreman",
+    "order": 1,
+    "title": "Foreman",
+    "description": "Hire a Foreman",
+    "target_flags": [
+      "steward_foreman_1_interview_end_yes",
+      "steward_foreman_2_interview_end_yes",
+      "steward_foreman_3_interview_end_yes",
+      "steward_foreman_4_interview_end_decided"
+    ],
+    "auto_start": true,
+    "reward_text": "Hire a Foreman completed!"
+  },
+  {
+    "id": "quest_build_shelter",
+    "title": "Shelter",
+    "order": 1,
+    "description": "Build a Shelter",
+    "target_flags": [
+      "john_cold_night_decided"
+    ],
+    "auto_start": true,
+    "reward_text": "Build a Shelter completed!"
+  },{
+  "id": "quest_hire_medic",
+  "title": "Medic",
+  "order": 2,
+  "description": "Hire a Medic",
+  "target_flags": [
+    ""
+  ],
+  "auto_start": true,
+  "reward_text": "Build a Shelter completed!"
+},{
+  "id": "quest_hire_explorer",
+  "title": "Explorer",
+  "order": 2,
+  "description": "Hire a Explorer",
+  "target_flags": [
+    ""
+  ],
+  "auto_start": true,
+  "reward_text": "Build a Shelter completed!"
+}
+]

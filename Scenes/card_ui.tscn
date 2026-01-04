@@ -1,25 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://dh3iui73lwbai"]
+[gd_scene load_steps=9 format=3 uid="uid://dh3iui73lwbai"]
 
 [ext_resource type="Script" uid="uid://c7xwphipltatm" path="res://Scripts/Card/card_ui.gd" id="1_y8epe"]
 [ext_resource type="PackedScene" uid="uid://b8bsyifay8tjn" path="res://Scenes/card.tscn" id="2_y8epe"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8epe"]
-bg_color = Color(0.34117648, 0.5529412, 0.627451, 0.3647059)
-border_width_left = 3
-border_width_right = 3
-border_width_bottom = 3
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="3_2ndah"]
+[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="3_7w5n5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ndah"]
-font_size = 31
+font_size = 32
 
-[sub_resource type="LabelSettings" id="LabelSettings_lgc0u"]
-font_size = 21
+[sub_resource type="LabelSettings" id="LabelSettings_278fk"]
+font = ExtResource("3_7w5n5")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_vxiou"]
+font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_y8epe"]
+font = ExtResource("3_7w5n5")
 font_size = 25
 
 [node name="Card_UI" type="Control"]
@@ -34,26 +31,21 @@ grow_vertical = 2
 script = ExtResource("1_y8epe")
 card_scene = ExtResource("2_y8epe")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_y8epe")
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
-layout_mode = 2
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.5258789e-05
+offset_right = 647.0
+offset_bottom = 815.0
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="CardDescription" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="CardDescription" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -63,36 +55,41 @@ label_settings = SubResource("LabelSettings_2ndah")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+script = ExtResource("3_2ndah")
+_max_size = 32
+_min_size = 16
+_current_font_size = 32
+_editor_defaults_set = true
 
-[node name="Control" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureParent" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Control"]
+[node name="TextureParent" type="TextureRect" parent="MarginContainer/VBoxContainer/Control"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -309.0
-offset_top = -326.5
-offset_right = 309.0
-offset_bottom = 326.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 62.0
+offset_bottom = -42.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.92
 stretch_mode = 5
 
-[node name="DecisionTexts" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/Control"]
+[node name="Card" parent="MarginContainer/VBoxContainer/Control/TextureParent" instance=ExtResource("2_y8epe")]
+visible = false
+layout_mode = 1
+
+[node name="DecisionTexts" type="Control" parent="MarginContainer/VBoxContainer/Control"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Control/DecisionTexts"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control/DecisionTexts"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,12 +98,12 @@ offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ChoiceBGLeft" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer"]
+[node name="ChoiceBGLeft" type="Panel" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LeftText" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer/ChoiceBGLeft"]
+[node name="LeftText" type="Label" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer/ChoiceBGLeft"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -116,15 +113,22 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-label_settings = SubResource("LabelSettings_lgc0u")
+label_settings = SubResource("LabelSettings_278fk")
 vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+script = ExtResource("3_2ndah")
+_max_size = 20
+_min_size = 10
+_current_font_size = 20
+_editor_defaults_set = true
 
-[node name="ChoiceBGRight" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer"]
+[node name="ChoiceBGRight" type="Panel" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RightText" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer/ChoiceBGRight"]
+[node name="RightText" type="Label" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer/ChoiceBGRight"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -133,11 +137,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-label_settings = SubResource("LabelSettings_lgc0u")
+label_settings = SubResource("LabelSettings_vxiou")
 horizontal_alignment = 2
 vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+script = ExtResource("3_2ndah")
+_max_size = 20
+_min_size = 10
+_current_font_size = 20
+_editor_defaults_set = true
 
-[node name="CardOwnerName" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="CardOwnerName" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(186.865, 32.04)
 layout_mode = 2
@@ -148,3 +159,15 @@ label_settings = SubResource("LabelSettings_y8epe")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.5258789e-05
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2

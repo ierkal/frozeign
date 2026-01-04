@@ -47,9 +47,9 @@ func _clamp_stats() -> void:
 func _emit() -> void:
 	stats_changed.emit(hope, discontent, order, faith)
 
-func reset() -> void:
+func reset_stats() -> void:
 	hope = 50
 	discontent = 50
 	order = 50
 	faith = 50
-	_emit()
+	stats_changed.emit(hope, discontent, order, faith)

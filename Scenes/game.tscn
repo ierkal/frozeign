@@ -1,21 +1,36 @@
-[gd_scene load_steps=8 format=3 uid="uid://dihplp2ct2wv4"]
+[gd_scene load_steps=14 format=3 uid="uid://dihplp2ct2wv4"]
 
 [ext_resource type="Script" uid="uid://dfg8yyl72e2v8" path="res://Scripts/Manager/game_manager.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://b570hdnewxoqv" path="res://Scenes/container_ui.tscn" id="1_wrm1d"]
 [ext_resource type="Script" uid="uid://dlaltmw1yx7a3" path="res://Scripts/Deck/deck.gd" id="2_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://dh3iui73lwbai" path="res://Scenes/card_ui.tscn" id="2_3dryh"]
+[ext_resource type="Script" uid="uid://bqac1ht21eol2" path="res://Scripts/Quest/quest_manager.gd" id="2_v158k"]
 [ext_resource type="Script" uid="uid://b4ks5i6nsxgy2" path="res://Scripts/Stats/stats_manager.gd" id="3_v158k"]
 [ext_resource type="PackedScene" uid="uid://cn31jxeya8jq7" path="res://Scenes/stats_ui.tscn" id="3_wowpa"]
 [ext_resource type="PackedScene" uid="uid://cc1mstry25j7" path="res://Scenes/SurvivedDays.tscn" id="7_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://b46lgfx1p243y" path="res://Scenes/quest_ui.tscn" id="9_h4fw4"]
+[ext_resource type="Script" uid="uid://celo7jurvj8df" path="res://Scripts/Quest/quest_completed_notification.gd" id="10_rku1e"]
+[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="11_rfjv2"]
+[ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="12_1phco"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nb51f"]
+font = ExtResource("11_rfjv2")
+font_size = 32
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3dryh")
+
+[node name="QuestManager" type="Node2D" parent="." node_paths=PackedStringArray("deck_ref")]
+unique_name_in_owner = true
+script = ExtResource("2_v158k")
+deck_ref = NodePath("../Deck")
 
 [node name="Deck" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_1l0tm")
 
 [node name="StatsManager" type="Node2D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("3_v158k")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -29,8 +44,41 @@ layout_mode = 1
 [node name="StatsUI" parent="CanvasLayer/Container_UI" instance=ExtResource("3_wowpa")]
 unique_name_in_owner = true
 layout_mode = 1
-offset_bottom = 192.0
+offset_top = -1.0
+offset_bottom = 147.0
 
 [node name="SurvivedDays" parent="CanvasLayer/Container_UI" instance=ExtResource("7_1l0tm")]
 unique_name_in_owner = true
 layout_mode = 1
+
+[node name="QuestUI" parent="CanvasLayer/Container_UI" instance=ExtResource("9_h4fw4")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="QuestCompletedNotification" type="Panel" parent="CanvasLayer/Container_UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+script = ExtResource("10_rku1e")
+
+[node name="Label" type="Label" parent="CanvasLayer/Container_UI/QuestCompletedNotification"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Hire a Foreman completed!"
+label_settings = SubResource("LabelSettings_nb51f")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("12_1phco")
+_max_size = 32
+_min_size = 24
+_current_font_size = 32

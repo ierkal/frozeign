@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://b46lgfx1p243y"]
+
+[ext_resource type="Script" uid="uid://dn7ikwxxm0otj" path="res://Scripts/Quest/quest_ui.gd" id="1_vg0qh"]
+[ext_resource type="PackedScene" uid="uid://coxxcvpe3x2b0" path="res://Scenes/quest_item.tscn" id="2_mv1j6"]
+[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="3_18kpa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18kpa"]
+bg_color = Color(0.03839716, 0.038397174, 0.038397126, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_30nqa"]
+font = ExtResource("3_18kpa")
+font_size = 31
+
+[node name="QuestUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vg0qh")
+quest_item_scene = ExtResource("2_mv1j6")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_18kpa")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 41.0
+offset_bottom = 102.0
+grow_horizontal = 2
+text = "Quests"
+label_settings = SubResource("LabelSettings_30nqa")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="QuestListVbox" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CloseBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -45.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 21
+text = "X"

@@ -1,0 +1,2 @@
+extends Node
+signal quest_menu_requested
