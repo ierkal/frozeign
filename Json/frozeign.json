@@ -12252,15 +12252,15 @@
 		"LeftOrder": 0.0,
 		"LeftText": "Hire that guy",
 		"OnLeftAddFlags": [
-			"steward_foreman_3_interview_end_yes_yes",
-			"steward_foreman_3_interview_end_yes_decided"
+			"steward_foreman_3_interview_end_yes",
+			"steward_foreman_3_interview_end_decided"
 		],
 		"OnLeftUnlockPools": [
 			"Foreman"
 		],
 		"OnRightAddFlags": [
-			"steward_foreman_3_interview_end_yes_no",
-			"steward_foreman_3_interview_end_yes_decided"
+			"steward_foreman_3_interview_end_no",
+			"steward_foreman_3_interview_end_decided"
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Foreman_Interview",
