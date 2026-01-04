@@ -10,12 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://cc1mstry25j7" path="res://Scenes/SurvivedDays.tscn" id="7_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://b46lgfx1p243y" path="res://Scenes/quest_ui.tscn" id="9_h4fw4"]
 [ext_resource type="Script" uid="uid://celo7jurvj8df" path="res://Scripts/Quest/quest_completed_notification.gd" id="10_rku1e"]
-[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="11_rfjv2"]
+[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="11_rku1e"]
 [ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="12_1phco"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_nb51f"]
-font = ExtResource("11_rfjv2")
-font_size = 32
+[sub_resource type="LabelSettings" id="LabelSettings_rfjv2"]
+font = ExtResource("11_rku1e")
+font_size = 42
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3dryh")
@@ -74,11 +74,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "Hire a Foreman completed!"
-label_settings = SubResource("LabelSettings_nb51f")
+label_settings = SubResource("LabelSettings_rfjv2")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+clip_text = true
 script = ExtResource("12_1phco")
-_max_size = 32
+_max_size = 42
 _min_size = 24
-_current_font_size = 32
+_current_font_size = 42
+_size_just_modified_by_autosizer = true
+_editor_defaults_set = true
