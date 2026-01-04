@@ -1,15 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://coxxcvpe3x2b0"]
 
-[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="1_0ndvq"]
+[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="1_0ndvq"]
 [ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="1_oiw6n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0ndvq"]
 font = ExtResource("1_0ndvq")
-font_size = 36
+font_size = 42
 
 [sub_resource type="LabelSettings" id="LabelSettings_q7rug"]
 font = ExtResource("1_0ndvq")
-font_size = 24
+font_size = 36
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0ndvq"]
 
@@ -28,9 +28,9 @@ label_settings = SubResource("LabelSettings_0ndvq")
 autowrap_mode = 3
 clip_text = true
 script = ExtResource("1_oiw6n")
-_max_size = 36
+_max_size = 42
 _min_size = 16
-_current_font_size = 36
+_current_font_size = 42
 _editor_defaults_set = true
 
 [node name="QuestDescription" type="Label" parent="."]
@@ -42,9 +42,9 @@ label_settings = SubResource("LabelSettings_q7rug")
 autowrap_mode = 3
 clip_text = true
 script = ExtResource("1_oiw6n")
-_max_size = 24
+_max_size = 36
 _min_size = 12
-_current_font_size = 24
+_current_font_size = 36
 _editor_defaults_set = true
 
 [node name="TextureRect" type="TextureRect" parent="."]

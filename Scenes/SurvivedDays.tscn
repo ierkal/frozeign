@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://cc1mstry25j7"]
 
 [ext_resource type="Script" uid="uid://c87s23lfj35wx" path="res://Scripts/Stats/day_survived_ui.gd" id="1_rnqkj"]
-[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="2_oxlb5"]
 [ext_resource type="Script" uid="uid://bg3gdlqjvwbga" path="res://Scripts/Stats/day_survived_button.gd" id="2_tosxb"]
+[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="3_tosxb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rnqkj"]
 
@@ -15,8 +15,8 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iaajx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oxlb5"]
-font = ExtResource("2_oxlb5")
-font_size = 34
+font = ExtResource("3_tosxb")
+font_size = 64
 outline_size = 2
 shadow_size = 5
 

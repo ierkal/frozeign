@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dn7ikwxxm0otj" path="res://Scripts/Quest/quest_ui.gd" id="1_vg0qh"]
 [ext_resource type="PackedScene" uid="uid://coxxcvpe3x2b0" path="res://Scenes/quest_item.tscn" id="2_mv1j6"]
-[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="3_18kpa"]
+[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="3_18kpa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18kpa"]
 bg_color = Color(0.03839716, 0.038397174, 0.038397126, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_30nqa"]
 font = ExtResource("3_18kpa")
-font_size = 31
+font_size = 44
 
 [node name="QuestUI" type="Control"]
 layout_mode = 3

@@ -3,21 +3,23 @@
 [ext_resource type="Script" uid="uid://c7xwphipltatm" path="res://Scripts/Card/card_ui.gd" id="1_y8epe"]
 [ext_resource type="PackedScene" uid="uid://b8bsyifay8tjn" path="res://Scenes/card.tscn" id="2_y8epe"]
 [ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="3_2ndah"]
-[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="3_7w5n5"]
+[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="3_278fk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ndah"]
-font_size = 32
+font = ExtResource("3_278fk")
+font_size = 42
 
 [sub_resource type="LabelSettings" id="LabelSettings_278fk"]
-font = ExtResource("3_7w5n5")
-font_size = 20
+font = ExtResource("3_278fk")
+font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_vxiou"]
-font_size = 20
+font = ExtResource("3_278fk")
+font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_y8epe"]
-font = ExtResource("3_7w5n5")
-font_size = 25
+font = ExtResource("3_278fk")
+font_size = 32
 
 [node name="Card_UI" type="Control"]
 layout_mode = 3
@@ -56,9 +58,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 script = ExtResource("3_2ndah")
-_max_size = 32
+_max_size = 42
 _min_size = 16
-_current_font_size = 32
+_current_font_size = 42
 _editor_defaults_set = true
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
@@ -118,9 +120,9 @@ vertical_alignment = 1
 autowrap_mode = 3
 clip_text = true
 script = ExtResource("3_2ndah")
-_max_size = 20
+_max_size = 32
 _min_size = 10
-_current_font_size = 20
+_current_font_size = 32
 _editor_defaults_set = true
 
 [node name="ChoiceBGRight" type="Panel" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer"]
@@ -143,9 +145,9 @@ vertical_alignment = 1
 autowrap_mode = 3
 clip_text = true
 script = ExtResource("3_2ndah")
-_max_size = 20
+_max_size = 32
 _min_size = 10
-_current_font_size = 20
+_current_font_size = 32
 _editor_defaults_set = true
 
 [node name="CardOwnerName" type="Label" parent="MarginContainer/VBoxContainer"]
