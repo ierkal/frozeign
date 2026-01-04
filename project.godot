@@ -24,6 +24,7 @@ EventBus="*res://Scripts/Manager/event_bus.gd"
 window/size/viewport_width=648
 window/size/viewport_height=1152
 window/stretch/mode="viewport"
+window/handheld/orientation=1
 
 [gui]
 
