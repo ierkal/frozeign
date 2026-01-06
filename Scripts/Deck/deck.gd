@@ -328,7 +328,8 @@ func on_card_committed(card_id: String, side: String) -> void:
 	var card = find_card_by_id(card_id)
 	if card.is_empty():
 		return
-
+	
+	_mark_as_discovered(card_id)
 	# 1) Add flags
 	var flist: Array = []
 	if side == "left":
@@ -375,3 +376,32 @@ func find_card_by_id(id: String) -> Dictionary:
 			return card
 	return {}
 	
+# Helper to mark a card as discovered in the state dictionary
+func _mark_as_discovered(card_id: String) -> void:
+	var state = _card_states.get(card_id, {})
+	
+	# Avoid re-writing if already discovered
+	if state.get("discovered", false):
+		return
+		
+	state["discovered"] = true
+	_card_states[card_id] = state
+
+# Public API: Get the number of cards the player has encountered
+func get_discovered_count() -> int:
+	var count = 0
+	for id in _card_states.keys():
+		var state = _card_states[id]
+		if state.get("discovered", false) == true:
+			count += 1
+	return count
+
+# Public API: Get total valid cards (excluding Death/System cards)
+func get_unique_cards_count() -> int:
+	var count = 0
+	for card in _raw_cards:
+		var id = str(card.get("Id", ""))
+		# Only count actual story cards, ignore system cards
+		if not id.begins_with("DEATH_"):
+			count += 1
+	return count

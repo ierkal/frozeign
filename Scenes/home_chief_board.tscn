@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3mqqevah0tnl"]
+
+[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="1_brshr"]
+[ext_resource type="Script" uid="uid://7dybnrlf00qe" path="res://Scripts/Menu/home_chief_board.gd" id="1_hi620"]
+[ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="2_hi620"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_brshr"]
+font = ExtResource("1_brshr")
+font_size = 52
+
+[sub_resource type="LabelSettings" id="LabelSettings_hi620"]
+font = ExtResource("1_brshr")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_y0dd1"]
+font = ExtResource("1_brshr")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ft3h"]
+font = ExtResource("1_brshr")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_ubq34"]
+font = ExtResource("1_brshr")
+font_size = 34
+
+[node name="SurvivedChiefs" type="VBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 140.0
+grow_horizontal = 2
+theme_override_constants/separation = 4
+script = ExtResource("1_hi620")
+
+[node name="ChiefTitle" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Most Survived Chiefs"
+label_settings = SubResource("LabelSettings_brshr")
+autowrap_mode = 3
+script = ExtResource("2_hi620")
+_max_size = 52
+_min_size = 52
+_current_font_size = 52
+_editor_defaults_set = true
+
+[node name="ChiefOne" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 38.925)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Chief Name - Survived Days"
+label_settings = SubResource("LabelSettings_hi620")
+autowrap_mode = 3
+script = ExtResource("2_hi620")
+_max_size = 34
+_min_size = 34
+_current_font_size = 34
+_editor_defaults_set = true
+
+[node name="ChiefTwo" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 38.925)
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Chief Name - Survived Days"
+label_settings = SubResource("LabelSettings_y0dd1")
+autowrap_mode = 3
+clip_text = true
+script = ExtResource("2_hi620")
+_max_size = 34
+_min_size = 34
+_current_font_size = 34
+_editor_defaults_set = true
+
+[node name="ChiefThree" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 38.925)
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Chief Name - Survived Days"
+label_settings = SubResource("LabelSettings_3ft3h")
+autowrap_mode = 3
+clip_text = true
+script = ExtResource("2_hi620")
+_max_size = 34
+_min_size = 34
+_current_font_size = 34
+_editor_defaults_set = true
+
+[node name="ChiefFour" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 38.925)
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Chief Name - Survived Days"
+label_settings = SubResource("LabelSettings_ubq34")
+autowrap_mode = 3
+clip_text = true
+script = ExtResource("2_hi620")
+_max_size = 34
+_min_size = 34
+_current_font_size = 34
+_editor_defaults_set = true

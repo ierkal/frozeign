@@ -1,2 +1,2 @@
 extends Node
-signal quest_menu_requested
+signal home_menu_requested

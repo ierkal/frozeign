@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cc1mstry25j7"]
+[gd_scene load_steps=13 format=3 uid="uid://cc1mstry25j7"]
 
 [ext_resource type="Script" uid="uid://c87s23lfj35wx" path="res://Scripts/Stats/day_survived_ui.gd" id="1_rnqkj"]
 [ext_resource type="Script" uid="uid://bg3gdlqjvwbga" path="res://Scripts/Stats/day_survived_button.gd" id="2_tosxb"]
 [ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="3_tosxb"]
+[ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="4_4g6fi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rnqkj"]
 
@@ -14,11 +15,17 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iaajx"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_sm1l2"]
+font = ExtResource("3_tosxb")
+font_size = 49
+
 [sub_resource type="LabelSettings" id="LabelSettings_oxlb5"]
 font = ExtResource("3_tosxb")
-font_size = 64
-outline_size = 2
-shadow_size = 5
+font_size = 54
+
+[sub_resource type="LabelSettings" id="LabelSettings_4g6fi"]
+font = ExtResource("3_tosxb")
+font_size = 38
 
 [node name="SurvivedDays" type="Control"]
 layout_mode = 3
@@ -53,14 +60,49 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DaysValue" type="Label" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "0 DAYS SURVIVED"
-label_settings = SubResource("LabelSettings_oxlb5")
-horizontal_alignment = 1
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="TotalDaysValue" type="Label" parent="Panel/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(190, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Total_Count"
+label_settings = SubResource("LabelSettings_sm1l2")
 vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("4_4g6fi")
+_min_size = 35
+_current_font_size = 49
+
+[node name="DaysValue" type="Label" parent="Panel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+text = "5 days being Chief"
+label_settings = SubResource("LabelSettings_oxlb5")
+vertical_alignment = 1
+
+[node name="ChiefName" type="Label" parent="Panel/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+text = "Neliara"
+label_settings = SubResource("LabelSettings_4g6fi")
+autowrap_mode = 3
+script = ExtResource("4_4g6fi")
+_max_size = 40
+_min_size = 32
+_current_font_size = 38
+_size_just_modified_by_autosizer = true

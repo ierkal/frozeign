@@ -8,7 +8,7 @@ signal need_quest_data
 @onready var close_btn: Button = $CloseBtn
 
 func _ready() -> void:
-	EventBus.quest_menu_requested.connect(_on_request_received)
+	#EventBus.quest_menu_requested.connect(_on_request_received)
 	hide()
 	close_btn.pressed.connect(_on_close_button_pressed)
 
@@ -48,7 +48,5 @@ func show_quests(quest_data: Array) -> void:
 			title_label.modulate = Color(0.3, 0.3, 0.3, 1.0)
 			desc_label.modulate = Color(0.3, 0.3, 0.3, 0.5)
 	
-	show()
-
 func _on_close_button_pressed() -> void:
 	hide()

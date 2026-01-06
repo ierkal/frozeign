@@ -1,14 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://dihplp2ct2wv4"]
+[gd_scene load_steps=16 format=3 uid="uid://dihplp2ct2wv4"]
 
 [ext_resource type="Script" uid="uid://dfg8yyl72e2v8" path="res://Scripts/Manager/game_manager.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://b570hdnewxoqv" path="res://Scenes/container_ui.tscn" id="1_wrm1d"]
 [ext_resource type="Script" uid="uid://dlaltmw1yx7a3" path="res://Scripts/Deck/deck.gd" id="2_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://dh3iui73lwbai" path="res://Scenes/card_ui.tscn" id="2_3dryh"]
+[ext_resource type="Script" uid="uid://caxjph1x2xgom" path="res://Scripts/Manager/chief_manager.gd" id="2_rfjv2"]
 [ext_resource type="Script" uid="uid://bqac1ht21eol2" path="res://Scripts/Quest/quest_manager.gd" id="2_v158k"]
 [ext_resource type="Script" uid="uid://b4ks5i6nsxgy2" path="res://Scripts/Stats/stats_manager.gd" id="3_v158k"]
 [ext_resource type="PackedScene" uid="uid://cn31jxeya8jq7" path="res://Scenes/stats_ui.tscn" id="3_wowpa"]
+[ext_resource type="Script" uid="uid://jggsarlryqbj" path="res://Scripts/Characters/character_repository.gd" id="6_1phco"]
 [ext_resource type="PackedScene" uid="uid://cc1mstry25j7" path="res://Scenes/SurvivedDays.tscn" id="7_1l0tm"]
-[ext_resource type="PackedScene" uid="uid://b46lgfx1p243y" path="res://Scenes/quest_ui.tscn" id="9_h4fw4"]
+[ext_resource type="PackedScene" uid="uid://coyu4ldvimyse" path="res://Scenes/home_menu_ui.tscn" id="10_rfjv2"]
 [ext_resource type="Script" uid="uid://celo7jurvj8df" path="res://Scripts/Quest/quest_completed_notification.gd" id="10_rku1e"]
 [ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="11_rku1e"]
 [ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="12_1phco"]
@@ -19,6 +21,10 @@ font_size = 42
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3dryh")
+
+[node name="ChiefManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_rfjv2")
 
 [node name="QuestManager" type="Node2D" parent="." node_paths=PackedStringArray("deck_ref")]
 unique_name_in_owner = true
@@ -32,6 +38,9 @@ script = ExtResource("2_1l0tm")
 [node name="StatsManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("3_v158k")
+
+[node name="CharacterRepository" type="Node2D" parent="."]
+script = ExtResource("6_1phco")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -51,7 +60,7 @@ offset_bottom = 147.0
 unique_name_in_owner = true
 layout_mode = 1
 
-[node name="QuestUI" parent="CanvasLayer/Container_UI" instance=ExtResource("9_h4fw4")]
+[node name="HomeMenuUI" parent="CanvasLayer/Container_UI" instance=ExtResource("10_rfjv2")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -83,5 +92,4 @@ script = ExtResource("12_1phco")
 _max_size = 42
 _min_size = 24
 _current_font_size = 42
-_size_just_modified_by_autosizer = true
 _editor_defaults_set = true

@@ -7,8 +7,11 @@ class_name GameManager
 @onready var stats_ui: StatsUI = %StatsUI
 @onready var survived_days: SurvivedDaysUI = %SurvivedDays
 @onready var quest_manager: QuestManager = %QuestManager
-@onready var quest_ui: QuestUI = %QuestUI    
+@onready var home_menu_ui : HomeMenuUI = %HomeMenuUI
+@onready var chief_manager: ChiefManager = %ChiefManager
+var _dead_chiefs_history: Array = [] # { "name": String, "days": int, "index": int }
 var _last_card_had_effect: bool = false
+@onready var character_repository: CharacterRepository = %CharacterRepository
 
 enum DeathPhase {
 	NONE,
@@ -31,11 +34,14 @@ func _ready() -> void:
 	stats.stats_changed.connect(_on_stats_changed)
 	stats.stat_threshold_reached.connect(_on_stat_threshold_reached)
 	card_ui.card_count_reached.connect(_on_card_count_reach)
-
+	chief_manager.load_names()
+	survived_days.update_ui(chief_manager.current_chief_name)
 	deck.set_current_chief_index(_current_chief_index)
+	character_repository = CharacterRepository.new()
+	character_repository.load_data("res://Json/characters.json") # Ensure path matches your uploaded file
 	await deck.load_from_file("res://Json/frozeign.json")
-	if quest_ui:
-		quest_ui.need_quest_data.connect(_on_ui_needs_quest_data)
+	if home_menu_ui:
+		home_menu_ui.setup(self)
 	deck.begin_starter_phase()   # show Pool:"Starter" cards first
 	_on_request_deck_draw()
 
@@ -95,7 +101,7 @@ func _on_stats_changed(h: int, d: int, o: int, f: int) -> void:
 
 func _on_card_count_reach() -> void:
 	if _last_card_had_effect:
-		survived_days.on_day_survive()
+		survived_days.on_day_survive() 
 
 func _on_stat_threshold_reached(stat_name: String, value: int) -> void:
 	if _death_phase != DeathPhase.NONE:
@@ -132,16 +138,28 @@ func _build_final_death_card() -> Dictionary:
 	}
 
 
-# Scripts/Manager/game_manager.gd
-
 func _soft_reset_game() -> void:
+	var chief_data = {
+		"name": chief_manager.current_chief_name,
+		"days": survived_days.current_days,
+		"index": _current_chief_index + 1 # 1-based index için
+	}
+	_dead_chiefs_history.append(chief_data)
+
+	_dead_chiefs_history.sort_custom(func(a, b): return a.days > b.days)
+	
+	# 3. Sadece ilk 4'ü tutmak istiyorsan listeyi sınırla
+	if _dead_chiefs_history.size() > 4:
+		_dead_chiefs_history.pop_back()
+	
 	_current_chief_index += 1 # Yeni lider geliyor
 	_death_phase = DeathPhase.NONE
 	
 	# İstatistikleri sıfırla
 	stats.reset_stats() # Varsayılan değerlere dön (stats_manager içinde olmalı)
-	if survived_days:
-		survived_days.reset_days()
+	survived_days.reset_days()
+	chief_manager.pick_random_name()
+	survived_days.update_ui(chief_manager.current_chief_name)
 	if _current_chief_index <= 1:
 		deck.begin_starter_phase()
 	else:
@@ -157,7 +175,7 @@ func _soft_reset_game() -> void:
 	_on_request_deck_draw()
 
 func _on_ui_needs_quest_data() -> void:
-	if quest_manager and quest_ui:
+	if quest_manager and home_menu_ui.quest_ui:
 	# Yeni fonksiyonu çağırıyoruz
 		var display_list = quest_manager.get_quest_display_data()
-		quest_ui.show_quests(display_list)
+		home_menu_ui.quest_ui.show_quests(display_list)

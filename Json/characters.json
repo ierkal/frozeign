@@ -1,0 +1,14 @@
+[
+  {
+    "id": "char_steward_elias",
+    "name": "The Steward",
+    "flag": "met_steward",
+    "description": "Chief's Hand and most loyal person."
+  },
+  {
+    "id": "char_captain_jonas",
+    "name": "Captain Jonas",
+    "flag": "met_captain",
+    "description": "Handle the security in City, also outside."
+  }
+]

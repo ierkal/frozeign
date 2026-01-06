@@ -9,10 +9,12 @@
 		"LeftOrder": 0.0,
 		"LeftText": "Thank you.",
 		"OnLeftAddFlags": [
+			"met_captain",
 			"welcome_jonas_01_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
+			"met_captain",
 			"welcome_jonas_01_decided"
 		],
 		"OnRightUnlockPools": [],
@@ -10961,11 +10963,13 @@
 		"LeftOrder": 0.0,
 		"LeftText": "Sure",
 		"OnLeftAddFlags": [
+			"met_steward",
 			"steward_welcome_1_1_yes",
 			"steward_welcome_1_1_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
+			"met_steward",
 			"steward_welcome_1_1_no",
 			"steward_welcome_1_1_decided"
 		],

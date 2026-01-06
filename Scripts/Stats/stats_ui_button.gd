@@ -1,8 +1,10 @@
 extends Button
 
-
 func _ready() -> void:
-	self.pressed.connect(_on_quest_menu_button_pressed)
-func _on_quest_menu_button_pressed() -> void:
-	print("quest menu requested")
-	EventBus.quest_menu_requested.emit()
+	# Fonksiyon ismini de güncelledik
+	self.pressed.connect(_on_home_menu_button_pressed)
+
+func _on_home_menu_button_pressed() -> void:
+	print("Home menu requested")
+	# Yeni sinyali tetikliyoruz
+	EventBus.home_menu_requested.emit()

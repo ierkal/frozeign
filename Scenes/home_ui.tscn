@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh4aixootvo5w"]
+
+[ext_resource type="Script" uid="uid://dg8ehtwnctjoj" path="res://Scripts/Menu/home_ui.gd" id="1_d1v4r"]
+[ext_resource type="PackedScene" uid="uid://bn413rx18pqdq" path="res://Scenes/home_count_item.tscn" id="3_d1v4r"]
+[ext_resource type="PackedScene" uid="uid://b3mqqevah0tnl" path="res://Scenes/home_chief_board.tscn" id="4_tm8cp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nhdn0"]
+
+[node name="HomeUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d1v4r")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nhdn0")
+
+[node name="QuestListVbox" type="VBoxContainer" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -299.0
+offset_right = 299.0
+offset_bottom = 885.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 34
+
+[node name="QuestCount" parent="Panel/QuestListVbox" instance=ExtResource("3_d1v4r")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="NPCList" parent="Panel/QuestListVbox" instance=ExtResource("3_d1v4r")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DeathHistoryList" parent="Panel/QuestListVbox" instance=ExtResource("4_tm8cp")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DiscoveredCards" parent="Panel/QuestListVbox" instance=ExtResource("3_d1v4r")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CloseBtn" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -45.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 21
+text = "X"
