@@ -1,11 +1,21 @@
 extends Control
 class_name HomeUI
 
+signal quest_menu_requested
 # UI Component References
 @onready var quest_count_item: HomeCountItem = %QuestCount
 @onready var npc_list_item: HomeCountItem = %NPCList
 @onready var discovered_cards_item: HomeCountItem = %DiscoveredCards
 @onready var chief_board: HomeChiefBoard = %DeathHistoryList
+
+func _ready() -> void:
+	# Sadece QuestCount item'ının tıklanmasını dinliyoruz
+	if quest_count_item:
+		quest_count_item.clicked.connect(_on_quest_item_clicked)
+
+func _on_quest_item_clicked() -> void:
+	# Ana menüye sinyal gönder
+	quest_menu_requested.emit()
 
 # Dependency: We expect GameManager to provide the systems we need
 func refresh_data(gm: GameManager) -> void:

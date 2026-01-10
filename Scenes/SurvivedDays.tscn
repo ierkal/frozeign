@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cc1mstry25j7"]
+[gd_scene load_steps=16 format=3 uid="uid://cc1mstry25j7"]
 
 [ext_resource type="Script" uid="uid://c87s23lfj35wx" path="res://Scripts/Stats/day_survived_ui.gd" id="1_rnqkj"]
 [ext_resource type="Script" uid="uid://bg3gdlqjvwbga" path="res://Scripts/Stats/day_survived_button.gd" id="2_tosxb"]
 [ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="3_tosxb"]
 [ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="4_4g6fi"]
+[ext_resource type="Script" uid="uid://ch33aoqmmwgj7" path="res://Scripts/Buffs/active_buffs_ui.gd" id="5_sm1l2"]
+[ext_resource type="PackedScene" uid="uid://cpgnvcic23yn7" path="res://Scenes/buff_texture.tscn" id="6_qqtd1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rnqkj"]
 
@@ -15,17 +17,20 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iaajx"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_sm1l2"]
+[sub_resource type="LabelSettings" id="LabelSettings_4g6fi"]
 font = ExtResource("3_tosxb")
 font_size = 49
 
 [sub_resource type="LabelSettings" id="LabelSettings_oxlb5"]
 font = ExtResource("3_tosxb")
-font_size = 54
+font_size = 46
 
-[sub_resource type="LabelSettings" id="LabelSettings_4g6fi"]
+[sub_resource type="LabelSettings" id="LabelSettings_iaajx"]
 font = ExtResource("3_tosxb")
 font_size = 38
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g6fi"]
+bg_color = Color(0.07284262, 0.072842635, 0.072842576, 1)
 
 [node name="SurvivedDays" type="Control"]
 layout_mode = 3
@@ -79,30 +84,64 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 text = "Total_Count"
-label_settings = SubResource("LabelSettings_sm1l2")
+label_settings = SubResource("LabelSettings_4g6fi")
 vertical_alignment = 1
 autowrap_mode = 3
+clip_text = true
 script = ExtResource("4_4g6fi")
+_max_size = 49
 _min_size = 35
 _current_font_size = 49
+_editor_defaults_set = true
 
 [node name="DaysValue" type="Label" parent="Panel/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 8
-text = "5 days being Chief"
+text = "300 days being Chief"
 label_settings = SubResource("LabelSettings_oxlb5")
 vertical_alignment = 1
 
 [node name="ChiefName" type="Label" parent="Panel/MarginContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 40)
+custom_minimum_size = Vector2(400, 31.485)
 layout_mode = 2
 text = "Neliara"
-label_settings = SubResource("LabelSettings_4g6fi")
+label_settings = SubResource("LabelSettings_iaajx")
 autowrap_mode = 3
 script = ExtResource("4_4g6fi")
-_max_size = 40
-_min_size = 32
+_max_size = 38
+_min_size = 38
 _current_font_size = 38
-_size_just_modified_by_autosizer = true
+_editor_defaults_set = true
+
+[node name="ActiveBuffsUI" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 432.0
+offset_top = 71.0
+offset_right = 640.0
+offset_bottom = 123.0
+script = ExtResource("5_sm1l2")
+icon_scene = ExtResource("6_qqtd1")
+
+[node name="Buff1" type="Panel" parent="ActiveBuffsUI"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_4g6fi")
+
+[node name="Buff2" type="Panel" parent="ActiveBuffsUI"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_4g6fi")
+
+[node name="Buff3" type="Panel" parent="ActiveBuffsUI"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_4g6fi")
+
+[node name="Buff4" type="Panel" parent="ActiveBuffsUI"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_4g6fi")

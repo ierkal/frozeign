@@ -3,25 +3,27 @@ class_name HomeMenuUI
 
 # Paneller (Hiyerarşide PanelContainer altındaki sahneler)
 @onready var home_panel: HomeUI = %HomeUI
+@onready var effects_ui: EffectsUI = %EffectsUI
 @onready var quest_ui: QuestUI = %QuestUI
 @onready var settings_panel: Control = %SettingsUI
 
 # Butonlar
 @onready var home_button: Button = %Home
-@onready var quests_button: Button = %Quests
+@onready var effects_button: Button = %Effects
 @onready var settings_button: Button = %Settings
-@onready var close_button: Button = %Button # Kapatma butonu
+@onready var close_button: Button = %CloseBtn # Kapatma butonu
 var game_manager: GameManager
 
 func _ready() -> void:
 	# Buton Sinyal Bağlantıları
 	home_button.pressed.connect(_on_home_button_pressed)
-	quests_button.pressed.connect(_on_quests_button_pressed)
+	effects_button.pressed.connect(_on_effects_tab_pressed)
 	settings_button.pressed.connect(_on_settings_button_pressed)
 	
 	if close_button:
 		close_button.pressed.connect(hide)
-	
+	if home_panel:
+		home_panel.quest_menu_requested.connect(_on_quest_menu_requested)
 	# Global event dinleyicisi
 	EventBus.home_menu_requested.connect(show_menu)	
 	# ÖNEMLİ: Başlangıçta tüm panelleri kapatıp sadece Home'u açıyoruz
@@ -49,14 +51,18 @@ func _refresh_current_view() -> void:
 
 	if home_panel.visible:
 		home_panel.refresh_data(game_manager)
-	elif quest_ui.visible:
+
+	if quest_ui.visible:
 		quest_ui.need_quest_data.emit()
+
+	if effects_ui.visible:
+		effects_ui.refresh_active_buffs(game_manager.buff_manager)
 		
 func _switch_tab(target_tab: Control) -> void:
-	# 1. ADIM: Tüm panelleri istisnasız kapatıyoruz. 
+	# 1. ADIM: Tüm panelleri istisnasız kapatıyoruz.
 	# Bu, Remote panelde gördüğün çakışmayı engeller.
 	home_panel.hide()
-	quest_ui.hide()
+	effects_ui.hide()
 	if settings_panel:
 		settings_panel.hide()
 	
@@ -70,8 +76,12 @@ func _switch_tab(target_tab: Control) -> void:
 func _on_home_button_pressed() -> void:
 	_switch_tab(home_panel)
 
-func _on_quests_button_pressed() -> void:
-	_switch_tab(quest_ui)
-
 func _on_settings_button_pressed() -> void:
 	_switch_tab(settings_panel)
+	
+func _on_effects_tab_pressed() -> void:
+	_switch_tab(effects_ui)
+	
+func _on_quest_menu_requested() -> void:
+	quest_ui.show()
+	quest_ui.need_quest_data.emit()

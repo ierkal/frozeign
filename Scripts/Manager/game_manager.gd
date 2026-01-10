@@ -9,6 +9,8 @@ class_name GameManager
 @onready var quest_manager: QuestManager = %QuestManager
 @onready var home_menu_ui : HomeMenuUI = %HomeMenuUI
 @onready var chief_manager: ChiefManager = %ChiefManager
+@onready var buff_manager: BuffManager = $BuffManager # Scene ağacında child olarak eklediysen
+
 var _dead_chiefs_history: Array = [] # { "name": String, "days": int, "index": int }
 var _last_card_had_effect: bool = false
 @onready var character_repository: CharacterRepository = %CharacterRepository
@@ -28,6 +30,7 @@ var _current_chief_index: int = 0   # Number of chiefs so far
 @onready var reward_ui = %QuestCompletedNotification
 
 func _ready() -> void:
+	add_to_group("GameManager")
 	quest_manager.quest_reward_triggered.connect(_on_quest_reward_triggered)
 	card_ui.request_deck_draw.connect(_on_request_deck_draw)
 	card_ui.card_effect_committed.connect(_on_card_effect_committed)
@@ -40,6 +43,7 @@ func _ready() -> void:
 	character_repository = CharacterRepository.new()
 	character_repository.load_data("res://Json/characters.json") # Ensure path matches your uploaded file
 	await deck.load_from_file("res://Json/frozeign.json")
+	buff_manager.setup(deck)
 	if home_menu_ui:
 		home_menu_ui.setup(self)
 	deck.begin_starter_phase()   # show Pool:"Starter" cards first
@@ -77,6 +81,22 @@ func _on_request_deck_draw() -> void:
 
 func _on_card_effect_committed(effect: Dictionary) -> void:
 	_last_card_had_effect = false
+	
+	if buff_manager:
+		var buff_modifiers = buff_manager.get_active_stat_modifiers()
+	
+	# Gelen kart etkisinde stat varsa üstüne ekle, yoksa sıfırdan oluştur
+		for stat_key in buff_modifiers.keys():
+			var modifier_value = buff_modifiers[stat_key]
+	
+			if modifier_value != 0:
+				if not effect.has(stat_key):
+					effect[stat_key] = 0
+		
+				effect[stat_key] += modifier_value
+	
+	# Loglamak istersen (Debug için):
+	# print("Buff Etkisi Uygulandı: " + stat_key + " " + str(modifier_value))
 	var stats_keys = ["Hope", "Discontent", "Order", "Faith"]
 	
 	for key in stats_keys:
@@ -85,7 +105,8 @@ func _on_card_effect_committed(effect: Dictionary) -> void:
 			break
 	
 	stats.apply_effects(effect)
-
+	if buff_manager:
+		buff_manager.on_turn_passed()
 	var card_id := String(effect.get("card_id", ""))
 	var original_side := String(effect.get("original_side", ""))
 

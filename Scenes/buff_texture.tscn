@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cpgnvcic23yn7"]
+
+[node name="BuffTexture" type="TextureRect"]
+custom_minimum_size = Vector2(48, 48)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5

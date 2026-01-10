@@ -12724,13 +12724,15 @@
 		"LeftOrder": 10.0,
 		"LeftText": "Captain!",
 		"OnLeftAddFlags": [
+			"test_card_decided",
 			"elena_lost_child_yes",
 			"elena_lost_child_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
 			"elena_lost_child_no",
-			"elena_lost_child_decided"
+			"elena_lost_child_decided",
+			"test_card_decided"
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Citizen",
@@ -13693,5 +13695,42 @@
 		"StoryMinGap": 0.0,
 		"StoryStep": 0.0,
 		"Title": "Percival"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "This is a testing buff that will continue until chief dies.",
+		"Id": "card_test_buff_info",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Okay",
+		"OnLeftAddFlags": [
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Citizen",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"elena_lost_child_decided"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "Okay",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "",
+		"SequenceIndex": 0.0,
+		"SequenceMode": "Normal",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "Test Buff"
 	}
 ]

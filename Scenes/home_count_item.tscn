@@ -1,8 +1,21 @@
-[gd_scene load_steps=13 format=3 uid="uid://bn413rx18pqdq"]
+[gd_scene load_steps=20 format=3 uid="uid://bn413rx18pqdq"]
 
 [ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="1_baul8"]
 [ext_resource type="Script" uid="uid://dyesrk6ckpgsa" path="res://Scripts/Menu/home_count_item.gd" id="1_kqx8t"]
 [ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="2_kqx8t"]
+[ext_resource type="Texture2D" uid="uid://c2g7tqd2s8x0l" path="res://Assets/Sprites/right.png" id="4_uiw8b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kqx8t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uiw8b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u80p0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jejsi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y80hu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jsfyh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0ndvq"]
 font = ExtResource("1_baul8")
@@ -33,14 +46,35 @@ colors = PackedColorArray(0.14007202, 0.52283585, 0.73918283, 1, 0.14117648, 0.5
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_jsfyh"]
 gradient = SubResource("Gradient_y80hu")
 
-[node name="HomeCountItem" type="VBoxContainer"]
+[node name="Panel" type="Panel"]
+custom_minimum_size = Vector2(0, 144.74)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kqx8t")
+script = ExtResource("1_kqx8t")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uiw8b")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u80p0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jejsi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_y80hu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jsfyh")
+
+[node name="HomeCountItem" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 140.0
 grow_horizontal = 2
-script = ExtResource("1_kqx8t")
 
-[node name="ItemTitle" type="Label" parent="."]
+[node name="ItemTitle" type="Label" parent="HomeCountItem"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
@@ -55,10 +89,11 @@ _min_size = 42
 _current_font_size = 42
 _editor_defaults_set = true
 
-[node name="ItemDescription" type="Label" parent="."]
+[node name="ItemDescription" type="Label" parent="HomeCountItem"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 64)
+custom_minimum_size = Vector2(600, 64)
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 32
 text = "Item DescriptionItem DescriptionItem Description"
 label_settings = SubResource("LabelSettings_q7rug")
@@ -70,14 +105,14 @@ _min_size = 36
 _current_font_size = 36
 _editor_defaults_set = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="HomeCountItem"]
 custom_minimum_size = Vector2(0, 22)
 layout_mode = 2
 size_flags_vertical = 6
 texture = SubResource("GradientTexture1D_kqx8t")
 stretch_mode = 1
 
-[node name="ProgressBar" type="TextureProgressBar" parent="TextureRect"]
+[node name="ProgressBar" type="TextureProgressBar" parent="HomeCountItem/TextureRect"]
 unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(0, 18)
@@ -96,3 +131,19 @@ value = 44.0
 nine_patch_stretch = true
 texture_under = SubResource("GradientTexture1D_jejsi")
 texture_progress = SubResource("GradientTexture1D_jsfyh")
+
+[node name="Arrow" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_uiw8b")
+expand_mode = 1
+stretch_mode = 5

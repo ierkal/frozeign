@@ -1,26 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://b46lgfx1p243y"]
+[gd_scene load_steps=7 format=3 uid="uid://bvjw3u03pjndp"]
 
-[ext_resource type="Script" uid="uid://dn7ikwxxm0otj" path="res://Scripts/Quest/quest_ui.gd" id="1_vg0qh"]
-[ext_resource type="PackedScene" uid="uid://coxxcvpe3x2b0" path="res://Scenes/quest_item.tscn" id="2_mv1j6"]
-[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="3_18kpa"]
-[ext_resource type="PackedScene" uid="uid://to0c4eroteek" path="res://Scenes/close_btn.tscn" id="4_30nqa"]
+[ext_resource type="Script" uid="uid://c0vb6tqcay4d5" path="res://Scripts/Buffs/effects_ui.gd" id="1_vwfkb"]
+[ext_resource type="PackedScene" uid="uid://dnjrhsnr81xcm" path="res://Scenes/effect_item.tscn" id="2_32e7k"]
+[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="3_ig5wc"]
+[ext_resource type="PackedScene" uid="uid://to0c4eroteek" path="res://Scenes/close_btn.tscn" id="4_vgcsx"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30nqa"]
-bg_color = Color(0.033853274, 0.03385329, 0.033853233, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_18kpa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_30nqa"]
-font = ExtResource("3_18kpa")
+font = ExtResource("3_ig5wc")
 font_size = 44
 
-[node name="QuestUI" type="Control"]
+[node name="EffectsUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_vg0qh")
-quest_item_scene = ExtResource("2_mv1j6")
+script = ExtResource("1_vwfkb")
+effect_item_scene = ExtResource("2_32e7k")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -29,7 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_30nqa")
+theme_override_styles/panel = SubResource("StyleBoxTexture_18kpa")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 1
@@ -38,7 +37,7 @@ anchor_right = 1.0
 offset_top = 41.0
 offset_bottom = 102.0
 grow_horizontal = 2
-text = "Quests"
+text = "Effects"
 label_settings = SubResource("LabelSettings_30nqa")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -59,11 +58,12 @@ theme_override_constants/margin_bottom = 25
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="QuestListVbox" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer"]
+[node name="EffectListVbox" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CloseBtn" parent="." instance=ExtResource("4_30nqa")]
+[node name="CloseBtn" parent="." instance=ExtResource("4_vgcsx")]
+visible = false
 layout_mode = 1

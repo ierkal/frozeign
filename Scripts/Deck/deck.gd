@@ -21,7 +21,6 @@ func _ready() -> void:
 	randomize()
 	_reset_unlocked_pools()
 
-
 # ---------------------------------------------------
 # Public control interface
 # ---------------------------------------------------
@@ -405,3 +404,13 @@ func get_unique_cards_count() -> int:
 		if not id.begins_with("DEATH_"):
 			count += 1
 	return count
+	
+# Belirli bir ID'ye sahip kartı bulup sequence sırasının en önüne koyar
+func force_next_card(card_id: String) -> void:
+	var card_data = find_card_by_id(card_id)
+	if not card_data.is_empty():
+		# Mevcut sequence mantığını kullanarak destenin en önüne ekliyoruz
+		_sequence_queue.push_front(card_data)
+		print("Deck: Forced next card -> " + card_id)
+	else:
+		push_error("Deck: Forced card not found -> " + card_id)

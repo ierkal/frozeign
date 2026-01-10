@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnjrhsnr81xcm"]
+
+[ext_resource type="Script" uid="uid://cwl5a32flxwpi" path="res://Scripts/Buffs/effect_item.gd" id="1_n8lnb"]
+[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="2_ypekd"]
+[ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="3_46wej"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qhgcl"]
+font = ExtResource("2_ypekd")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_l6hd4"]
+font = ExtResource("2_ypekd")
+font_size = 40
+
+[node name="EffectItem" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n8lnb")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 150.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="BuffTexture" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Title" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Title"
+label_settings = SubResource("LabelSettings_qhgcl")
+autowrap_mode = 3
+script = ExtResource("3_46wej")
+_max_size = 48
+_min_size = 48
+_current_font_size = 48
+_size_just_modified_by_autosizer = true
+
+[node name="Description" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Title"
+label_settings = SubResource("LabelSettings_l6hd4")
+autowrap_mode = 3
+script = ExtResource("3_46wej")
+_max_size = 40
+_min_size = 40
+_current_font_size = 40
+_size_just_modified_by_autosizer = true

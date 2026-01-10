@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dihplp2ct2wv4"]
+[gd_scene load_steps=17 format=3 uid="uid://dihplp2ct2wv4"]
 
 [ext_resource type="Script" uid="uid://dfg8yyl72e2v8" path="res://Scripts/Manager/game_manager.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://b570hdnewxoqv" path="res://Scenes/container_ui.tscn" id="1_wrm1d"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cn31jxeya8jq7" path="res://Scenes/stats_ui.tscn" id="3_wowpa"]
 [ext_resource type="Script" uid="uid://jggsarlryqbj" path="res://Scripts/Characters/character_repository.gd" id="6_1phco"]
 [ext_resource type="PackedScene" uid="uid://cc1mstry25j7" path="res://Scenes/SurvivedDays.tscn" id="7_1l0tm"]
+[ext_resource type="Script" uid="uid://bmh4nygjsh62j" path="res://Scripts/Manager/buff_manager.gd" id="7_nb51f"]
 [ext_resource type="PackedScene" uid="uid://coyu4ldvimyse" path="res://Scenes/home_menu_ui.tscn" id="10_rfjv2"]
 [ext_resource type="Script" uid="uid://celo7jurvj8df" path="res://Scripts/Quest/quest_completed_notification.gd" id="10_rku1e"]
 [ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="11_rku1e"]
@@ -40,7 +41,12 @@ unique_name_in_owner = true
 script = ExtResource("3_v158k")
 
 [node name="CharacterRepository" type="Node2D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("6_1phco")
+
+[node name="BuffManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("7_nb51f")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
