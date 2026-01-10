@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dihplp2ct2wv4"]
+[gd_scene load_steps=19 format=3 uid="uid://dihplp2ct2wv4"]
 
 [ext_resource type="Script" uid="uid://dfg8yyl72e2v8" path="res://Scripts/Manager/game_manager.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://b570hdnewxoqv" path="res://Scenes/container_ui.tscn" id="1_wrm1d"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" uid="uid://celo7jurvj8df" path="res://Scripts/Quest/quest_completed_notification.gd" id="10_rku1e"]
 [ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="11_rku1e"]
 [ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="12_1phco"]
+[ext_resource type="PackedScene" path="res://Scenes/buff_screen_effect.tscn" id="13_buff"]
+[ext_resource type="PackedScene" path="res://Scenes/card_unlock_animation.tscn" id="14_unlock"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rfjv2"]
 font = ExtResource("11_rku1e")
@@ -52,7 +54,19 @@ script = ExtResource("7_nb51f")
 
 [node name="Container_UI" parent="CanvasLayer" instance=ExtResource("1_wrm1d")]
 
+[node name="CardUnlockAnimation" parent="CanvasLayer/Container_UI" instance=ExtResource("14_unlock")]
+unique_name_in_owner = true
+layout_mode = 1
+card_size = Vector2(530, 470)
+spawn_delay = 0.2
+card_color = Color(0.17283267, 0.17283267, 0.17283261, 0.8509804)
+target_offset = Vector2(0, 45)
+
 [node name="Card_UI" parent="CanvasLayer/Container_UI" instance=ExtResource("2_3dryh")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="BuffScreenEffect" parent="CanvasLayer/Container_UI" instance=ExtResource("13_buff")]
 unique_name_in_owner = true
 layout_mode = 1
 
@@ -61,6 +75,7 @@ unique_name_in_owner = true
 layout_mode = 1
 offset_top = -1.0
 offset_bottom = 147.0
+metadata/_edit_use_anchors_ = true
 
 [node name="SurvivedDays" parent="CanvasLayer/Container_UI" instance=ExtResource("7_1l0tm")]
 unique_name_in_owner = true
@@ -79,6 +94,7 @@ anchor_right = 1.0
 offset_bottom = 64.0
 grow_horizontal = 2
 script = ExtResource("10_rku1e")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Container_UI/QuestCompletedNotification"]
 layout_mode = 1
@@ -99,3 +115,4 @@ _max_size = 42
 _min_size = 24
 _current_font_size = 42
 _editor_defaults_set = true
+metadata/_edit_use_anchors_ = true

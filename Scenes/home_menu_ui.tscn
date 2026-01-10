@@ -142,13 +142,12 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="SettingsUI" parent="PanelContainer" instance=ExtResource("8_lo3vr")]
+[node name="EffectsUI" parent="PanelContainer" instance=ExtResource("8_cnmd1")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-script = null
 
-[node name="EffectsUI" parent="PanelContainer" instance=ExtResource("8_cnmd1")]
+[node name="SettingsUI" parent="PanelContainer" instance=ExtResource("8_lo3vr")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2

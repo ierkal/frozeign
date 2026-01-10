@@ -3,6 +3,7 @@ class_name Deck
 
 
 signal flag_added_signal(flag_name)
+signal pool_unlocked(pool_name)
 
 var _raw_cards: Array = []         # all cards loaded from JSON
 var _deck: Array = []              # working deck (shuffled)
@@ -51,10 +52,10 @@ func has_flag(flag_name: String) -> bool:
 func unlock_pool(pool_name: String) -> void:
 	if pool_name == "":
 		return
-	_unlocked_pools[pool_name] = true
-	# Optional: If you want to immediately shuffle in cards from this new pool,
-	# you might want to call _refill_deck() here, or wait until the deck runs out.
-	# For now, we'll wait for the next refill or user interaction.
+	# Only emit signal if this is a new unlock
+	if not _unlocked_pools.has(pool_name):
+		_unlocked_pools[pool_name] = true
+		pool_unlocked.emit(pool_name)
 
 func is_pool_unlocked(pool_name: String) -> bool:
 	return _unlocked_pools.has(pool_name)

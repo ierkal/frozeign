@@ -28,6 +28,10 @@ var _death_value: int = 0
 var _current_chief_index: int = 0   # Number of chiefs so far
 
 @onready var reward_ui = %QuestCompletedNotification
+@onready var buff_screen_effect: BuffScreenEffect = %BuffScreenEffect
+@onready var card_unlock_animation: CardUnlockAnimation = %CardUnlockAnimation
+
+var _buff_intro_active: bool = false
 
 func _ready() -> void:
 	add_to_group("GameManager")
@@ -37,6 +41,9 @@ func _ready() -> void:
 	stats.stats_changed.connect(_on_stats_changed)
 	stats.stat_threshold_reached.connect(_on_stat_threshold_reached)
 	card_ui.card_count_reached.connect(_on_card_count_reach)
+	EventBus.buff_started.connect(_on_buff_started)
+	EventBus.buff_intro_card_shown.connect(_on_buff_intro_card_shown)
+	deck.pool_unlocked.connect(_on_pool_unlocked)
 	chief_manager.load_names()
 	survived_days.update_ui(chief_manager.current_chief_name)
 	deck.set_current_chief_index(_current_chief_index)
@@ -46,11 +53,39 @@ func _ready() -> void:
 	buff_manager.setup(deck)
 	if home_menu_ui:
 		home_menu_ui.setup(self)
+	if card_unlock_animation:
+		card_unlock_animation.set_target(card_ui.texture_parent)
 	deck.begin_starter_phase()   # show Pool:"Starter" cards first
 	_on_request_deck_draw()
 
 func _on_quest_reward_triggered(text: String) -> void:
 	reward_ui.play_notification(text)
+
+func _on_buff_started(buff: ActiveBuff) -> void:
+	reward_ui.play_notification("New Effect: " + buff.title)
+
+func _on_pool_unlocked(_pool_name: String) -> void:
+	reward_ui.play_notification("New cards unlocked!")
+	if card_unlock_animation:
+		_play_card_unlock_animation_delayed()
+
+func _play_card_unlock_animation_delayed() -> void:
+	# Wait for the new card to be drawn and settled
+	await get_tree().create_timer(0.6).timeout
+	if card_unlock_animation:
+		card_unlock_animation.play_animation()
+
+func _on_buff_intro_card_shown() -> void:
+	_buff_intro_active = true
+	if buff_screen_effect:
+		buff_screen_effect.show_effect()
+
+func _dismiss_buff_intro_effect() -> void:
+	if _buff_intro_active:
+		_buff_intro_active = false
+		if buff_screen_effect:
+			buff_screen_effect.hide_effect()
+		EventBus.buff_intro_card_dismissed.emit()
 
 func _on_request_deck_draw() -> void:
 	# Death explanation phase 1
@@ -81,29 +116,35 @@ func _on_request_deck_draw() -> void:
 
 func _on_card_effect_committed(effect: Dictionary) -> void:
 	_last_card_had_effect = false
-	
-	if buff_manager:
+
+	# Dismiss buff intro effect if active
+	_dismiss_buff_intro_effect()
+
+	var stats_keys = ["Hope", "Discontent", "Order", "Faith"]
+
+	# Check if the card itself has any stat changes
+	var card_has_stat_changes = false
+	for key in stats_keys:
+		if effect.has(key) and effect[key] != 0:
+			card_has_stat_changes = true
+			break
+
+	# Only apply buff modifiers if the card has stat changes
+	if card_has_stat_changes and buff_manager:
 		var buff_modifiers = buff_manager.get_active_stat_modifiers()
-	
-	# Gelen kart etkisinde stat varsa üstüne ekle, yoksa sıfırdan oluştur
 		for stat_key in buff_modifiers.keys():
 			var modifier_value = buff_modifiers[stat_key]
-	
 			if modifier_value != 0:
 				if not effect.has(stat_key):
 					effect[stat_key] = 0
-		
 				effect[stat_key] += modifier_value
-	
-	# Loglamak istersen (Debug için):
-	# print("Buff Etkisi Uygulandı: " + stat_key + " " + str(modifier_value))
-	var stats_keys = ["Hope", "Discontent", "Order", "Faith"]
-	
+
+	# Check if there are any final stat changes (for day counting)
 	for key in stats_keys:
 		if effect.has(key) and effect[key] != 0:
 			_last_card_had_effect = true
 			break
-	
+
 	stats.apply_effects(effect)
 	if buff_manager:
 		buff_manager.on_turn_passed()
@@ -121,7 +162,8 @@ func _on_stats_changed(h: int, d: int, o: int, f: int) -> void:
 	stats_ui.update_stats(h, d, o, f)
 
 func _on_card_count_reach() -> void:
-	if _last_card_had_effect:
+	# Don't count buff intro cards as survived days
+	if _last_card_had_effect and not _buff_intro_active:
 		survived_days.on_day_survive() 
 
 func _on_stat_threshold_reached(stat_name: String, value: int) -> void:
@@ -179,6 +221,10 @@ func _soft_reset_game() -> void:
 	# İstatistikleri sıfırla
 	stats.reset_stats() # Varsayılan değerlere dön (stats_manager içinde olmalı)
 	survived_days.reset_days()
+
+	# Clear all active buffs on chief death
+	if buff_manager:
+		buff_manager.clear_all_buffs()
 	chief_manager.pick_random_name()
 	survived_days.update_ui(chief_manager.current_chief_name)
 	if _current_chief_index <= 1:

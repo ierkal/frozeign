@@ -44,6 +44,7 @@ func _start_buff(buff_id: String) -> void:
 	
 	if new_buff.intro_card_id != "" and _deck:
 		_deck.force_next_card(new_buff.intro_card_id)
+		EventBus.buff_intro_card_shown.emit()
 	
 	_broadcast_effects()
 
@@ -52,6 +53,26 @@ func _end_buff(buff_id: String) -> void:
 		active_buffs.erase(buff_id)
 		EventBus.buff_ended.emit(buff_id)
 		_broadcast_effects()
+
+func clear_all_buffs() -> void:
+	for buff_id in active_buffs.keys():
+		EventBus.buff_ended.emit(buff_id)
+	active_buffs.clear()
+	_broadcast_effects()
+
+func is_buff_intro_card(card_id: String) -> bool:
+	for buff_key in buff_database:
+		var data = buff_database[buff_key]
+		if data.get("intro_card_id", "") == card_id:
+			return true
+	return false
+
+func get_buff_for_intro_card(card_id: String) -> Dictionary:
+	for buff_key in buff_database:
+		var data = buff_database[buff_key]
+		if data.get("intro_card_id", "") == card_id:
+			return data
+	return {}
 
 func _load_database() -> void:
 	var file = FileAccess.open("res://Json/buffs.json", FileAccess.READ)

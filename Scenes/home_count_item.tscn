@@ -34,14 +34,13 @@ gradient = SubResource("Gradient_baul8")
 [sub_resource type="Theme" id="Theme_uiw8b"]
 
 [sub_resource type="Gradient" id="Gradient_u80p0"]
-colors = PackedColorArray(0, 0, 0, 1, 0.14044744, 0.14044744, 0.14044744, 1)
+colors = PackedColorArray(0.4, 0.4, 0.4, 1, 0.4, 0.4, 0.4, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_jejsi"]
 gradient = SubResource("Gradient_u80p0")
 
 [sub_resource type="Gradient" id="Gradient_y80hu"]
-offsets = PackedFloat32Array(0, 0.2804348, 1)
-colors = PackedColorArray(0.14007202, 0.52283585, 0.73918283, 1, 0.14117648, 0.52156866, 0.7372549, 1, 0.14117648, 0.52156866, 0.7372549, 1)
+colors = PackedColorArray(1, 0.45882353, 0.20784314, 1, 1, 0.45882353, 0.20784314, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_jsfyh"]
 gradient = SubResource("Gradient_y80hu")

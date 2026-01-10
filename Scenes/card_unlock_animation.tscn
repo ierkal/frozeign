@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1n2q0620gau0"]
+
+[ext_resource type="Script" path="res://Scripts/Effects/card_unlock_animation.gd" id="1_script"]
+
+[node name="CardUnlockAnimation" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_script")
+card_count = 5
+card_size = Vector2(80, 120)
+animation_duration = 0.6
+spawn_delay = 0.08
+card_color = Color(0.25, 0.25, 0.25, 0.85)

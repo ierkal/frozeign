@@ -1,14 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbhpoouridre6"]
+[gd_scene load_steps=8 format=3 uid="uid://bbhpoouridre6"]
 
-[ext_resource type="Script" uid="uid://dn7ikwxxm0otj" path="res://Scripts/Quest/quest_ui.gd" id="1_a4fwd"]
-[ext_resource type="PackedScene" uid="uid://coxxcvpe3x2b0" path="res://Scenes/quest_item.tscn" id="2_dm6ou"]
-[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="3_r5c7y"]
+[ext_resource type="Script" uid="uid://bdc1wsxt6x1xd" path="res://Scripts/Menu/settings_ui.gd" id="1_settings"]
+[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="2_font"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a4fwd"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_panel"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_30nqa"]
-font = ExtResource("3_r5c7y")
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("2_font")
 font_size = 44
+
+[sub_resource type="LabelSettings" id="LabelSettings_label"]
+font = ExtResource("2_font")
+font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slider_bg"]
+bg_color = Color(0.4, 0.4, 0.4, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.55, 0.55, 0.55, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slider_fill"]
+bg_color = Color(1, 0.45882353, 0.20784314, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [node name="SettingsUI" type="Control"]
 layout_mode = 3
@@ -17,8 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_a4fwd")
-quest_item_scene = ExtResource("2_dm6ou")
+script = ExtResource("1_settings")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -27,7 +48,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_a4fwd")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_panel")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 1
@@ -37,7 +58,7 @@ offset_top = 41.0
 offset_bottom = 102.0
 grow_horizontal = 2
 text = "Settings"
-label_settings = SubResource("LabelSettings_30nqa")
+label_settings = SubResource("LabelSettings_title")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -48,29 +69,102 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 25
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 25
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 30
 
-[node name="QuestListVbox" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer"]
+[node name="MusicContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MusicLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/MusicContainer"]
+layout_mode = 2
+text = "Music Volume"
+label_settings = SubResource("LabelSettings_label")
+
+[node name="MusicHBox" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MusicContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="MusicSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/MusicContainer/MusicHBox"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
+theme_override_styles/slider = SubResource("StyleBoxFlat_slider_bg")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_slider_fill")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_slider_fill")
+value = 80.0
 
-[node name="CloseBtn" type="Button" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -45.0
-offset_bottom = 40.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 21
-text = "X"
+[node name="MusicValue" type="Label" parent="Panel/MarginContainer/VBoxContainer/MusicContainer/MusicHBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "80%"
+label_settings = SubResource("LabelSettings_label")
+horizontal_alignment = 2
+
+[node name="SFXContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SFXLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/SFXContainer"]
+layout_mode = 2
+text = "SFX Volume"
+label_settings = SubResource("LabelSettings_label")
+
+[node name="SFXHBox" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/SFXContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="SFXSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/SFXContainer/SFXHBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/slider = SubResource("StyleBoxFlat_slider_bg")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_slider_fill")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_slider_fill")
+value = 80.0
+
+[node name="SFXValue" type="Label" parent="Panel/MarginContainer/VBoxContainer/SFXContainer/SFXHBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "80%"
+label_settings = SubResource("LabelSettings_label")
+horizontal_alignment = 2
+
+[node name="LanguageContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LanguageLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/LanguageContainer"]
+layout_mode = 2
+text = "Language"
+label_settings = SubResource("LabelSettings_label")
+
+[node name="LanguageDropdown" type="OptionButton" parent="Panel/MarginContainer/VBoxContainer/LanguageContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+selected = 0
+item_count = 1
+popup/item_0/text = "English"
+popup/item_0/id = 0
+
+[node name="LanguageDropdownPopup" type="PopupMenu" parent="Panel/MarginContainer/VBoxContainer/LanguageContainer/LanguageDropdown"]
+oversampling_override = 1.0
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+
+[connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/MusicContainer/MusicHBox/MusicSlider" to="." method="_on_music_slider_changed"]
+[connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/SFXContainer/SFXHBox/SFXSlider" to="." method="_on_sfx_slider_changed"]
+[connection signal="item_selected" from="Panel/MarginContainer/VBoxContainer/LanguageContainer/LanguageDropdown" to="." method="_on_language_selected"]
