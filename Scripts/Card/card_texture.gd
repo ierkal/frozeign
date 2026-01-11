@@ -184,12 +184,6 @@ func throw_card() -> void:
 	tween.tween_property(self, "modulate:a", 0.0, THROW_DURATION)
 	tween.chain().tween_callback(on_card_died)
 
-
-func _side_to_dir(side: String) -> int:
-	if side == SIDE_LEFT:
-		return -1
-	return 1
-
 func _kill_tween() -> void:
 	if tween:
 		tween.kill()

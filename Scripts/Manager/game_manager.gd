@@ -9,10 +9,14 @@ class_name GameManager
 @onready var quest_manager: QuestManager = %QuestManager
 @onready var home_menu_ui : HomeMenuUI = %HomeMenuUI
 @onready var chief_manager: ChiefManager = %ChiefManager
-@onready var buff_manager: BuffManager = $BuffManager # Scene ağacında child olarak eklediysen
+@onready var buff_manager: BuffManager = $BuffManager
+
+# Interview system for hiring profession NPCs
+var interview_manager: InterviewManager
 
 var _dead_chiefs_history: Array = [] # { "name": String, "days": int, "index": int }
 var _last_card_had_effect: bool = false
+var _pending_buff_intros: Array = []
 @onready var character_repository: CharacterRepository = %CharacterRepository
 
 enum DeathPhase {
@@ -51,6 +55,14 @@ func _ready() -> void:
 	character_repository.load_data("res://Json/characters.json") # Ensure path matches your uploaded file
 	await deck.load_from_file("res://Json/frozeign.json")
 	buff_manager.setup(deck)
+
+	# Setup interview manager for profession hiring
+	interview_manager = InterviewManager.new()
+	add_child(interview_manager)
+	interview_manager.setup(deck)
+	deck.set_interview_manager(interview_manager)
+	interview_manager.npc_hired.connect(_on_npc_hired)
+
 	if home_menu_ui:
 		home_menu_ui.setup(self)
 	if card_unlock_animation:
@@ -64,6 +76,9 @@ func _on_quest_reward_triggered(text: String) -> void:
 func _on_buff_started(buff: ActiveBuff) -> void:
 	reward_ui.play_notification("New Effect: " + buff.title)
 
+func _on_npc_hired(profession: String, npc_name: String) -> void:
+	reward_ui.play_notification("Hired: %s %s" % [profession, npc_name])
+
 func _on_pool_unlocked(_pool_name: String) -> void:
 	reward_ui.play_notification("New cards unlocked!")
 	if card_unlock_animation:
@@ -76,10 +91,7 @@ func _play_card_unlock_animation_delayed() -> void:
 		card_unlock_animation.play_animation()
 
 func _on_buff_intro_card_shown(buff_data: Dictionary) -> void:
-	_buff_intro_active = true
-	if buff_screen_effect:
-		buff_screen_effect.show_effect()
-	card_ui.receive_buff_info_card(buff_data)
+	_pending_buff_intros.append(buff_data)
 
 func _dismiss_buff_intro_effect() -> void:
 	if _buff_intro_active:
@@ -89,6 +101,23 @@ func _dismiss_buff_intro_effect() -> void:
 		EventBus.buff_intro_card_dismissed.emit()
 
 func _on_request_deck_draw() -> void:
+	# A) Check for Game Over first (Reset happens here now, after the final card dies)
+	if _death_phase == DeathPhase.GAME_OVER:
+		_soft_reset_game()
+		return
+
+	# B) Check for pending buff intro cards
+	if not _pending_buff_intros.is_empty():
+		var buff_data = _pending_buff_intros.pop_front()
+		
+		# Move the "Active" logic here
+		_buff_intro_active = true
+		if buff_screen_effect:
+			buff_screen_effect.show_effect()
+			
+		card_ui.receive_buff_info_card(buff_data)
+		return
+
 	# Death explanation phase 1
 	if _death_phase == DeathPhase.EXPLANATION_NEXT:
 		var death_id := _get_death_card_id()
@@ -114,7 +143,7 @@ func _on_request_deck_draw() -> void:
 	card_ui.receive_presented_card(presented)
 
 
-
+# 3. Update this function to REMOVE the immediate soft reset
 func _on_card_effect_committed(effect: Dictionary) -> void:
 	_last_card_had_effect = false
 
@@ -154,10 +183,6 @@ func _on_card_effect_committed(effect: Dictionary) -> void:
 
 	if card_id != "" and original_side != "":
 		deck.on_card_committed(card_id, original_side)
-
-	if _death_phase == DeathPhase.GAME_OVER:
-		_soft_reset_game()
-
 
 func _on_stats_changed(h: int, d: int, o: int, f: int) -> void:
 	stats_ui.update_stats(h, d, o, f)

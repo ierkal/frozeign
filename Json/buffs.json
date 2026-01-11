@@ -1,16 +1,14 @@
-﻿{
-  "test": {
-    "title": "Test Buff",
-    "description": "This is a testing buff that will continue until chief dies.",
-    "icon_path": "res://Assets/Sprites//bufficons/coding.png",
-    "type": "permanent",
-    "duration": 0,
-    "trigger_flag": "test_card_decided",
-    "intro_card_id": "card_test_buff_info",
-    "effects": { 
-      "Hope": -5,
-      "Discontent": 0
-    }
-  }
+{
+	"test": {
+		"title": "Test Buff",
+		"description": "This is a testing buff that will continue until chief dies.",
+		"icon_path": "res://Assets/Sprites/bufficons/coding.png",
+		"type": "permanent",
+		"duration": 0,
+		"trigger_flag": "test_card_decided",
+		"effects": {
+			"Hope": -5,
+			"Discontent": 0
+		}
+	}
 }
-

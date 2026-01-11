@@ -62,6 +62,8 @@ spawn_delay = 0.2
 [node name="Card_UI" parent="CanvasLayer/Container_UI" instance=ExtResource("2_3dryh")]
 unique_name_in_owner = true
 layout_mode = 1
+offset_top = 150.0
+offset_bottom = -150.0
 
 [node name="StatsUI" parent="CanvasLayer/Container_UI" instance=ExtResource("3_wowpa")]
 unique_name_in_owner = true
@@ -79,7 +81,7 @@ unique_name_in_owner = true
 layout_mode = 1
 contrast = 1.1
 saturation = 0.85
-brightness = 0.050000000000000044
+brightness = 0.05000000000000004
 tint_color = Color(0.602431, 0.9285481, 0.99999994, 1)
 tint_strength = 0.296
 

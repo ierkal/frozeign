@@ -17,6 +17,9 @@ var _unlocked_pools: Dictionary = {}
 
 var _use_starter_phase: bool = false  # draw starter cards first
 
+# Interview system integration
+var _interview_manager = null
+
 
 func _ready() -> void:
 	randomize()
@@ -31,6 +34,9 @@ func begin_starter_phase() -> void:
 
 func set_current_chief_index(idx: int) -> void:
 	current_chief_index = idx
+
+func set_interview_manager(manager) -> void:
+	_interview_manager = manager
 
 func add_flag(flag_name: String) -> void:
 	if flag_name == "":
@@ -67,8 +73,7 @@ func _reset_unlocked_pools() -> void:
 	
 func soft_reset_deck() -> void:
 	_deck.clear()
-	_refill_deck() # Sadece desteyi kartlarla tekrar dolduruyoruz
-	#_sequence_queue.clear() # Varsa yarım kalmış sequenceleri temizle
+	_refill_deck()
 # ---------------------------------------------------
 # Loading
 # ---------------------------------------------------
@@ -277,9 +282,14 @@ func _queue_next_sequence_step(card: Dictionary) -> void:
 # ---------------------------------------------------
 
 func prepare_presented(card: Dictionary) -> Dictionary:
+	# Get dynamic title from interview manager if available
+	var dynamic_title = str(card.get("Title", ""))
+	if _interview_manager:
+		dynamic_title = _interview_manager.get_dynamic_title(card)
+
 	var present := {
 		"id": card.get("Id", ""),
-		"title": card.get("Title", ""),
+		"title": dynamic_title,
 		"desc": card.get("Description", ""),
 		"left": {},
 		"right": {},
@@ -410,8 +420,6 @@ func get_unique_cards_count() -> int:
 func force_next_card(card_id: String) -> void:
 	var card_data = find_card_by_id(card_id)
 	if not card_data.is_empty():
-		# Mevcut sequence mantığını kullanarak destenin en önüne ekliyoruz
 		_sequence_queue.push_front(card_data)
-		print("Deck: Forced next card -> " + card_id)
 	else:
 		push_error("Deck: Forced card not found -> " + card_id)

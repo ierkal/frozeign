@@ -12,7 +12,6 @@ func load_names() -> void:
 		var json = JSON.new()
 		json.parse(file.get_as_text())
 		_all_names = json.data["names"]
-		print("Loaded %d chief names." % _all_names.size())
 		pick_random_name()
 
 func pick_random_name() -> void:

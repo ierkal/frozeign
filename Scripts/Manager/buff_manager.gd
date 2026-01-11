@@ -58,20 +58,6 @@ func clear_all_buffs() -> void:
 	active_buffs.clear()
 	_broadcast_effects()
 
-func is_buff_intro_card(card_id: String) -> bool:
-	for buff_key in buff_database:
-		var data = buff_database[buff_key]
-		if data.get("intro_card_id", "") == card_id:
-			return true
-	return false
-
-func get_buff_for_intro_card(card_id: String) -> Dictionary:
-	for buff_key in buff_database:
-		var data = buff_database[buff_key]
-		if data.get("intro_card_id", "") == card_id:
-			return data
-	return {}
-
 func _load_database() -> void:
 	var file = FileAccess.open("res://Json/buffs.json", FileAccess.READ)
 	if file:

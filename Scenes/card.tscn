@@ -44,6 +44,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("4_u5wvb")
 expand_mode = 1
+stretch_mode = 0
 script = null
 
 [node name="CardDrag" type="Control" parent="."]

@@ -31,8 +31,13 @@ var _tween_right: Tween = null
 
 func _ready() -> void:
 	_reset_preview_ui()
+	_apply_safe_area()
 	request_deck_draw.emit()
-
+	# Re-sync card slot and safe area when the UI resizes
+	resized.connect(_on_resized)
+	get_tree().root.size_changed.connect(_on_viewport_size_changed)
+	pivot_offset = size / 2
+	
 # --------------------
 # External entrypoint (called by GameManager)
 # --------------------
@@ -74,6 +79,9 @@ func _spawn_card() -> void:
 	_card.card_decision.connect(_on_card_decision)
 	_card.card_committed.connect(_on_card_committed)
 
+	# Sync card slot background to match card texture position/size
+	_sync_card_slot.call_deferred()
+
 
 func _spawn_buff_info_card(buff_data: Dictionary) -> void:
 	_clear_texture_parent()
@@ -94,9 +102,69 @@ func _spawn_buff_info_card(buff_data: Dictionary) -> void:
 	_card.card_decision.connect(_on_card_decision)
 	_card.card_committed.connect(_on_buff_info_card_committed)
 
+	# Sync card slot background to match card texture position/size
+	_sync_card_slot.call_deferred()
+
 func _clear_texture_parent() -> void:
 	for c in texture_parent.get_children():
 		c.queue_free()
+
+
+func _sync_card_slot() -> void:
+	if not _card or not is_instance_valid(_card):
+		return
+
+	# Get the CardTexture node from the card
+	var card_texture: Control = _card.get_node_or_null("CardTexture")
+	if not card_texture:
+		return
+
+	# Get CardTexture's global rect
+	var texture_global_rect := card_texture.get_global_rect()
+
+	# Convert to local coordinates relative to CardSlot's parent
+	var slot_parent := card_slot.get_parent() as Control
+	if not slot_parent:
+		return
+
+	var local_pos := slot_parent.get_global_transform().affine_inverse() * texture_global_rect.position
+
+	# Set CardSlot to match exactly
+	card_slot.position = local_pos
+	card_slot.size = texture_global_rect.size
+
+
+func _on_resized() -> void:
+	_sync_card_slot.call_deferred()
+
+
+func _on_viewport_size_changed() -> void:
+	_apply_safe_area()
+	_sync_card_slot.call_deferred()
+
+
+func _apply_safe_area() -> void:
+	# Get screen size and safe area
+	var screen_size := DisplayServer.screen_get_size()
+	var safe_area := DisplayServer.get_display_safe_area()
+
+	# Calculate insets (how much the safe area is inset from screen edges)
+	var top_inset := safe_area.position.y
+	var bottom_inset := screen_size.y - (safe_area.position.y + safe_area.size.y)
+
+	# Get viewport size for proper scaling
+	var viewport_size := get_viewport_rect().size
+
+	# Scale insets to viewport coordinates (in case viewport differs from screen)
+	var scale_y := viewport_size.y / float(screen_size.y) if screen_size.y > 0 else 1.0
+	var scaled_top := top_inset * scale_y
+	var scaled_bottom := bottom_inset * scale_y
+
+	# Apply as offsets - these add to the anchor-based positioning
+	# TODO: Enable when ready to implement notch handling
+	#offset_top = scaled_top
+	#offset_bottom = -scaled_bottom
+
 
 func _reset_preview_ui() -> void:
 	_preview_side = ""

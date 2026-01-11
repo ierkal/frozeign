@@ -38,16 +38,39 @@ func _ready() -> void:
 	_store_default_tint(discontent)
 	_store_default_tint(order)
 	_store_default_tint(faith)
-	
+
 	# Başlangıç temizliği
 	clear_preview() # Noktaları gizle
 	_reset_arrows() # Okları gizle
-	
+
 	# Buff sistemini dinle
 	EventBus.active_buff_modifiers_changed.connect(_on_buff_modifiers_changed)
 
+	# Apply safe area for mobile notch handling
+	_apply_safe_area()
+	get_tree().root.size_changed.connect(_apply_safe_area)
+
 func _store_default_tint(bar: TextureProgressBar) -> void:
 	_base_tint[bar] = bar.tint_progress
+
+
+func _apply_safe_area() -> void:
+	# Get screen size and safe area
+	var screen_size := DisplayServer.screen_get_size()
+	var safe_area := DisplayServer.get_display_safe_area()
+
+	# Calculate top inset (for notch at top)
+	var top_inset := safe_area.position.y
+
+	# Get viewport size for proper scaling
+	var viewport_size := get_viewport_rect().size
+
+	# Scale inset to viewport coordinates
+	var scale_y := viewport_size.y / float(screen_size.y) if screen_size.y > 0 else 1.0
+	var scaled_top := top_inset * scale_y
+
+	# Push down from top to avoid notch
+	#offset_top = scaled_top
 
 # --------------------------------------------------------
 # 1. BÖLÜM: PREVIEW SİSTEMİ (NOKTALAR)
