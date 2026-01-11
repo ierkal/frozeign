@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://card_slot_scene"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slot"]
+bg_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="CardSlot" type="Panel"]
+anchors_preset = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_slot")

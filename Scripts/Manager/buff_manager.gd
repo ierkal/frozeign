@@ -34,18 +34,16 @@ func _on_flag_added(flag_name: String) -> void:
 
 func _start_buff(buff_id: String) -> void:
 	if active_buffs.has(buff_id): return
-	
+
 	var data = buff_database[buff_id]
-	var new_buff = ActiveBuff.new(data, buff_id) # ActiveBuff sınıfın varsa
+	var new_buff = ActiveBuff.new(data, buff_id)
 	active_buffs[buff_id] = new_buff
-	
-	# Global EventBus kullanımı
+
 	EventBus.buff_started.emit(new_buff)
-	
-	if new_buff.intro_card_id != "" and _deck:
-		_deck.force_next_card(new_buff.intro_card_id)
-		EventBus.buff_intro_card_shown.emit()
-	
+
+	# Show buff info card with buff data
+	EventBus.buff_intro_card_shown.emit(data)
+
 	_broadcast_effects()
 
 func _end_buff(buff_id: String) -> void:

@@ -1,10 +1,10 @@
 extends Control
 class_name CardUnlockAnimation
 
+@export var card_slot_scene: PackedScene
 @export var card_count: int = 5
 @export var animation_duration: float = 0.7
 @export var spawn_delay: float = 0.1
-@export var card_color: Color = Color(0.2, 0.2, 0.2, 0.9)
 
 var _target_control: Control
 
@@ -46,9 +46,12 @@ func _spawn_card_with_delay(index: int, start_pos: Vector2, center_pos: Vector2,
 
 
 func _create_and_animate_card(start_pos: Vector2, center_pos: Vector2, size: Vector2) -> void:
-	var card = ColorRect.new()
+	var card: Control
+	if card_slot_scene:
+		card = card_slot_scene.instantiate()
+	else:
+		card = Panel.new()
 	card.size = size
-	card.color = card_color
 	card.position = start_pos
 	card.rotation = -0.4
 	card.pivot_offset = size / 2

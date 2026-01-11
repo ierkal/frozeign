@@ -9,10 +9,12 @@ const SIDE_LEFT := "left"
 const SIDE_RIGHT := "right"
 
 @export var card_scene: PackedScene
+@export var buff_info_card_scene: PackedScene
 
 @onready var card_owner_name: Label = %CardOwnerName
 @onready var card_description: Label = %CardDescription
 @onready var texture_parent: TextureRect = %TextureParent
+@onready var card_slot: Panel = %CardSlot
 @onready var choice_bg_left: Panel = %ChoiceBGLeft
 @onready var choice_bg_right: Panel = %ChoiceBGRight
 @onready var left_text: Label = %LeftText
@@ -22,6 +24,7 @@ var commited_card_count : int = 0
 var _card: Node = null
 var _current_presented: Dictionary = {}
 var _preview_side: String = ""
+var _is_buff_info_card: bool = false
 
 var _tween_left: Tween = null
 var _tween_right: Tween = null
@@ -34,6 +37,7 @@ func _ready() -> void:
 # External entrypoint (called by GameManager)
 # --------------------
 func receive_presented_card(presented: Dictionary) -> void:
+	_is_buff_info_card = false
 	_current_presented = presented
 
 	card_owner_name.text = str(_current_presented.get("title", ""))
@@ -46,6 +50,18 @@ func receive_presented_card(presented: Dictionary) -> void:
 
 	_spawn_card()
 
+
+func receive_buff_info_card(buff_data: Dictionary) -> void:
+	_is_buff_info_card = true
+	_current_presented = {}
+
+	card_owner_name.text = ""
+	card_description.text = "This will be affecting the chief until his death."
+	left_text.text = ""
+	right_text.text = ""
+
+	_spawn_buff_info_card(buff_data)
+
 func _spawn_card() -> void:
 	_clear_texture_parent()
 	_reset_preview_ui()
@@ -57,6 +73,26 @@ func _spawn_card() -> void:
 	_card.card_idle.connect(_on_card_idle)
 	_card.card_decision.connect(_on_card_decision)
 	_card.card_committed.connect(_on_card_committed)
+
+
+func _spawn_buff_info_card(buff_data: Dictionary) -> void:
+	_clear_texture_parent()
+	_reset_preview_ui()
+
+	if not buff_info_card_scene:
+		push_warning("buff_info_card_scene not set, falling back to regular card")
+		_spawn_card()
+		return
+
+	_card = buff_info_card_scene.instantiate()
+	texture_parent.add_child(_card)
+
+	_card.setup_buff_info(buff_data)
+
+	_card.card_died.connect(_on_card_died)
+	_card.card_idle.connect(_on_card_idle)
+	_card.card_decision.connect(_on_card_decision)
+	_card.card_committed.connect(_on_buff_info_card_committed)
 
 func _clear_texture_parent() -> void:
 	for c in texture_parent.get_children():
@@ -75,6 +111,10 @@ func _on_card_died() -> void:
 	request_deck_draw.emit()
 
 func _on_card_decision(side: String) -> void:
+	# Buff info cards don't have side effects, skip preview
+	if _is_buff_info_card:
+		return
+
 	if _preview_side != "" and _preview_side != side:
 		_set_side_open(_preview_side, false)
 
@@ -97,8 +137,14 @@ func _on_card_committed(side: String) -> void:
 	commited_card_count += 1
 	await get_tree().create_timer(0.15).timeout
 	get_tree().call_group("StatsUI", "clear_preview")
-	
+
 	card_count_reached.emit()
+
+
+func _on_buff_info_card_committed(_side: String) -> void:
+	# Buff info cards don't have effects, just dismiss and draw next card
+	await get_tree().create_timer(0.15).timeout
+	get_tree().call_group("StatsUI", "clear_preview")
 
 func _effect_for(side: String) -> Dictionary:
 	var base := _side_dict(side)

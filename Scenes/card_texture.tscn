@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1ea2cdb8c3vy"]
+[gd_scene load_steps=5 format=3 uid="uid://d1ea2cdb8c3vy"]
 
 [ext_resource type="Texture2D" uid="uid://bkdwbnaw1pvvn" path="res://icon.svg" id="1_4ntvn"]
 [ext_resource type="Script" uid="uid://dh2wfns2d5yg8" path="res://Scripts/Card/card_texture.gd" id="2_1ku8j"]
+[ext_resource type="Shader" path="res://Assets/Shaders/rounded_corners.gdshader" id="3_rounded"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rounded"]
+shader = ExtResource("3_rounded")
+shader_parameter/corner_radius = 0.025
 
 [node name="CardTexture" type="TextureRect"]
 anchors_preset = 15
@@ -10,6 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(309, 215)
+material = SubResource("ShaderMaterial_rounded")
 texture = ExtResource("1_4ntvn")
 stretch_mode = 5
 script = ExtResource("2_1ku8j")

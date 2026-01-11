@@ -5,6 +5,9 @@
 [resource]
 script = ExtResource("1_0v71l")
 rotate_speed = 0.001
-position_threshold = 140
-input_position_threshold = 80
+position_threshold = 180
+input_position_threshold = 115
+throw_duration = 0.6
+throw_distance = 700.0
+reset_duration = 0.25
 metadata/_custom_type_script = "uid://d2glxrarjscq3"

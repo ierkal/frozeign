@@ -11,13 +11,19 @@ var _dragging := false
 var _mouse_offset := 0.0
 var _original_pos: Vector2
 var _owner_control: Control
+var _input_enabled := false
 
 func setup(owner_control: Control, original_pos: Vector2) -> void:
 	_owner_control = owner_control
 	_original_pos = original_pos
 	mouse_filter = Control.MOUSE_FILTER_STOP  # ensure GUI input
 
+func set_input_enabled(enabled: bool) -> void:
+	_input_enabled = enabled
+
 func _on_gui_input(event: InputEvent) -> void:
+	if not _input_enabled:
+		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			_mouse_offset = get_global_mouse_position().x - _owner_control.position.x

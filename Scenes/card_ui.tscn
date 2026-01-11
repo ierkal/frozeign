@@ -1,13 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://dh3iui73lwbai"]
+[gd_scene load_steps=11 format=3 uid="uid://dh3iui73lwbai"]
 
 [ext_resource type="Script" uid="uid://c7xwphipltatm" path="res://Scripts/Card/card_ui.gd" id="1_y8epe"]
 [ext_resource type="PackedScene" uid="uid://b8bsyifay8tjn" path="res://Scenes/card.tscn" id="2_y8epe"]
+[ext_resource type="PackedScene" uid="uid://buff_info_card_scene" path="res://Scenes/buff_info_card.tscn" id="2_buffinfo"]
 [ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="3_2ndah"]
 [ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="3_278fk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ndah"]
 font = ExtResource("3_278fk")
 font_size = 42
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cardslot"]
+bg_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_278fk"]
 font = ExtResource("3_278fk")
@@ -32,6 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y8epe")
 card_scene = ExtResource("2_y8epe")
+buff_info_card_scene = ExtResource("2_buffinfo")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -49,23 +58,35 @@ layout_mode = 2
 
 [node name="CardDescription" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
-size_flags_stretch_ratio = 0.2
+size_flags_vertical = 0
 text = "Our coal is running out of stock. How should we proceed, Chief?"
 label_settings = SubResource("LabelSettings_2ndah")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-script = ExtResource("3_2ndah")
-_max_size = 42
-_min_size = 16
-_current_font_size = 42
-_editor_defaults_set = true
+clip_text = true
+max_lines_visible = 3
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="CardSlot" type="Panel" parent="MarginContainer/VBoxContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = 71.0
+offset_right = -38.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cardslot")
 
 [node name="TextureParent" type="TextureRect" parent="MarginContainer/VBoxContainer/Control"]
 unique_name_in_owner = true
@@ -73,13 +94,12 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 62.0
-offset_bottom = -42.0
+offset_top = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.92
-stretch_mode = 5
+expand_mode = 1
 
 [node name="Card" parent="MarginContainer/VBoxContainer/Control/TextureParent" instance=ExtResource("2_y8epe")]
 visible = false
@@ -122,7 +142,6 @@ script = ExtResource("3_2ndah")
 _max_size = 32
 _min_size = 32
 _current_font_size = 32
-_size_just_modified_by_autosizer = true
 _editor_defaults_set = true
 
 [node name="ChoiceBGRight" type="Panel" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer"]
@@ -147,20 +166,18 @@ script = ExtResource("3_2ndah")
 _max_size = 32
 _min_size = 32
 _current_font_size = 32
-_size_just_modified_by_autosizer = true
 _editor_defaults_set = true
 
 [node name="CardOwnerName" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(186.865, 32.04)
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-size_flags_vertical = 10
-size_flags_stretch_ratio = 0.0
+size_flags_vertical = 0
 text = "The Steward"
 label_settings = SubResource("LabelSettings_y8epe")
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
+clip_text = true
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 visible = false

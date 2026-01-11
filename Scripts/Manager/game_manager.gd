@@ -54,7 +54,7 @@ func _ready() -> void:
 	if home_menu_ui:
 		home_menu_ui.setup(self)
 	if card_unlock_animation:
-		card_unlock_animation.set_target(card_ui.texture_parent)
+		card_unlock_animation.set_target(card_ui.card_slot)
 	deck.begin_starter_phase()   # show Pool:"Starter" cards first
 	_on_request_deck_draw()
 
@@ -75,10 +75,11 @@ func _play_card_unlock_animation_delayed() -> void:
 	if card_unlock_animation:
 		card_unlock_animation.play_animation()
 
-func _on_buff_intro_card_shown() -> void:
+func _on_buff_intro_card_shown(buff_data: Dictionary) -> void:
 	_buff_intro_active = true
 	if buff_screen_effect:
 		buff_screen_effect.show_effect()
+	card_ui.receive_buff_info_card(buff_data)
 
 func _dismiss_buff_intro_effect() -> void:
 	if _buff_intro_active:

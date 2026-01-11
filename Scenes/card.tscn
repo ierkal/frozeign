@@ -1,12 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8bsyifay8tjn"]
+[gd_scene load_steps=10 format=3 uid="uid://b8bsyifay8tjn"]
 
 [ext_resource type="Script" uid="uid://bbi164prxkiwl" path="res://Scripts/Card/card.gd" id="1_eumee"]
 [ext_resource type="Resource" uid="uid://cc3rgolfuk36k" path="res://Resources/Card.tres" id="2_bnspj"]
 [ext_resource type="PackedScene" uid="uid://d1ea2cdb8c3vy" path="res://Scenes/card_texture.tscn" id="2_e6po8"]
 [ext_resource type="Script" uid="uid://2ake0pica1o4" path="res://Scripts/Card/card_decision.gd" id="3_bnspj"]
 [ext_resource type="Script" uid="uid://cqty5jwcwwwb6" path="res://Scripts/Card/card_drag.gd" id="3_e6po8"]
+[ext_resource type="Shader" uid="uid://belydl7cox4uv" path="res://Assets/Shaders/rounded_corners.gdshader" id="4_mm04k"]
 [ext_resource type="Texture2D" uid="uid://dvnrrh86p1mx7" path="res://Assets/Sprites/ChatGPT Image Nov 11, 2025, 02_39_01 PM.png" id="4_u5wvb"]
 [ext_resource type="Script" uid="uid://bnq6gvx10hwgu" path="res://Scripts/Card/card_tweener.gd" id="4_xnv4g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yvxpl"]
+shader = ExtResource("4_mm04k")
+shader_parameter/corner_radius = 0.05
 
 [node name="Card" type="Control"]
 layout_mode = 3
@@ -23,7 +28,20 @@ script = ExtResource("1_eumee")
 cfg = ExtResource("2_bnspj")
 
 [node name="CardTexture" parent="." instance=ExtResource("2_e6po8")]
+material = SubResource("ShaderMaterial_yvxpl")
 layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -308.0
+offset_top = -270.0
+offset_right = 308.0
+offset_bottom = 270.0
+pivot_offset = Vector2(0, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("4_u5wvb")
 expand_mode = 1
 script = null
