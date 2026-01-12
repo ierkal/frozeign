@@ -10,6 +10,7 @@ signal card_committed(side: String)
 @onready var card_drag: Control = $CardDrag
 @onready var decision: Node = $CardDecision
 @onready var card_tweener: Node = $CardTweener
+@onready var card_texture: TextureRect = $CardTexture
 
 
 var _original_pos: Vector2
@@ -80,3 +81,9 @@ func _on_committed(side: String) -> void:
 func _on_thrown_finished() -> void:
 	card_died.emit()
 	queue_free()
+
+
+func set_npc_image(texture: Texture2D) -> void:
+	"""Set the NPC image on the card."""
+	if card_texture and texture:
+		card_texture.texture = texture

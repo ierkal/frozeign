@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://coyu4ldvimyse"]
+[gd_scene load_steps=27 format=3 uid="uid://coyu4ldvimyse"]
 
 [ext_resource type="Script" uid="uid://ine6ple67je4" path="res://Scripts/Menu/home_menu_ui.gd" id="1_1stue"]
 [ext_resource type="Texture2D" uid="uid://bi2ytywc8iuma" path="res://Assets/Sprites/home_menu.png" id="1_lpgi6"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b46lgfx1p243y" path="res://Scenes/quest_ui.tscn" id="7_c3axl"]
 [ext_resource type="PackedScene" uid="uid://bvjw3u03pjndp" path="res://Scenes/effects_ui.tscn" id="8_cnmd1"]
 [ext_resource type="PackedScene" uid="uid://bbhpoouridre6" path="res://Scenes/settings_ui.tscn" id="8_lo3vr"]
+[ext_resource type="PackedScene" path="res://Scenes/npc_ui.tscn" id="10_npc_ui"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lo3vr"]
 bg_color = Color(0.06879826, 0.06879829, 0.06879823, 1)
@@ -153,6 +154,11 @@ visible = false
 layout_mode = 2
 
 [node name="QuestUI" parent="." instance=ExtResource("7_c3axl")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="NpcUI" parent="." instance=ExtResource("10_npc_ui")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1

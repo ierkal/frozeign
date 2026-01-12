@@ -2,6 +2,7 @@ extends Control
 class_name HomeUI
 
 signal quest_menu_requested
+signal npc_panel_requested
 # UI Component References
 @onready var quest_count_item: HomeCountItem = %QuestCount
 @onready var npc_list_item: HomeCountItem = %NPCList
@@ -12,10 +13,15 @@ func _ready() -> void:
 	# Sadece QuestCount item'ının tıklanmasını dinliyoruz
 	if quest_count_item:
 		quest_count_item.clicked.connect(_on_quest_item_clicked)
+	if npc_list_item:
+		npc_list_item.clicked.connect(_on_npc_item_clicked)
 
 func _on_quest_item_clicked() -> void:
 	# Ana menüye sinyal gönder
 	quest_menu_requested.emit()
+
+func _on_npc_item_clicked() -> void:
+	npc_panel_requested.emit()
 
 # Dependency: We expect GameManager to provide the systems we need
 func refresh_data(gm: GameManager) -> void:
@@ -93,21 +99,20 @@ func _update_chief_board(history: Array) -> void:
 	chief_board.ChiefTwo.text = "-"
 	chief_board.ChiefThree.text = "-"
 	chief_board.ChiefFour.text = "-"
-	
+
 	var slots = [chief_board.ChiefOne, chief_board.ChiefTwo, chief_board.ChiefThree, chief_board.ChiefFour]
-	
+
 	var index = 0
 	for entry in history:
 		if index < slots.size():
-			var c_name = ""
-			if entry.has("name"):
-				c_name = entry["name"]
-			else:
-				c_name = "Unknown"
-				
+			var c_name = entry.get("name", "Unknown")
+
+			# Support both old format (days) and new format (start_day/death_day)
 			var c_days = 0
-			if entry.has("days"):
+			if entry.has("death_day") and entry.has("start_day"):
+				c_days = entry["death_day"] - entry["start_day"]
+			elif entry.has("days"):
 				c_days = entry["days"]
-				
+
 			slots[index].text = "%s: %d days survived" % [c_name, c_days]
 			index += 1

@@ -1,0 +1,13 @@
+{
+  "generic_pool": [
+    "res://Assets/Sprites/dummy_npc.png"
+  ],
+  "profession_images": {
+    "Foreman": "res://Assets/Sprites/dummy_npc.png",
+    "Hunter": "res://Assets/Sprites/dummy_npc.png"
+  },
+  "character_images": {
+    "char_steward_elias": "res://Assets/Sprites/dummy_npc.png",
+    "char_captain_jonas": "res://Assets/Sprites/dummy_npc.png"
+  }
+}

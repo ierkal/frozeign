@@ -1,0 +1,99 @@
+[gd_scene load_steps=3 format=3 uid="uid://death_screen_01"]
+
+[ext_resource type="Script" path="res://Scripts/Menu/death_screen.gd" id="1_death"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
+bg_color = Color(0.0, 0.0, 0.0, 0.85)
+
+[node name="DeathScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+script = ExtResource("1_death")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.85)
+
+[node name="ContentContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ContentContainer"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="TimelineBar" type="Control" parent="ContentContainer/ScrollContainer"]
+custom_minimum_size = Vector2(500, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="TimelineBg" type="ColorRect" parent="ContentContainer/ScrollContainer/TimelineBar"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+color = Color(0.2, 0.2, 0.25, 1)
+
+[node name="MarkersContainer" type="Control" parent="ContentContainer/ScrollContainer/TimelineBar"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="ChiefInfoLabel" type="Label" parent="ContentContainer"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.9, 0.7, 1)
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TapPrompt" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 18
+text = "Tap anywhere to continue"
+horizontal_alignment = 1
+vertical_alignment = 1

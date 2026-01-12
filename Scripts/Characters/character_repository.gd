@@ -24,25 +24,30 @@ func load_data(file_path: String) -> void:
 # Helper to parse the array
 func _parse_characters(data_array: Array) -> void:
 	_characters.clear()
-	
+
 	for entry in data_array:
 		# Avoid ternary operators as requested
 		var char_id = ""
 		if entry.has("id"):
 			char_id = entry["id"]
-			
+
 		var char_name = ""
 		if entry.has("name"):
 			char_name = entry["name"]
-			
+
 		var char_flag = ""
 		if entry.has("flag"):
 			char_flag = entry["flag"]
-			
+
 		var char_desc = ""
 		if entry.has("description"):
 			char_desc = entry["description"]
-		var new_char = CharacterDef.new(char_id, char_name, char_flag, char_desc)
+
+		var char_image = ""
+		if entry.has("image"):
+			char_image = entry["image"]
+
+		var new_char = CharacterDef.new(char_id, char_name, char_flag, char_desc, char_image)
 		_characters.append(new_char)
 
 # Public API to get total count

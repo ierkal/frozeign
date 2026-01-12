@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Menu/npc_ui.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://Scenes/npc_item.tscn" id="2_npc_item"]
+[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="3_font"]
+[ext_resource type="PackedScene" uid="uid://to0c4eroteek" path="res://Scenes/close_btn.tscn" id="4_close_btn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.033853274, 0.03385329, 0.033853233, 1)
+
+[node name="NpcUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+npc_item_scene = ExtResource("2_npc_item")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 41.0
+offset_bottom = 102.0
+grow_horizontal = 2
+text = "NPCs Met"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="NpcListGrid" type="GridContainer" parent="Panel/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="CloseBtn" parent="." instance=ExtResource("4_close_btn")]
+layout_mode = 1

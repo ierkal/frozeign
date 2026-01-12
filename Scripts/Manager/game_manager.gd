@@ -14,7 +14,12 @@ class_name GameManager
 # Interview system for hiring profession NPCs
 var interview_manager: InterviewManager
 
-var _dead_chiefs_history: Array = [] # { "name": String, "days": int, "index": int }
+# New dynamic NPC system
+var npc_generator: NpcGenerator
+var npc_image_composer: NpcImageComposer
+
+var _dead_chiefs_history: Array = [] # { "name": String, "start_day": int, "death_day": int, "index": int }
+var _current_chief_start_day: int = 0  # Track when current chief started (cumulative day)
 var _last_card_had_effect: bool = false
 var _pending_buff_intros: Array = []
 @onready var character_repository: CharacterRepository = %CharacterRepository
@@ -34,6 +39,7 @@ var _current_chief_index: int = 0   # Number of chiefs so far
 @onready var reward_ui = %QuestCompletedNotification
 @onready var buff_screen_effect: BuffScreenEffect = %BuffScreenEffect
 @onready var card_unlock_animation: CardUnlockAnimation = %CardUnlockAnimation
+@onready var death_screen: DeathScreen = %DeathScreen
 
 var _buff_intro_active: bool = false
 
@@ -63,10 +69,29 @@ func _ready() -> void:
 	deck.set_interview_manager(interview_manager)
 	interview_manager.npc_hired.connect(_on_npc_hired)
 
+	# Setup new dynamic NPC system (lazy generation - only creates NPCs when needed)
+	npc_generator = NpcGenerator.new()
+	add_child(npc_generator)
+
+	npc_image_composer = NpcImageComposer.new()
+	add_child(npc_image_composer)
+	npc_image_composer.setup(npc_generator)
+
+	# Initialize for lazy generation (don't create all NPCs at start)
+	npc_generator.initialize_lazy()
+
+	# Only create Steward and Captain at game start
+	npc_generator.create_council_npcs()
+
+	# Connect deck to NPC systems
+	deck.set_npc_systems(npc_generator, npc_image_composer)
+
 	if home_menu_ui:
 		home_menu_ui.setup(self)
 	if card_unlock_animation:
 		card_unlock_animation.set_target(card_ui.card_slot)
+	if death_screen:
+		death_screen.restart_requested.connect(_on_death_screen_restart)
 	deck.begin_starter_phase()   # show Pool:"Starter" cards first
 	_on_request_deck_draw()
 
@@ -78,6 +103,9 @@ func _on_buff_started(buff: ActiveBuff) -> void:
 
 func _on_npc_hired(profession: String, npc_name: String) -> void:
 	reward_ui.play_notification("Hired: %s %s" % [profession, npc_name])
+	# Assign profession to NPC (image will be refreshed automatically via signal)
+	if npc_generator:
+		npc_generator.assign_profession(npc_name, profession)
 
 func _on_pool_unlocked(_pool_name: String) -> void:
 	reward_ui.play_notification("New cards unlocked!")
@@ -101,9 +129,9 @@ func _dismiss_buff_intro_effect() -> void:
 		EventBus.buff_intro_card_dismissed.emit()
 
 func _on_request_deck_draw() -> void:
-	# A) Check for Game Over first (Reset happens here now, after the final card dies)
+	# A) Check for Game Over first - show death screen before reset
 	if _death_phase == DeathPhase.GAME_OVER:
-		_soft_reset_game()
+		_show_death_screen()
 		return
 
 	# B) Check for pending buff intro cards
@@ -126,6 +154,8 @@ func _on_request_deck_draw() -> void:
 			push_error("Missing death card: %s" % death_id)
 		else:
 			var presented = deck.prepare_presented(raw)
+			# Assign random NPC to deliver death news
+			presented = _assign_death_npc(presented)
 			card_ui.receive_presented_card(presented)
 			_death_phase = DeathPhase.FINAL_NEXT
 			return
@@ -209,6 +239,20 @@ func _get_death_card_id() -> String:
 	return "DEATH_%s_%s" % [upper, suffix]
 
 
+func _assign_death_npc(presented: Dictionary) -> Dictionary:
+	"""Assign a random created NPC to deliver the death news."""
+	if npc_generator and npc_image_composer:
+		var all_npcs = npc_generator.get_all_npcs()
+		var npc_names = all_npcs.keys()
+
+		if not npc_names.is_empty():
+			var random_npc_name = npc_names[randi() % npc_names.size()]
+			presented["title"] = random_npc_name
+			presented["npc_image"] = npc_image_composer.get_or_compose_image(random_npc_name)
+
+	return presented
+
+
 func _build_final_death_card() -> Dictionary:
 	var no_eff := {
 		"text": "",
@@ -220,32 +264,62 @@ func _build_final_death_card() -> Dictionary:
 
 	return {
 		"id": "DEATH_FINAL",
-		"title": "",
-		"desc": "",
+		"title": chief_manager.current_chief_name,
+		"desc": "Your people left you to freeze.",
 		"left": no_eff,
 		"right": no_eff
 	}
 
 
+func _show_death_screen() -> void:
+	"""Show the death screen with timeline before restarting."""
+	var death_day = _current_chief_start_day + survived_days.current_days
+	var current_chief_data = {
+		"name": chief_manager.current_chief_name,
+		"start_day": _current_chief_start_day,
+		"death_day": death_day,
+		"index": _current_chief_index + 1
+	}
+
+	if death_screen:
+		death_screen.show_death_screen(_dead_chiefs_history, current_chief_data)
+
+
+func _on_death_screen_restart() -> void:
+	"""Called when player taps to restart from death screen."""
+	_soft_reset_game()
+
+
 func _soft_reset_game() -> void:
+	# Calculate death day for current chief
+	var death_day = _current_chief_start_day + survived_days.current_days
 	var chief_data = {
 		"name": chief_manager.current_chief_name,
-		"days": survived_days.current_days,
-		"index": _current_chief_index + 1 # 1-based index için
+		"start_day": _current_chief_start_day,
+		"death_day": death_day,
+		"index": _current_chief_index + 1
 	}
 	_dead_chiefs_history.append(chief_data)
 
-	_dead_chiefs_history.sort_custom(func(a, b): return a.days > b.days)
-	
-	# 3. Sadece ilk 4'ü tutmak istiyorsan listeyi sınırla
+	# Sort by days survived (death_day - start_day) descending
+	_dead_chiefs_history.sort_custom(func(a, b):
+		var a_days = a.get("death_day", 0) - a.get("start_day", 0)
+		var b_days = b.get("death_day", 0) - b.get("start_day", 0)
+		return a_days > b_days
+	)
+
+	# Keep only top 4
 	if _dead_chiefs_history.size() > 4:
 		_dead_chiefs_history.pop_back()
-	
-	_current_chief_index += 1 # Yeni lider geliyor
+
+	# Update start day for next chief
+	_current_chief_start_day = death_day
+
+	_current_chief_index += 1
 	_death_phase = DeathPhase.NONE
-	
-	# İstatistikleri sıfırla
-	stats.reset_stats() # Varsayılan değerlere dön (stats_manager içinde olmalı)
+
+	# Reset stats
+	stats.reset_stats()
 	survived_days.reset_days()
 
 	# Clear all active buffs on chief death
@@ -272,3 +346,29 @@ func _on_ui_needs_quest_data() -> void:
 	# Yeni fonksiyonu çağırıyoruz
 		var display_list = quest_manager.get_quest_display_data()
 		home_menu_ui.quest_ui.show_quests(display_list)
+
+func _on_ui_needs_npc_data() -> void:
+	if not home_menu_ui.npc_ui:
+		return
+
+	var npc_list: Array = []
+
+	# Add all generated NPCs from the new system
+	if npc_generator:
+		var all_npcs = npc_generator.get_all_npcs()
+		for npc_name in all_npcs.keys():
+			var npc_data = all_npcs[npc_name]
+			var profession = npc_data.get("profession", "")
+			var npc_image: Texture2D = null
+
+			if npc_image_composer:
+				npc_image = npc_image_composer.get_cached_image(npc_name)
+
+			npc_list.append({
+				"name": npc_name,
+				"profession": profession,
+				"is_met": true,  # All generated NPCs are "known"
+				"npc_image": npc_image
+			})
+
+	home_menu_ui.npc_ui.show_npcs(npc_list)

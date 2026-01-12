@@ -74,6 +74,11 @@ func _spawn_card() -> void:
 	_card = card_scene.instantiate()
 	texture_parent.add_child(_card)
 
+	# Set NPC image if available in presented data
+	var npc_image = _current_presented.get("npc_image", null)
+	if npc_image and _card.has_method("set_npc_image"):
+		_card.set_npc_image(npc_image)
+
 	_card.card_died.connect(_on_card_died)
 	_card.card_idle.connect(_on_card_idle)
 	_card.card_decision.connect(_on_card_decision)

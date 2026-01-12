@@ -46,7 +46,8 @@
 		"StoryId":  "welcome_chief_1",
 		"StoryMinGap":  0.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -93,7 +94,8 @@
 		"StoryId":  "welcome_chief_1",
 		"StoryMinGap":  0.0,
 		"StoryStep":  2.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -140,7 +142,7 @@
 		"StoryId":  "welcome_chief_2",
 		"StoryMinGap":  0.0,
 		"StoryStep":  1.0,
-		"Title":  "Ghost Chief"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -187,7 +189,7 @@
 		"StoryId":  "welcome_chief_2",
 		"StoryMinGap":  0.0,
 		"StoryStep":  2.0,
-		"Title":  "Ghost Chief"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -235,7 +237,7 @@
 		"StoryId":  "cook_soup",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Cook Maeve"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -283,7 +285,7 @@
 		"StoryId":  "cook_food_additives",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Cook Maeve"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -332,7 +334,7 @@
 		"StoryId":  "cook_gruel",
 		"StoryMinGap":  5.0,
 		"StoryStep":  2.0,
-		"Title":  "Cook Maeve"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -381,7 +383,7 @@
 		"StoryId":  "cook_alternative_food_source",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Cook Maeve"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -429,7 +431,7 @@
 		"StoryId":  "cook_alternative_food_source",
 		"StoryMinGap":  5.0,
 		"StoryStep":  3.0,
-		"Title":  "Cook Maeve"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -477,7 +479,7 @@
 		"StoryId":  "cook_pills",
 		"StoryMinGap":  5.0,
 		"StoryStep":  4.0,
-		"Title":  "Cook Maeve"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -525,7 +527,7 @@
 		"StoryId":  "medic_radical_treatment",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Medic Helena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -573,7 +575,7 @@
 		"StoryId":  "medic_sustain_life",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Medic Helena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -622,7 +624,7 @@
 		"StoryId":  "medic_overcrowding",
 		"StoryMinGap":  5.0,
 		"StoryStep":  2.0,
-		"Title":  "Medic Helena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -671,7 +673,7 @@
 		"StoryId":  "medic_extra_rations",
 		"StoryMinGap":  5.0,
 		"StoryStep":  2.0,
-		"Title":  "Medic Helena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -720,7 +722,7 @@
 		"StoryId":  "medic_extra_rations",
 		"StoryMinGap":  5.0,
 		"StoryStep":  2.0,
-		"Title":  "Medic Helena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -769,7 +771,7 @@
 		"StoryId":  "medic_triage",
 		"StoryMinGap":  5.0,
 		"StoryStep":  3.0,
-		"Title":  "Medic Helena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -817,7 +819,7 @@
 		"StoryId":  "chaplain_cemetery",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Sister Amara"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -865,7 +867,8 @@
 		"StoryId":  "captain_corpse_disposal",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -913,7 +916,7 @@
 		"StoryId":  "chaplain_ceremonial_funerals",
 		"StoryMinGap":  10.0,
 		"StoryStep":  2.0,
-		"Title":  "Sister Amara"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -961,7 +964,7 @@
 		"StoryId":  "medic_organ_transplants",
 		"StoryMinGap":  10.0,
 		"StoryStep":  2.0,
-		"Title":  "Medic Helena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -1009,7 +1012,7 @@
 		"StoryId":  "inventor_organic_fertiliser",
 		"StoryMinGap":  10.0,
 		"StoryStep":  3.0,
-		"Title":  "Inventor Silas"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -1057,7 +1060,7 @@
 		"StoryId":  "foreman_emergency_shift",
 		"StoryMinGap":  10.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -1105,7 +1108,7 @@
 		"StoryId":  "foreman_extended_shift",
 		"StoryMinGap":  10.0,
 		"StoryStep":  2.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -1153,7 +1156,7 @@
 		"StoryId":  "foreman_child_jobs_safe",
 		"StoryMinGap":  10.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -1201,7 +1204,7 @@
 		"StoryId":  "foreman_child_jobs_all",
 		"StoryMinGap":  10.0,
 		"StoryStep":  2.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -1249,7 +1252,7 @@
 		"StoryId":  "foreman_child_shelters",
 		"StoryMinGap":  10.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -1297,7 +1300,7 @@
 		"StoryId":  "medic_medic_apprentices",
 		"StoryMinGap":  10.0,
 		"StoryStep":  2.0,
-		"Title":  "Medic Helena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -1345,7 +1348,7 @@
 		"StoryId":  "engineer_engineer_apprentices",
 		"StoryMinGap":  10.0,
 		"StoryStep":  2.0,
-		"Title":  "Senior Engineer David"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -1393,7 +1396,8 @@
 		"StoryId":  "steward_fighting_arena",
 		"StoryMinGap":  10.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -1441,7 +1445,8 @@
 		"StoryId":  "steward_duelling",
 		"StoryMinGap":  10.0,
 		"StoryStep":  2.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -1489,7 +1494,8 @@
 		"StoryId":  "steward_public_house",
 		"StoryMinGap":  10.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -1537,7 +1543,8 @@
 		"StoryId":  "steward_house_of_pleasure",
 		"StoryMinGap":  10.0,
 		"StoryStep":  2.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -1585,7 +1592,8 @@
 		"StoryId":  "steward_moonshine",
 		"StoryMinGap":  10.0,
 		"StoryStep":  3.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -1633,7 +1641,7 @@
 		"StoryId":  "chaplain_house_of_prayer",
 		"StoryMinGap":  10.0,
 		"StoryStep":  1.0,
-		"Title":  "Sister Amara"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -1681,7 +1689,7 @@
 		"StoryId":  "chaplain_shrines",
 		"StoryMinGap":  10.0,
 		"StoryStep":  2.0,
-		"Title":  "Sister Amara"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -1729,7 +1737,7 @@
 		"StoryId":  "priest_evening_prayers",
 		"StoryMinGap":  10.0,
 		"StoryStep":  2.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -1777,7 +1785,7 @@
 		"StoryId":  "chaplain_field_kitchens",
 		"StoryMinGap":  10.0,
 		"StoryStep":  2.0,
-		"Title":  "Sister Amara"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -1825,7 +1833,7 @@
 		"StoryId":  "medic_house_of_healing",
 		"StoryMinGap":  10.0,
 		"StoryStep":  3.0,
-		"Title":  "Medic Helena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -1873,7 +1881,7 @@
 		"StoryId":  "priest_temple",
 		"StoryMinGap":  10.0,
 		"StoryStep":  3.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -1921,7 +1929,7 @@
 		"StoryId":  "priest_faith_keepers",
 		"StoryMinGap":  10.0,
 		"StoryStep":  3.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -1969,7 +1977,7 @@
 		"StoryId":  "priest_righteous_denunciation",
 		"StoryMinGap":  10.0,
 		"StoryStep":  4.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -2017,7 +2025,7 @@
 		"StoryId":  "priest_public_penance",
 		"StoryMinGap":  10.0,
 		"StoryStep":  4.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -2065,7 +2073,7 @@
 		"StoryId":  "priest_protector_of_truth",
 		"StoryMinGap":  10.0,
 		"StoryStep":  5.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -2113,7 +2121,8 @@
 		"StoryId":  "captain_neighbourhood_watch",
 		"StoryMinGap":  10.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -2161,7 +2170,8 @@
 		"StoryId":  "captain_morning_gathering",
 		"StoryMinGap":  10.0,
 		"StoryStep":  2.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -2209,7 +2219,8 @@
 		"StoryId":  "captain_guard_stations",
 		"StoryMinGap":  10.0,
 		"StoryStep":  2.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -2257,7 +2268,8 @@
 		"StoryId":  "captain_patrol",
 		"StoryMinGap":  10.0,
 		"StoryStep":  2.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -2305,7 +2317,8 @@
 		"StoryId":  "captain_foreman",
 		"StoryMinGap":  10.0,
 		"StoryStep":  2.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -2353,7 +2366,8 @@
 		"StoryId":  "captain_propaganda_centre",
 		"StoryMinGap":  10.0,
 		"StoryStep":  3.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -2401,7 +2415,8 @@
 		"StoryId":  "captain_prison",
 		"StoryMinGap":  10.0,
 		"StoryStep":  3.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -2449,7 +2464,8 @@
 		"StoryId":  "captain_agitator",
 		"StoryMinGap":  10.0,
 		"StoryStep":  4.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -2497,7 +2513,8 @@
 		"StoryId":  "captain_pledge_of_loyalty",
 		"StoryMinGap":  10.0,
 		"StoryStep":  4.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -2545,7 +2562,8 @@
 		"StoryId":  "captain_forceful_persuasion",
 		"StoryMinGap":  10.0,
 		"StoryStep":  4.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -2593,7 +2611,8 @@
 		"StoryId":  "captain_new_order",
 		"StoryMinGap":  20.0,
 		"StoryStep":  5.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -2641,7 +2660,7 @@
 		"StoryId":  "engineer_steam_hub",
 		"StoryMinGap":  20.0,
 		"StoryStep":  1.0,
-		"Title":  "Senior Engineer David"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -2689,7 +2708,8 @@
 		"StoryId":  "steward_steam_hub",
 		"StoryMinGap":  20.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -2737,7 +2757,8 @@
 		"StoryId":  "steward_steam_hub",
 		"StoryMinGap":  20.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -2785,7 +2806,7 @@
 		"StoryId":  "senior_engineer_heaters",
 		"StoryMinGap":  20.0,
 		"StoryStep":  1.0,
-		"Title":  "Senior Engineer David"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -2833,7 +2854,8 @@
 		"StoryId":  "steward_medical_heat",
 		"StoryMinGap":  20.0,
 		"StoryStep":  2.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -2881,7 +2903,8 @@
 		"StoryId":  "steward_cookhouse_heat",
 		"StoryMinGap":  20.0,
 		"StoryStep":  2.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -2929,7 +2952,9 @@
 		"StoryId":  "steward_hothouse",
 		"StoryMinGap":  20.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward",
+		
 	},
 	{
 		"BlockFlags":  [
@@ -2977,7 +3002,7 @@
 		"StoryId":  "inventor_golden_hothouse",
 		"StoryMinGap":  20.0,
 		"StoryStep":  2.0,
-		"Title":  "Inventor Silas"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -3025,7 +3050,7 @@
 		"StoryId":  "inventor_plague_hothouse",
 		"StoryMinGap":  20.0,
 		"StoryStep":  2.0,
-		"Title":  "Inventor Silas"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -3073,7 +3098,7 @@
 		"StoryId":  "inventor_hothouse_thief",
 		"StoryMinGap":  20.0,
 		"StoryStep":  2.0,
-		"Title":  "Inventor Silas"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -3121,7 +3146,7 @@
 		"StoryId":  "inventor_plague_hothouse_2",
 		"StoryMinGap":  5.0,
 		"StoryStep":  3.0,
-		"Title":  "Inventor Silas"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -3169,7 +3194,7 @@
 		"StoryId":  "inventor_plague_hothouse_3",
 		"StoryMinGap":  5.0,
 		"StoryStep":  4.0,
-		"Title":  "Inventor Silas"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -3217,7 +3242,7 @@
 		"StoryId":  "inventor_plague_hothouse_4",
 		"StoryMinGap":  5.0,
 		"StoryStep":  5.0,
-		"Title":  "Inventor Silas"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -3265,7 +3290,7 @@
 		"StoryId":  "inventor_plague_hothouse_5",
 		"StoryMinGap":  5.0,
 		"StoryStep":  6.0,
-		"Title":  "Inventor Silas"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -3313,7 +3338,8 @@
 		"StoryId":  "steward_hunters",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -3361,7 +3387,7 @@
 		"StoryId":  "steward_hunters",
 		"StoryMinGap":  5.0,
 		"StoryStep":  2.0,
-		"Title":  "Hunter Nerisa"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -3409,7 +3435,7 @@
 		"StoryId":  "steward_hunters",
 		"StoryMinGap":  5.0,
 		"StoryStep":  3.0,
-		"Title":  "Hunter Nerisa"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -3457,7 +3483,7 @@
 		"StoryId":  "steward_hunters",
 		"StoryMinGap":  5.0,
 		"StoryStep":  2.0,
-		"Title":  "Hunter Nerisa"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -3505,7 +3531,7 @@
 		"StoryId":  "engineer_beacon_start",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Senior Engineer David"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -3553,7 +3579,7 @@
 		"StoryId":  "explorer_beacon_1",
 		"StoryMinGap":  5.0,
 		"StoryStep":  2.0,
-		"Title":  "Explorer Harrow"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -3601,7 +3627,7 @@
 		"StoryId":  "explorer_beacon_2",
 		"StoryMinGap":  5.0,
 		"StoryStep":  3.0,
-		"Title":  "Explorer Harrow"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -3650,7 +3676,7 @@
 		"StoryId":  "explorer_beacon_storm_start",
 		"StoryMinGap":  5.0,
 		"StoryStep":  4.0,
-		"Title":  "Explorer Harrow"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -3698,7 +3724,7 @@
 		"StoryId":  "explorer_beacon_automaton_start",
 		"StoryMinGap":  5.0,
 		"StoryStep":  4.0,
-		"Title":  "Explorer Harrow"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -3747,7 +3773,8 @@
 		"StoryId":  "steward_event_storm_1",
 		"StoryMinGap":  5.0,
 		"StoryStep":  4.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -3796,7 +3823,8 @@
 		"StoryId":  "steward_event_storm_2",
 		"StoryMinGap":  5.0,
 		"StoryStep":  4.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -3845,7 +3873,7 @@
 		"StoryId":  "foreman_event_storm_3",
 		"StoryMinGap":  5.0,
 		"StoryStep":  4.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -3894,7 +3922,7 @@
 		"StoryId":  "foreman_event_storm_4",
 		"StoryMinGap":  5.0,
 		"StoryStep":  4.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -3943,7 +3971,7 @@
 		"StoryId":  "foreman_event_storm_5",
 		"StoryMinGap":  5.0,
 		"StoryStep":  4.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -3993,7 +4021,7 @@
 		"StoryId":  "cook_event_storm_6",
 		"StoryMinGap":  5.0,
 		"StoryStep":  4.0,
-		"Title":  "Cook Maeve"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -4042,7 +4070,8 @@
 		"StoryId":  "steward_event_storm_7",
 		"StoryMinGap":  5.0,
 		"StoryStep":  4.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -4092,7 +4121,8 @@
 		"StoryId":  "steward_event_storm_fail",
 		"StoryMinGap":  5.0,
 		"StoryStep":  4.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -4140,7 +4170,7 @@
 		"StoryId":  "engineer_automaton_1",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Senior Engineer David"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -4188,7 +4218,7 @@
 		"StoryId":  "engineer_automaton_event",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Senior Engineer David"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -4236,7 +4266,7 @@
 		"StoryId":  "engineer_automaton_2",
 		"StoryMinGap":  5.0,
 		"StoryStep":  2.0,
-		"Title":  "Senior Engineer David"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -4284,7 +4314,7 @@
 		"StoryId":  "engineer_automaton_3",
 		"StoryMinGap":  5.0,
 		"StoryStep":  3.0,
-		"Title":  "Senior Engineer David"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -4332,7 +4362,7 @@
 		"StoryId":  "engineer_automaton_4",
 		"StoryMinGap":  5.0,
 		"StoryStep":  4.0,
-		"Title":  "Senior Engineer David"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -4380,7 +4410,7 @@
 		"StoryId":  "engineer_workshop",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Senior Engineer David"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -4428,7 +4458,7 @@
 		"StoryId":  "engineer_workshop_prosthetics",
 		"StoryMinGap":  5.0,
 		"StoryStep":  2.0,
-		"Title":  "Senior Engineer David"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -4476,7 +4506,7 @@
 		"StoryId":  "medic_prosthetics_order",
 		"StoryMinGap":  5.0,
 		"StoryStep":  3.0,
-		"Title":  "Medic Helena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -4524,7 +4554,7 @@
 		"StoryId":  "medic_repatriation",
 		"StoryMinGap":  5.0,
 		"StoryStep":  3.0,
-		"Title":  "Medic Helena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -4572,7 +4602,8 @@
 		"StoryId":  "steward_bath_house",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -4620,7 +4651,8 @@
 		"StoryId":  "steward_bath_house_2",
 		"StoryMinGap":  5.0,
 		"StoryStep":  2.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -4668,7 +4700,8 @@
 		"StoryId":  "steward_comforted_house",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -4716,7 +4749,8 @@
 		"StoryId":  "steward_crowded_house",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -4764,7 +4798,7 @@
 		"StoryId":  "medic_dispensary",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Medic Helena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -4812,7 +4846,7 @@
 		"StoryId":  "foreman_safety_procedures",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -4860,7 +4894,7 @@
 		"StoryId":  "foreman_safety_procedures_2",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -4908,7 +4942,7 @@
 		"StoryId":  "foreman_short_shift",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -4956,7 +4990,7 @@
 		"StoryId":  "foreman_work_standardisation",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -5004,7 +5038,7 @@
 		"StoryId":  "foreman_two_shift",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -5052,7 +5086,7 @@
 		"StoryId":  "foreman_two_shift",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -5100,7 +5134,7 @@
 		"StoryId":  "foreman_extended_shift_compensations",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -5148,7 +5182,7 @@
 		"StoryId":  "foreman_shift_work_coordination",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -5197,7 +5231,8 @@
 		"StoryId":  "workers_council_labour",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -5246,7 +5281,7 @@
 		"StoryId":  "workers_council_introduction",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -5295,7 +5330,7 @@
 		"StoryId":  "workers_council_introduction_2",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Workers Council Rowan"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -5343,7 +5378,7 @@
 		"StoryId":  "workers_council_work_conditions",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Workers Council Rowan"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -5391,7 +5426,7 @@
 		"StoryId":  "workers_council_hall",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Workers Council Rowan"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -5439,7 +5474,7 @@
 		"StoryId":  "workers_council_collective_bargaining",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Workers Council Rowan"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -5487,7 +5522,8 @@
 		"StoryId":  "workers_council_official_doctrine",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -5535,7 +5571,7 @@
 		"StoryId":  "workers_council_abolition_of_privileges",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Workers Council Rowan"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -5583,7 +5619,7 @@
 		"StoryId":  "workers_council_selfless_sacrifice",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Workers Council Rowan"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -5631,7 +5667,7 @@
 		"StoryId":  "workers_council_militia",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Workers Council Rowan"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -5679,7 +5715,7 @@
 		"StoryId":  "workers_council_terror",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Workers Council Rowan"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -5727,7 +5763,8 @@
 		"StoryId":  "factory_inspectorate",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -5776,7 +5813,7 @@
 		"StoryId":  "factory_inspector_introduction",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Inspector Arthur"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -5824,7 +5861,7 @@
 		"StoryId":  "factory_inspector_employee_motivating",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Inspector Arthur"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -5872,7 +5909,7 @@
 		"StoryId":  "factory_inspector_internal_promotion",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Inspector Arthur"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -5920,7 +5957,7 @@
 		"StoryId":  "factory_inspector_security_outposts",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Inspector Arthur"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -5968,7 +6005,7 @@
 		"StoryId":  "factory_inspector_class_segregation",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Inspector Arthur"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -6016,7 +6053,7 @@
 		"StoryId":  "factory_inspector_penal_colony",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Inspector Arthur"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -6064,7 +6101,7 @@
 		"StoryId":  "factory_inspector_strike_busting",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Inspector Arthur"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -6112,7 +6149,7 @@
 		"StoryId":  "factory_inspector_roundups",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Inspector Arthur"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -6160,7 +6197,7 @@
 		"StoryId":  "factory_inspector_rationalised_healthcare",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Inspector Arthur"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -6206,7 +6243,8 @@
 		"StoryId":  "steward_carehouse_thanks_note",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -6252,7 +6290,8 @@
 		"StoryId":  "steward_thanks_note",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -6300,7 +6339,7 @@
 		"StoryId":  "foreman_child_injury",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -6348,7 +6387,7 @@
 		"StoryId":  "foreman_protective_mother",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -6396,7 +6435,7 @@
 		"StoryId":  "foreman_kids_double_rations",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -6444,7 +6483,8 @@
 		"StoryId":  "steward_woman_in_despair",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -6492,7 +6532,7 @@
 		"StoryId":  "foreman_overwork_death",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -6540,7 +6580,8 @@
 		"StoryId":  "steward_first_duel_death",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -6588,7 +6629,7 @@
 		"StoryId":  "foreman_refusal_to_work",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -6636,7 +6677,7 @@
 		"StoryId":  "foreman_overtime_food",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -6684,7 +6725,7 @@
 		"StoryId":  "foreman_apathy",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -6732,7 +6773,7 @@
 		"StoryId":  "foreman_high_spirits",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -6780,7 +6821,7 @@
 		"StoryId":  "foreman_many_shifts",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -6828,7 +6869,7 @@
 		"StoryId":  "foreman_extended_shift_break",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -6876,7 +6917,8 @@
 		"StoryId":  "steward_pleasure_suicide",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -6924,7 +6966,7 @@
 		"StoryId":  "cook_drunken_venting",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Cook Maeve"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -6972,7 +7014,7 @@
 		"StoryId":  "cook_drunken_venting",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Cook Maeve"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -7020,7 +7062,7 @@
 		"StoryId":  "cook_drunken_venting",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Cook Maeve"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -7068,7 +7110,7 @@
 		"StoryId":  "engineer_radical_treatment_upgrade",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Senior Engineer David"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -7116,7 +7158,8 @@
 		"StoryId":  "steward_proud_man_ch",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -7164,7 +7207,7 @@
 		"StoryId":  "foreman_locked_up",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -7212,7 +7255,8 @@
 		"StoryId":  "steward_cookhouse_helpers",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -7260,7 +7304,7 @@
 		"StoryId":  "inventor_desperate_thief",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Inventor Silas"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -7308,7 +7352,7 @@
 		"StoryId":  "medic_amputation_1",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Medic Helena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -7356,7 +7400,7 @@
 		"StoryId":  "medic_amputation_2",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Medic Helena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -7404,7 +7448,7 @@
 		"StoryId":  "medic_amputation_3",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Medic Helena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -7452,7 +7496,7 @@
 		"StoryId":  "medic_amputation_4",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Medic Helena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -7500,7 +7544,7 @@
 		"StoryId":  "priest_prayer_community",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -7548,7 +7592,7 @@
 		"StoryId":  "engineer_radical_treatment_upgrade_finish",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Senior Engineer David"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -7596,7 +7640,7 @@
 		"StoryId":  "priest_food_for_hungry",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -7644,7 +7688,8 @@
 		"StoryId":  "steward_serve_and_protect",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -7692,7 +7737,8 @@
 		"StoryId":  "steward_field_kitchen_note",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -7740,7 +7786,8 @@
 		"StoryId":  "steward_death_note",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -7788,7 +7835,7 @@
 		"StoryId":  "priest_pray_time",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -7836,7 +7883,7 @@
 		"StoryId":  "chaplain_execution_platform",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Sister Amara"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -7884,7 +7931,7 @@
 		"StoryId":  "priest_new_beginning",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -7932,7 +7979,7 @@
 		"StoryId":  "priest_choice_or_duty",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -7980,7 +8027,7 @@
 		"StoryId":  "priest_choice_or_duty",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -8028,7 +8075,7 @@
 		"StoryId":  "priest_long_list",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -8076,7 +8123,8 @@
 		"StoryId":  "steward_old_man",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -8124,7 +8172,8 @@
 		"StoryId":  "captain_righteous_denunciation",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -8172,7 +8221,8 @@
 		"StoryId":  "captain_righteous_denunciation",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -8220,7 +8270,8 @@
 		"StoryId":  "captain_righteous_denunciation_2",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -8268,7 +8319,7 @@
 		"StoryId":  "priest_marked",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -8316,7 +8367,7 @@
 		"StoryId":  "priest_burning_old_faith",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -8364,7 +8415,7 @@
 		"StoryId":  "priest_burning_old_faith",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -8412,7 +8463,7 @@
 		"StoryId":  "priest_mothers_curse",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -8460,7 +8511,7 @@
 		"StoryId":  "priest_accused_priest",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -8508,7 +8559,7 @@
 		"StoryId":  "priest_breath_of_hope",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -8556,7 +8607,7 @@
 		"StoryId":  "priest_change_of_heart",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -8604,7 +8655,7 @@
 		"StoryId":  "priest_plea_of_faithful",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -8652,7 +8703,8 @@
 		"StoryId":  "captain_agitator_parts",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -8700,7 +8752,8 @@
 		"StoryId":  "steward_childs_play",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -8748,7 +8801,8 @@
 		"StoryId":  "steward_accidental_death",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -8796,7 +8850,8 @@
 		"StoryId":  "captain_people_angry",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -8844,7 +8899,7 @@
 		"StoryId":  "foreman_exemplary_behaviour",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -8892,7 +8947,8 @@
 		"StoryId":  "captain_policing_streets",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -8940,7 +8996,8 @@
 		"StoryId":  "captain_sweet_gift",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -8988,7 +9045,8 @@
 		"StoryId":  "captain_abuse_of_power",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -9036,7 +9094,8 @@
 		"StoryId":  "captain_timely_intervention",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -9084,7 +9143,8 @@
 		"StoryId":  "captain_harsh_lesson",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -9132,7 +9192,8 @@
 		"StoryId":  "captain_teaching_respect",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -9180,7 +9241,8 @@
 		"StoryId":  "steward_unauthorized_action",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -9228,7 +9290,8 @@
 		"StoryId":  "captain_angry_rant",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -9276,7 +9339,8 @@
 		"StoryId":  "captain_indignant_woman",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -9324,7 +9388,8 @@
 		"StoryId":  "steward_willing_informers",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -9373,7 +9438,8 @@
 		"StoryId":  "captain_disorderly_guard",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -9421,7 +9487,8 @@
 		"StoryId":  "captain_interrogation",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -9469,7 +9536,8 @@
 		"StoryId":  "captain_man_assaulted",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -9517,7 +9585,8 @@
 		"StoryId":  "captain_informant_beaten",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -9565,7 +9634,8 @@
 		"StoryId":  "captain_woman_assaulted",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -9613,7 +9683,8 @@
 		"StoryId":  "captain_suspect_detained",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -9661,7 +9732,8 @@
 		"StoryId":  "captain_fault_in_system",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -9709,7 +9781,8 @@
 		"StoryId":  "captain_cold_cells",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -9758,7 +9831,8 @@
 		"StoryId":  "captain_death_from_cold",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -9807,7 +9881,8 @@
 		"StoryId":  "captain_injured_from_cold",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -9855,7 +9930,8 @@
 		"StoryId":  "captain_blackmail",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -9903,7 +9979,8 @@
 		"StoryId":  "captain_poets_suicide",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -9951,7 +10028,8 @@
 		"StoryId":  "steward_accident",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -9999,7 +10077,8 @@
 		"StoryId":  "steward_disease",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -10048,7 +10127,8 @@
 		"StoryId":  "steward_disease_2",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -10096,7 +10176,8 @@
 		"StoryId":  "steward_bad_usage_of_bath",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -10144,7 +10225,8 @@
 		"StoryId":  "captain_no_space_prison",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -10192,7 +10274,7 @@
 		"StoryId":  "priest_away_from_home",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -10240,7 +10322,7 @@
 		"StoryId":  "medic_back_in_business",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Medic Helena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -10288,7 +10370,7 @@
 		"StoryId":  "medic_mysterious_fainting",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Medic Helena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -10336,7 +10418,7 @@
 		"StoryId":  "foreman_death_from_overwork",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -10384,7 +10466,7 @@
 		"StoryId":  "foreman_resistance",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -10432,7 +10514,8 @@
 		"StoryId":  "steward_dont_let_us_go",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -10480,7 +10563,7 @@
 		"StoryId":  "priest_demon_drink",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Priest Elior"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -10528,7 +10611,8 @@
 		"StoryId":  "steward_wandering_hands",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -10576,7 +10660,8 @@
 		"StoryId":  "captain_sabotage",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -10624,7 +10709,7 @@
 		"StoryId":  "foreman_without_trace",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -10672,7 +10757,7 @@
 		"StoryId":  "foreman_off_with_gloves",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -10720,7 +10805,8 @@
 		"StoryId":  "captan_stolen_chemicals",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -10768,7 +10854,8 @@
 		"StoryId":  "steward_troublesome_counsel",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -10816,7 +10903,7 @@
 		"StoryId":  "foreman_one_man_one_vote",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -10864,7 +10951,7 @@
 		"StoryId":  "engineer_engineers_plea",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Senior Engineer David"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -10912,7 +10999,7 @@
 		"StoryId":  "engineer_engineers_plea",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Senior Engineer David"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -10960,7 +11047,8 @@
 		"StoryId":  "steward_never_forget",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -11009,7 +11097,7 @@
 		"StoryId":  "workers_council_proun_and_clean",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Workers Council Rowan"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -11057,7 +11145,7 @@
 		"StoryId":  "foreman_troublemaker_disappearing",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -11105,7 +11193,7 @@
 		"StoryId":  "workers_council_tea_and_sympathy",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Workers Council Rowan"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -11153,7 +11241,7 @@
 		"StoryId":  "workers_council_opiate_of_masses",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Workers Council Rowan"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -11202,7 +11290,8 @@
 		"StoryId":  "captain_allseeing_eye",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -11250,7 +11339,8 @@
 		"StoryId":  "captain_arson_plot",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -11298,7 +11388,7 @@
 		"StoryId":  "workers_council_we_can_do_it",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Workers Council Rowan"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -11346,7 +11436,7 @@
 		"StoryId":  "workers_council_alternative_design",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Workers Council Rowan"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -11394,7 +11484,7 @@
 		"StoryId":  "foreman_suspicious_fire",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -11442,7 +11532,8 @@
 		"StoryId":  "steward_an_affront",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -11490,7 +11581,8 @@
 		"StoryId":  "steward_all_hail_generator",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -11538,7 +11630,8 @@
 		"StoryId":  "captain_the_slap",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -11586,7 +11679,8 @@
 		"StoryId":  "steward_bonus_shipment",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -11634,7 +11728,7 @@
 		"StoryId":  "factory_inspector_supervision",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Inspector Arthur"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -11683,7 +11777,7 @@
 		"StoryId":  "factory_inspector_hurt_by_words",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Inspector Arthur"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -11732,7 +11826,7 @@
 		"StoryId":  "foreman_agitator_insulting",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -11781,7 +11875,7 @@
 		"StoryId":  "foreman_agitator_insulting",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Foreman Oswin"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -11829,7 +11923,8 @@
 		"StoryId":  "steward_food_problem",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -11877,7 +11972,8 @@
 		"StoryId":  "steward_food_riot",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -11925,7 +12021,8 @@
 		"StoryId":  "steward_saboteur",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -11973,7 +12070,8 @@
 		"StoryId":  "steward_bad_medicine",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -12021,7 +12119,8 @@
 		"StoryId":  "steward_healthcare_problem",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -12069,7 +12168,8 @@
 		"StoryId":  "steward_healthcare_protest",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -12117,7 +12217,8 @@
 		"StoryId":  "steward_healthcare_riot",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -12165,7 +12266,8 @@
 		"StoryId":  "steward_heating_problem",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -12213,7 +12315,8 @@
 		"StoryId":  "steward_heating_protest",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -12261,7 +12364,8 @@
 		"StoryId":  "steward_heating_riot",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -12309,7 +12413,8 @@
 		"StoryId":  "steward_heating_problem_workplaces",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -12357,7 +12462,8 @@
 		"StoryId":  "steward_heating_protest_workplaces",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -12405,7 +12511,8 @@
 		"StoryId":  "steward_heating_riot_workplaces",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -12453,7 +12560,8 @@
 		"StoryId":  "steward_housing_problem",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -12501,7 +12609,8 @@
 		"StoryId":  "steward_housing_protest",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -12549,7 +12658,8 @@
 		"StoryId":  "steward_housing_riot",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -12597,7 +12707,8 @@
 		"StoryId":  "captain_night_patrol",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -12645,7 +12756,8 @@
 		"StoryId":  "captain_frozen_alley",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -12693,7 +12805,8 @@
 		"StoryId":  "captain_frozen_alley_thanks",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -12741,7 +12854,8 @@
 		"StoryId":  "captain_frozen_alley_thanks",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -12789,7 +12903,8 @@
 		"StoryId":  "captain_frozen_alley_death",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -12837,7 +12952,8 @@
 		"StoryId":  "captain_depot_fight",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -12885,7 +13001,8 @@
 		"StoryId":  "captain_depot_fight_death",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -12933,7 +13050,8 @@
 		"StoryId":  "captain_unauthorized_gathering",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -12981,7 +13099,8 @@
 		"StoryId":  "captain_patrol_shortage",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -13029,7 +13148,8 @@
 		"StoryId":  "captain_stolen_heat_parts",
 		"StoryMinGap":  5.0,
 		"StoryStep":  1.0,
-		"Title":  "Captain Jonas"
+		"Title":  "",
+		"NpcPool": "Captain"
 	},
 	{
 		"BlockFlags":  [
@@ -13075,7 +13195,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "The End of Hope"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -13121,7 +13241,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Blinded by Hope"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -13167,7 +13287,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Silent City"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -13213,7 +13333,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Uprising"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -13259,7 +13379,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Lost Control"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -13305,7 +13425,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Iron Rule"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -13351,7 +13471,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Faithless"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -13397,7 +13517,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Zealotry"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -13447,7 +13567,8 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -13495,7 +13616,8 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -13543,7 +13665,8 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -13592,7 +13715,8 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -13640,7 +13764,8 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -13688,7 +13813,8 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -13736,7 +13862,8 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -13784,7 +13911,8 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -13812,6 +13940,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -13832,7 +13961,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "John"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -13860,6 +13989,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -13880,7 +14010,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "John"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -13908,6 +14038,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -13928,7 +14059,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "John"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -13956,6 +14087,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -13976,7 +14108,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Ada"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -14004,6 +14136,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -14024,7 +14157,8 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -14052,6 +14186,7 @@
                                    "Foreman_Interview"
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -14073,7 +14208,8 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Steward Elias"
+		"Title":  "",
+		"NpcPool": "Steward"
 	},
 	{
 		"BlockFlags":  [
@@ -14380,7 +14516,8 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Steward Elias",
+		"Title":  "",
+		"NpcPool": "Steward",
 		"InterviewCandidate":  1,
 		"InterviewProfession":  "Foreman"
 	},
@@ -14690,7 +14827,8 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Steward Elias",
+		"Title":  "",
+		"NpcPool": "Steward",
 		"InterviewCandidate":  2,
 		"InterviewProfession":  "Foreman"
 	},
@@ -15000,7 +15138,8 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Steward Elias",
+		"Title":  "",
+		"NpcPool": "Steward",
 		"InterviewCandidate":  3,
 		"InterviewProfession":  "Foreman"
 	},
@@ -15310,7 +15449,8 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Steward Elias",
+		"Title":  "",
+		"NpcPool": "Steward",
 		"InterviewCandidate":  4,
 		"InterviewProfession":  "Foreman"
 	},
@@ -15340,6 +15480,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -15361,7 +15502,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "John"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -15389,6 +15530,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -15410,7 +15552,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Ada"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -15438,6 +15580,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -15459,7 +15602,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Elena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -15487,6 +15630,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -15508,7 +15652,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Thaddeus"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -15538,6 +15682,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -15559,7 +15704,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Elena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -15587,6 +15732,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -15608,7 +15754,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Martha"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -15636,6 +15782,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -15657,7 +15804,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Bram"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -15685,6 +15832,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -15706,7 +15854,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Clara"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -15734,6 +15882,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -15755,7 +15904,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Percival"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -15783,6 +15932,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -15804,7 +15954,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Elena"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -15832,6 +15982,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -15853,7 +16004,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Barnaby"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -15881,6 +16032,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -15902,7 +16054,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Barnaby"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -15930,6 +16082,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -15951,7 +16104,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Clara"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -15979,6 +16132,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -16000,7 +16154,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Percival"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -16028,6 +16182,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -16049,7 +16204,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Ada"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -16077,6 +16232,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -16098,7 +16254,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Bram"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -16126,6 +16282,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 								"john_built_shelters_decided",
@@ -16148,7 +16305,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Percival"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -16176,6 +16333,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 								"john_built_shelters_decided",
@@ -16198,7 +16356,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Martha"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -16226,6 +16384,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -16247,7 +16406,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "John"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -16275,6 +16434,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -16296,7 +16456,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Percival"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -16324,6 +16484,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 								"percival_rising_murmur_decided",
@@ -16346,7 +16507,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "John"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -16374,6 +16535,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -16395,7 +16557,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Barnaby"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -16423,6 +16585,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -16445,7 +16608,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Barnaby"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -16473,6 +16636,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -16494,7 +16658,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Clara"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -16522,6 +16686,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -16543,7 +16708,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Barnaby"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -16571,6 +16736,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -16592,7 +16758,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Percival"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -16620,6 +16786,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -16642,7 +16809,7 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Barnaby"
+		"Title":  ""
 	},
 	{
 		"BlockFlags":  [
@@ -16670,6 +16837,7 @@
 
 							   ],
 		"Pool":  "Citizen",
+		"NpcPool": "Citizen",
 		"RepeatPolicy":  "never",
 		"RequireFlagsAll":  [
 
@@ -16692,6 +16860,6 @@
 		"StoryId":  "",
 		"StoryMinGap":  0.0,
 		"StoryStep":  0.0,
-		"Title":  "Percival"
+		"Title":  ""
 	}
 ]

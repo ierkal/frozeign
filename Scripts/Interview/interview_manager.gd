@@ -17,7 +17,7 @@ var _current_interview_names: Dictionary = {}  # { 1: "Marcus", 2: "Viktor", 3: 
 var _deck: Deck
 
 const SAVE_PATH := "user://interview_save.json"
-const NAMES_PATH := "res://Json/names.json"
+const NAMES_PATH := "res://Json/npcnames.json"
 const CANDIDATE_COUNT := 4
 
 
@@ -142,29 +142,42 @@ func get_dynamic_title(card: Dictionary) -> String:
 	var candidate_index_raw = card.get("InterviewCandidate", 0)
 	var candidate_index: int = int(candidate_index_raw)
 	var profession = str(card.get("InterviewProfession", ""))
+	var pool = str(card.get("Pool", ""))
+	var npc_name = str(card.get("NpcName", ""))
+	var original_title = str(card.get("Title", ""))
 
 	# Debug: Print what we're looking up
 	if candidate_index > 0:
 		print("get_dynamic_title: card=%s, candidate=%d, profession=%s, hired=%s, names=%s" % [card_id, candidate_index, profession, _hired_npcs, _current_interview_names])
 
-	# Not an interview card
-	if candidate_index == 0 or profession == "":
-		return str(card.get("Title", ""))
-
 	# Steward decision cards keep their original title (e.g., "Steward Elias")
 	if card_id.begins_with("steward_"):
-		return str(card.get("Title", ""))
+		return original_title
 
-	# Already hired for this profession - show with profession prefix
-	if _hired_npcs.has(profession):
-		return "%s %s" % [profession, _hired_npcs[profession]]
+	# Regular NPC cards with NpcName field - created when first met
+	if npc_name != "":
+		# If there's a title prefix (like "Worker"), combine with name
+		if original_title != "":
+			return "%s %s" % [original_title, npc_name]
+		return npc_name
 
-	# During interview - show just the candidate's name (no profession prefix)
-	if _current_interview_names.has(candidate_index):
-		return _current_interview_names[candidate_index]
+	# Check if this is a regular profession card (Pool matches a hired profession)
+	# e.g., Pool = "Foreman" and we hired a Foreman
+	if _hired_npcs.has(pool):
+		return "%s %s" % [pool, _hired_npcs[pool]]
+
+	# Interview cards with explicit InterviewProfession field
+	if candidate_index > 0 and profession != "":
+		# Already hired for this profession - show with profession prefix
+		if _hired_npcs.has(profession):
+			return "%s %s" % [profession, _hired_npcs[profession]]
+
+		# During interview - show just the candidate's name (no profession prefix)
+		if _current_interview_names.has(candidate_index):
+			return _current_interview_names[candidate_index]
 
 	# Fallback to original title
-	return str(card.get("Title", ""))
+	return original_title
 
 
 func is_profession_hired(profession: String) -> bool:
@@ -177,6 +190,16 @@ func get_hired_npc_name(profession: String) -> String:
 
 func get_all_hired_npcs() -> Dictionary:
 	return _hired_npcs.duplicate()
+
+
+func get_interview_candidate_name(candidate_index: int) -> String:
+	"""Get the name of a candidate by index (1-4) during an active interview."""
+	return _current_interview_names.get(candidate_index, "")
+
+
+func get_current_interview_profession() -> String:
+	"""Get the profession being interviewed for, or empty if no active interview."""
+	return _current_interview_profession
 
 
 # ---------------------------------------------------

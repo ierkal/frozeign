@@ -20,6 +20,10 @@ var _use_starter_phase: bool = false  # draw starter cards first
 # Interview system integration
 var _interview_manager = null
 
+# NPC system integration
+var _npc_generator: NpcGenerator = null
+var _npc_image_composer: NpcImageComposer = null
+
 
 func _ready() -> void:
 	randomize()
@@ -37,6 +41,11 @@ func set_current_chief_index(idx: int) -> void:
 
 func set_interview_manager(manager) -> void:
 	_interview_manager = manager
+
+
+func set_npc_systems(generator: NpcGenerator, composer: NpcImageComposer) -> void:
+	_npc_generator = generator
+	_npc_image_composer = composer
 
 func add_flag(flag_name: String) -> void:
 	if flag_name == "":
@@ -282,10 +291,68 @@ func _queue_next_sequence_step(card: Dictionary) -> void:
 # ---------------------------------------------------
 
 func prepare_presented(card: Dictionary) -> Dictionary:
-	# Get dynamic title from interview manager if available
-	var dynamic_title = str(card.get("Title", ""))
-	if _interview_manager:
+	# Extract NPC-related fields early
+	var npc_pool = str(card.get("NpcPool", ""))
+	var pool = str(card.get("Pool", ""))
+	var candidate_index = int(card.get("InterviewCandidate", 0))
+	var npc_name_field = str(card.get("NpcName", ""))
+
+	# Variables for coordinated title/image handling
+	var dynamic_title = ""
+	var npc_image: Texture2D = null
+	var resolved_npc_name = ""
+
+	# 1. Specific NPC by name field
+	if npc_name_field != "":
+		resolved_npc_name = npc_name_field
+		dynamic_title = npc_name_field
+		if _npc_image_composer:
+			npc_image = _npc_image_composer.get_or_compose_image(npc_name_field)
+
+	# 2. Interview candidate cards
+	elif candidate_index > 0 and _interview_manager:
+		var candidate_name = _interview_manager.get_interview_candidate_name(candidate_index)
+		if candidate_name != "":
+			resolved_npc_name = candidate_name
+			dynamic_title = candidate_name
+			if _npc_image_composer:
+				npc_image = _npc_image_composer.get_or_compose_image(candidate_name)
+
+	# 3. Citizen pool - random regular NPCs (no profession prefix)
+	elif npc_pool == "Citizen" and _npc_generator:
+		var name_pool = _npc_generator.get_name_pool()
+		if not name_pool.is_empty():
+			var random_name = name_pool[randi() % name_pool.size()]
+			resolved_npc_name = random_name
+			dynamic_title = random_name
+			if _npc_image_composer:
+				npc_image = _npc_image_composer.get_or_compose_image(random_name)
+
+	# 4. Profession NPC pool (Steward, Captain) - use assigned NPC with profession prefix
+	elif npc_pool != "" and _npc_generator:
+		var npc_data = _npc_generator.get_npc_for_profession(npc_pool)
+		if not npc_data.is_empty():
+			var npc_name = npc_data.get("name", "")
+			resolved_npc_name = npc_name
+			dynamic_title = "%s %s" % [npc_pool, npc_name]
+			if _npc_image_composer:
+				npc_image = _npc_image_composer.get_image_for_profession(npc_pool)
+
+	# 5. Pool name matches a hired profession
+	elif pool != "" and _npc_generator:
+		var npc_data = _npc_generator.get_npc_for_profession(pool)
+		if not npc_data.is_empty():
+			var npc_name = npc_data.get("name", "")
+			resolved_npc_name = npc_name
+			dynamic_title = "%s %s" % [pool, npc_name]
+			if _npc_image_composer:
+				npc_image = _npc_image_composer.get_cached_image(npc_name)
+
+	# Fallback to interview manager for interview-related cards or original title
+	if dynamic_title == "" and _interview_manager:
 		dynamic_title = _interview_manager.get_dynamic_title(card)
+	if dynamic_title == "":
+		dynamic_title = str(card.get("Title", ""))
 
 	var present := {
 		"id": card.get("Id", ""),
@@ -294,7 +361,8 @@ func prepare_presented(card: Dictionary) -> Dictionary:
 		"left": {},
 		"right": {},
 		"ui_left_original": "",
-		"ui_right_original": ""
+		"ui_right_original": "",
+		"npc_image": npc_image
 	}
 
 	var left := {

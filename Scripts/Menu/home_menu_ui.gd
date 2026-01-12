@@ -5,6 +5,7 @@ class_name HomeMenuUI
 @onready var home_panel: HomeUI = %HomeUI
 @onready var effects_ui: EffectsUI = %EffectsUI
 @onready var quest_ui: QuestUI = %QuestUI
+@onready var npc_ui: NpcUI = %NpcUI
 @onready var settings_panel: Control = %SettingsUI
 
 # Butonlar
@@ -24,6 +25,7 @@ func _ready() -> void:
 		close_button.pressed.connect(hide)
 	if home_panel:
 		home_panel.quest_menu_requested.connect(_on_quest_menu_requested)
+		home_panel.npc_panel_requested.connect(_on_npc_panel_requested)
 	# Global event dinleyicisi
 	EventBus.home_menu_requested.connect(show_menu)	
 	# ÖNEMLİ: Başlangıçta tüm panelleri kapatıp sadece Home'u açıyoruz
@@ -38,11 +40,16 @@ func show_menu() -> void:
 # Bu fonksiyonu GameManager çağıracak (Dependency Injection)
 func setup(gm: GameManager) -> void:
 	game_manager = gm
-	
+
 	# QuestUI bağlantısını burada güvenle yapabiliriz
 	if quest_ui and game_manager:
 		if not quest_ui.need_quest_data.is_connected(game_manager._on_ui_needs_quest_data):
-			quest_ui.need_quest_data.connect(game_manager._on_ui_needs_quest_data) 
+			quest_ui.need_quest_data.connect(game_manager._on_ui_needs_quest_data)
+
+	# NpcUI bağlantısı
+	if npc_ui and game_manager:
+		if not npc_ui.need_npc_data.is_connected(game_manager._on_ui_needs_npc_data):
+			npc_ui.need_npc_data.connect(game_manager._on_ui_needs_npc_data) 
 
 func _refresh_current_view() -> void:
 	# Artık arama yapmıyoruz, enjekte edilen değişkeni kullanıyoruz
@@ -85,3 +92,7 @@ func _on_effects_tab_pressed() -> void:
 func _on_quest_menu_requested() -> void:
 	quest_ui.show()
 	quest_ui.need_quest_data.emit()
+
+func _on_npc_panel_requested() -> void:
+	npc_ui.show()
+	npc_ui.need_npc_data.emit()

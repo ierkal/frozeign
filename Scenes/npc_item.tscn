@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="1_font"]
+[ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="2_autosize"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_name"]
+font = ExtResource("1_font")
+font_size = 28
+
+[node name="NpcItemVBox" type="VBoxContainer"]
+custom_minimum_size = Vector2(220, 250)
+size_flags_horizontal = 3
+
+[node name="NpcImage" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NpcName" type="Label" parent="."]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "NPC Name"
+label_settings = SubResource("LabelSettings_name")
+horizontal_alignment = 1
+autowrap_mode = 3
+script = ExtResource("2_autosize")
+_max_size = 28
+_min_size = 14
+_current_font_size = 28
+_editor_defaults_set = true
