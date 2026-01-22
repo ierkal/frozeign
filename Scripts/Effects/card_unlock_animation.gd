@@ -7,15 +7,30 @@ class_name CardUnlockAnimation
 @export var spawn_delay: float = 0.1
 
 var _target_control: Control
-
+# Pool to store reusable card instances
+var _card_pool: Array[Control] = []
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
-
+	_init_card_pool()
 
 func set_target(target_control: Control) -> void:
 	_target_control = target_control
 
+func _init_card_pool() -> void:
+	"""Instantiate all cards upfront to avoid lag during gameplay."""
+	for i in range(card_count):
+		var card: Control
+		if card_slot_scene:
+			card = card_slot_scene.instantiate()
+		else:
+			card = Panel.new()
+		
+		# Setup static properties
+		card.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		card.visible = false # Keep hidden until needed
+		add_child(card)
+		_card_pool.append(card)
 
 func play_animation() -> void:
 	# Get target rect from the texture parent
@@ -32,32 +47,28 @@ func play_animation() -> void:
 
 	# Start from top-left corner (off screen)
 	var start_pos = Vector2(-card_size.x - 50, -card_size.y - 50)
-
-	# Center position is the target rect position
 	var center_pos = target_rect.position
 
 	for i in range(card_count):
-		_spawn_card_with_delay(i, start_pos, center_pos, card_size)
-
+		# Use existing cards from the pool
+		if i < _card_pool.size():
+			_spawn_card_with_delay(i, start_pos, center_pos, card_size)
 
 func _spawn_card_with_delay(index: int, start_pos: Vector2, center_pos: Vector2, size: Vector2) -> void:
 	await get_tree().create_timer(index * spawn_delay).timeout
-	_create_and_animate_card(start_pos, center_pos, size)
+	# Check if node still exists (safe-guard against scene changes)
+	if index < _card_pool.size() and is_instance_valid(_card_pool[index]):
+		_animate_pooled_card(_card_pool[index], start_pos, center_pos, size)
 
-
-func _create_and_animate_card(start_pos: Vector2, center_pos: Vector2, size: Vector2) -> void:
-	var card: Control
-	if card_slot_scene:
-		card = card_slot_scene.instantiate()
-	else:
-		card = Panel.new()
+func _animate_pooled_card(card: Control, start_pos: Vector2, center_pos: Vector2, size: Vector2) -> void:
+	# Reset state (instead of creating new)
 	card.size = size
 	card.position = start_pos
 	card.rotation = -0.4
 	card.pivot_offset = size / 2
-	card.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(card)
-
+	card.modulate.a = 1.0
+	card.visible = true
+	
 	# Small random offset from center for each card
 	var offset = Vector2(randf_range(-15, 15), randf_range(-15, 15))
 	var target = center_pos + offset
@@ -75,5 +86,5 @@ func _create_and_animate_card(start_pos: Vector2, center_pos: Vector2, size: Vec
 	tween.chain().tween_interval(0.15)
 	tween.chain().tween_property(card, "modulate:a", 0.0, 0.25)
 
-	# Remove card after animation
-	tween.chain().tween_callback(card.queue_free)
+	# Instead of queue_free, we just hide it for next time
+	tween.chain().tween_callback(card.hide)

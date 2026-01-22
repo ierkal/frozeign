@@ -35,6 +35,7 @@ var _death_phase: int = DeathPhase.NONE
 var _death_stat: String = ""
 var _death_value: int = 0
 var _current_chief_index: int = 0   # Number of chiefs so far
+var _dying_chief_name: String = ""  # Store dying chief's name before picking new one
 
 @onready var reward_ui = %QuestCompletedNotification
 @onready var buff_screen_effect: BuffScreenEffect = %BuffScreenEffect
@@ -92,6 +93,8 @@ func _ready() -> void:
 		card_unlock_animation.set_target(card_ui.card_slot)
 	if death_screen:
 		death_screen.restart_requested.connect(_on_death_screen_restart)
+		death_screen.need_quest_data.connect(_on_death_screen_needs_quest_data)
+		death_screen.need_new_chief_name.connect(_on_death_screen_needs_new_chief_name)
 	deck.begin_starter_phase()   # show Pool:"Starter" cards first
 	_on_request_deck_draw()
 
@@ -273,9 +276,12 @@ func _build_final_death_card() -> Dictionary:
 
 func _show_death_screen() -> void:
 	"""Show the death screen with timeline before restarting."""
+	# Store the dying chief's name BEFORE the death screen picks a new one
+	_dying_chief_name = chief_manager.current_chief_name
+
 	var death_day = _current_chief_start_day + survived_days.current_days
 	var current_chief_data = {
-		"name": chief_manager.current_chief_name,
+		"name": _dying_chief_name,
 		"start_day": _current_chief_start_day,
 		"death_day": death_day,
 		"index": _current_chief_index + 1
@@ -293,8 +299,9 @@ func _on_death_screen_restart() -> void:
 func _soft_reset_game() -> void:
 	# Calculate death day for current chief
 	var death_day = _current_chief_start_day + survived_days.current_days
+	# Use the stored dying chief's name (captured before new chief was picked)
 	var chief_data = {
-		"name": chief_manager.current_chief_name,
+		"name": _dying_chief_name,
 		"start_day": _current_chief_start_day,
 		"death_day": death_day,
 		"index": _current_chief_index + 1
@@ -325,7 +332,7 @@ func _soft_reset_game() -> void:
 	# Clear all active buffs on chief death
 	if buff_manager:
 		buff_manager.clear_all_buffs()
-	chief_manager.pick_random_name()
+	# Note: chief_manager.pick_random_name() is already called in _on_death_screen_needs_new_chief_name
 	survived_days.update_ui(chief_manager.current_chief_name)
 	if _current_chief_index <= 1:
 		deck.begin_starter_phase()
@@ -372,3 +379,14 @@ func _on_ui_needs_npc_data() -> void:
 			})
 
 	home_menu_ui.npc_ui.show_npcs(npc_list)
+
+func _on_death_screen_needs_quest_data() -> void:
+	if quest_manager and death_screen:
+		var display_list = quest_manager.get_quest_display_data()
+		death_screen.set_quest_data(display_list)
+
+func _on_death_screen_needs_new_chief_name() -> void:
+	if chief_manager and death_screen:
+		# Pre-pick the next chief name so we can show it in death screen
+		chief_manager.pick_random_name()
+		death_screen.set_new_chief_name(chief_manager.current_chief_name)

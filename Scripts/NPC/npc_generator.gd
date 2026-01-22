@@ -58,10 +58,18 @@ func _scan_part_pools() -> void:
 			dir.list_dir_begin()
 			var file_name = dir.get_next()
 			while file_name != "":
-				# Only add .png files (not .import files)
+				# FIX: In exported builds, files have .import extension. 
+				# We must remove it to see the underlying resource name.
+				if file_name.ends_with(".import"):
+					file_name = file_name.replace(".import", "")
+
+				# Only add .png files
 				if file_name.ends_with(".png"):
 					var part_name = file_name.replace(".png", "")
-					_part_pools[folder].append(part_name)
+					# Avoid duplicates if both .png and .import exist (rare in export, common in editor)
+					if not _part_pools[folder].has(part_name):
+						_part_pools[folder].append(part_name)
+				
 				file_name = dir.get_next()
 			dir.list_dir_end()
 

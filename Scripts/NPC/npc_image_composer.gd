@@ -123,25 +123,14 @@ func _get_part_path(layer: String, part_name: String) -> String:
 
 
 func _blend_images(base: Image, overlay: Image) -> void:
-	"""Blend overlay onto base using alpha compositing."""
-	var size = base.get_size()
-
-	for y in range(size.y):
-		for x in range(size.x):
-			var base_color = base.get_pixel(x, y)
-			var overlay_color = overlay.get_pixel(x, y)
-
-			# Alpha compositing formula
-			var out_alpha = overlay_color.a + base_color.a * (1.0 - overlay_color.a)
-			if out_alpha > 0:
-				var out_color = Color(
-					(overlay_color.r * overlay_color.a + base_color.r * base_color.a * (1.0 - overlay_color.a)) / out_alpha,
-					(overlay_color.g * overlay_color.a + base_color.g * base_color.a * (1.0 - overlay_color.a)) / out_alpha,
-					(overlay_color.b * overlay_color.a + base_color.b * base_color.a * (1.0 - overlay_color.a)) / out_alpha,
-					out_alpha
-				)
-				base.set_pixel(x, y, out_color)
-
+	"""Blend overlay onto base using Godot's optimized C++ method."""
+	# Define the source rectangle (the whole overlay image)
+	var src_rect = Rect2i(Vector2i.ZERO, overlay.get_size())
+	# Define the destination position (top-left corner)
+	var dst_point = Vector2i.ZERO
+	
+	# This operation is instant compared to GDScript loops
+	base.blend_rect(overlay, src_rect, dst_point)
 
 func get_cached_image(npc_name: String) -> ImageTexture:
 	"""Get cached image for an NPC, compose if not cached (lazy generation)."""
