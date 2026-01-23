@@ -4,10 +4,10 @@ class_name StatsManager
 signal stats_changed(hope, discontent, order, faith)
 signal stat_threshold_reached(stat_name: String, value: int)
 
-var hope: int = 50
-var discontent: int = 50
-var order: int = 50
-var faith: int = 50
+var hope: int = GameConstants.DEFAULT_STAT_VALUE
+var discontent: int = GameConstants.DEFAULT_STAT_VALUE
+var order: int = GameConstants.DEFAULT_STAT_VALUE
+var faith: int = GameConstants.DEFAULT_STAT_VALUE
 
 func apply_effects(effect: Dictionary) -> void:
 	# apply deltas
@@ -25,31 +25,31 @@ func apply_effects(effect: Dictionary) -> void:
 
 func _check_out_of_bounds() -> void:
 	# Emit only one, fixed priority
-	if hope < 0 or hope > 100:
+	if hope < GameConstants.STAT_MIN or hope > GameConstants.STAT_MAX:
 		stat_threshold_reached.emit("hope", hope)
 		return
-	if discontent < 0 or discontent > 100:
+	if discontent < GameConstants.STAT_MIN or discontent > GameConstants.STAT_MAX:
 		stat_threshold_reached.emit("discontent", discontent)
 		return
-	if order < 0 or order > 100:
+	if order < GameConstants.STAT_MIN or order > GameConstants.STAT_MAX:
 		stat_threshold_reached.emit("order", order)
 		return
-	if faith < 0 or faith > 100:
+	if faith < GameConstants.STAT_MIN or faith > GameConstants.STAT_MAX:
 		stat_threshold_reached.emit("faith", faith)
 		return
 
 func _clamp_stats() -> void:
-	hope = clamp(hope, 0, 100)
-	discontent = clamp(discontent, 0, 100)
-	order = clamp(order, 0, 100)
-	faith = clamp(faith, 0, 100)
+	hope = clamp(hope, GameConstants.STAT_MIN, GameConstants.STAT_MAX)
+	discontent = clamp(discontent, GameConstants.STAT_MIN, GameConstants.STAT_MAX)
+	order = clamp(order, GameConstants.STAT_MIN, GameConstants.STAT_MAX)
+	faith = clamp(faith, GameConstants.STAT_MIN, GameConstants.STAT_MAX)
 
 func _emit() -> void:
 	stats_changed.emit(hope, discontent, order, faith)
 
 func reset_stats() -> void:
-	hope = 50
-	discontent = 50
-	order = 50
-	faith = 50
+	hope = GameConstants.DEFAULT_STAT_VALUE
+	discontent = GameConstants.DEFAULT_STAT_VALUE
+	order = GameConstants.DEFAULT_STAT_VALUE
+	faith = GameConstants.DEFAULT_STAT_VALUE
 	stats_changed.emit(hope, discontent, order, faith)

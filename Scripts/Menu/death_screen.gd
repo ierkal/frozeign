@@ -234,12 +234,10 @@ func _create_history_markers() -> void:
 		_create_chief_segment(chief, false)
 
 func _cleanup_markers() -> void:
-	for child in markers_container.get_children():
-		child.queue_free()
+	ContainerUtils.clear_children(markers_container)
 
 func _cleanup_quests() -> void:
-	for child in quest_container.get_children():
-		child.queue_free()
+	ContainerUtils.clear_children(quest_container)
 	_quest_items.clear()
 
 func _create_chief_segment(chief: Dictionary, is_active: bool) -> void:
@@ -528,7 +526,7 @@ func _create_quest_item(quest: Dictionary) -> HBoxContainer:
 
 	var box := ColorRect.new()
 	box.custom_minimum_size = Vector2(QUEST_BOX_SIZE, QUEST_BOX_SIZE)
-	box.color = COLOR_QUEST_INCOMPLETE
+	box.color = GameConstants.Colors.QUEST_INCOMPLETE
 	box.pivot_offset = Vector2(QUEST_BOX_SIZE / 2, QUEST_BOX_SIZE / 2)
 	box.mouse_filter = Control.MOUSE_FILTER_IGNORE 
 	container.add_child(box)
@@ -571,7 +569,7 @@ func _animate_quest_checkmarks() -> void:
 
 			var check_tween := create_tween()
 			check_tween.tween_interval(delay)
-			check_tween.tween_property(box, "color", COLOR_QUEST_COMPLETE, 0.3)
+			check_tween.tween_property(box, "color", GameConstants.Colors.QUEST_COMPLETE, 0.3)
 			check_tween.parallel().tween_property(checkmark, "modulate:a", 1.0, 0.2)
 			check_tween.parallel().tween_property(checkmark, "scale", Vector2.ONE, MARKER_POP_DURATION)\
 				.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
@@ -590,7 +588,7 @@ func _skip_quest_display() -> void:
 			var container: Control = item.get("container")
 			var box: ColorRect = container.get_meta("box")
 			var checkmark: TextureRect = box.get_meta("checkmark")
-			box.color = COLOR_QUEST_COMPLETE
+			box.color = GameConstants.Colors.QUEST_COMPLETE
 			checkmark.modulate.a = 1.0
 			checkmark.scale = Vector2.ONE
 	

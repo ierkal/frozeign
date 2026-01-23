@@ -5,6 +5,13 @@ class_name EffectsUI
 @onready var scroll_container: ScrollContainer = %ScrollContainer
 @onready var effects_list: VBoxContainer = %EffectListVbox
 
+var _buff_manager: BuffManager
+
+
+func setup(buff_manager: BuffManager) -> void:
+	_buff_manager = buff_manager
+
+
 func _ready() -> void:
 	EventBus.buff_started.connect(_on_buff_started)
 	EventBus.buff_ended.connect(_on_buff_ended)
@@ -16,9 +23,8 @@ func refresh_active_buffs(buff_manager: BuffManager) -> void:
 	if not buff_manager:
 		return
 
-	for buff_id in buff_manager.active_buffs:
-		var buff = buff_manager.active_buffs[buff_id] as ActiveBuff
-		_add_buff_item(buff)
+	for buff in buff_manager.get_active_buffs():
+		_add_buff_item(buff as ActiveBuff)
 
 func _add_buff_item(buff: ActiveBuff) -> void:
 	if not effect_item_scene:
@@ -35,11 +41,7 @@ func _add_buff_item(buff: ActiveBuff) -> void:
 		item.icon.texture = load(buff.icon_path)
 
 func _clear_list() -> void:
-	if not effects_list:
-		return
-
-	for child in effects_list.get_children():
-		child.queue_free()
+	ContainerUtils.clear_children(effects_list)
 
 func _on_buff_started(buff: ActiveBuff) -> void:
 	_add_buff_item(buff)
@@ -59,7 +61,10 @@ func _on_buff_ended(buff_id: String) -> void:
 	call_deferred("_deferred_refresh")
 
 func _deferred_refresh() -> void:
-	# Get buff_manager from the scene tree
-	var gm = get_tree().get_first_node_in_group("GameManager")
-	if gm and gm.buff_manager:
-		refresh_active_buffs(gm.buff_manager)
+	if _buff_manager:
+		refresh_active_buffs(_buff_manager)
+	else:
+		# Fallback to tree search if not setup via DI
+		var gm = get_tree().get_first_node_in_group("GameManager")
+		if gm and gm.buff_manager:
+			refresh_active_buffs(gm.buff_manager)

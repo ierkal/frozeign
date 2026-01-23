@@ -59,11 +59,9 @@ func clear_all_buffs() -> void:
 	_broadcast_effects()
 
 func _load_database() -> void:
-	var file = FileAccess.open("res://Json/buffs.json", FileAccess.READ)
-	if file:
-		var json = JSON.new()
-		if json.parse(file.get_as_text()) == OK:
-			buff_database = json.data
+	var data = JsonLoader.load_json(GameConstants.JSON_PATH_BUFFS)
+	if data:
+		buff_database = data
 
 # O anki tur için geçerli toplam stat değişimlerini döndürür
 func get_active_stat_modifiers() -> Dictionary:
@@ -87,3 +85,16 @@ func get_active_stat_modifiers() -> Dictionary:
 func _broadcast_effects() -> void:
 	var total = get_active_stat_modifiers()
 	EventBus.active_buff_modifiers_changed.emit(total)
+
+
+# Accessor methods for encapsulation
+func get_active_buffs() -> Array:
+	return active_buffs.values()
+
+
+func get_active_buff_count() -> int:
+	return active_buffs.size()
+
+
+func has_active_buff(buff_id: String) -> bool:
+	return active_buffs.has(buff_id)

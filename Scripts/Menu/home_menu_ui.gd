@@ -41,6 +41,10 @@ func show_menu() -> void:
 func setup(gm: GameManager) -> void:
 	game_manager = gm
 
+	# EffectsUI bağlantısı (Dependency Injection)
+	if effects_ui and game_manager:
+		effects_ui.setup(game_manager.buff_manager)
+
 	# QuestUI bağlantısını burada güvenle yapabiliriz
 	if quest_ui and game_manager:
 		if not quest_ui.need_quest_data.is_connected(game_manager._on_ui_needs_quest_data):

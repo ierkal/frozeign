@@ -8,7 +8,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ndah"]
 font = ExtResource("3_278fk")
-font_size = 42
+font_size = 38
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cardslot"]
 bg_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
@@ -61,10 +61,10 @@ layout_mode = 2
 
 [node name="CardDescription" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 130)
+custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
 size_flags_vertical = 0
-text = "Our coal is running out of stock. How should we proceed, Chief?"
+text = "Our coal is running out of stock. How should we proceed, Chief?Our coal is running out of stock. How should we proceed, Chief?"
 label_settings = SubResource("LabelSettings_2ndah")
 horizontal_alignment = 1
 vertical_alignment = 1

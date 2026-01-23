@@ -12,9 +12,7 @@ func _ready() -> void:
 	close_btn.pressed.connect(_on_close_button_pressed)
 
 func show_npcs(npc_data: Array) -> void:
-	# Clear existing items
-	for child in list_node.get_children():
-		child.queue_free()
+	ContainerUtils.clear_children(list_node)
 
 	for data in npc_data:
 		var item = npc_item_scene.instantiate()
@@ -41,15 +39,15 @@ func show_npcs(npc_data: Array) -> void:
 			if texture:
 				image_rect.texture = texture
 
-		# Set visual state based on whether NPC has been met
-		if data.has("is_met") and data.is_met:
-			name_label.modulate = Color.WHITE
-			image_rect.modulate = Color.WHITE
-		else:
-			# Not met yet - show as hidden/locked
+		# Determine item state based on whether NPC has been met
+		var is_met = data.has("is_met") and data.is_met
+		var state = ItemStateStyler.ItemState.ACTIVE if is_met else ItemStateStyler.ItemState.LOCKED
+
+		if not is_met:
 			name_label.text = "???"
-			name_label.modulate = Color(0.3, 0.3, 0.3, 1.0)
-			image_rect.modulate = Color(0.1, 0.1, 0.1, 1.0)
+
+		name_label.modulate = ItemStateStyler.get_color_for_state(state)
+		image_rect.modulate = GameConstants.Colors.ITEM_ACTIVE if is_met else Color(0.1, 0.1, 0.1, 1.0)
 
 func _on_close_button_pressed() -> void:
 	hide()

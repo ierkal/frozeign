@@ -4,7 +4,6 @@ class_name NpcGenerator
 signal npcs_generated
 signal npc_profession_changed(npc_name: String, profession: String)
 
-const NAMES_PATH := "res://Json/npcnames.json"
 const PARTS_BASE_PATH := "res://Assets/Sprites/npc/"
 const SAVE_PATH := "user://npc_data_save.json"
 
@@ -35,15 +34,9 @@ func _ready() -> void:
 
 
 func _load_name_pool() -> void:
-	if not FileAccess.file_exists(NAMES_PATH):
-		push_error("NpcGenerator: Names file not found: " + NAMES_PATH)
-		return
-
-	var file = FileAccess.open(NAMES_PATH, FileAccess.READ)
-	var json = JSON.new()
-	if json.parse(file.get_as_text()) == OK:
-		_name_pool = json.data.get("profession_names", [])
-	file.close()
+	var data = JsonLoader.load_json(GameConstants.JSON_PATH_NPC_NAMES)
+	if data:
+		_name_pool = data.get("profession_names", [])
 	print("NpcGenerator: Loaded %d names" % _name_pool.size())
 
 
@@ -284,15 +277,12 @@ func get_name_pool() -> Array:
 # ---------------------------------------------------
 
 func save_data() -> void:
-	var save_data = {
+	var data = {
 		"npcs": _npcs,
 		"council_npcs": _council_npcs,
 		"profession_npcs": _profession_npcs
 	}
-	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
-	if file:
-		file.store_string(JSON.stringify(save_data, "\t"))
-		file.close()
+	if JsonLoader.save_json(SAVE_PATH, data):
 		print("NpcGenerator: Data saved")
 
 
@@ -300,18 +290,13 @@ func load_data() -> bool:
 	if not FileAccess.file_exists(SAVE_PATH):
 		return false
 
-	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
-	if file:
-		var json = JSON.new()
-		if json.parse(file.get_as_text()) == OK:
-			var data = json.data
-			_npcs = data.get("npcs", {})
-			_council_npcs = data.get("council_npcs", {})
-			_profession_npcs = data.get("profession_npcs", {})
-			file.close()
-			print("NpcGenerator: Data loaded - %d NPCs" % _npcs.size())
-			return true
-		file.close()
+	var data = JsonLoader.load_json(SAVE_PATH)
+	if data:
+		_npcs = data.get("npcs", {})
+		_council_npcs = data.get("council_npcs", {})
+		_profession_npcs = data.get("profession_npcs", {})
+		print("NpcGenerator: Data loaded - %d NPCs" % _npcs.size())
+		return true
 
 	return false
 

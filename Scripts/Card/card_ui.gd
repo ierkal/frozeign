@@ -111,8 +111,7 @@ func _spawn_buff_info_card(buff_data: Dictionary) -> void:
 	_sync_card_slot.call_deferred()
 
 func _clear_texture_parent() -> void:
-	for c in texture_parent.get_children():
-		c.queue_free()
+	ContainerUtils.clear_children(texture_parent)
 
 
 func _sync_card_slot() -> void:
@@ -247,8 +246,7 @@ func _side_dict(side: String) -> Dictionary:
 	return _current_presented.right
 
 func _kill_tween(t: Tween) -> void:
-	if t:
-		t.kill()
+	TweenUtils.kill_tween(t)
 
 func _set_side_open(side: String, open: bool) -> void:
 	if side == SIDE_LEFT:

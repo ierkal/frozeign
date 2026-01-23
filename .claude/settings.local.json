@@ -4,7 +4,8 @@
       "Bash(wc:*)",
       "Bash(find:*)",
       "Bash(python:*)",
-      "Bash(powershell:*)"
+      "Bash(powershell:*)",
+      "mcp__ide__getDiagnostics"
     ]
   }
 }

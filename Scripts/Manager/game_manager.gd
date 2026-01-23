@@ -59,8 +59,8 @@ func _ready() -> void:
 	survived_days.update_ui(chief_manager.current_chief_name)
 	deck.set_current_chief_index(_current_chief_index)
 	character_repository = CharacterRepository.new()
-	character_repository.load_data("res://Json/characters.json") # Ensure path matches your uploaded file
-	await deck.load_from_file("res://Json/frozeign.json")
+	character_repository.load_data(GameConstants.JSON_PATH_CHARACTERS)
+	await deck.load_from_file(GameConstants.JSON_PATH_CARDS)
 	buff_manager.setup(deck)
 
 	# Setup interview manager for profession hiring
@@ -183,11 +183,9 @@ func _on_card_effect_committed(effect: Dictionary) -> void:
 	# Dismiss buff intro effect if active
 	_dismiss_buff_intro_effect()
 
-	var stats_keys = ["Hope", "Discontent", "Order", "Faith"]
-
 	# Check if the card itself has any stat changes
 	var card_has_stat_changes = false
-	for key in stats_keys:
+	for key in GameConstants.ALL_STATS:
 		if effect.has(key) and effect[key] != 0:
 			card_has_stat_changes = true
 			break
@@ -203,7 +201,7 @@ func _on_card_effect_committed(effect: Dictionary) -> void:
 				effect[stat_key] += modifier_value
 
 	# Check if there are any final stat changes (for day counting)
-	for key in stats_keys:
+	for key in GameConstants.ALL_STATS:
 		if effect.has(key) and effect[key] != 0:
 			_last_card_had_effect = true
 			break

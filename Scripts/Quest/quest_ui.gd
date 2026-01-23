@@ -16,37 +16,33 @@ func _on_request_received() -> void:
 	need_quest_data.emit()
 
 func show_quests(quest_data: Array) -> void:
-	for child in list_node.get_children():
-		child.queue_free()
-	
+	ContainerUtils.clear_children(list_node)
+
 	for data in quest_data:
 		var item = quest_item_scene.instantiate()
 		list_node.add_child(item)
-		
+
 		var title_label = item.get_node("QuestTitle")
 		var desc_label = item.get_node("QuestDescription")
-		
-		# Mantık katmanları (Ternary kullanmıyoruz)
+
+		# Determine item state
+		var state: ItemStateStyler.ItemState
 		if data.is_completed:
-			# TAMAMLANANLAR: Yeşilimsi sönük veya üstü çizili gibi
+			state = ItemStateStyler.ItemState.COMPLETED
 			title_label.text = "[Completed] " + data.title
 			desc_label.text = data.description
-			title_label.modulate = Color(0.5, 0.8, 0.5, 0.8) 
-			desc_label.modulate = Color(0.5, 0.8, 0.5, 0.5)
-			
 		elif data.is_unlocked:
-			# AKTİF/AÇIK OLANLAR: Normal görünüm
+			state = ItemStateStyler.ItemState.ACTIVE
 			title_label.text = data.title
 			desc_label.text = data.description
-			title_label.modulate = Color.WHITE
-			desc_label.modulate = Color.WHITE
-			
 		else:
-			# KİLİTLİ OLANLAR: Henüz keşfedilmedi
+			state = ItemStateStyler.ItemState.LOCKED
 			title_label.text = data.title
 			desc_label.text = "???"
-			title_label.modulate = Color(0.3, 0.3, 0.3, 1.0)
-			desc_label.modulate = Color(0.3, 0.3, 0.3, 0.5)
+
+		# Apply colors using ItemStateStyler
+		title_label.modulate = ItemStateStyler.get_color_for_state(state)
+		desc_label.modulate = ItemStateStyler.get_description_color_for_state(state)
 	
 func _on_close_button_pressed() -> void:
 	hide()

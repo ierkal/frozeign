@@ -11,19 +11,14 @@ signal quest_reward_triggered(text: String) # Yeni sinyal
 @export var deck_ref: Deck
 
 func _ready() -> void:
-	load_quests_from_file("res://Json/quests.json")
+	load_quests_from_file(GameConstants.JSON_PATH_QUESTS)
 	if deck_ref:
 		deck_ref.connect("flag_added_signal", _on_flag_added)
 
 func load_quests_from_file(path: String) -> void:
-	if not FileAccess.file_exists(path):
-		return
-	var file = FileAccess.open(path, FileAccess.READ)
-	var content = file.get_as_text()
-	var json = JSON.new()
-	var error = json.parse(content)
-	if error == OK:
-		_all_quests = json.data
+	var data = JsonLoader.load_json(path)
+	if data:
+		_all_quests = data
 		_initialize_auto_quests()
 
 func _initialize_auto_quests() -> void:
@@ -106,3 +101,20 @@ func get_quest_display_data() -> Array:
 			"is_completed": is_completed
 		})
 	return display_list
+
+
+# Accessor methods for encapsulation
+func get_completed_count() -> int:
+	return _completed_quests.size()
+
+
+func get_all_quests_count() -> int:
+	return _all_quests.size()
+
+
+func get_active_count() -> int:
+	return _active_quests.size()
+
+
+func get_current_tier() -> int:
+	return _current_tier
