@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="12_1phco"]
 [ext_resource type="PackedScene" uid="uid://cvk6qqd83hay6" path="res://Scenes/buff_screen_effect.tscn" id="13_buff"]
 [ext_resource type="PackedScene" uid="uid://d1n2q0620gau0" path="res://Scenes/card_unlock_animation.tscn" id="14_unlock"]
-[ext_resource type="PackedScene" uid="uid://death_screen_01" path="res://Scenes/death_screen.tscn" id="15_death"]
+[ext_resource type="PackedScene" uid="uid://dovjv67r8i5dv" path="res://Scenes/death_screen.tscn" id="15_death"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rfjv2"]
 font = ExtResource("11_rku1e")

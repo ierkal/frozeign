@@ -4,6 +4,27 @@ class_name Deck
 
 signal flag_added_signal(flag_name)
 signal pool_unlocked(pool_name)
+signal card_committed_signal(card_id: String, side: String, pending_hire_npc: String)
+
+# ===========================================
+# DEBUG: Inspector controls for testing pools
+# ===========================================
+@export_group("Debug Pool Controls")
+@export var debug_pools_to_unlock: Array[String] = []  ## Add pool names here, then click "Apply Debug Unlocks"
+@export var debug_apply_unlocks: bool = false:  ## Click to apply the pools above
+	set(value):
+		if value and Engine.is_editor_hint() == false:
+			_apply_debug_pool_unlocks()
+		debug_apply_unlocks = false  # Reset the button
+
+@export var debug_show_unlocked_pools: bool = false:  ## Click to print currently unlocked pools
+	set(value):
+		if value:
+			print("=== Currently Unlocked Pools ===")
+			for pool_name in _unlocked_pools.keys():
+				print("  - ", pool_name)
+			print("================================")
+		debug_show_unlocked_pools = false
 
 var _raw_cards: Array = []         # all cards loaded from JSON
 var _deck: Array = []              # working deck (shuffled)
@@ -24,10 +45,23 @@ var _interview_manager = null
 var _npc_generator: NpcGenerator = null
 var _npc_image_composer: NpcImageComposer = null
 
+# Track which NPC was shown on cards that will hire them when committed
+var _pending_hire_npc: Dictionary = {}  # { "card_id": "npc_name" }
+
 
 func _ready() -> void:
 	randomize()
 	_reset_unlocked_pools()
+
+
+func _apply_debug_pool_unlocks() -> void:
+	print("=== Applying Debug Pool Unlocks ===")
+	for pool_name in debug_pools_to_unlock:
+		if pool_name != "":
+			unlock_pool(pool_name)
+			print("  Unlocked: ", pool_name)
+	print("===================================")
+	debug_pools_to_unlock.clear()  # Clear after applying
 
 # ---------------------------------------------------
 # Public control interface
@@ -62,6 +96,13 @@ func add_flag(flag_name: String) -> void:
 
 func has_flag(flag_name: String) -> bool:
 	return _flags.get(flag_name, false)
+
+
+func remove_flag(flag_name: String) -> void:
+	if _flags.has(flag_name):
+		_flags.erase(flag_name)
+		print("Deck: Removed flag: ", flag_name)
+
 
 # NEW: Pool Management
 func unlock_pool(pool_name: String) -> void:
@@ -246,6 +287,42 @@ func _lock_card(card_id: String) -> void:
 	_card_states[card_id] = state
 
 
+func unlock_card(card_id: String) -> void:
+	if _card_states.has(card_id):
+		_card_states[card_id]["locked"] = false
+		print("Deck: Unlocked card: ", card_id)
+
+
+func queue_card(card_id: String) -> void:
+	"""Add a card to the sequence queue to be drawn next."""
+	var card = find_card_by_id(card_id)
+	if card.is_empty():
+		print("Deck: Cannot queue card (not found): ", card_id)
+		return
+
+	# Check if card is already in queue to prevent duplicates
+	for queued_card in _sequence_queue:
+		if str(queued_card.get("Id", "")) == card_id:
+			print("Deck: Card already in queue, skipping: ", card_id)
+			return
+
+	_sequence_queue.append(card)
+	print("Deck: Queued card: ", card_id, " (queue size: ", _sequence_queue.size(), ")")
+
+
+func clear_queued_cards_by_prefix(id_prefix: String) -> void:
+	"""Remove all cards from the sequence queue that have IDs starting with the given prefix."""
+	var to_remove: Array = []
+	for card in _sequence_queue:
+		var card_id = str(card.get("Id", ""))
+		if card_id.begins_with(id_prefix):
+			to_remove.append(card)
+	for card in to_remove:
+		_sequence_queue.erase(card)
+	if to_remove.size() > 0:
+		print("Deck: Cleared %d queued cards with prefix '%s'" % [to_remove.size(), id_prefix])
+
+
 # ---------------------------------------------------
 # Sequence system (Immediate + SequenceAdvanceOn)
 # ---------------------------------------------------
@@ -276,14 +353,16 @@ func _queue_next_sequence_step(card: Dictionary) -> void:
 	for c in _raw_cards:
 		# Sequence ID ve Index eşleşiyor mu?
 		if c.get("SequenceId", "") == sid and int(c.get("SequenceIndex", 0)) == next_index:
-			
+
 			# Kart çekilebilir durumda mı? (Flag'ler, kilitler vs.)
 			# NOT: Bir önceki cevabımdaki 'ignore_pool_lock' parametresini eklediysen
 			# burayı: if _is_card_drawable(c, true): yapmalısın.
 			if _is_card_drawable(c):
-				_sequence_queue.append(c)
+				# Use queue_card to prevent duplicates
+				var next_card_id = str(c.get("Id", ""))
+				queue_card(next_card_id)
 				break # SADECE uygun kartı bulup eklediysek döngüyü bitir!
-			
+
 			# Eğer kart uygun değilse (örn: yanlış flag), döngü KIRILMAZ,
 			# sıradaki diğer (alternatif) kartı aramaya devam eder.
 # ---------------------------------------------------
@@ -291,6 +370,18 @@ func _queue_next_sequence_step(card: Dictionary) -> void:
 # ---------------------------------------------------
 
 func prepare_presented(card: Dictionary) -> Dictionary:
+	var card_id = str(card.get("Id", ""))
+
+	# Pre-hire NPCs for introduction cards (they appear already dressed)
+	var pre_hired_profession = ""
+	if _interview_manager:
+		if card_id == "factory_inspector_introduction":
+			_interview_manager._auto_hire_npc("Inspector")
+			pre_hired_profession = "Inspector"
+		elif card_id == "workers_council_introduction_2":
+			_interview_manager._auto_hire_npc("Workers Council")
+			pre_hired_profession = "Workers Council"
+
 	# Extract NPC-related fields early
 	var npc_pool = str(card.get("NpcPool", ""))
 	var pool = str(card.get("Pool", ""))
@@ -302,8 +393,18 @@ func prepare_presented(card: Dictionary) -> Dictionary:
 	var npc_image: Texture2D = null
 	var resolved_npc_name = ""
 
+	# 0. Pre-hired profession cards (introduction cards where NPC appears already dressed)
+	if pre_hired_profession != "" and _npc_generator:
+		var npc_data = _npc_generator.get_npc_for_profession(pre_hired_profession)
+		if not npc_data.is_empty():
+			var npc_name = npc_data.get("name", "")
+			resolved_npc_name = npc_name
+			dynamic_title = "%s %s" % [pre_hired_profession, npc_name]
+			if _npc_image_composer:
+				npc_image = _npc_image_composer.get_cached_image(npc_name)
+
 	# 1. Specific NPC by name field
-	if npc_name_field != "":
+	elif npc_name_field != "":
 		resolved_npc_name = npc_name_field
 		dynamic_title = npc_name_field
 		if _npc_image_composer:
@@ -353,6 +454,12 @@ func prepare_presented(card: Dictionary) -> Dictionary:
 		dynamic_title = _interview_manager.get_dynamic_title(card)
 	if dynamic_title == "":
 		dynamic_title = str(card.get("Title", ""))
+
+	# Track NPC for cards that hire the shown citizen when committed
+	if resolved_npc_name != "":
+		var hiring_cards = ["priest_believing_in_faith", "our_inventory_manager_2"]
+		if card_id in hiring_cards:
+			_pending_hire_npc[card_id] = resolved_npc_name
 
 	var present := {
 		"id": card.get("Id", ""),
@@ -406,7 +513,15 @@ func on_card_committed(card_id: String, side: String) -> void:
 	var card = find_card_by_id(card_id)
 	if card.is_empty():
 		return
-	
+
+	# Get pending hire NPC if any (for cards that hire the shown citizen)
+	var pending_npc = _pending_hire_npc.get(card_id, "")
+	if pending_npc != "":
+		_pending_hire_npc.erase(card_id)  # Clear after use
+
+	# Emit signal for systems tracking card commits (e.g., InterviewManager)
+	card_committed_signal.emit(card_id, side, pending_npc)
+
 	_mark_as_discovered(card_id)
 	# 1) Add flags
 	var flist: Array = []
@@ -487,7 +602,18 @@ func get_unique_cards_count() -> int:
 # Belirli bir ID'ye sahip kartı bulup sequence sırasının en önüne koyar
 func force_next_card(card_id: String) -> void:
 	var card_data = find_card_by_id(card_id)
-	if not card_data.is_empty():
-		_sequence_queue.push_front(card_data)
-	else:
+	if card_data.is_empty():
 		push_error("Deck: Forced card not found -> " + card_id)
+		return
+
+	# Check if card is already in queue to prevent duplicates
+	for queued_card in _sequence_queue:
+		if str(queued_card.get("Id", "")) == card_id:
+			# Move to front instead of adding duplicate
+			_sequence_queue.erase(queued_card)
+			_sequence_queue.push_front(card_data)
+			print("Deck: Card already queued, moved to front: ", card_id)
+			return
+
+	_sequence_queue.push_front(card_data)
+	print("Deck: Forced card to front: ", card_id)

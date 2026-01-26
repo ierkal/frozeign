@@ -8,7 +8,11 @@ const PROFESSION_PARTS := {
 	"Foreman": { "hat": "", "body": "" },  # Will be filled when assets exist
 	"Steward": { "hat": "", "body": "" },
 	"Captain": { "hat": "", "body": "" },
-	"Hunter": { "hat": "", "body": "" }
+	"Hunter": { "hat": "", "body": "" },
+	"Priest": { "hat": "", "body": "" },
+	"Inventory Manager": { "hat": "", "body": "" },
+	"Inspector": { "hat": "", "body": "" },
+	"Workers Council": { "hat": "", "body": "" }
 }
 
 # Layer order for compositing (back to front)

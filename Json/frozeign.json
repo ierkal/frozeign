@@ -177,6 +177,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Cook",
+		"NpcPool": "Cook",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [],
@@ -215,6 +216,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Cook",
+		"NpcPool": "Cook",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [],
@@ -253,6 +255,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Cook",
+		"NpcPool": "Cook",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -294,6 +297,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Cook",
+		"NpcPool": "Cook",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -321,7 +325,7 @@
 		"Id": "cook_hearty_meals",
 		"LeftDiscontent": -15.0,
 		"LeftFaith": 0.0,
-		"LeftHope": 20.0,
+		"LeftHope": 12.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Improve the meals",
 		"OnLeftAddFlags": [
@@ -335,6 +339,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Cook",
+		"NpcPool": "Cook",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -361,7 +366,7 @@
 		"Id": "cook_pills",
 		"LeftDiscontent": 15.0,
 		"LeftFaith": 0.0,
-		"LeftHope": -20.0,
+		"LeftHope": -12.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Add the pills",
 		"OnLeftAddFlags": [
@@ -375,6 +380,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Cook",
+		"NpcPool": "Cook",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -415,6 +421,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Medic",
+		"NpcPool": "Medic",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [],
@@ -453,6 +460,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Medic",
+		"NpcPool": "Medic",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [],
@@ -475,7 +483,7 @@
 		"BlockFlags": [],
 		"Description": "If we fully use the facility, I can take more patients even if it means treating some on the floor. Do you allow it?",
 		"Id": "medic_overcrowding",
-		"LeftDiscontent": 20.0,
+		"LeftDiscontent": 12.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 0.0,
@@ -491,6 +499,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Medic",
+		"NpcPool": "Medic",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -532,6 +541,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Medic",
+		"NpcPool": "Medic",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -573,6 +583,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Medic",
+		"NpcPool": "Medic",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -598,7 +609,7 @@
 		"BlockFlags": [],
 		"Description": "If we start using triage, I can focus on the most critical cases first… but it won’t be without a cost.",
 		"Id": "medic_triage",
-		"LeftDiscontent": 20.0,
+		"LeftDiscontent": 12.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 15.0,
 		"LeftOrder": 0.0,
@@ -614,6 +625,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Medic",
+		"NpcPool": "Medic",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -638,29 +650,30 @@
 	{
 		"BlockFlags": [],
 		"Description": "Our dead deserve a proper place to rest. A cemetery would give us the dignity to lay them to peace.",
-		"Id": "chaplain_cemetery",
+		"Id": "priest_cemetery",
 		"LeftDiscontent": -10.0,
-		"LeftFaith": 20.0,
+		"LeftFaith": 12.0,
 		"LeftHope": 15.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Build the cemetery",
 		"OnLeftAddFlags": [
-			"chaplain_cemetery_yes",
-			"chaplain_cemetery_decided"
+			"priest_cemetery_yes",
+			"priest_cemetery_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
-			"chaplain_cemetery_no",
-			"chaplain_cemetery_decided"
+			"priest_cemetery_no",
+			"priest_cemetery_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Chaplain",
+		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [],
-		"RightDiscontent": 25.0,
+		"RightDiscontent": 15.0,
 		"RightFaith": 0.0,
-		"RightHope": -20.0,
+		"RightHope": -12.0,
 		"RightOrder": 0.0,
 		"RightText": "We have no space",
 		"RunMax": 999.0,
@@ -668,7 +681,7 @@
 		"SequenceId": "",
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
-		"StoryId": "chaplain_cemetery",
+		"StoryId": "priest_cemetery",
 		"StoryMinGap": 5.0,
 		"StoryStep": 1.0,
 		"Title": ""
@@ -715,27 +728,28 @@
 	{
 		"BlockFlags": [],
 		"Description": "A ceremonial funeral would honor the fallen… and remind the living of the strength we still share.",
-		"Id": "chaplain_ceremonial_funerals",
+		"Id": "priest_ceremonial_funerals",
 		"LeftDiscontent": -15.0,
-		"LeftFaith": 20.0,
-		"LeftHope": 20.0,
+		"LeftFaith": 12.0,
+		"LeftHope": 12.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Hold ceremonies",
 		"OnLeftAddFlags": [
-			"chaplain_ceremonial_funerals_yes",
-			"chaplain_ceremonial_funerals_decided"
+			"priest_ceremonial_funerals_yes",
+			"priest_ceremonial_funerals_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
-			"chaplain_ceremonial_funerals_no",
-			"chaplain_ceremonial_funerals_decided"
+			"priest_ceremonial_funerals_no",
+			"priest_ceremonial_funerals_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Chaplain",
+		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"chaplain_cemetery_yes"
+			"priest_cemetery_yes"
 		],
 		"RightDiscontent": 15.0,
 		"RightFaith": 0.0,
@@ -747,7 +761,7 @@
 		"SequenceId": "",
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
-		"StoryId": "chaplain_ceremonial_funerals",
+		"StoryId": "priest_ceremonial_funerals",
 		"StoryMinGap": 10.0,
 		"StoryStep": 2.0,
 		"Title": ""
@@ -772,6 +786,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Medic",
+		"NpcPool": "Medic",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -795,23 +810,24 @@
 	{
 		"BlockFlags": [],
 		"Description": "If we use the bodies to fertilise the soil in our hothouses, the yield would improve. It’s unconventional… but effective.",
-		"Id": "inventor_organic_fertiliser",
-		"LeftDiscontent": 25.0,
+		"Id": "inventory_manager_organic_fertiliser",
+		"LeftDiscontent": 15.0,
 		"LeftFaith": 0.0,
 		"LeftHope": -15.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Fertilise… creatively",
 		"OnLeftAddFlags": [
-			"inventor_organic_fertiliser_yes",
-			"inventor_organic_fertiliser_decided"
+			"inventory_manager_organic_fertiliser_yes",
+			"inventory_manager_organic_fertiliser_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
-			"inventor_organic_fertiliser_no",
-			"inventor_organic_fertiliser_decided"
+			"inventory_manager_organic_fertiliser_no",
+			"inventory_manager_organic_fertiliser_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Inventor",
+		"Pool": "Inventory_Manager",
+		"NpcPool": "Inventory_Manager",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [],
@@ -825,7 +841,7 @@
 		"SequenceId": "",
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
-		"StoryId": "inventor_organic_fertiliser",
+		"StoryId": "inventory_manager_organic_fertiliser",
 		"StoryMinGap": 10.0,
 		"StoryStep": 3.0,
 		"Title": ""
@@ -950,7 +966,7 @@
 		"BlockFlags": [],
 		"Description": "We’re short on hands. Everyone who can work must go where they’re needed… children included.",
 		"Id": "foreman_child_jobs_all",
-		"LeftDiscontent": 20.0,
+		"LeftDiscontent": 12.0,
 		"LeftFaith": 0.0,
 		"LeftHope": -15.0,
 		"LeftOrder": 0.0,
@@ -1044,6 +1060,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Medic",
+		"NpcPool": "Medic",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -1084,6 +1101,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Engineer",
+		"NpcPool": "Engineer",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -1147,7 +1165,7 @@
 		"BlockFlags": [],
 		"Description": "When disputes flare up, we could settle them through a formal duel. It might keep the peace… in its own way.",
 		"Id": "steward_duelling",
-		"LeftDiscontent": -25.0,
+		"LeftDiscontent": -15.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 0.0,
@@ -1229,7 +1247,7 @@
 		"BlockFlags": [],
 		"Description": "Sir… after such punishing days, our people deserve every bit of relief they can find. A House of Pleasure would certainly provide it.",
 		"Id": "steward_house_of_pleasure",
-		"LeftDiscontent": -25.0,
+		"LeftDiscontent": -15.0,
 		"LeftFaith": 0.0,
 		"LeftHope": -10.0,
 		"LeftOrder": 0.0,
@@ -1250,7 +1268,7 @@
 		"RequireFlagsAny": [
 			"steward_public_house_yes"
 		],
-		"RightDiscontent": 20.0,
+		"RightDiscontent": 12.0,
 		"RightFaith": 0.0,
 		"RightHope": 0.0,
 		"RightOrder": 0.0,
@@ -1310,26 +1328,27 @@
 	{
 		"BlockFlags": [],
 		"Description": "A House of Prayer would give our people a quiet place to practice their faith and find a moment of peace.",
-		"Id": "chaplain_house_of_prayer",
+		"Id": "priest_house_of_prayer",
 		"LeftDiscontent": -15.0,
 		"LeftFaith": 10.0,
 		"LeftHope": 0.0,
 		"LeftOrder": -10.0,
 		"LeftText": "Build the House of Prayer",
 		"OnLeftAddFlags": [
-			"chaplain_house_of_prayer_yes",
-			"chaplain_house_of_prayer_decided"
+			"priest_house_of_prayer_yes",
+			"priest_house_of_prayer_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
-			"chaplain_house_of_prayer_no",
-			"chaplain_house_of_prayer_decided"
+			"priest_house_of_prayer_no",
+			"priest_house_of_prayer_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Chaplain",
+		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": [],
+		"RequireFlagsAny": ["priest_believing_in_faith_decided"],
 		"RightDiscontent": 15.0,
 		"RightFaith": -10.0,
 		"RightHope": 0.0,
@@ -1340,7 +1359,7 @@
 		"SequenceId": "",
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
-		"StoryId": "chaplain_house_of_prayer",
+		"StoryId": "priest_house_of_prayer",
 		"StoryMinGap": 10.0,
 		"StoryStep": 1.0,
 		"Title": ""
@@ -1348,27 +1367,28 @@
 	{
 		"BlockFlags": [],
 		"Description": "If we build shrines around the settlement, they’ll give people quiet strength to face their work each day.",
-		"Id": "chaplain_shrines",
+		"Id": "priest_shrines",
 		"LeftDiscontent": -15.0,
 		"LeftFaith": 15.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Build the shrines",
 		"OnLeftAddFlags": [
-			"chaplain_shrines_yes",
-			"chaplain_shrines_decided"
+			"priest_shrines_yes",
+			"priest_shrines_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
-			"chaplain_shrines_no",
-			"chaplain_shrines_decided"
+			"priest_shrines_no",
+			"priest_shrines_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Chaplain",
+		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"chaplain_house_of_prayer_yes"
+			"priest_house_of_prayer_yes"
 		],
 		"RightDiscontent": 15.0,
 		"RightFaith": -10.0,
@@ -1380,7 +1400,7 @@
 		"SequenceId": "",
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
-		"StoryId": "chaplain_shrines",
+		"StoryId": "priest_shrines",
 		"StoryMinGap": 10.0,
 		"StoryStep": 2.0,
 		"Title": ""
@@ -1405,10 +1425,11 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"chaplain_house_of_prayer_yes"
+			"priest_house_of_prayer_yes"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": -15.0,
@@ -1428,27 +1449,28 @@
 	{
 		"BlockFlags": [],
 		"Description": "If we open Field Kitchens, we can give people hot meals that keep them warm and steady through the day.",
-		"Id": "chaplain_field_kitchens",
-		"LeftDiscontent": -20.0,
+		"Id": "priest_field_kitchens",
+		"LeftDiscontent": -12.0,
 		"LeftFaith": 15.0,
 		"LeftHope": 15.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Open Field Kitchens",
 		"OnLeftAddFlags": [
-			"chaplain_field_kitchens_yes",
-			"chaplain_field_kitchens_decided"
+			"priest_field_kitchens_yes",
+			"priest_field_kitchens_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
-			"chaplain_field_kitchens_no",
-			"chaplain_field_kitchens_decided"
+			"priest_field_kitchens_no",
+			"priest_field_kitchens_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Chaplain",
+		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"chaplain_shrines_yes"
+			"priest_shrines_yes"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": -15.0,
@@ -1460,7 +1482,7 @@
 		"SequenceId": "",
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
-		"StoryId": "chaplain_field_kitchens",
+		"StoryId": "priest_field_kitchens",
 		"StoryMinGap": 10.0,
 		"StoryStep": 2.0,
 		"Title": ""
@@ -1485,10 +1507,11 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Medic",
+		"NpcPool": "Medic",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"chaplain_shrines_yes"
+			"priest_shrines_yes"
 		],
 		"RightDiscontent": 10.0,
 		"RightFaith": -15.0,
@@ -1510,7 +1533,7 @@
 		"Description": "A Temple would kindle hope in the hearts of the faithful… a light our people sorely need.",
 		"Id": "priest_temple",
 		"LeftDiscontent": 0.0,
-		"LeftFaith": 20.0,
+		"LeftFaith": 12.0,
 		"LeftHope": 10.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Build the Temple",
@@ -1525,6 +1548,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -1565,6 +1589,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -1590,7 +1615,7 @@
 		"Description": "We must stand against wickedness. If the people denounce wrongdoing openly, the wicked will be brought to light.",
 		"Id": "priest_righteous_denunciation",
 		"LeftDiscontent": 15.0,
-		"LeftFaith": 20.0,
+		"LeftFaith": 12.0,
 		"LeftHope": 0.0,
 		"LeftOrder": -15.0,
 		"LeftText": "Encourage denouncements",
@@ -1605,6 +1630,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -1630,7 +1656,7 @@
 		"Description": "Those who stray must face public penance. It may guide them back to the right path and remind others to stay on it.",
 		"Id": "priest_public_penance",
 		"LeftDiscontent": 15.0,
-		"LeftFaith": 20.0,
+		"LeftFaith": 12.0,
 		"LeftHope": 0.0,
 		"LeftOrder": -10.0,
 		"LeftText": "Impose penance",
@@ -1645,6 +1671,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -1669,10 +1696,10 @@
 		"BlockFlags": [],
 		"Description": "If we proclaim you as the Protector of Truth, the people will see you as the one chosen to guide us through this darkness.",
 		"Id": "priest_protector_of_truth",
-		"LeftDiscontent": 20.0,
-		"LeftFaith": 20.0,
+		"LeftDiscontent": 12.0,
+		"LeftFaith": 12.0,
 		"LeftHope": 0.0,
-		"LeftOrder": -20.0,
+		"LeftOrder": -12.0,
 		"LeftText": "Accept the title",
 		"OnLeftAddFlags": [
 			"priest_protector_of_truth_yes",
@@ -1685,13 +1712,14 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
 			"priest_faith_keepers_yes"
 		],
 		"RightDiscontent": 0.0,
-		"RightFaith": -20.0,
+		"RightFaith": -12.0,
 		"RightHope": 0.0,
 		"RightOrder": 15.0,
 		"RightText": "Reject the title",
@@ -2076,10 +2104,10 @@
 		"BlockFlags": [],
 		"Description": "If discipline in the Prison breaks, we may need to use force to restore order. It’s not a choice I take lightly.",
 		"Id": "captain_forceful_persuasion",
-		"LeftDiscontent": 20.0,
+		"LeftDiscontent": 12.0,
 		"LeftFaith": -15.0,
 		"LeftHope": 0.0,
-		"LeftOrder": 25.0,
+		"LeftOrder": 15.0,
 		"LeftText": "Allow force",
 		"OnLeftAddFlags": [
 			"captain_forceful_persuasion_yes",
@@ -2117,10 +2145,10 @@
 		"BlockFlags": [],
 		"Description": "If the city fully embraces Order, we can guide every aspect of daily life and keep everything under control.",
 		"Id": "captain_new_order",
-		"LeftDiscontent": 20.0,
+		"LeftDiscontent": 12.0,
 		"LeftFaith": -15.0,
 		"LeftHope": 0.0,
-		"LeftOrder": 25.0,
+		"LeftOrder": 15.0,
 		"LeftText": "Impose Order",
 		"OnLeftAddFlags": [
 			"captain_new_order_yes",
@@ -2149,7 +2177,7 @@
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
 		"StoryId": "captain_new_order",
-		"StoryMinGap": 20.0,
+		"StoryMinGap": 12.0,
 		"StoryStep": 5.0,
 		"Title": "",
 		"NpcPool": "Captain"
@@ -2174,6 +2202,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Engineer",
+		"NpcPool": "Engineer",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [],
@@ -2188,7 +2217,7 @@
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
 		"StoryId": "engineer_steam_hub",
-		"StoryMinGap": 20.0,
+		"StoryMinGap": 12.0,
 		"StoryStep": 1.0,
 		"Title": ""
 	},
@@ -2228,7 +2257,7 @@
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
 		"StoryId": "steward_steam_hub",
-		"StoryMinGap": 20.0,
+		"StoryMinGap": 12.0,
 		"StoryStep": 1.0,
 		"Title": "",
 		"NpcPool": "Steward"
@@ -2269,7 +2298,7 @@
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
 		"StoryId": "steward_steam_hub",
-		"StoryMinGap": 20.0,
+		"StoryMinGap": 12.0,
 		"StoryStep": 1.0,
 		"Title": "",
 		"NpcPool": "Steward"
@@ -2294,6 +2323,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Engineer",
+		"NpcPool": "Engineer",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [],
@@ -2308,7 +2338,7 @@
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
 		"StoryId": "senior_engineer_heaters",
-		"StoryMinGap": 20.0,
+		"StoryMinGap": 12.0,
 		"StoryStep": 1.0,
 		"Title": ""
 	},
@@ -2348,7 +2378,7 @@
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
 		"StoryId": "steward_medical_heat",
-		"StoryMinGap": 20.0,
+		"StoryMinGap": 12.0,
 		"StoryStep": 2.0,
 		"Title": "",
 		"NpcPool": "Steward"
@@ -2389,7 +2419,7 @@
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
 		"StoryId": "steward_cookhouse_heat",
-		"StoryMinGap": 20.0,
+		"StoryMinGap": 12.0,
 		"StoryStep": 2.0,
 		"Title": "",
 		"NpcPool": "Steward"
@@ -2428,7 +2458,7 @@
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
 		"StoryId": "steward_hothouse",
-		"StoryMinGap": 20.0,
+		"StoryMinGap": 12.0,
 		"StoryStep": 1.0,
 		"Title": "",
 		"NpcPool": "Steward"
@@ -2436,31 +2466,32 @@
 	{
 		"BlockFlags": [],
 		"Description": "Our latest harvest from the Hothouse was excellent. The yield is growing stronger each cycle.",
-		"Id": "inventor_golden_hothouse",
-		"LeftDiscontent": -20.0,
+		"Id": "inventory_manager_golden_hothouse",
+		"LeftDiscontent": -12.0,
 		"LeftFaith": 0.0,
-		"LeftHope": 25.0,
+		"LeftHope": 15.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Celebrate",
 		"OnLeftAddFlags": [
-			"inventor_golden_hothouse_yes",
-			"inventor_golden_hothouse_decided"
+			"inventory_manager_golden_hothouse_yes",
+			"inventory_manager_golden_hothouse_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
-			"inventor_golden_hothouse_no",
-			"inventor_golden_hothouse_decided"
+			"inventory_manager_golden_hothouse_no",
+			"inventory_manager_golden_hothouse_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Inventor",
+		"Pool": "Inventory_Manager",
+		"NpcPool": "Inventory_Manager",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
 			"steward_hothouse_yes"
 		],
-		"RightDiscontent": -20.0,
+		"RightDiscontent": -12.0,
 		"RightFaith": 0.0,
-		"RightHope": 25.0,
+		"RightHope": 15.0,
 		"RightOrder": 0.0,
 		"RightText": "Stay focused",
 		"RunMax": 999.0,
@@ -2468,37 +2499,38 @@
 		"SequenceId": "",
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
-		"StoryId": "inventor_golden_hothouse",
-		"StoryMinGap": 20.0,
+		"StoryId": "inventory_manager_golden_hothouse",
+		"StoryMinGap": 12.0,
 		"StoryStep": 2.0,
 		"Title": ""
 	},
 	{
 		"BlockFlags": [],
 		"Description": "All the crops in the Hothouse have died. If this continues, starvation may follow.",
-		"Id": "inventor_plague_hothouse",
-		"LeftDiscontent": 20.0,
+		"Id": "inventory_manager_plague_hothouse",
+		"LeftDiscontent": 12.0,
 		"LeftFaith": 0.0,
 		"LeftHope": -15.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Investigate",
 		"OnLeftAddFlags": [
-			"inventor_plague_hothouse_yes",
-			"inventor_plague_hothouse_decided"
+			"inventory_manager_plague_hothouse_yes",
+			"inventory_manager_plague_hothouse_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
-			"inventor_plague_hothouse_no",
-			"inventor_plague_hothouse_decided"
+			"inventory_manager_plague_hothouse_no",
+			"inventory_manager_plague_hothouse_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Inventor",
+		"Pool": "Inventory_Manager",
+		"NpcPool": "Inventory_Manager",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
 			"steward_hothouse_yes"
 		],
-		"RightDiscontent": 20.0,
+		"RightDiscontent": 12.0,
 		"RightFaith": 0.0,
 		"RightHope": -15.0,
 		"RightOrder": 0.0,
@@ -2508,37 +2540,38 @@
 		"SequenceId": "",
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
-		"StoryId": "inventor_plague_hothouse",
-		"StoryMinGap": 20.0,
+		"StoryId": "inventory_manager_plague_hothouse",
+		"StoryMinGap": 12.0,
 		"StoryStep": 2.0,
 		"Title": ""
 	},
 	{
 		"BlockFlags": [],
 		"Description": "There’s a thief breaking into the Hothouse. Someone has been stealing our crops.",
-		"Id": "inventor_hothouse_thief",
+		"Id": "inventory_manager_hothouse_thief",
 		"LeftDiscontent": -10.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 10.0,
 		"LeftText": "Find the thief",
 		"OnLeftAddFlags": [
-			"inventor_hothouse_thief_yes",
-			"inventor_hothouse_thief_decided"
+			"inventory_manager_hothouse_thief_yes",
+			"inventory_manager_hothouse_thief_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
-			"inventor_hothouse_thief_no",
-			"inventor_hothouse_thief_decided"
+			"inventory_manager_hothouse_thief_no",
+			"inventory_manager_hothouse_thief_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Inventor",
+		"Pool": "Inventory_Manager",
+		"NpcPool": "Inventory_Manager",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
 			"steward_hothouse_yes"
 		],
-		"RightDiscontent": 20.0,
+		"RightDiscontent": 12.0,
 		"RightFaith": 0.0,
 		"RightHope": -15.0,
 		"RightOrder": 0.0,
@@ -2548,35 +2581,36 @@
 		"SequenceId": "",
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
-		"StoryId": "inventor_hothouse_thief",
-		"StoryMinGap": 20.0,
+		"StoryId": "inventory_manager_hothouse_thief",
+		"StoryMinGap": 12.0,
 		"StoryStep": 2.0,
 		"Title": ""
 	},
 	{
 		"BlockFlags": [],
 		"Description": "The crops died because a plague struck them… something we’ve never seen before.",
-		"Id": "inventor_plague_hothouse_2",
+		"Id": "inventory_manager_plague_hothouse_2",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 15.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Continue to investigate",
 		"OnLeftAddFlags": [
-			"inventor_plague_hothouse_2_yes",
-			"inventor_plague_hothouse_2_decided"
+			"inventory_manager_plague_hothouse_2_yes",
+			"inventory_manager_plague_hothouse_2_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
-			"inventor_plague_hothouse_2_no",
-			"inventor_plague_hothouse_2_decided"
+			"inventory_manager_plague_hothouse_2_no",
+			"inventory_manager_plague_hothouse_2_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Inventor",
+		"Pool": "Inventory_Manager",
+		"NpcPool": "Inventory_Manager",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"inventor_plague_hothouse_yes"
+			"inventory_manager_plague_hothouse_yes"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
@@ -2588,7 +2622,7 @@
 		"SequenceId": "",
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
-		"StoryId": "inventor_plague_hothouse_2",
+		"StoryId": "inventory_manager_plague_hothouse_2",
 		"StoryMinGap": 5.0,
 		"StoryStep": 3.0,
 		"Title": ""
@@ -2596,31 +2630,32 @@
 	{
 		"BlockFlags": [],
 		"Description": "We’ve examined the dying plants, and the plague is spreading faster than we expected.",
-		"Id": "inventor_plague_hothouse_3",
+		"Id": "inventory_manager_plague_hothouse_3",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": -10.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Seal the Hothouse",
 		"OnLeftAddFlags": [
-			"inventor_plague_hothouse_3_yes",
-			"inventor_plague_hothouse_3_decided"
+			"inventory_manager_plague_hothouse_3_yes",
+			"inventory_manager_plague_hothouse_3_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
-			"inventor_plague_hothouse_3_no",
-			"inventor_plague_hothouse_3_decided"
+			"inventory_manager_plague_hothouse_3_no",
+			"inventory_manager_plague_hothouse_3_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Inventor",
+		"Pool": "Inventory_Manager",
+		"NpcPool": "Inventory_Manager",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"inventor_plague_hothouse_yes"
+			"inventory_manager_plague_hothouse_yes"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
-		"RightHope": -20.0,
+		"RightHope": -12.0,
 		"RightOrder": 0.0,
 		"RightText": "Keep it running",
 		"RunMax": 999.0,
@@ -2628,7 +2663,7 @@
 		"SequenceId": "",
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
-		"StoryId": "inventor_plague_hothouse_3",
+		"StoryId": "inventory_manager_plague_hothouse_3",
 		"StoryMinGap": 5.0,
 		"StoryStep": 4.0,
 		"Title": ""
@@ -2636,27 +2671,28 @@
 	{
 		"BlockFlags": [],
 		"Description": "The Hothouse is sealed. It will take several days before it’s safe to reopen… and until then, we’ll have no harvests.",
-		"Id": "inventor_plague_hothouse_4",
+		"Id": "inventory_manager_plague_hothouse_4",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": -10.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Wait it out",
 		"OnLeftAddFlags": [
-			"inventor_plague_hothouse_4_yes",
-			"inventor_plague_hothouse_4_decided"
+			"inventory_manager_plague_hothouse_4_yes",
+			"inventory_manager_plague_hothouse_4_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
-			"inventor_plague_hothouse_4_no",
-			"inventor_plague_hothouse_4_decided"
+			"inventory_manager_plague_hothouse_4_no",
+			"inventory_manager_plague_hothouse_4_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Inventor",
+		"Pool": "Inventory_Manager",
+		"NpcPool": "Inventory_Manager",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"inventor_plague_hothouse_3_yes"
+			"inventory_manager_plague_hothouse_3_yes"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
@@ -2668,7 +2704,7 @@
 		"SequenceId": "",
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
-		"StoryId": "inventor_plague_hothouse_4",
+		"StoryId": "inventory_manager_plague_hothouse_4",
 		"StoryMinGap": 5.0,
 		"StoryStep": 5.0,
 		"Title": ""
@@ -2676,27 +2712,28 @@
 	{
 		"BlockFlags": [],
 		"Description": "The plague spread. Half of our people are gone… the cost of keeping the Hothouse running was far greater than we feared.",
-		"Id": "inventor_plague_hothouse_5",
+		"Id": "inventory_manager_plague_hothouse_5",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": -50.0,
 		"LeftOrder": 0.0,
 		"LeftText": "It can't be...",
 		"OnLeftAddFlags": [
-			"inventor_plague_hothouse_5_yes",
-			"inventor_plague_hothouse_5_decided"
+			"inventory_manager_plague_hothouse_5_yes",
+			"inventory_manager_plague_hothouse_5_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
-			"inventor_plague_hothouse_5_no",
-			"inventor_plague_hothouse_5_decided"
+			"inventory_manager_plague_hothouse_5_no",
+			"inventory_manager_plague_hothouse_5_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Inventor",
+		"Pool": "Inventory_Manager",
+		"NpcPool": "Inventory_Manager",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"inventor_plague_hothouse_3_no"
+			"inventory_manager_plague_hothouse_3_no"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
@@ -2708,7 +2745,7 @@
 		"SequenceId": "",
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
-		"StoryId": "inventor_plague_hothouse_5",
+		"StoryId": "inventory_manager_plague_hothouse_5",
 		"StoryMinGap": 5.0,
 		"StoryStep": 6.0,
 		"Title": ""
@@ -2732,10 +2769,10 @@
 			"steward_hunters_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Steward",
+		"Pool": "Hunters",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": [],
+		"RequireFlagsAny": ["steward_hunters_hired"],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
 		"RightHope": -15.0,
@@ -2771,7 +2808,8 @@
 			"nerisa_hunters_2_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Hunter",
+		"Pool": "Hunters",
+		"NpcPool": "Hunters",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -2811,7 +2849,8 @@
 			"nerisa_hunters_3_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Hunter",
+		"Pool": "Hunters",
+		"NpcPool": "Hunters",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -2851,7 +2890,7 @@
 			"nerisa_hunters_4_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Hunter",
+		"Pool": "Hunters",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -2878,7 +2917,7 @@
 		"Id": "engineer_beacon_start",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
-		"LeftHope": 20.0,
+		"LeftHope": 12.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Begin preparations",
 		"OnLeftAddFlags": [
@@ -2891,13 +2930,14 @@
 			"engineer_beacon_start_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Engineer",
+		"Pool": "Explorer",
+		"NpcPool": "Explorer",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
-		"RightHope": -25.0,
+		"RightHope": -15.0,
 		"RightOrder": 0.0,
 		"RightText": "Stay within the city",
 		"RunMax": 999.0,
@@ -2916,7 +2956,7 @@
 		"Id": "explorer_beacon_1",
 		"LeftDiscontent": -10.0,
 		"LeftFaith": 0.0,
-		"LeftHope": 20.0,
+		"LeftHope": 12.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Send an expedition",
 		"OnLeftAddFlags": [
@@ -2930,6 +2970,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Explorer",
+		"NpcPool": "Explorer",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -2937,7 +2978,7 @@
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
-		"RightHope": -20.0,
+		"RightHope": -12.0,
 		"RightOrder": 0.0,
 		"RightText": "Not allowed",
 		"RunMax": 999.0,
@@ -2970,21 +3011,63 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Explorer",
-		"RepeatPolicy": "repeat_on_negative",
+		"NpcPool": "Explorer",
+		"RepeatPolicy": "always",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
 			"explorer_beacon_1_yes"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
-		"RightHope": -20.0,
+		"RightHope": -12.0,
 		"RightOrder": 0.0,
 		"RightText": "Turn them away",
 		"RunMax": 999.0,
 		"RunMin": 0.0,
-		"SequenceId": "",
+		"SequenceId": "new_refugees",
+		"SequenceIndex": 0.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "explorer_beacon_2",
+		"StoryMinGap": 5.0,
+		"StoryStep": 3.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Sir, our city is being home to many people now. We should increase our security.",
+		"Id": "captain_demand_security",
+		"LeftDiscontent": 15.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 15.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Ofcourse",
+		"OnLeftAddFlags": [
+			"captain_demand_security_yes",
+			"captain_demand_security_decided"
+		],
+		"OnLeftUnlockPools": ["Captain"],
+		"OnRightAddFlags": [
+			"captain_demand_security_no",
+			"captain_demand_security_decided"
+		],
+		"OnRightUnlockPools": ["Captain"],
+		"Pool": "Explorer",
+		"NpcPool": "Explorer",
+		"RepeatPolicy": "always",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"explorer_beacon_2_yes"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": -12.0,
+		"RightOrder": 0.0,
+		"RightText": "I agree",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceId": "new_refugees",
 		"SequenceIndex": 1.0,
-		"SequenceMode": "Normal",
+		"SequenceMode": "Immediate",
 		"StoryId": "explorer_beacon_2",
 		"StoryMinGap": 5.0,
 		"StoryStep": 3.0,
@@ -3003,13 +3086,14 @@
 			"explorer_beacon_storm_start_yes",
 			"explorer_beacon_storm_start_decided"
 		],
-		"OnLeftUnlockPools": [],
+		"OnLeftUnlockPools": ["storm_event"],
 		"OnRightAddFlags": [
 			"explorer_beacon_storm_start_no",
 			"explorer_beacon_storm_start_decided"
 		],
-		"OnRightUnlockPools": [],
+		"OnRightUnlockPools": ["storm_event"],
 		"Pool": "Explorer",
+		"NpcPool": "Explorer",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -3024,7 +3108,7 @@
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
 		"SequenceId": "storm_event",
-		"SequenceIndex": 1.0,
+		"SequenceIndex": 0.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "explorer_beacon_storm_start",
 		"StoryMinGap": 5.0,
@@ -3037,30 +3121,31 @@
 		"Id": "explorer_beacon_automaton_start",
 		"LeftDiscontent": 10.0,
 		"LeftFaith": 0.0,
-		"LeftHope": 20.0,
+		"LeftHope": 15.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Send it home",
 		"OnLeftAddFlags": [
 			"explorer_beacon_automaton_start_yes",
 			"explorer_beacon_automaton_start_decided"
 		],
-		"OnLeftUnlockPools": [],
+		"OnLeftUnlockPools": ["engineer_automaton"],
 		"OnRightAddFlags": [
 			"explorer_beacon_automaton_start_no",
 			"explorer_beacon_automaton_start_decided"
 		],
-		"OnRightUnlockPools": [],
+		"OnRightUnlockPools": ["engineer_automaton"],
 		"Pool": "Explorer",
-		"RepeatPolicy": "repeat_on_negative",
+		"NpcPool": "Explorer",
+		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
 			"explorer_beacon_1_yes"
 		],
-		"RightDiscontent": 0.0,
+		"RightDiscontent": 10.0,
 		"RightFaith": 0.0,
-		"RightHope": -15.0,
+		"RightHope": 15.0,
 		"RightOrder": 0.0,
-		"RightText": "Leave it be",
+		"RightText": "It will be helpful",
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceId": "",
@@ -3105,7 +3190,7 @@
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
 		"SequenceId": "storm_event",
-		"SequenceIndex": 2.0,
+		"SequenceIndex": 1.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "steward_event_storm_1",
 		"StoryMinGap": 5.0,
@@ -3140,14 +3225,14 @@
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
-		"RightHope": -25.0,
+		"RightHope": -15.0,
 		"RightOrder": 0.0,
 		"RightText": "We can’t help now",
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
 		"SequenceId": "storm_event",
-		"SequenceIndex": 3.0,
+		"SequenceIndex": 2.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "steward_event_storm_2",
 		"StoryMinGap": 5.0,
@@ -3182,14 +3267,14 @@
 		],
 		"RightDiscontent": 10.0,
 		"RightFaith": 0.0,
-		"RightHope": -20.0,
+		"RightHope": -12.0,
 		"RightOrder": 0.0,
 		"RightText": "Push them to continue",
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
 		"SequenceId": "storm_event",
-		"SequenceIndex": 4.0,
+		"SequenceIndex": 3.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "foreman_event_storm_3",
 		"StoryMinGap": 5.0,
@@ -3230,7 +3315,7 @@
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
 		"SequenceId": "storm_event",
-		"SequenceIndex": 5.0,
+		"SequenceIndex": 4.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "foreman_event_storm_4",
 		"StoryMinGap": 5.0,
@@ -3271,7 +3356,7 @@
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
 		"SequenceId": "storm_event",
-		"SequenceIndex": 6.0,
+		"SequenceIndex": 4.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "foreman_event_storm_5",
 		"StoryMinGap": 5.0,
@@ -3313,7 +3398,7 @@
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
 		"SequenceId": "storm_event",
-		"SequenceIndex": 7.0,
+		"SequenceIndex": 5.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "cook_event_storm_6",
 		"StoryMinGap": 5.0,
@@ -3326,7 +3411,7 @@
 		"Id": "steward_event_storm_7",
 		"LeftDiscontent": -15.0,
 		"LeftFaith": 0.0,
-		"LeftHope": 25.0,
+		"LeftHope": 15.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Assess the damage",
 		"OnLeftAddFlags": [
@@ -3347,14 +3432,14 @@
 		],
 		"RightDiscontent": -15.0,
 		"RightFaith": 0.0,
-		"RightHope": 25.0,
+		"RightHope": 15.0,
 		"RightOrder": 0.0,
 		"RightText": "Return to routine",
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
 		"SequenceId": "storm_event",
-		"SequenceIndex": 8.0,
+		"SequenceIndex": 6.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "steward_event_storm_7",
 		"StoryMinGap": 5.0,
@@ -3381,8 +3466,8 @@
 			"steward_event_storm_fail_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "storm_event",
-		"RepeatPolicy": "repeat_on_negative",
+		"Pool": "Death",
+		"RepeatPolicy": "always",
 		"RequireFlagsAll": [
 			"foreman_event_storm_3_no",
 			"steward_event_storm_2_no"
@@ -3397,8 +3482,8 @@
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
 		"SequenceId": "",
-		"SequenceIndex": 1.0,
-		"SequenceMode": "Immediate",
+		"SequenceIndex": 0.0,
+		"SequenceMode": "",
 		"StoryId": "steward_event_storm_fail",
 		"StoryMinGap": 5.0,
 		"StoryStep": 4.0,
@@ -3569,9 +3654,9 @@
 		"BlockFlags": [],
 		"Description": "The automatons are now running smoothly. Their efficiency has improved far beyond what we expected.",
 		"Id": "engineer_automaton_4",
-		"LeftDiscontent": -20.0,
+		"LeftDiscontent": -12.0,
 		"LeftFaith": 0.0,
-		"LeftHope": 25.0,
+		"LeftHope": 15.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Excellent news",
 		"OnLeftAddFlags": [
@@ -3590,9 +3675,9 @@
 		"RequireFlagsAny": [
 			"engineer_automaton_3_yes"
 		],
-		"RightDiscontent": -20.0,
+		"RightDiscontent": -12.0,
 		"RightFaith": 0.0,
-		"RightHope": 25.0,
+		"RightHope": 15.0,
 		"RightOrder": 0.0,
 		"RightText": "Awesome",
 		"RunMax": 999.0,
@@ -3624,7 +3709,8 @@
 			"engineer_workshop_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "engineer_workshop",
+		"Pool": "Engineer",
+		"NpcPool": "Engineer",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -3651,7 +3737,7 @@
 		"Id": "engineer_workshop_prosthetics",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
-		"LeftHope": 20.0,
+		"LeftHope": 12.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Make prosthetics",
 		"OnLeftAddFlags": [
@@ -3664,7 +3750,8 @@
 			"engineer_workshop_prosthetics_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "engineer_workshop",
+		"Pool": "Engineer",
+		"NpcPool": "Engineer",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -3672,7 +3759,7 @@
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
-		"RightHope": -25.0,
+		"RightHope": -15.0,
 		"RightOrder": 0.0,
 		"RightText": "Leave them be",
 		"RunMax": 999.0,
@@ -3691,7 +3778,7 @@
 		"Id": "medic_prosthetics_order",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
-		"LeftHope": 20.0,
+		"LeftHope": 12.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Order prostheses",
 		"OnLeftAddFlags": [
@@ -3704,7 +3791,8 @@
 			"medic_prosthetics_order_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "engineer_workshop",
+		"Pool": "Engineer",
+		"NpcPool": "Engineer",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -3731,7 +3819,7 @@
 		"Id": "medic_repatriation",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
-		"LeftHope": 20.0,
+		"LeftHope": 12.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Send them back",
 		"OnLeftAddFlags": [
@@ -3744,7 +3832,8 @@
 			"medic_repatriation_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "engineer_workshop",
+		"Pool": "Engineer",
+		"NpcPool": "Engineer",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -3784,7 +3873,7 @@
 			"steward_bath_house_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "bath_house",
+		"Pool": "Steward",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [],
@@ -3823,7 +3912,7 @@
 			"steward_bath_house_2_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "bath_house",
+		"Pool": "Steward",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -3943,6 +4032,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Medic",
+		"NpcPool": "Medic",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [],
@@ -4246,12 +4336,12 @@
 			"foreman_shift_work_coordination_yes",
 			"foreman_shift_work_coordination_decided"
 		],
-		"OnLeftUnlockPools": [],
+		"OnLeftUnlockPools": ["Workers_Council"],
 		"OnRightAddFlags": [
 			"foreman_shift_work_coordination_no",
 			"foreman_shift_work_coordination_decided"
 		],
-		"OnRightUnlockPools": [],
+		"OnRightUnlockPools": ["Workers_Council"],
 		"Pool": "Foreman",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
@@ -4479,7 +4569,7 @@
 		"BlockFlags": [],
 		"Description": "The workers are uneasy. If this continues, a strike is coming. But… for a fair price, I can calm things down.",
 		"Id": "workers_council_collective_bargaining",
-		"LeftDiscontent": -20.0,
+		"LeftDiscontent": -12.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 15.0,
 		"LeftOrder": 0.0,
@@ -4500,9 +4590,9 @@
 		"RequireFlagsAny": [
 			"workers_council_hall_yes"
 		],
-		"RightDiscontent": 20.0,
+		"RightDiscontent": 12.0,
 		"RightFaith": 0.0,
-		"RightHope": -20.0,
+		"RightHope": -12.0,
 		"RightOrder": 0.0,
 		"RightText": "I don't want your help",
 		"RunMax": 999.0,
@@ -4680,7 +4770,7 @@
 		"BlockFlags": [],
 		"Description": "We need an Execution Place… to deal with the enemies of the working masses.",
 		"Id": "workers_council_terror",
-		"LeftDiscontent": 25.0,
+		"LeftDiscontent": 15.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 15.0,
 		"LeftOrder": 0.0,
@@ -5080,7 +5170,7 @@
 		"BlockFlags": [],
 		"Description": "Convicts should be kept out of our health facilities. Resources must go to those who serve the city.",
 		"Id": "factory_inspector_rationalised_healthcare",
-		"LeftDiscontent": 20.0,
+		"LeftDiscontent": 12.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 0.0,
@@ -5737,6 +5827,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Cook",
+		"NpcPool": "Cook",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -5777,6 +5868,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Cook",
+		"NpcPool": "Cook",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [],
@@ -5815,6 +5907,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Cook",
+		"NpcPool": "Cook",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -5855,6 +5948,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Engineer",
+		"NpcPool": "Engineer",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -5998,23 +6092,24 @@
 	{
 		"BlockFlags": [],
 		"Description": "An amputee was caught stealing from the stockpiles. He took materials to try making a prosthesis for himself.",
-		"Id": "inventor_desperate_thief",
+		"Id": "inventory_manager_desperate_thief",
 		"LeftDiscontent": -10.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 10.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Let him keep them",
 		"OnLeftAddFlags": [
-			"inventor_desperate_thief_yes",
-			"inventor_desperate_thief_decided"
+			"inventory_manager_desperate_thief_yes",
+			"inventory_manager_desperate_thief_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
-			"inventor_desperate_thief_no",
-			"inventor_desperate_thief_decided"
+			"inventory_manager_desperate_thief_no",
+			"inventory_manager_desperate_thief_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Inventor",
+		"Pool": "Inventory_Manager",
+		"NpcPool": "Inventory_Manager",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -6030,7 +6125,7 @@
 		"SequenceId": "",
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
-		"StoryId": "inventor_desperate_thief",
+		"StoryId": "inventory_manager_desperate_thief",
 		"StoryMinGap": 5.0,
 		"StoryStep": 1.0,
 		"Title": ""
@@ -6055,6 +6150,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Medic",
+		"NpcPool": "Medic",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -6095,6 +6191,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Medic",
+		"NpcPool": "Medic",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -6135,6 +6232,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Medic",
+		"NpcPool": "Medic",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -6175,6 +6273,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Medic",
+		"NpcPool": "Medic",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -6215,9 +6314,10 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": [],
+		"RequireFlagsAny": ["priest_believing_in_faith_decided"],
 		"RightDiscontent": -10.0,
 		"RightFaith": 0.0,
 		"RightHope": 15.0,
@@ -6253,6 +6353,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Engineer",
+		"NpcPool": "Engineer",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -6293,9 +6394,10 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": [],
+		"RequireFlagsAny": ["priest_believing_in_faith_decided"],
 		"RightDiscontent": 10.0,
 		"RightFaith": 0.0,
 		"RightHope": -15.0,
@@ -6373,7 +6475,7 @@
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"chaplain_field_kitchens_yes"
+			"priest_field_kitchens_yes"
 		],
 		"RightDiscontent": -10.0,
 		"RightFaith": 0.0,
@@ -6450,10 +6552,11 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"chaplain_house_of_prayer_yes"
+			"priest_house_of_prayer_yes"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 10.0,
@@ -6466,46 +6569,6 @@
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Normal",
 		"StoryId": "priest_pray_time",
-		"StoryMinGap": 5.0,
-		"StoryStep": 1.0,
-		"Title": ""
-	},
-	{
-		"BlockFlags": [],
-		"Description": "The execution platform near the generator is complete. Those deemed enemies of the faith will face judgment there.",
-		"Id": "chaplain_execution_platform",
-		"LeftDiscontent": 0.0,
-		"LeftFaith": 10.0,
-		"LeftHope": 10.0,
-		"LeftOrder": 0.0,
-		"LeftText": "Good",
-		"OnLeftAddFlags": [
-			"chaplain_execution_platform_yes",
-			"chaplain_execution_platform_decided"
-		],
-		"OnLeftUnlockPools": [],
-		"OnRightAddFlags": [
-			"chaplain_execution_platform_no",
-			"chaplain_execution_platform_decided"
-		],
-		"OnRightUnlockPools": [],
-		"Pool": "Chaplain",
-		"RepeatPolicy": "repeat_on_negative",
-		"RequireFlagsAll": [],
-		"RequireFlagsAny": [
-			"chaplain_house_of_prayer_yes"
-		],
-		"RightDiscontent": 0.0,
-		"RightFaith": 10.0,
-		"RightHope": 10.0,
-		"RightOrder": 0.0,
-		"RightText": "Can't we forgive?",
-		"RunMax": 999.0,
-		"RunMin": 0.0,
-		"SequenceId": "",
-		"SequenceIndex": 1.0,
-		"SequenceMode": "Normal",
-		"StoryId": "chaplain_execution_platform",
 		"StoryMinGap": 5.0,
 		"StoryStep": 1.0,
 		"Title": ""
@@ -6530,6 +6593,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -6570,6 +6634,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -6610,6 +6675,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -6650,10 +6716,11 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"chaplain_house_of_prayer_yes"
+			"priest_house_of_prayer_yes"
 		],
 		"RightDiscontent": 10.0,
 		"RightFaith": -10.0,
@@ -6848,6 +6915,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -6888,6 +6956,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -6928,6 +6997,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -6968,6 +7038,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -7008,6 +7079,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -7048,10 +7120,11 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"chaplain_house_of_prayer_yes"
+			"priest_house_of_prayer_yes"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 10.0,
@@ -7088,6 +7161,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -7128,6 +7202,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -8467,10 +8542,11 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"chaplain_ceremonial_funerals_yes"
+			"priest_ceremonial_funerals_yes"
 		],
 		"RightDiscontent": 10.0,
 		"RightFaith": -10.0,
@@ -8507,6 +8583,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Medic",
+		"NpcPool": "Medic",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -8547,6 +8624,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Medic",
+		"NpcPool": "Medic",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -8708,6 +8786,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Priest",
+		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -9024,6 +9103,7 @@
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Engineer",
+		"NpcPool": "Engineer",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -9057,13 +9137,14 @@
 			"engineer_engineers_plea_yes",
 			"engineer_engineers_plea_decided"
 		],
-		"OnLeftUnlockPools": [],
+		"OnLeftUnlockPools": ["Factory_Inspectorate"],
 		"OnRightAddFlags": [
 			"engineer_engineers_plea_no",
 			"engineer_engineers_plea_decided"
 		],
-		"OnRightUnlockPools": [],
+		"OnRightUnlockPools": ["Factory_Inspectorate"],
 		"Pool": "Engineer",
+		"NpcPool": "Engineer",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
@@ -9375,7 +9456,7 @@
 		"Id": "workers_council_we_can_do_it",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
-		"LeftHope": 20.0,
+		"LeftHope": 12.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Glad to hear",
 		"OnLeftAddFlags": [
@@ -9396,7 +9477,7 @@
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
-		"RightHope": 20.0,
+		"RightHope": 12.0,
 		"RightOrder": 0.0,
 		"RightText": "Awesome",
 		"RunMax": 999.0,
@@ -9827,7 +9908,7 @@
 			"steward_food_problem_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Steward",
+		"Pool": "Citizen",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [],
@@ -9866,11 +9947,11 @@
 			"steward_food_riot_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Steward",
+		"Pool": "Citizen",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [],
-		"RightDiscontent": 10.0,
+		"RightDiscontent": 15.0,
 		"RightFaith": 0.0,
 		"RightHope": -15.0,
 		"RightOrder": 0.0,
@@ -9909,7 +9990,7 @@
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [],
-		"RightDiscontent": 20.0,
+		"RightDiscontent": 12.0,
 		"RightFaith": 0.0,
 		"RightHope": -15.0,
 		"RightOrder": 0.0,
@@ -9947,7 +10028,7 @@
 		"Pool": "Steward",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": [],
+		"RequireFlagsAny": [""],
 		"RightDiscontent": 15.0,
 		"RightFaith": 0.0,
 		"RightHope": -15.0,
@@ -10334,10 +10415,10 @@
 			"steward_housing_problem_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Steward",
+		"Pool": "Citizen",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": [],
+		"RequireFlagsAny": ["john_built_shelters_yes"],
 		"RightDiscontent": 10.0,
 		"RightFaith": 0.0,
 		"RightHope": -10.0,
@@ -10373,10 +10454,10 @@
 			"steward_housing_protest_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Steward",
+		"Pool": "Citizen",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": [],
+		"RequireFlagsAny": ["steward_housing_problem_yes"],
 		"RightDiscontent": 15.0,
 		"RightFaith": 0.0,
 		"RightHope": -15.0,
@@ -10412,10 +10493,10 @@
 			"steward_housing_riot_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Steward",
+		"Pool": "Citizen",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": [],
+		"RequireFlagsAny": ["steward_housing_protest_yes"],
 		"RightDiscontent": 15.0,
 		"RightFaith": 0.0,
 		"RightHope": -15.0,
@@ -10451,7 +10532,7 @@
 			"captain_night_patrol_decided"
 		],
 		"OnRightUnlockPools": [],
-		"Pool": "Captain",
+		"Pool": "Citizen",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [],
@@ -10827,6 +10908,38 @@
 		"StoryStep": 1.0,
 		"Title": "",
 		"NpcPool": "Captain"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "City is completely frozen now and nothing you can do save it.",
+		"Id": "DEATH_STORM_EVENT",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "…",
+		"OnLeftAddFlags": [],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [],
+		"OnRightUnlockPools": [],
+		"Pool": "Death",
+		"RepeatPolicy": "always",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "…",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceId": "",
+		"SequenceIndex": 0.0,
+		"SequenceMode": "Normal",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
 	},
 	{
 		"BlockFlags": [],
@@ -13715,7 +13828,7 @@
 	},
 	{
 		"BlockFlags": [],
-		"Description": "Barnaby is leading a circle around the main pipe. They are chanting for heat.",
+		"Description": "Someone is leading a circle around the main pipe. They are chanting for heat.",
 		"Id": "clara_the_gathering",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 10.0,
@@ -13799,7 +13912,7 @@
 	},
 	{
 		"BlockFlags": [],
-		"Description": "Barnaby’s shelter is hoarding extra coal. I saw the black dust on their rug.",
+		"Description": "One of our citizen’s shelter is hoarding extra coal. I saw the black dust on their rug.",
 		"Id": "percival_greedy_shelter",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
@@ -13948,7 +14061,10 @@
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": [],
+		"RequireFlagsAny": ["steward_foreman_1_interview_end_yes",
+			"steward_foreman_2_interview_end_yes",
+			"steward_foreman_3_interview_end_yes",
+			"steward_foreman_4_interview_end_yes"],
 		"RightDiscontent": -5.0,
 		"RightFaith": 0.0,
 		"RightHope": 5.0,
@@ -13978,17 +14094,17 @@
 			"steward_hunters_hire_start_2_yes",
 			"steward_hunters_hire_start_2_decided"
 		],
-		"OnLeftUnlockPools": [],
+		"OnLeftUnlockPools": ["Hunters_Interview"],
 		"OnRightAddFlags": [
 			"steward_hunters_hire_start_2_no",
 			"steward_hunters_hire_start_2_decided"
 		],
-		"OnRightUnlockPools": [],
+		"OnRightUnlockPools": ["Hunters_Interview"],
 		"Pool": "Citizen",
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["steward_hunters_hire_start_yes"],
+		"RequireFlagsAny": ["steward_hunters_hire_start_decided"],
 		"RightDiscontent": -5.0,
 		"RightFaith": 0.0,
 		"RightHope": 5.0,
@@ -14006,7 +14122,11 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": [],
+		"BlockFlags": [
+			"hunter_1_interview_yes",
+			"steward_hunters_hired_decided",
+			"hunters_all_hired"
+		],
 		"Description": "I've never used any kind of gun before sir. I can learn to be good for this city.",
 		"Id": "hunter_1_interview",
 		"LeftDiscontent": 0.0,
@@ -14028,7 +14148,8 @@
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"steward_hunters_hire_start_2_decided"
+			"steward_hunters_hire_start_2_decided",
+			"steward_hunters_hire_not_enough_decided"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
@@ -14049,7 +14170,11 @@
 		"InterviewProfession": "Hunter"
 	},
 	{
-		"BlockFlags": [],
+		"BlockFlags": [
+			"hunter_2_interview_yes",
+			"steward_hunters_hired_decided",
+			"hunters_all_hired"
+		],
 		"Description": "I was joined to scouting club at high school so I know the basics out there.",
 		"Id": "hunter_2_interview",
 		"LeftDiscontent": 0.0,
@@ -14071,7 +14196,8 @@
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"hunter_1_interview_decided"
+			"hunter_1_interview_decided",
+			"steward_hunters_hire_not_enough_decided"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
@@ -14088,54 +14214,15 @@
 		"StoryMinGap": 0.0,
 		"StoryStep": 0.0,
 		"Title": "",
-		"InterviewCandidate": 1.0,
+		"InterviewCandidate": 2.0,
 		"InterviewProfession": "Hunter"
 	},
 	{
-		"BlockFlags": [],
-		"Description": "I joined to scouting club at high school so I know the basics out there.",
-		"Id": "hunter_2_interview",
-		"LeftDiscontent": 0.0,
-		"LeftFaith": 0.0,
-		"LeftHope": 0.0,
-		"LeftOrder": 0.0,
-		"LeftText": "Hired.",
-		"OnLeftAddFlags": [
-			"hunter_2_interview_yes",
-			"hunter_2_interview_decided"
+		"BlockFlags": [
+			"hunter_3_interview_yes",
+			"steward_hunters_hired_decided",
+			"hunters_all_hired"
 		],
-		"OnLeftUnlockPools": [],
-		"OnRightAddFlags": [
-			"hunter_2_interview_no",
-			"hunter_2_interview_decided"
-		],
-		"OnRightUnlockPools": [],
-		"Pool": "Hunters_Interview",
-		"RepeatPolicy": "never",
-		"RequireFlagsAll": [],
-		"RequireFlagsAny": [
-			"hunter_1_interview_decided"
-		],
-		"RightDiscontent": 0.0,
-		"RightFaith": 0.0,
-		"RightHope": 0.0,
-		"RightOrder": 0.0,
-		"RightText": "Scouting club won't help",
-		"RunMax": 999.0,
-		"RunMin": 0.0,
-		"SequenceAdvanceOn": "Any",
-		"SequenceId": "hunters_interview_start",
-		"SequenceIndex": 2.0,
-		"SequenceMode": "Immediate",
-		"StoryId": "",
-		"StoryMinGap": 0.0,
-		"StoryStep": 0.0,
-		"Title": "",
-		"InterviewCandidate": 1.0,
-		"InterviewProfession": "Hunter"
-	},
-	{
-		"BlockFlags": [],
 		"Description": "I was at the army before all going down sir. I know how to use guns.",
 		"Id": "hunter_3_interview",
 		"LeftDiscontent": 0.0,
@@ -14157,7 +14244,8 @@
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"hunter_2_interview_decided"
+			"hunter_2_interview_decided",
+			"steward_hunters_hire_not_enough_decided"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
@@ -14174,11 +14262,15 @@
 		"StoryMinGap": 0.0,
 		"StoryStep": 0.0,
 		"Title": "",
-		"InterviewCandidate": 1.0,
+		"InterviewCandidate": 3.0,
 		"InterviewProfession": "Hunter"
 	},
 	{
-		"BlockFlags": [],
+		"BlockFlags": [
+			"hunter_4_interview_yes",
+			"steward_hunters_hired_decided",
+			"hunters_all_hired"
+		],
 		"Description": "I was hunting with my dad before all of this storm came. I know tracking good.",
 		"Id": "hunter_4_interview",
 		"LeftDiscontent": 0.0,
@@ -14200,7 +14292,8 @@
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"hunter_3_interview_decided"
+			"hunter_3_interview_decided",
+			"steward_hunters_hire_not_enough_decided"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
@@ -14217,11 +14310,13 @@
 		"StoryMinGap": 0.0,
 		"StoryStep": 0.0,
 		"Title": "",
-		"InterviewCandidate": 1.0,
+		"InterviewCandidate": 4.0,
 		"InterviewProfession": "Hunter"
 	},
 	{
-		"BlockFlags": [],
+		"BlockFlags": [
+			"hunters_all_hired"
+		],
 		"Description": "You have to hire more hunters sir, let's talk to these people again I'd say.",
 		"Id": "steward_hunters_hire_not_enough",
 		"LeftDiscontent": 0.0,
@@ -14241,11 +14336,9 @@
 		"OnRightUnlockPools": [],
 		"Pool": "Hunters_Interview",
 		"NpcPool": "Steward",
-		"RepeatPolicy": "never",
+		"RepeatPolicy": "always",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": [
-			"hunter_4_interview_decided"
-		],
+		"RequireFlagsAny": [],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
 		"RightHope": 0.0,
@@ -14254,15 +14347,13 @@
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
-		"SequenceId": "hunters_interview_start",
-		"SequenceIndex": 5.0,
-		"SequenceMode": "Immediate",
+		"SequenceId": "",
+		"SequenceIndex": 0.0,
+		"SequenceMode": "Normal",
 		"StoryId": "",
 		"StoryMinGap": 0.0,
 		"StoryStep": 0.0,
-		"Title": "",
-		"InterviewCandidate": 1.0,
-		"InterviewProfession": "Hunter"
+		"Title": ""
 	},
 	{
 		"BlockFlags": [],
@@ -14277,18 +14368,18 @@
 			"steward_hunters_hired_yes",
 			"steward_hunters_hired_decided"
 		],
-		"OnLeftUnlockPools": [],
+		"OnLeftUnlockPools": ["Hunter"],
 		"OnRightAddFlags": [
 			"steward_hunters_hired_no",
 			"steward_hunters_hired_decided"
 		],
-		"OnRightUnlockPools": [],
+		"OnRightUnlockPools": ["Hunter"],
 		"Pool": "Hunters_Interview",
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"steward_hunters_hired_decided"
+			"hunters_all_hired"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
@@ -14298,15 +14389,13 @@
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
-		"SequenceId": "hunters_interview_start",
-		"SequenceIndex": 5.0,
-		"SequenceMode": "Immediate",
+		"SequenceId": "",
+		"SequenceIndex": 0.0,
+		"SequenceMode": "Normal",
 		"StoryId": "",
 		"StoryMinGap": 0.0,
 		"StoryStep": 0.0,
-		"Title": "",
-		"InterviewCandidate": 1.0,
-		"InterviewProfession": "Hunter"
+		"Title": ""
 	},
 	{
 		"BlockFlags": [],
@@ -14331,7 +14420,10 @@
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": [],
+		"RequireFlagsAny": ["steward_medic_1_interview_end_yes",
+			"steward_medic_2_interview_end_yes",
+			"steward_medic_3_interview_end_yes",
+			"steward_medic_4_interview_end_yes"],
 		"RightDiscontent": -5.0,
 		"RightFaith": 0.0,
 		"RightHope": 5.0,
@@ -14361,17 +14453,17 @@
 			"steward_engineer_hire_start_2_yes",
 			"steward_engineer_hire_start_2_decided"
 		],
-		"OnLeftUnlockPools": [],
+		"OnLeftUnlockPools": ["Engineer_Interview"],
 		"OnRightAddFlags": [
 			"steward_engineer_hire_start_2_no",
 			"steward_engineer_hire_start_2_decided"
 		],
-		"OnRightUnlockPools": [],
+		"OnRightUnlockPools": ["Engineer_Interview"],
 		"Pool": "Citizen",
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": [],
+		"RequireFlagsAny": ["steward_engineer_hire_start_decided"],
 		"RightDiscontent": -5.0,
 		"RightFaith": 0.0,
 		"RightHope": 5.0,
@@ -14608,20 +14700,20 @@
 	{
 		"BlockFlags": [],
 		"Description": "Should we hire this engineer sir? Or you want to continue with next candidate?",
-		"Id": "steward_engineer_1_interview_5_end",
+		"Id": "steward_engineer_1_interview_end",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Hire that guy",
 		"OnLeftAddFlags": [
-			"steward_engineer_1_interview_5_end_yes",
-			"steward_engineer_1_interview_5_end_decided"
+			"steward_engineer_1_interview_end_yes",
+			"steward_engineer_1_interview_end_decided"
 		],
 		"OnLeftUnlockPools": ["Engineer"],
 		"OnRightAddFlags": [
-			"steward_engineer_1_interview_5_end_no",
-			"steward_engineer_1_interview_5_end_decided"
+			"steward_engineer_1_interview_end_no",
+			"steward_engineer_1_interview_end_decided"
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Engineer_Interview",
@@ -14649,7 +14741,7 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": [],
+		"BlockFlags": ["steward_engineer_1_interview_end_yes"],
 		"Description": "I treat machines better than people. They’re more logical.",
 		"Id": "engineer_2_interview_1",
 		"LeftDiscontent": 0.0,
@@ -14671,7 +14763,7 @@
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"steward_engineer_1_interview_5_end_decided"
+			"steward_engineer_1_interview_end_decided"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
@@ -14868,20 +14960,20 @@
 	{
 		"BlockFlags": [],
 		"Description": "Should we hire this engineer sir? Or you want to continue with next candidate?",
-		"Id": "steward_engineer_2_interview_5_end",
+		"Id": "steward_engineer_2_interview_end",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Hire that guy",
 		"OnLeftAddFlags": [
-			"steward_engineer_2_interview_5_end_yes",
-			"steward_engineer_2_interview_5_end_decided"
+			"steward_engineer_2_interview_end_yes",
+			"steward_engineer_2_interview_end_decided"
 		],
 		"OnLeftUnlockPools": ["Engineer"],
 		"OnRightAddFlags": [
-			"steward_engineer_2_interview_5_end_no",
-			"steward_engineer_2_interview_5_end_decided"
+			"steward_engineer_2_interview_end_no",
+			"steward_engineer_2_interview_end_decided"
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Engineer_Interview",
@@ -14909,7 +15001,7 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": [],
+		"BlockFlags": ["steward_engineer_2_interview_end_yes"],
 		"Description": "I’ve survived three meltdowns! Well, I survived. The labs didn't.",
 		"Id": "engineer_3_interview_1",
 		"LeftDiscontent": 0.0,
@@ -14931,7 +15023,7 @@
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"steward_engineer_2_interview_5_end_decided"
+			"steward_engineer_2_interview_end_decided"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
@@ -15128,20 +15220,20 @@
 	{
 		"BlockFlags": [],
 		"Description": "Should we hire this engineer sir? Or you want to continue with next candidate?",
-		"Id": "steward_engineer_3_interview_5_end",
+		"Id": "steward_engineer_3_interview_end",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Hire that guy",
 		"OnLeftAddFlags": [
-			"steward_engineer_3_interview_5_end_yes",
-			"steward_engineer_3_interview_5_end_decided"
+			"steward_engineer_3_interview_end_yes",
+			"steward_engineer_3_interview_end_decided"
 		],
 		"OnLeftUnlockPools": ["Engineer"],
 		"OnRightAddFlags": [
-			"steward_engineer_3_interview_5_end_no",
-			"steward_engineer_3_interview_5_end_decided"
+			"steward_engineer_3_interview_end_no",
+			"steward_engineer_3_interview_end_decided"
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Engineer_Interview",
@@ -15169,7 +15261,7 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": [],
+		"BlockFlags": ["steward_engineer_3_interview_end_yes"],
 		"Description": "Physics is the only law that hasn't been frozen solid yet.",
 		"Id": "engineer_4_interview_1",
 		"LeftDiscontent": 0.0,
@@ -15191,7 +15283,7 @@
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"steward_engineer_3_interview_5_end_decided"
+			"steward_engineer_3_interview_end_decided"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
@@ -15388,20 +15480,20 @@
 	{
 		"BlockFlags": [],
 		"Description": "There are no candidates left sir. We must hire this one without any choice.",
-		"Id": "steward_engineer_4_interview_5_end",
+		"Id": "steward_engineer_4_interview_end",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Hire",
 		"OnLeftAddFlags": [
-			"steward_engineer_4_interview_5_end_yes",
-			"steward_engineer_4_interview_5_end_decided"
+			"steward_engineer_4_interview_end_yes",
+			"steward_engineer_4_interview_end_decided"
 		],
 		"OnLeftUnlockPools": ["Engineer"],
 		"OnRightAddFlags": [
-			"steward_engineer_4_interview_5_end_no",
-			"steward_engineer_4_interview_5_end_decided"
+			"steward_engineer_4_interview_end_no",
+			"steward_engineer_4_interview_end_decided"
 		],
 		"OnRightUnlockPools": ["Engineer"],
 		"Pool": "Engineer_Interview",
@@ -15451,7 +15543,7 @@
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": [],
+		"RequireFlagsAny": ["hunters_all_hired"],
 		"RightDiscontent": -5.0,
 		"RightFaith": 0.0,
 		"RightHope": 5.0,
@@ -15481,17 +15573,17 @@
 			"steward_cook_hire_start_2_yes",
 			"steward_cook_hire_start_2_decided"
 		],
-		"OnLeftUnlockPools": [],
+		"OnLeftUnlockPools": ["Cook_Interview"],
 		"OnRightAddFlags": [
 			"steward_cook_hire_start_2_no",
 			"steward_cook_hire_start_2_decided"
 		],
-		"OnRightUnlockPools": [],
+		"OnRightUnlockPools": ["Cook_Interview"],
 		"Pool": "Citizen",
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": [],
+		"RequireFlagsAny": ["steward_cook_hire_start_decided"],
 		"RightDiscontent": -5.0,
 		"RightFaith": 0.0,
 		"RightHope": 5.0,
@@ -15671,7 +15763,7 @@
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
-		"SequenceId": "Cook_interview_start",
+		"SequenceId": "cook_interview_start",
 		"SequenceIndex": 3.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "",
@@ -15728,20 +15820,20 @@
 	{
 		"BlockFlags": [],
 		"Description": "Should we hire this cook sir? Or you want to continue with next candidate?",
-		"Id": "steward_cook_1_interview_5_end",
+		"Id": "steward_cook_1_interview_end",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Hire that guy",
 		"OnLeftAddFlags": [
-			"steward_cook_1_interview_5_end_yes",
-			"steward_cook_1_interview_5_end_decided"
+			"steward_cook_1_interview_end_yes",
+			"steward_cook_1_interview_end_decided"
 		],
 		"OnLeftUnlockPools": ["Cook"],
 		"OnRightAddFlags": [
-			"steward_cook_1_interview_5_end_no",
-			"steward_cook_1_interview_5_end_decided"
+			"steward_cook_1_interview_end_no",
+			"steward_cook_1_interview_end_decided"
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Cook_Interview",
@@ -15769,7 +15861,7 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": [],
+		"BlockFlags": ["steward_cook_1_interview_end_yes"],
 		"Description": "I studied in Paris before the frost. Now, I specialize in 'Snow-Cured Mystery'.",
 		"Id": "cook_2_interview_1",
 		"LeftDiscontent": 0.0,
@@ -15791,7 +15883,7 @@
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"steward_cook_1_interview_5_end_decided"
+			"steward_cook_1_interview_end_decided"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
@@ -15931,7 +16023,7 @@
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
-		"SequenceId": "Cook_interview_start",
+		"SequenceId": "cook_interview_start",
 		"SequenceIndex": 7.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "",
@@ -15988,20 +16080,20 @@
 	{
 		"BlockFlags": [],
 		"Description": "Should we hire this cook sir? Or you want to continue with next candidate?",
-		"Id": "steward_cook_2_interview_5_end",
+		"Id": "steward_cook_2_interview_end",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Hire that guy",
 		"OnLeftAddFlags": [
-			"steward_cook_2_interview_5_end_yes",
-			"steward_cook_2_interview_5_end_decided"
+			"steward_cook_2_interview_end_yes",
+			"steward_cook_2_interview_end_decided"
 		],
 		"OnLeftUnlockPools": ["Cook"],
 		"OnRightAddFlags": [
-			"steward_cook_2_interview_5_end_no",
-			"steward_cook_2_interview_5_end_decided"
+			"steward_cook_2_interview_end_no",
+			"steward_cook_2_interview_end_decided"
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Cook_Interview",
@@ -16029,7 +16121,7 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": [],
+		"BlockFlags": ["steward_cook_2_interview_end_yes"],
 		"Description": "Meat is meat. Don't ask where I found it, and I won't lie to you.",
 		"Id": "cook_3_interview_1",
 		"LeftDiscontent": 0.0,
@@ -16051,7 +16143,7 @@
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"steward_cook_2_interview_5_end_decided"
+			"steward_cook_2_interview_end_decided"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
@@ -16143,7 +16235,7 @@
 		"RightFaith": 0.0,
 		"RightHope": 0.0,
 		"RightOrder": 0.0,
-		"RightText": "What is the secret ingredient in your 'Special'?\"",
+		"RightText": "What is the secret ingredient in your 'Special'?'",
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
@@ -16191,7 +16283,7 @@
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
-		"SequenceId": "Cook_interview_start",
+		"SequenceId": "cook_interview_start",
 		"SequenceIndex": 11.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "",
@@ -16248,20 +16340,20 @@
 	{
 		"BlockFlags": [],
 		"Description": "Should we hire this cook sir? Or you want to continue with next candidate?",
-		"Id": "steward_cook_3_interview_5_end",
+		"Id": "steward_cook_3_interview_end",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Hire that guy",
 		"OnLeftAddFlags": [
-			"steward_cook_3_interview_5_end_yes",
-			"steward_cook_3_interview_5_end_decided"
+			"steward_cook_3_interview_end_yes",
+			"steward_cook_3_interview_end_decided"
 		],
 		"OnLeftUnlockPools": ["Cook"],
 		"OnRightAddFlags": [
-			"steward_cook_3_interview_5_end_no",
-			"steward_cook_3_interview_5_end_decided"
+			"steward_cook_3_interview_end_no",
+			"steward_cook_3_interview_end_decided"
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Cook_Interview",
@@ -16289,7 +16381,7 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": [],
+		"BlockFlags": ["steward_cook_3_interview_end_yes"],
 		"Description": "A human is just a biological engine. I provide the fuel.",
 		"Id": "cook_4_interview_1",
 		"LeftDiscontent": 0.0,
@@ -16311,7 +16403,7 @@
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"steward_cook_3_interview_5_end_decided"
+			"steward_cook_3_interview_end_decided"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
@@ -16451,7 +16543,7 @@
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
-		"SequenceId": "Cook_interview_start",
+		"SequenceId": "cook_interview_start",
 		"SequenceIndex": 15.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "",
@@ -16508,20 +16600,20 @@
 	{
 		"BlockFlags": [],
 		"Description": "Should we hire this cook sir? Or you want to continue with next candidate?",
-		"Id": "steward_cook_4_interview_5_end",
+		"Id": "steward_cook_4_interview_end",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Hire that guy",
 		"OnLeftAddFlags": [
-			"steward_cook_4_interview_5_end_yes",
-			"steward_cook_4_interview_5_end_decided"
+			"steward_cook_4_interview_end_yes",
+			"steward_cook_4_interview_end_decided"
 		],
 		"OnLeftUnlockPools": ["Cook"],
 		"OnRightAddFlags": [
-			"steward_cook_4_interview_5_end_no",
-			"steward_cook_4_interview_5_end_decided"
+			"steward_cook_4_interview_end_no",
+			"steward_cook_4_interview_end_decided"
 		],
 		"OnRightUnlockPools": ["Cook"],
 		"Pool": "Cook_Interview",
@@ -16571,7 +16663,10 @@
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": [],
+		"RequireFlagsAny": ["steward_engineer_1_interview_end_yes",
+			"steward_engineer_2_interview_end_yes",
+			"steward_engineer_3_interview_end_yes",
+			"steward_engineer_4_interview_end_yes"],
 		"RightDiscontent": -5.0,
 		"RightFaith": 0.0,
 		"RightHope": 5.0,
@@ -16601,17 +16696,17 @@
 			"steward_explorer_hire_start_2_yes",
 			"steward_explorer_hire_start_2_decided"
 		],
-		"OnLeftUnlockPools": [],
+		"OnLeftUnlockPools": ["Explorer_Interview"],
 		"OnRightAddFlags": [
 			"steward_explorer_hire_start_2_no",
 			"steward_explorer_hire_start_2_decided"
 		],
-		"OnRightUnlockPools": [],
+		"OnRightUnlockPools": ["Explorer_Interview"],
 		"Pool": "Citizen",
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": [],
+		"RequireFlagsAny": ["steward_explorer_hire_start_decided"],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
 		"RightHope": 0.0,
@@ -16791,7 +16886,7 @@
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
-		"SequenceId": "Explorer_interview_start",
+		"SequenceId": "explorer_interview_start",
 		"SequenceIndex": 3.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "",
@@ -16848,20 +16943,20 @@
 	{
 		"BlockFlags": [],
 		"Description": "Should we hire this explorer sir? Or you want to continue with next candidate?",
-		"Id": "steward_explorer_1_interview_5_end",
+		"Id": "steward_explorer_1_interview_end",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Hire that guy",
 		"OnLeftAddFlags": [
-			"steward_explorer_1_interview_5_end_yes",
-			"steward_explorer_1_interview_5_end_decided"
+			"steward_explorer_1_interview_end_yes",
+			"steward_explorer_1_interview_end_decided"
 		],
 		"OnLeftUnlockPools": ["Explorer"],
 		"OnRightAddFlags": [
-			"steward_explorer_1_interview_5_end_no",
-			"steward_explorer_1_interview_5_end_decided"
+			"steward_explorer_1_interview_end_no",
+			"steward_explorer_1_interview_end_decided"
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Explorer_Interview",
@@ -16889,7 +16984,7 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": [],
+		"BlockFlags": ["steward_explorer_1_interview_end_yes"],
 		"Description": "If I stop moving, I'll freeze. If I keep moving, I can find anything useful for the city!",
 		"Id": "explorer_2_interview_1",
 		"LeftDiscontent": 0.0,
@@ -16911,7 +17006,7 @@
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"steward_explorer_1_interview_5_end_decided"
+			"steward_explorer_1_interview_end_decided"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
@@ -17051,7 +17146,7 @@
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
-		"SequenceId": "Explorer_interview_start",
+		"SequenceId": "explorer_interview_start",
 		"SequenceIndex": 7.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "",
@@ -17108,20 +17203,20 @@
 	{
 		"BlockFlags": [],
 		"Description": "Should we hire this explorer sir? Or you want to continue with next candidate?",
-		"Id": "steward_explorer_2_interview_5_end",
+		"Id": "steward_explorer_2_interview_end",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Hire that guy",
 		"OnLeftAddFlags": [
-			"steward_explorer_2_interview_5_end_yes",
-			"steward_explorer_2_interview_5_end_decided"
+			"steward_explorer_2_interview_end_yes",
+			"steward_explorer_2_interview_end_decided"
 		],
 		"OnLeftUnlockPools": ["Explorer"],
 		"OnRightAddFlags": [
-			"steward_explorer_2_interview_5_end_no",
-			"steward_explorer_2_interview_5_end_decided"
+			"steward_explorer_2_interview_end_no",
+			"steward_explorer_2_interview_end_decided"
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Explorer_Interview",
@@ -17149,7 +17244,7 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": [],
+		"BlockFlags": ["steward_explorer_2_interview_end_yes"],
 		"Description": "A map is just a list of places where people have already died. I’m making a new list.",
 		"Id": "explorer_3_interview_1",
 		"LeftDiscontent": 0.0,
@@ -17171,7 +17266,7 @@
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"steward_explorer_2_interview_5_end_decided"
+			"steward_explorer_2_interview_end_decided"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
@@ -17311,7 +17406,7 @@
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
-		"SequenceId": "Explorer_interview_start",
+		"SequenceId": "explorer_interview_start",
 		"SequenceIndex": 11.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "",
@@ -17368,20 +17463,20 @@
 	{
 		"BlockFlags": [],
 		"Description": "Should we hire this explorer sir? Or you want to continue with next candidate?",
-		"Id": "steward_explorer_3_interview_5_end",
+		"Id": "steward_explorer_3_interview_end",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Hire that guy",
 		"OnLeftAddFlags": [
-			"steward_explorer_3_interview_5_end_yes",
-			"steward_explorer_3_interview_5_end_decided"
+			"steward_explorer_3_interview_end_yes",
+			"steward_explorer_3_interview_end_decided"
 		],
 		"OnLeftUnlockPools": ["Explorer"],
 		"OnRightAddFlags": [
-			"steward_explorer_3_interview_5_end_no",
-			"steward_explorer_3_interview_5_end_decided"
+			"steward_explorer_3_interview_end_no",
+			"steward_explorer_3_interview_end_decided"
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Explorer_Interview",
@@ -17409,7 +17504,7 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": [],
+		"BlockFlags": ["steward_explorer_3_interview_end_yes"],
 		"Description": "I don't know where I am, but look! I found a crate of canned peaches!",
 		"Id": "explorer_4_interview_1",
 		"LeftDiscontent": 0.0,
@@ -17431,7 +17526,7 @@
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
 		"RequireFlagsAny": [
-			"steward_explorer_3_interview_5_end_decided"
+			"steward_explorer_3_interview_end_decided"
 		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
@@ -17571,7 +17666,7 @@
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
-		"SequenceId": "Explorer_interview_start",
+		"SequenceId": "explorer_interview_start",
 		"SequenceIndex": 15.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "",
@@ -17584,7 +17679,7 @@
 	{
 		"BlockFlags": [],
 		"Description": "A crate of pre-frost whiskey. I 'secured' it for the city's health.",
-		"Id": "explorer_1_interview_5",
+		"Id": "explorer_4_interview_5",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
@@ -17628,20 +17723,20 @@
 	{
 		"BlockFlags": [],
 		"Description": "There are no candidates left sir. We should hire this explorer.",
-		"Id": "steward_explorer_4_interview_5_end",
+		"Id": "steward_explorer_4_interview_end",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Hire",
 		"OnLeftAddFlags": [
-			"steward_explorer_4_interview_5_end_yes",
-			"steward_explorer_4_interview_5_end_decided"
+			"steward_explorer_4_interview_end_yes",
+			"steward_explorer_4_interview_end_decided"
 		],
 		"OnLeftUnlockPools": ["Explorer"],
 		"OnRightAddFlags": [
-			"steward_explorer_4_interview_5_end_no",
-			"steward_explorer_4_interview_5_end_decided"
+			"steward_explorer_4_interview_end_no",
+			"steward_explorer_4_interview_end_decided"
 		],
 		"OnRightUnlockPools": ["Explorer"],
 		"Pool": "Explorer_Interview",
@@ -17663,6 +17758,1380 @@
 		"SequenceId": "explorer_interview_start",
 		"SequenceIndex": 16.0,
 		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Chief, cooking the meals at home doesn't work for all of our people. I'm suggesting that we need a Cookhouse.",
+		"Id": "cook_build_cookhouse",
+		"LeftDiscontent": -5.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 5.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Build Cookhouse!",
+		"OnLeftAddFlags": [
+			"cook_build_cookhouse_yes",
+			"cook_build_cookhouse_decided"
+		],
+		"OnLeftUnlockPools": ["Cook"],
+		"OnRightAddFlags": [
+			"cook_build_cookhouse_no",
+			"cook_build_cookhouse_decided"
+		],
+		"OnRightUnlockPools": ["Cook"],
+		"Pool": "Citizen",
+		"NpcPool": "Cook",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"steward_cook_4_interview_end_yes",
+			"steward_cook_3_interview_end_yes",
+			"steward_cook_2_interview_end_yes",
+			"steward_cook_1_interview_end_yes"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "Manage for now",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "",
+		"SequenceIndex": 0.0,
+		"SequenceMode": "Normal",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Chief, we need medical post urgently. Otherwise I can't treat them properly at their house.",
+		"Id": "medic_build_medical_post",
+		"LeftDiscontent": -5.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 5.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Build Medical Post!",
+		"OnLeftAddFlags": [
+			"medic_build_medical_post_yes",
+			"medic_build_medical_post_decided"
+		],
+		"OnLeftUnlockPools": ["Cook"],
+		"OnRightAddFlags": [
+			"medic_build_medical_post_no",
+			"medic_build_medical_post_decided"
+		],
+		"OnRightUnlockPools": ["Cook"],
+		"Pool": "Citizen",
+		"NpcPool": "Medic",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"steward_medic_4_interview_end_yes",
+			"steward_medic_3_interview_end_yes",
+			"steward_medic_2_interview_end_yes",
+			"steward_medic_1_interview_end_yes"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "Manage for now",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "",
+		"SequenceIndex": 0.0,
+		"SequenceMode": "Normal",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Sir, our people started to getting sick from cold and raw food. We should ask if there's anyone among us who understands medic.",
+		"Id": "steward_medic_hire_start",
+		"LeftDiscontent": -5.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 5.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Absolutely",
+		"OnLeftAddFlags": [
+			"steward_medic_hire_start_yes",
+			"steward_medic_hire_start_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"steward_medic_hire_start_no",
+			"steward_medic_hire_start_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Citizen",
+		"NpcPool": "Steward",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": ["steward_cook_1_interview_end_yes",
+			"steward_cook_2_interview_end_yes",
+			"steward_cook_3_interview_end_yes",
+			"steward_cook_4_interview_end_yes"],
+		"RightDiscontent": -5.0,
+		"RightFaith": 0.0,
+		"RightHope": 5.0,
+		"RightOrder": 0.0,
+		"RightText": "Sure",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "",
+		"SequenceIndex": 0.0,
+		"SequenceMode": "Normal",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Here are the people who studied medic in the past life.",
+		"Id": "steward_medic_hire_start_2",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Let's see.",
+		"OnLeftAddFlags": [
+			"steward_medic_hire_start_2_yes",
+			"steward_medic_hire_start_2_decided"
+		],
+		"OnLeftUnlockPools": ["Medic_Interview"],
+		"OnRightAddFlags": [
+			"steward_medic_hire_start_2_no",
+			"steward_medic_hire_start_2_decided"
+		],
+		"OnRightUnlockPools": ["Medic_Interview"],
+		"Pool": "Citizen",
+		"NpcPool": "Steward",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": ["steward_medic_hire_start_yes"],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "Thanks",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 0.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "If it's black, it's gone. Don't get attached to your limbs.",
+		"Id": "medic_1_interview_1",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "How would you treat a person that has frostbite?",
+		"OnLeftAddFlags": [
+			"medic_1_interview_1_yes",
+			"medic_1_interview_1_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_1_interview_1_no",
+			"medic_1_interview_1_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"steward_medic_hire_start_2_decided"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "We’re out of medicine. What’s the substitute?",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 1.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 1.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Amputate. Better to lose a foot than a whole citizen.",
+		"Id": "medic_1_interview_2",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "The infirmary is full. How do we clear beds?",
+		"OnLeftAddFlags": [
+			"medic_1_interview_2_yes",
+			"medic_1_interview_2_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_1_interview_2_no",
+			"medic_1_interview_2_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_1_interview_1_yes"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "What’s the weirdest thing you’ve used as a bandage?",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 2.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 1.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Sawdust and prayer. Mostly the sawdust.",
+		"Id": "medic_1_interview_3",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "The infirmary is full. How do we clear beds?",
+		"OnLeftAddFlags": [
+			"medic_1_interview_3_yes",
+			"medic_1_interview_3_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_1_interview_3_no",
+			"medic_1_interview_3_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_1_interview_1_no"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "What’s the weirdest thing you’ve used as a bandage?",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 2.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 1.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Discharge the ones who can still walk. Or crawl.",
+		"Id": "medic_1_interview_4",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Thank you.",
+		"OnLeftAddFlags": [
+			"medic_1_interview_4_yes",
+			"medic_1_interview_4_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_1_interview_4_no",
+			"medic_1_interview_4_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_1_interview_2_yes",
+			"medic_1_interview_3_yes"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "We will call you back",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 3.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 1.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "A frozen copy of the city laws. Kept the wound stiff!",
+		"Id": "medic_1_interview_5",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Thank you.",
+		"OnLeftAddFlags": [
+			"medic_1_interview_5_yes",
+			"medic_1_interview_5_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_1_interview_5_no",
+			"medic_1_interview_5_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_1_interview_3_no",
+			"medic_1_interview_2_no"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "We will call you back",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 3.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 1.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Should we hire this one sir? Or you want to continue with next candidate?",
+		"Id": "steward_medic_1_interview_end",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Hire that guy",
+		"OnLeftAddFlags": [
+			"steward_medic_1_interview_end_yes",
+			"steward_medic_1_interview_end_decided"
+		],
+		"OnLeftUnlockPools": ["Medic"],
+		"OnRightAddFlags": [
+			"steward_medic_1_interview_end_no",
+			"steward_medic_1_interview_end_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"NpcPool": "Steward",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_1_interview_4_decided",
+			"medic_1_interview_5_decided"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "Next",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 4.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": ["steward_medic_1_interview_end_yes"],
+		"Description": "A warm smile is the best medicine. And actual medicine. We have that, right?",
+		"Id": "medic_2_interview_1",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "How would you treat a person that has frostbite?",
+		"OnLeftAddFlags": [
+			"medic_2_interview_1_yes",
+			"medic_2_interview_1_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_2_interview_1_no",
+			"medic_2_interview_1_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"steward_medic_1_interview_end_decided"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "We’re out of medicine. What’s the substitute?",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 5.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 2.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Warm water and a hug! Or, well... mostly just the warm water.",
+		"Id": "medic_2_interview_2",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "The infirmary is full. How do we clear beds?",
+		"OnLeftAddFlags": [
+			"medic_2_interview_2_yes",
+			"medic_2_interview_2_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_2_interview_2_no",
+			"medic_2_interview_2_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_2_interview_1_yes"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "What’s the weirdest thing you’ve used as a bandage?",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 6.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 2.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Hot tea. It doesn't cure scurvy, but it feels like a lie we can believe in.",
+		"Id": "medic_2_interview_3",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "The infirmary is full. How do we clear beds?",
+		"OnLeftAddFlags": [
+			"medic_2_interview_3_yes",
+			"medic_2_interview_3_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_2_interview_3_no",
+			"medic_2_interview_3_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_2_interview_1_no"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "What’s the weirdest thing you’ve used as a bandage?",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 6.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 2.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Double-bunking! It’s not 'overcrowded,' it’s 'extra snug'.",
+		"Id": "medic_2_interview_4",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Thank you.",
+		"OnLeftAddFlags": [
+			"medic_2_interview_4_yes",
+			"medic_2_interview_4_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_2_interview_4_no",
+			"medic_2_interview_4_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_2_interview_2_yes",
+			"medic_2_interview_3_yes"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "We will call you back",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 7.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 2.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "A very long, very clean woolen scarf. He looked quite festive!",
+		"Id": "medic_2_interview_5",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Thank you.",
+		"OnLeftAddFlags": [
+			"medic_2_interview_5_yes",
+			"medic_2_interview_5_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_2_interview_5_no",
+			"medic_2_interview_5_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_2_interview_3_no",
+			"medic_2_interview_2_no"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "We will call you back",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 7.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 2.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Should we hire this one sir? Or you want to continue with next candidate?",
+		"Id": "steward_medic_2_interview_end",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Hire that guy",
+		"OnLeftAddFlags": [
+			"steward_medic_2_interview_end_yes",
+			"steward_medic_2_interview_end_decided"
+		],
+		"OnLeftUnlockPools": ["Medic"],
+		"OnRightAddFlags": [
+			"steward_medic_2_interview_end_no",
+			"steward_medic_2_interview_end_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"NpcPool": "Steward",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_2_interview_4_decided",
+			"medic_2_interview_5_decided"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "Next",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 8.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": ["steward_medic_2_interview_end_yes"],
+		"Description": "I’ve got a tonic for everything. Side effects include glowing in the dark.",
+		"Id": "medic_3_interview_1",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "How would you treat a person that has frostbite?",
+		"OnLeftAddFlags": [
+			"medic_3_interview_1_yes",
+			"medic_3_interview_1_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_3_interview_1_no",
+			"medic_3_interview_1_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"steward_medic_2_interview_end_decided"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "We’re out of medicine. What’s the substitute?",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 9.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 3.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Rub some engine grease on it. Seals the heat right in!",
+		"Id": "medic_3_interview_2",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "The infirmary is full. How do we clear beds?",
+		"OnLeftAddFlags": [
+			"medic_3_interview_2_yes",
+			"medic_3_interview_2_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_3_interview_2_no",
+			"medic_3_interview_2_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_3_interview_1_yes"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "What’s the weirdest thing you’ve used as a bandage?",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 10.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 3.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Fermented coal-juice. Makes you forget you’re even sick.",
+		"Id": "medic_3_interview_3",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "The infirmary is full. How do we clear beds?",
+		"OnLeftAddFlags": [
+			"medic_3_interview_3_yes",
+			"medic_3_interview_3_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_3_interview_3_no",
+			"medic_3_interview_3_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_3_interview_1_no"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "What’s the weirdest thing you’ve used as a bandage?",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 10.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 3.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Give them my 'Sleeping Draught.' They won't move for days.",
+		"Id": "medic_3_interview_4",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Thank you.",
+		"OnLeftAddFlags": [
+			"medic_3_interview_4_yes",
+			"medic_3_interview_4_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_3_interview_4_no",
+			"medic_3_interview_4_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_3_interview_2_yes",
+			"medic_3_interview_3_yes"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "We will call you back",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 11.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 3.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Sausage casing. It was airtight, I’ll give it that.",
+		"Id": "medic_3_interview_5",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Thank you.",
+		"OnLeftAddFlags": [
+			"medic_3_interview_5_yes",
+			"medic_3_interview_5_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_3_interview_5_no",
+			"medic_3_interview_5_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_3_interview_3_no",
+			"medic_3_interview_2_no"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "We will call you back",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 11.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 3.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Should we hire this one sir? Or you want to continue with next candidate?",
+		"Id": "steward_medic_3_interview_end",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Hire that guy",
+		"OnLeftAddFlags": [
+			"steward_medic_3_interview_end_yes",
+			"steward_medic_3_interview_end_decided"
+		],
+		"OnLeftUnlockPools": ["Medic"],
+		"OnRightAddFlags": [
+			"steward_medic_3_interview_end_no",
+			"steward_medic_3_interview_end_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"NpcPool": "Steward",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_3_interview_4_decided",
+			"medic_3_interview_5_decided"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "Next",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 12.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": ["steward_medic_3_interview_end_yes"],
+		"Description": "The human body is just another machine. A very leaky, complaining machine.",
+		"Id": "medic_4_interview_1",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "How would you treat a person that has frostbite?",
+		"OnLeftAddFlags": [
+			"medic_4_interview_1_yes",
+			"medic_4_interview_1_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_4_interview_1_no",
+			"medic_4_interview_1_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"steward_medic_3_interview_end_decided"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "We’re out of medicine. What’s the substitute?",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 13.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 4.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Leeches. I’ve bred a special 'Polar Leech' that enjoys the cold.",
+		"Id": "medic_4_interview_2",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "The infirmary is full. How do we clear beds?",
+		"OnLeftAddFlags": [
+			"medic_4_interview_2_yes",
+			"medic_4_interview_2_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_4_interview_2_no",
+			"medic_4_interview_2_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_4_interview_1_yes"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "What’s the weirdest thing you’ve used as a bandage?",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 14.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 4.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Placebo. If they think they’re cured, the math usually follows.",
+		"Id": "medic_4_interview_3",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "The infirmary is full. How do we clear beds?",
+		"OnLeftAddFlags": [
+			"medic_4_interview_3_yes",
+			"medic_4_interview_3_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_4_interview_3_no",
+			"medic_4_interview_3_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_4_interview_1_no"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "What’s the weirdest thing you’ve used as a bandage?",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 14.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 4.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Automate the beds. If the patient doesn't improve, the bed ejects them.",
+		"Id": "medic_4_interview_4",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Thank you.",
+		"OnLeftAddFlags": [
+			"medic_4_interview_4_yes",
+			"medic_4_interview_4_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_4_interview_4_no",
+			"medic_4_interview_4_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_4_interview_2_yes",
+			"medic_4_interview_3_yes"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "We will call you back",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 15.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 4.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Sticky soot and a prayer. It’s basically natural charcoal gauze.",
+		"Id": "medic_4_interview_5",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Thank you.",
+		"OnLeftAddFlags": [
+			"medic_4_interview_5_yes",
+			"medic_4_interview_5_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"medic_4_interview_5_no",
+			"medic_4_interview_5_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Medic_Interview",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_4_interview_3_no",
+			"medic_4_interview_2_no"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "We will call you back",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 15.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": "",
+		"InterviewCandidate": 4.0,
+		"InterviewProfession": "Medic"
+	},
+	{
+		"BlockFlags": [],
+		"Description": "No candidates left for interviewing sir. We should hire this one at all cost.",
+		"Id": "steward_medic_4_interview_end",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Hire",
+		"OnLeftAddFlags": [
+			"steward_medic_4_interview_end_yes",
+			"steward_medic_4_interview_end_decided"
+		],
+		"OnLeftUnlockPools": ["medic"],
+		"OnRightAddFlags": [
+			"steward_medic_4_interview_end_no",
+			"steward_medic_4_interview_end_decided"
+		],
+		"OnRightUnlockPools": ["medic"],
+		"Pool": "Medic_Interview",
+		"NpcPool": "Steward",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"medic_4_interview_4_decided",
+			"medic_4_interview_5_decided"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "Alright",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "medic_interview_start",
+		"SequenceIndex": 16.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Sir, I want to gather people who wants to join us and pray together.",
+		"Id": "priest_believing_in_faith",
+		"LeftDiscontent": -5.0,
+		"LeftFaith": 10.0,
+		"LeftHope": 5.0,
+		"LeftOrder": 0.0,
+		"LeftText": "It would be nice",
+		"OnLeftAddFlags": [
+			"priest_believing_in_faith_yes",
+			"priest_believing_in_faith_decided"
+		],
+		"OnLeftUnlockPools": ["Priest"],
+		"OnRightAddFlags": [
+			"priest_believing_in_faith_no",
+			"priest_believing_in_faith_decided"
+		],
+		"OnRightUnlockPools": ["Priest"],
+		"Pool": "Citizen",
+		"NpcPool": "Citizen",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [],
+		"RightDiscontent": -5.0,
+		"RightFaith": 10.0,
+		"RightHope": 5.0,
+		"RightOrder": 0.0,
+		"RightText": "Why not",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "",
+		"SequenceIndex": 0.0,
+		"SequenceMode": "Normal",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Sir, I can take care of our inventory.",
+		"Id": "our_inventory_manager",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 5.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Great!",
+		"OnLeftAddFlags": [
+			"our_inventory_manager_yes",
+			"our_inventory_manager_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"our_inventory_manager_no",
+			"our_inventory_manager_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Citizen",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": ["all_hunters_hired"],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 5.0,
+		"RightOrder": 0.0,
+		"RightText": "Why?",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "inventory_manager_hiring",
+		"SequenceIndex": 0.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Because no one else asked, sir. You should know what is happening with the inventory all the time.",
+		"Id": "our_inventory_manager_2",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 5.0,
+		"LeftOrder": 0.0,
+		"LeftText": "You are right",
+		"OnLeftAddFlags": [
+			"our_inventory_manager_2_yes",
+			"our_inventory_manager_2_decided"
+		],
+		"OnLeftUnlockPools": ["Inventory_Manager"],
+		"OnRightAddFlags": [
+			"our_inventory_manager_2_no",
+			"our_inventory_manager_2_decided"
+		],
+		"OnRightUnlockPools": ["Inventory_Manager"],
+		"Pool": "Citizen",
+		"NpcPool": "Citizen",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": ["our_inventory_manager_yes"],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 5.0,
+		"RightOrder": 0.0,
+		"RightText": "Good point",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "inventory_manager_hiring",
+		"SequenceIndex": 1.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Sir, our city is growing thanks to you!",
+		"Id": "steward_city_growth",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 5.0,
+		"LeftOrder": 0.0,
+		"LeftText": "I know what I'm doing",
+		"OnLeftAddFlags": [
+			"steward_city_growth_yes",
+			"steward_city_growth_decided"
+		],
+		"OnLeftUnlockPools": ["Steward"],
+		"OnRightAddFlags": [
+			"steward_city_growth_no",
+			"steward_city_growth_decided"
+		],
+		"OnRightUnlockPools": ["Steward"],
+		"Pool": "Citizen",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": ["steward_explorer_1_interview_end_yes",
+			"steward_explorer_2_interview_end_yes",
+			"steward_explorer_3_interview_end_yes",
+			"steward_explorer_4_interview_end_yes"],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 5.0,
+		"RightOrder": 0.0,
+		"RightText": "Yes!",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "",
+		"SequenceIndex": 0.0,
+		"SequenceMode": "Normal",
 		"StoryId": "",
 		"StoryMinGap": 0.0,
 		"StoryStep": 0.0,

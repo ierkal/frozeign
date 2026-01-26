@@ -34,6 +34,7 @@ enum DeathPhase {
 var _death_phase: int = DeathPhase.NONE
 var _death_stat: String = ""
 var _death_value: int = 0
+var _death_is_storm: bool = false   # Track if this is a storm death
 var _current_chief_index: int = 0   # Number of chiefs so far
 var _dying_chief_name: String = ""  # Store dying chief's name before picking new one
 
@@ -108,6 +109,8 @@ func _on_npc_hired(profession: String, npc_name: String) -> void:
 	reward_ui.play_notification("Hired: %s %s" % [profession, npc_name])
 	# Assign profession to NPC (image will be refreshed automatically via signal)
 	if npc_generator:
+		# Ensure NPC exists (lazy creation) before assigning profession
+		npc_generator.get_or_create_npc(npc_name)
 		npc_generator.assign_profession(npc_name, profession)
 
 func _on_pool_unlocked(_pool_name: String) -> void:
@@ -165,6 +168,15 @@ func _on_request_deck_draw() -> void:
 
 	# Death final card
 	if _death_phase == DeathPhase.FINAL_NEXT:
+		# Check if this is a storm death - use storm death card instead
+		if _death_is_storm:
+			var raw = deck.find_card_by_id("death_storm_event")
+			if not raw.is_empty():
+				var presented = deck.prepare_presented(raw)
+				card_ui.receive_presented_card(presented)
+				_death_phase = DeathPhase.GAME_OVER
+				return
+
 		var final_card := _build_final_death_card()
 		card_ui.receive_presented_card(final_card)
 		_death_phase = DeathPhase.GAME_OVER
@@ -230,9 +242,29 @@ func _on_stat_threshold_reached(stat_name: String, value: int) -> void:
 	_death_phase = DeathPhase.EXPLANATION_NEXT
 	_death_stat = stat_name
 	_death_value = value
+	_death_is_storm = _is_in_storm_event()  # Store storm state when death triggers
+
+
+func _is_in_storm_event() -> bool:
+	"""Check if player is currently in the storm event sequence (between storm_1 and storm_7)."""
+	# Check if storm has started (any storm event flag exists)
+	var storm_started = false
+	for i in range(1, 8):
+		if deck.has_flag("steward_event_storm_%d_decided" % i):
+			storm_started = true
+			break
+
+	# Check if storm has completed
+	var storm_completed = deck.has_flag("steward_event_storm_7_decided")
+
+	return storm_started and not storm_completed
 
 
 func _get_death_card_id() -> String:
+	# Check if this is a storm death - use storm death card instead
+	if _death_is_storm:
+		return "steward_event_storm_fail"
+
 	var upper := _death_stat.to_upper()
 	var suffix := "LOW"
 	if _death_value > 100:
@@ -322,6 +354,7 @@ func _soft_reset_game() -> void:
 
 	_current_chief_index += 1
 	_death_phase = DeathPhase.NONE
+	_death_is_storm = false
 
 	# Reset stats
 	stats.reset_stats()
