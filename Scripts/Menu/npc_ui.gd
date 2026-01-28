@@ -3,18 +3,43 @@ class_name NpcUI
 
 signal need_npc_data
 
+enum Tab { ALL_NPCS, COUNCIL }
+
 @export var npc_item_scene: PackedScene
 @onready var list_node: GridContainer = %NpcListGrid
 @onready var close_btn: Button = $CloseBtn
+@onready var tab_all: Button = %TabAll
+@onready var tab_council: Button = %TabCouncil
+@onready var title_label: Label = %TitleLabel
+
+var _current_tab: Tab = Tab.ALL_NPCS
+var _all_npc_data: Array = []
 
 func _ready() -> void:
 	hide()
 	close_btn.pressed.connect(_on_close_button_pressed)
+	tab_all.pressed.connect(_on_tab_all_pressed)
+	tab_council.pressed.connect(_on_tab_council_pressed)
+	_update_tab_styles()
 
 func show_npcs(npc_data: Array) -> void:
+	_all_npc_data = npc_data
+	_refresh_display()
+
+func _refresh_display() -> void:
 	ContainerUtils.clear_children(list_node)
 
-	for data in npc_data:
+	var filtered_data = _get_filtered_data()
+
+	# Update title based on tab
+	if title_label:
+		match _current_tab:
+			Tab.ALL_NPCS:
+				title_label.text = "NPCs Met"
+			Tab.COUNCIL:
+				title_label.text = "Council"
+
+	for data in filtered_data:
 		var item = npc_item_scene.instantiate()
 		list_node.add_child(item)
 
@@ -48,6 +73,46 @@ func show_npcs(npc_data: Array) -> void:
 
 		name_label.modulate = ItemStateStyler.get_color_for_state(state)
 		image_rect.modulate = GameConstants.Colors.ITEM_ACTIVE if is_met else Color(0.1, 0.1, 0.1, 1.0)
+
+func _get_filtered_data() -> Array:
+	match _current_tab:
+		Tab.ALL_NPCS:
+			return _all_npc_data
+		Tab.COUNCIL:
+			# Filter to only show NPCs with professions (council + hired)
+			var council_data: Array = []
+			for data in _all_npc_data:
+				if data.has("profession") and data.profession != "":
+					council_data.append(data)
+			return council_data
+	return _all_npc_data
+
+func _on_tab_all_pressed() -> void:
+	if _current_tab != Tab.ALL_NPCS:
+		_current_tab = Tab.ALL_NPCS
+		_update_tab_styles()
+		_refresh_display()
+
+func _on_tab_council_pressed() -> void:
+	if _current_tab != Tab.COUNCIL:
+		_current_tab = Tab.COUNCIL
+		_update_tab_styles()
+		_refresh_display()
+
+func _update_tab_styles() -> void:
+	if not tab_all or not tab_council:
+		return
+
+	var active_color = GameConstants.Colors.ITEM_ACTIVE
+	var inactive_color = Color(0.5, 0.5, 0.5, 1.0)
+
+	match _current_tab:
+		Tab.ALL_NPCS:
+			tab_all.modulate = active_color
+			tab_council.modulate = inactive_color
+		Tab.COUNCIL:
+			tab_all.modulate = inactive_color
+			tab_council.modulate = active_color
 
 func _on_close_button_pressed() -> void:
 	hide()
