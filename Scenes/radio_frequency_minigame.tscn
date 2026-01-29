@@ -1,0 +1,230 @@
+[gd_scene format=3 uid="uid://ds5a3tmaomtc"]
+
+[ext_resource type="Script" uid="uid://1mr7bqwy7xsq" path="res://Scripts/Minigame/radio_frequency_minigame.gd" id="1_minigame"]
+[ext_resource type="Script" uid="uid://2iabttw3bti1" path="res://Scripts/Minigame/wave_display_drawer.gd" id="2_drawer"]
+[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="3_font"]
+
+[node name="RadioFrequencyMinigame" type="Control" unique_id=1277699127]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_minigame")
+match_threshold = 0.02
+
+[node name="Background" type="ColorRect" parent="." unique_id=1024629880]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.9)
+
+[node name="ContentContainer" type="CenterContainer" parent="." unique_id=2058992646]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContentContainer" unique_id=1264622171]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 15
+
+[node name="TitleLabel" type="Label" parent="ContentContainer/VBoxContainer" unique_id=663046342]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 42
+text = "Radio Tuning"
+horizontal_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="ContentContainer/VBoxContainer" unique_id=533956637]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.7, 0.2, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 32
+text = "Time: 20.0"
+horizontal_alignment = 1
+
+[node name="RadioPanel" type="Control" parent="ContentContainer/VBoxContainer" unique_id=223751035]
+custom_minimum_size = Vector2(350, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="PanelBackground" type="ColorRect" parent="ContentContainer/VBoxContainer/RadioPanel" unique_id=1980881243]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.12, 0.12, 0.15, 1)
+
+[node name="WaveContainer" type="Control" parent="ContentContainer/VBoxContainer/RadioPanel" unique_id=1685311863]
+layout_mode = 1
+anchor_left = 0.15
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.55
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="WaveFrame" type="ColorRect" parent="ContentContainer/VBoxContainer/RadioPanel/WaveContainer" unique_id=29654145]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.3, 0.3, 0.35, 1)
+
+[node name="WaveInner" type="ColorRect" parent="ContentContainer/VBoxContainer/RadioPanel/WaveContainer" unique_id=1688140894]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.08, 0.08, 0.1, 1)
+
+[node name="WaveDisplay" type="Control" parent="ContentContainer/VBoxContainer/RadioPanel/WaveContainer" unique_id=1593963076]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_drawer")
+
+[node name="RadioImage" type="TextureRect" parent="ContentContainer/VBoxContainer/RadioPanel" unique_id=661741817]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.58
+anchor_right = 0.75
+anchor_bottom = 0.85
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RadioPlaceholder" type="ColorRect" parent="ContentContainer/VBoxContainer/RadioPanel/RadioImage" unique_id=56814634]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.25, 0.2, 0.15, 1)
+
+[node name="RadioLabel" type="Label" parent="ContentContainer/VBoxContainer/RadioPanel/RadioImage/RadioPlaceholder" unique_id=699458211]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.6, 0.5, 0.4, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 18
+text = "RADIO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FrequencySlider" type="VSlider" parent="ContentContainer/VBoxContainer/RadioPanel" unique_id=504401988]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.05
+anchor_right = 0.12
+anchor_bottom = 0.85
+offset_left = 5.0
+offset_right = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="FrequencyLabel" type="Label" parent="ContentContainer/VBoxContainer/RadioPanel/FrequencySlider" unique_id=1966845158]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -25.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 14
+text = "FREQ"
+horizontal_alignment = 1
+
+[node name="PhaseSlider" type="HSlider" parent="ContentContainer/VBoxContainer/RadioPanel" unique_id=1143194105]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15
+anchor_top = 0.88
+anchor_right = 0.95
+anchor_bottom = 0.98
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="PhaseLabel" type="Label" parent="ContentContainer/VBoxContainer/RadioPanel/PhaseSlider" unique_id=1641469597]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = 15.0
+offset_right = 30.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 14
+text = "PHASE"
+horizontal_alignment = 1
+
+[node name="InstructionLabel" type="Label" parent="ContentContainer/VBoxContainer" unique_id=866529529]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 26
+text = "Tap to begin!"
+horizontal_alignment = 1
+
+[node name="HintLabel" type="Label" parent="ContentContainer/VBoxContainer" unique_id=1638567118]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 18
+text = "Match the green wave with sliders"
+horizontal_alignment = 1
+
+[node name="TapArea" type="Control" parent="." unique_id=98240416]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

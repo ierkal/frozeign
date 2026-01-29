@@ -43,6 +43,7 @@ var _dying_chief_name: String = ""  # Store dying chief's name before picking ne
 @onready var card_unlock_animation: CardUnlockAnimation = %CardUnlockAnimation
 @onready var death_screen: DeathScreen = %DeathScreen
 @onready var skill_check_minigame: SkillCheckMinigame = %SkillCheckMinigame
+@onready var radio_frequency_minigame: RadioFrequencyMinigame = %RadioFrequencyMinigame
 
 var _buff_intro_active: bool = false
 var _minigame_active: bool = false
@@ -103,6 +104,8 @@ func _ready() -> void:
 	EventBus.minigame_requested.connect(_on_minigame_requested)
 	if skill_check_minigame:
 		skill_check_minigame.minigame_completed.connect(_on_skill_check_completed)
+	if radio_frequency_minigame:
+		radio_frequency_minigame.minigame_completed.connect(_on_radio_frequency_completed)
 
 	deck.begin_starter_phase()   # show Pool:"Starter" cards first
 	_on_request_deck_draw()
@@ -441,6 +444,10 @@ func _on_minigame_requested(minigame_id: String, card_data: Dictionary) -> void:
 		_minigame_active = true
 		card_ui.set_input_blocked(true)
 		skill_check_minigame.show_minigame(card_data)
+	elif minigame_id == "radio_frequency" and radio_frequency_minigame:
+		_minigame_active = true
+		card_ui.set_input_blocked(true)
+		radio_frequency_minigame.show_minigame(card_data)
 
 
 func _on_skill_check_completed(success: bool) -> void:
@@ -452,6 +459,20 @@ func _on_skill_check_completed(success: bool) -> void:
 
 	# Emit signal for other systems
 	EventBus.minigame_completed.emit("skill_check", success)
+
+	# Draw the next card (result card)
+	_on_request_deck_draw()
+
+
+func _on_radio_frequency_completed(success: bool) -> void:
+	_minigame_active = false
+	card_ui.set_input_blocked(false)
+
+	# Notify deck of minigame result
+	deck.on_minigame_completed("radio_frequency", success)
+
+	# Emit signal for other systems
+	EventBus.minigame_completed.emit("radio_frequency", success)
 
 	# Draw the next card (result card)
 	_on_request_deck_draw()

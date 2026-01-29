@@ -7,7 +7,13 @@ signal pool_unlocked(pool_name)
 signal card_committed_signal(card_id: String, side: String, pending_hire_npc: String)
 
 # Cards that trigger minigames (only when choosing positive/left side)
-const MINIGAME_CARDS := ["engineer_pipe_leaking"]
+const MINIGAME_CARDS := ["engineer_pipe_leaking", "steward_radio_frequency"]
+
+# Maps card IDs to their minigame type
+const CARD_TO_MINIGAME := {
+	"engineer_pipe_leaking": "skill_check",
+	"steward_radio_frequency": "radio_frequency"
+}
 
 # ===========================================
 # DEBUG: Inspector controls for testing pools
@@ -548,7 +554,8 @@ func on_card_committed(card_id: String, side: String) -> void:
 
 	# 3) Check for minigame trigger (only on positive/left choice)
 	if card_id in MINIGAME_CARDS and side == "left":
-		EventBus.minigame_requested.emit("skill_check", {"card_id": card_id, "side": side})
+		var minigame_type = CARD_TO_MINIGAME.get(card_id, "skill_check")
+		EventBus.minigame_requested.emit(minigame_type, {"card_id": card_id, "side": side})
 		# Don't advance sequence yet - minigame will handle it
 		return
 
@@ -617,6 +624,13 @@ func on_minigame_completed(minigame_id: String, success: bool) -> void:
 		else:
 			add_flag("engineer_pipe_minigame_fail")
 			queue_card("engineer_pipe_leaking_fail")
+	elif minigame_id == "radio_frequency":
+		if success:
+			add_flag("steward_radio_frequency_minigame_success")
+			queue_card("steward_radio_frequency_success")
+		else:
+			add_flag("steward_radio_frequency_minigame_fail")
+			queue_card("steward_radio_frequency_fail")
 
 
 # Belirli bir ID'ye sahip kartı bulup sequence sırasının en önüne koyar
