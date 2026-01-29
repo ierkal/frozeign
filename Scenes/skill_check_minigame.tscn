@@ -44,7 +44,7 @@ theme_override_constants/separation = 20
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 48
-text = "Pipe Repair"
+text = "Pressure Adjusting"
 horizontal_alignment = 1
 
 [node name="CircleContainer" type="Control" parent="ContentContainer/VBoxContainer" unique_id=1935885872]

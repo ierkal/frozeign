@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dihplp2ct2wv4"]
+[gd_scene load_steps=24 format=3 uid="uid://dihplp2ct2wv4"]
 
 [ext_resource type="Script" uid="uid://dfg8yyl72e2v8" path="res://Scripts/Manager/game_manager.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://b570hdnewxoqv" path="res://Scenes/container_ui.tscn" id="1_wrm1d"]
@@ -20,6 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://dovjv67r8i5dv" path="res://Scenes/death_screen.tscn" id="15_death"]
 [ext_resource type="PackedScene" uid="uid://dunl1d8c67v3r" path="res://Scenes/skill_check_minigame.tscn" id="16_minigame"]
 [ext_resource type="PackedScene" path="res://Scenes/radio_frequency_minigame.tscn" id="17_radio_minigame"]
+[ext_resource type="PackedScene" path="res://Scenes/generator_heat_minigame.tscn" id="18_generator_heat_minigame"]
+[ext_resource type="PackedScene" path="res://Scenes/pipe_patch_minigame.tscn" id="19_pipe_patch_minigame"]
+[ext_resource type="PackedScene" path="res://Scenes/snow_clear_minigame.tscn" id="20_snow_clear_minigame"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rfjv2"]
 font = ExtResource("11_rku1e")
@@ -104,6 +107,21 @@ visible = false
 layout_mode = 1
 
 [node name="RadioFrequencyMinigame" parent="CanvasLayer/Container_UI" instance=ExtResource("17_radio_minigame")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="GeneratorHeatMinigame" parent="CanvasLayer/Container_UI" instance=ExtResource("18_generator_heat_minigame")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="PipePatchMinigame" parent="CanvasLayer/Container_UI" instance=ExtResource("19_pipe_patch_minigame")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="SnowClearMinigame" parent="CanvasLayer/Container_UI" instance=ExtResource("20_snow_clear_minigame")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1

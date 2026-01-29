@@ -44,6 +44,9 @@ var _dying_chief_name: String = ""  # Store dying chief's name before picking ne
 @onready var death_screen: DeathScreen = %DeathScreen
 @onready var skill_check_minigame: SkillCheckMinigame = %SkillCheckMinigame
 @onready var radio_frequency_minigame: RadioFrequencyMinigame = %RadioFrequencyMinigame
+@onready var generator_heat_minigame: GeneratorHeatMinigame = %GeneratorHeatMinigame
+@onready var pipe_patch_minigame: PipePatchMinigame = %PipePatchMinigame
+@onready var snow_clear_minigame: SnowClearMinigame = %SnowClearMinigame
 
 var _buff_intro_active: bool = false
 var _minigame_active: bool = false
@@ -106,6 +109,12 @@ func _ready() -> void:
 		skill_check_minigame.minigame_completed.connect(_on_skill_check_completed)
 	if radio_frequency_minigame:
 		radio_frequency_minigame.minigame_completed.connect(_on_radio_frequency_completed)
+	if generator_heat_minigame:
+		generator_heat_minigame.minigame_completed.connect(_on_generator_heat_completed)
+	if pipe_patch_minigame:
+		pipe_patch_minigame.minigame_completed.connect(_on_pipe_patch_completed)
+	if snow_clear_minigame:
+		snow_clear_minigame.minigame_completed.connect(_on_snow_clear_completed)
 
 	deck.begin_starter_phase()   # show Pool:"Starter" cards first
 	_on_request_deck_draw()
@@ -448,6 +457,18 @@ func _on_minigame_requested(minigame_id: String, card_data: Dictionary) -> void:
 		_minigame_active = true
 		card_ui.set_input_blocked(true)
 		radio_frequency_minigame.show_minigame(card_data)
+	elif minigame_id == "generator_heat" and generator_heat_minigame:
+		_minigame_active = true
+		card_ui.set_input_blocked(true)
+		generator_heat_minigame.show_minigame(card_data)
+	elif minigame_id == "pipe_patch" and pipe_patch_minigame:
+		_minigame_active = true
+		card_ui.set_input_blocked(true)
+		pipe_patch_minigame.show_minigame(card_data)
+	elif minigame_id == "snow_clear" and snow_clear_minigame:
+		_minigame_active = true
+		card_ui.set_input_blocked(true)
+		snow_clear_minigame.show_minigame(card_data)
 
 
 func _on_skill_check_completed(success: bool) -> void:
@@ -473,6 +494,48 @@ func _on_radio_frequency_completed(success: bool) -> void:
 
 	# Emit signal for other systems
 	EventBus.minigame_completed.emit("radio_frequency", success)
+
+	# Draw the next card (result card)
+	_on_request_deck_draw()
+
+
+func _on_generator_heat_completed(success: bool) -> void:
+	_minigame_active = false
+	card_ui.set_input_blocked(false)
+
+	# Notify deck of minigame result
+	deck.on_minigame_completed("generator_heat", success)
+
+	# Emit signal for other systems
+	EventBus.minigame_completed.emit("generator_heat", success)
+
+	# Draw the next card (result card)
+	_on_request_deck_draw()
+
+
+func _on_pipe_patch_completed(success: bool) -> void:
+	_minigame_active = false
+	card_ui.set_input_blocked(false)
+
+	# Notify deck of minigame result
+	deck.on_minigame_completed("pipe_patch", success)
+
+	# Emit signal for other systems
+	EventBus.minigame_completed.emit("pipe_patch", success)
+
+	# Draw the next card (result card)
+	_on_request_deck_draw()
+
+
+func _on_snow_clear_completed(success: bool) -> void:
+	_minigame_active = false
+	card_ui.set_input_blocked(false)
+
+	# Notify deck of minigame result
+	deck.on_minigame_completed("snow_clear", success)
+
+	# Emit signal for other systems
+	EventBus.minigame_completed.emit("snow_clear", success)
 
 	# Draw the next card (result card)
 	_on_request_deck_draw()

@@ -7,12 +7,15 @@ signal pool_unlocked(pool_name)
 signal card_committed_signal(card_id: String, side: String, pending_hire_npc: String)
 
 # Cards that trigger minigames (only when choosing positive/left side)
-const MINIGAME_CARDS := ["engineer_pipe_leaking", "steward_radio_frequency"]
+const MINIGAME_CARDS := ["engineer_pressure_fix", "steward_radio_frequency", "engineer_generator_heat", "engineer_generator_pipe_patch", "steward_buried_snow"]
 
 # Maps card IDs to their minigame type
 const CARD_TO_MINIGAME := {
-	"engineer_pipe_leaking": "skill_check",
-	"steward_radio_frequency": "radio_frequency"
+	"engineer_pressure_fix": "skill_check",
+	"steward_radio_frequency": "radio_frequency",
+	"engineer_generator_heat": "generator_heat",
+	"engineer_generator_pipe_patch": "pipe_patch",
+	"steward_buried_snow": "snow_clear"
 }
 
 # ===========================================
@@ -470,10 +473,22 @@ func prepare_presented(card: Dictionary) -> Dictionary:
 		if card_id in hiring_cards:
 			_pending_hire_npc[card_id] = resolved_npc_name
 
+	# Handle description - split by ;; if present and select random prompt
+	var description = str(card.get("Description", ""))
+	if description.contains(";;"):
+		var prompts = description.split(";;")
+		var valid_prompts: Array[String] = []
+		for prompt in prompts:
+			var trimmed = prompt.strip_edges()
+			if trimmed != "":
+				valid_prompts.append(trimmed)
+		if valid_prompts.size() > 0:
+			description = valid_prompts[randi() % valid_prompts.size()]
+
 	var present := {
 		"id": card.get("Id", ""),
 		"title": dynamic_title,
-		"desc": card.get("Description", ""),
+		"desc": description,
 		"left": {},
 		"right": {},
 		"ui_left_original": "",
@@ -619,11 +634,11 @@ func get_unique_cards_count() -> int:
 func on_minigame_completed(minigame_id: String, success: bool) -> void:
 	if minigame_id == "skill_check":
 		if success:
-			add_flag("engineer_pipe_minigame_success")
-			queue_card("engineer_pipe_leaking_success")
+			add_flag("engineer_pressure_minigame_success")
+			queue_card("engineer_pressure_fix_success")
 		else:
-			add_flag("engineer_pipe_minigame_fail")
-			queue_card("engineer_pipe_leaking_fail")
+			add_flag("engineer_pressure_minigame_fail")
+			queue_card("engineer_pressure_fix_fail")
 	elif minigame_id == "radio_frequency":
 		if success:
 			add_flag("steward_radio_frequency_minigame_success")
@@ -631,6 +646,27 @@ func on_minigame_completed(minigame_id: String, success: bool) -> void:
 		else:
 			add_flag("steward_radio_frequency_minigame_fail")
 			queue_card("steward_radio_frequency_fail")
+	elif minigame_id == "generator_heat":
+		if success:
+			add_flag("engineer_generator_heat_minigame_success")
+			queue_card("engineer_generator_heat_success")
+		else:
+			add_flag("engineer_generator_heat_minigame_fail")
+			queue_card("engineer_generator_heat_fail")
+	elif minigame_id == "pipe_patch":
+		if success:
+			add_flag("engineer_generator_pipe_patch_minigame_success")
+			queue_card("engineer_generator_pipe_patch_success")
+		else:
+			add_flag("engineer_generator_pipe_patch_minigame_fail")
+			queue_card("engineer_generator_pipe_patch_fail")
+	elif minigame_id == "snow_clear":
+		if success:
+			add_flag("steward_buried_snow_minigame_success")
+			queue_card("steward_buried_snow_success")
+		else:
+			add_flag("steward_buried_snow_minigame_fail")
+			queue_card("steward_buried_snow_fail")
 
 
 # Belirli bir ID'ye sahip kartı bulup sequence sırasının en önüne koyar

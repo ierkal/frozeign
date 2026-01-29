@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cc1mstry25j7"]
+[gd_scene format=3 uid="uid://cc1mstry25j7"]
 
 [ext_resource type="Script" uid="uid://c87s23lfj35wx" path="res://Scripts/Stats/day_survived_ui.gd" id="1_rnqkj"]
+[ext_resource type="Texture2D" uid="uid://c0oyrh5irryw2" path="res://Assets/Sprites/4.png" id="2_qqtd1"]
 [ext_resource type="Script" uid="uid://bg3gdlqjvwbga" path="res://Scripts/Stats/day_survived_button.gd" id="2_tosxb"]
 [ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="3_tosxb"]
 [ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="4_4g6fi"]
@@ -32,7 +33,7 @@ font_size = 38
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g6fi"]
 bg_color = Color(0.07284262, 0.072842635, 0.072842576, 1)
 
-[node name="SurvivedDays" type="Control"]
+[node name="SurvivedDays" type="Control" unique_id=820952077]
 layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
@@ -43,7 +44,19 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_rnqkj")
 
-[node name="MenuButton" type="Button" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=351485260]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qqtd1")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="MenuButton" type="Button" parent="." unique_id=2011248772]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,7 +70,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_4g6fi")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_iaajx")
 script = ExtResource("2_tosxb")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=294318839]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,7 +78,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1432110480]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -77,7 +90,7 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 20
 
-[node name="TotalDaysValue" type="Label" parent="Panel/MarginContainer"]
+[node name="TotalDaysValue" type="Label" parent="Panel/MarginContainer" unique_id=2045636071]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(190, 50)
 layout_mode = 2
@@ -94,7 +107,7 @@ _min_size = 35
 _current_font_size = 49
 _editor_defaults_set = true
 
-[node name="DaysValue" type="Label" parent="Panel/MarginContainer"]
+[node name="DaysValue" type="Label" parent="Panel/MarginContainer" unique_id=572813258]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -103,7 +116,7 @@ text = "300 days being Chief"
 label_settings = SubResource("LabelSettings_oxlb5")
 vertical_alignment = 1
 
-[node name="ChiefName" type="Label" parent="Panel/MarginContainer"]
+[node name="ChiefName" type="Label" parent="Panel/MarginContainer" unique_id=405181585]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 31.485)
 layout_mode = 2
@@ -116,7 +129,7 @@ _min_size = 38
 _current_font_size = 38
 _editor_defaults_set = true
 
-[node name="ActiveBuffsUI" type="HBoxContainer" parent="."]
+[node name="ActiveBuffsUI" type="HBoxContainer" parent="." unique_id=1691553799]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 6
@@ -133,22 +146,22 @@ grow_vertical = 2
 script = ExtResource("5_sm1l2")
 icon_scene = ExtResource("6_qqtd1")
 
-[node name="Buff1" type="Panel" parent="ActiveBuffsUI"]
+[node name="Buff1" type="Panel" parent="ActiveBuffsUI" unique_id=610228638]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_4g6fi")
 
-[node name="Buff2" type="Panel" parent="ActiveBuffsUI"]
+[node name="Buff2" type="Panel" parent="ActiveBuffsUI" unique_id=350150762]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_4g6fi")
 
-[node name="Buff3" type="Panel" parent="ActiveBuffsUI"]
+[node name="Buff3" type="Panel" parent="ActiveBuffsUI" unique_id=934279078]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_4g6fi")
 
-[node name="Buff4" type="Panel" parent="ActiveBuffsUI"]
+[node name="Buff4" type="Panel" parent="ActiveBuffsUI" unique_id=2014071184]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_4g6fi")

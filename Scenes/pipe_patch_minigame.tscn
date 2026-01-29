@@ -1,0 +1,220 @@
+[gd_scene format=3 uid="uid://dxwqdbgepreto"]
+
+[ext_resource type="Script" uid="uid://c3ppmini001gd" path="res://Scripts/Minigame/pipe_patch_minigame.gd" id="1_minigame"]
+[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="2_font"]
+[ext_resource type="Texture2D" uid="uid://dmmhhd8qlh4dd" path="res://Assets/Sprites/check-mark.png" id="3_checkmark"]
+
+[node name="PipePatchMinigame" type="Control" unique_id=1427847562]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_minigame")
+needle_speed = 250.0
+spots_per_run = 3
+spot_width = 80.0
+checkmark_texture = ExtResource("3_checkmark")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1629873401]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.9)
+
+[node name="ContentContainer" type="CenterContainer" parent="." unique_id=1829374628]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContentContainer" unique_id=529374812]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="ContentContainer/VBoxContainer" unique_id=1670374892]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 48
+text = "Pipe Repair"
+horizontal_alignment = 1
+
+[node name="PipeContainer" type="Control" parent="ContentContainer/VBoxContainer" unique_id=1829374891]
+custom_minimum_size = Vector2(600, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="PipeBarBackground" type="ColorRect" parent="ContentContainer/VBoxContainer/PipeContainer" unique_id=1927384712]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.3, 0.28, 0.25, 1)
+
+[node name="PipeBar" type="Control" parent="ContentContainer/VBoxContainer/PipeContainer" unique_id=1638472891]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PipeBarBg" type="ColorRect" parent="ContentContainer/VBoxContainer/PipeContainer/PipeBar" unique_id=1927384891]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.15, 0.14, 0.13, 1)
+
+[node name="PipeTexture" type="ColorRect" parent="ContentContainer/VBoxContainer/PipeContainer/PipeBar" unique_id=1829374562]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 20.0
+offset_right = -10.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.25, 0.22, 0.2, 1)
+
+[node name="SpotsContainer" type="Control" parent="ContentContainer/VBoxContainer/PipeContainer/PipeBar" unique_id=1638472562]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Needle" type="ColorRect" parent="ContentContainer/VBoxContainer/PipeContainer/PipeBar" unique_id=1629873562]
+layout_mode = 0
+offset_left = -4.0
+offset_right = 4.0
+offset_bottom = 120.0
+mouse_filter = 2
+color = Color(0.95, 0.95, 1, 1)
+
+[node name="NeedleTop" type="ColorRect" parent="ContentContainer/VBoxContainer/PipeContainer/PipeBar/Needle" unique_id=1927385012]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -10.0
+offset_right = 14.0
+offset_bottom = 0.0
+mouse_filter = 2
+color = Color(0.95, 0.85, 0.2, 1)
+
+[node name="NeedleBottom" type="ColorRect" parent="ContentContainer/VBoxContainer/PipeContainer/PipeBar/Needle" unique_id=1729385012]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 120.0
+offset_right = 14.0
+offset_bottom = 130.0
+mouse_filter = 2
+color = Color(0.95, 0.85, 0.2, 1)
+
+[node name="InstructionLabel" type="Label" parent="ContentContainer/VBoxContainer" unique_id=1173722562]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+text = "Tap when over green spots!"
+horizontal_alignment = 1
+
+[node name="HintLabel" type="Label" parent="ContentContainer/VBoxContainer" unique_id=1273722562]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 22
+text = "Pipe 1 of 2"
+horizontal_alignment = 1
+
+[node name="TapsLabel" type="Label" parent="ContentContainer/VBoxContainer" unique_id=1373722562]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.8, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+text = "Taps: 3"
+horizontal_alignment = 1
+
+[node name="CheckboxContainer" type="HBoxContainer" parent="ContentContainer/VBoxContainer" unique_id=1346657562]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_constants/separation = 30
+
+[node name="Checkbox1" type="Panel" parent="ContentContainer/VBoxContainer/CheckboxContainer" unique_id=353224562]
+self_modulate = Color(0.3, 0.3, 0.35, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Checkmark" type="TextureRect" parent="ContentContainer/VBoxContainer/CheckboxContainer/Checkbox1" unique_id=2046955562]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_checkmark")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Checkbox2" type="Panel" parent="ContentContainer/VBoxContainer/CheckboxContainer" unique_id=143971562]
+self_modulate = Color(0.3, 0.3, 0.35, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Checkmark" type="TextureRect" parent="ContentContainer/VBoxContainer/CheckboxContainer/Checkbox2" unique_id=1020288562]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_checkmark")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TapArea" type="Control" parent="." unique_id=806273562]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

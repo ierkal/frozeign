@@ -1348,7 +1348,9 @@
 		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["priest_believing_in_faith_decided"],
+		"RequireFlagsAny": [
+			"priest_believing_in_faith_decided"
+		],
 		"RightDiscontent": 15.0,
 		"RightFaith": -10.0,
 		"RightHope": 0.0,
@@ -2772,7 +2774,9 @@
 		"Pool": "Hunters",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["steward_hunters_hired"],
+		"RequireFlagsAny": [
+			"steward_hunters_hired"
+		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
 		"RightHope": -15.0,
@@ -3045,12 +3049,16 @@
 			"captain_demand_security_yes",
 			"captain_demand_security_decided"
 		],
-		"OnLeftUnlockPools": ["Captain"],
+		"OnLeftUnlockPools": [
+			"Captain"
+		],
 		"OnRightAddFlags": [
 			"captain_demand_security_no",
 			"captain_demand_security_decided"
 		],
-		"OnRightUnlockPools": ["Captain"],
+		"OnRightUnlockPools": [
+			"Captain"
+		],
 		"Pool": "Explorer",
 		"NpcPool": "Explorer",
 		"RepeatPolicy": "always",
@@ -3086,12 +3094,16 @@
 			"explorer_beacon_storm_start_yes",
 			"explorer_beacon_storm_start_decided"
 		],
-		"OnLeftUnlockPools": ["storm_event"],
+		"OnLeftUnlockPools": [
+			"storm_event"
+		],
 		"OnRightAddFlags": [
 			"explorer_beacon_storm_start_no",
 			"explorer_beacon_storm_start_decided"
 		],
-		"OnRightUnlockPools": ["storm_event"],
+		"OnRightUnlockPools": [
+			"storm_event"
+		],
 		"Pool": "Explorer",
 		"NpcPool": "Explorer",
 		"RepeatPolicy": "repeat_on_negative",
@@ -3128,12 +3140,16 @@
 			"explorer_beacon_automaton_start_yes",
 			"explorer_beacon_automaton_start_decided"
 		],
-		"OnLeftUnlockPools": ["engineer_automaton"],
+		"OnLeftUnlockPools": [
+			"engineer_automaton"
+		],
 		"OnRightAddFlags": [
 			"explorer_beacon_automaton_start_no",
 			"explorer_beacon_automaton_start_decided"
 		],
-		"OnRightUnlockPools": ["engineer_automaton"],
+		"OnRightUnlockPools": [
+			"engineer_automaton"
+		],
 		"Pool": "Explorer",
 		"NpcPool": "Explorer",
 		"RepeatPolicy": "never",
@@ -4336,12 +4352,16 @@
 			"foreman_shift_work_coordination_yes",
 			"foreman_shift_work_coordination_decided"
 		],
-		"OnLeftUnlockPools": ["Workers_Council"],
+		"OnLeftUnlockPools": [
+			"Workers_Council"
+		],
 		"OnRightAddFlags": [
 			"foreman_shift_work_coordination_no",
 			"foreman_shift_work_coordination_decided"
 		],
-		"OnRightUnlockPools": ["Workers_Council"],
+		"OnRightUnlockPools": [
+			"Workers_Council"
+		],
 		"Pool": "Foreman",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
@@ -6317,7 +6337,9 @@
 		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["priest_believing_in_faith_decided"],
+		"RequireFlagsAny": [
+			"priest_believing_in_faith_decided"
+		],
 		"RightDiscontent": -10.0,
 		"RightFaith": 0.0,
 		"RightHope": 15.0,
@@ -6397,7 +6419,9 @@
 		"NpcPool": "Priest",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["priest_believing_in_faith_decided"],
+		"RequireFlagsAny": [
+			"priest_believing_in_faith_decided"
+		],
 		"RightDiscontent": 10.0,
 		"RightFaith": 0.0,
 		"RightHope": -15.0,
@@ -9137,12 +9161,16 @@
 			"engineer_engineers_plea_yes",
 			"engineer_engineers_plea_decided"
 		],
-		"OnLeftUnlockPools": ["Factory_Inspectorate"],
+		"OnLeftUnlockPools": [
+			"Factory_Inspectorate"
+		],
 		"OnRightAddFlags": [
 			"engineer_engineers_plea_no",
 			"engineer_engineers_plea_decided"
 		],
-		"OnRightUnlockPools": ["Factory_Inspectorate"],
+		"OnRightUnlockPools": [
+			"Factory_Inspectorate"
+		],
 		"Pool": "Engineer",
 		"NpcPool": "Engineer",
 		"RepeatPolicy": "repeat_on_negative",
@@ -10028,7 +10056,9 @@
 		"Pool": "Steward",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": [""],
+		"RequireFlagsAny": [
+			""
+		],
 		"RightDiscontent": 15.0,
 		"RightFaith": 0.0,
 		"RightHope": -15.0,
@@ -10418,7 +10448,9 @@
 		"Pool": "Citizen",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["john_built_shelters_yes"],
+		"RequireFlagsAny": [
+			"john_built_shelters_yes"
+		],
 		"RightDiscontent": 10.0,
 		"RightFaith": 0.0,
 		"RightHope": -10.0,
@@ -10457,7 +10489,9 @@
 		"Pool": "Citizen",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["steward_housing_problem_yes"],
+		"RequireFlagsAny": [
+			"steward_housing_problem_yes"
+		],
 		"RightDiscontent": 15.0,
 		"RightFaith": 0.0,
 		"RightHope": -15.0,
@@ -10496,7 +10530,9 @@
 		"Pool": "Citizen",
 		"RepeatPolicy": "repeat_on_negative",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["steward_housing_protest_yes"],
+		"RequireFlagsAny": [
+			"steward_housing_protest_yes"
+		],
 		"RightDiscontent": 15.0,
 		"RightFaith": 0.0,
 		"RightHope": -15.0,
@@ -14061,10 +14097,12 @@
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["steward_foreman_1_interview_end_yes",
+		"RequireFlagsAny": [
+			"steward_foreman_1_interview_end_yes",
 			"steward_foreman_2_interview_end_yes",
 			"steward_foreman_3_interview_end_yes",
-			"steward_foreman_4_interview_end_yes"],
+			"steward_foreman_4_interview_end_yes"
+		],
 		"RightDiscontent": -5.0,
 		"RightFaith": 0.0,
 		"RightHope": 5.0,
@@ -14094,17 +14132,23 @@
 			"steward_hunters_hire_start_2_yes",
 			"steward_hunters_hire_start_2_decided"
 		],
-		"OnLeftUnlockPools": ["Hunters_Interview"],
+		"OnLeftUnlockPools": [
+			"Hunters_Interview"
+		],
 		"OnRightAddFlags": [
 			"steward_hunters_hire_start_2_no",
 			"steward_hunters_hire_start_2_decided"
 		],
-		"OnRightUnlockPools": ["Hunters_Interview"],
+		"OnRightUnlockPools": [
+			"Hunters_Interview"
+		],
 		"Pool": "Citizen",
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["steward_hunters_hire_start_decided"],
+		"RequireFlagsAny": [
+			"steward_hunters_hire_start_decided"
+		],
 		"RightDiscontent": -5.0,
 		"RightFaith": 0.0,
 		"RightHope": 5.0,
@@ -14368,12 +14412,16 @@
 			"steward_hunters_hired_yes",
 			"steward_hunters_hired_decided"
 		],
-		"OnLeftUnlockPools": ["Hunter"],
+		"OnLeftUnlockPools": [
+			"Hunter"
+		],
 		"OnRightAddFlags": [
 			"steward_hunters_hired_no",
 			"steward_hunters_hired_decided"
 		],
-		"OnRightUnlockPools": ["Hunter"],
+		"OnRightUnlockPools": [
+			"Hunter"
+		],
 		"Pool": "Hunters_Interview",
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
@@ -14420,10 +14468,12 @@
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["steward_medic_1_interview_end_yes",
+		"RequireFlagsAny": [
+			"steward_medic_1_interview_end_yes",
 			"steward_medic_2_interview_end_yes",
 			"steward_medic_3_interview_end_yes",
-			"steward_medic_4_interview_end_yes"],
+			"steward_medic_4_interview_end_yes"
+		],
 		"RightDiscontent": -5.0,
 		"RightFaith": 0.0,
 		"RightHope": 5.0,
@@ -14453,17 +14503,23 @@
 			"steward_engineer_hire_start_2_yes",
 			"steward_engineer_hire_start_2_decided"
 		],
-		"OnLeftUnlockPools": ["Engineer_Interview"],
+		"OnLeftUnlockPools": [
+			"Engineer_Interview"
+		],
 		"OnRightAddFlags": [
 			"steward_engineer_hire_start_2_no",
 			"steward_engineer_hire_start_2_decided"
 		],
-		"OnRightUnlockPools": ["Engineer_Interview"],
+		"OnRightUnlockPools": [
+			"Engineer_Interview"
+		],
 		"Pool": "Citizen",
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["steward_engineer_hire_start_decided"],
+		"RequireFlagsAny": [
+			"steward_engineer_hire_start_decided"
+		],
 		"RightDiscontent": -5.0,
 		"RightFaith": 0.0,
 		"RightHope": 5.0,
@@ -14710,7 +14766,9 @@
 			"steward_engineer_1_interview_end_yes",
 			"steward_engineer_1_interview_end_decided"
 		],
-		"OnLeftUnlockPools": ["Engineer"],
+		"OnLeftUnlockPools": [
+			"Engineer"
+		],
 		"OnRightAddFlags": [
 			"steward_engineer_1_interview_end_no",
 			"steward_engineer_1_interview_end_decided"
@@ -14741,7 +14799,9 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": ["steward_engineer_1_interview_end_yes"],
+		"BlockFlags": [
+			"steward_engineer_1_interview_end_yes"
+		],
 		"Description": "I treat machines better than people. They’re more logical.",
 		"Id": "engineer_2_interview_1",
 		"LeftDiscontent": 0.0,
@@ -14970,7 +15030,9 @@
 			"steward_engineer_2_interview_end_yes",
 			"steward_engineer_2_interview_end_decided"
 		],
-		"OnLeftUnlockPools": ["Engineer"],
+		"OnLeftUnlockPools": [
+			"Engineer"
+		],
 		"OnRightAddFlags": [
 			"steward_engineer_2_interview_end_no",
 			"steward_engineer_2_interview_end_decided"
@@ -15001,7 +15063,9 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": ["steward_engineer_2_interview_end_yes"],
+		"BlockFlags": [
+			"steward_engineer_2_interview_end_yes"
+		],
 		"Description": "I’ve survived three meltdowns! Well, I survived. The labs didn't.",
 		"Id": "engineer_3_interview_1",
 		"LeftDiscontent": 0.0,
@@ -15230,7 +15294,9 @@
 			"steward_engineer_3_interview_end_yes",
 			"steward_engineer_3_interview_end_decided"
 		],
-		"OnLeftUnlockPools": ["Engineer"],
+		"OnLeftUnlockPools": [
+			"Engineer"
+		],
 		"OnRightAddFlags": [
 			"steward_engineer_3_interview_end_no",
 			"steward_engineer_3_interview_end_decided"
@@ -15261,7 +15327,9 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": ["steward_engineer_3_interview_end_yes"],
+		"BlockFlags": [
+			"steward_engineer_3_interview_end_yes"
+		],
 		"Description": "Physics is the only law that hasn't been frozen solid yet.",
 		"Id": "engineer_4_interview_1",
 		"LeftDiscontent": 0.0,
@@ -15490,12 +15558,16 @@
 			"steward_engineer_4_interview_end_yes",
 			"steward_engineer_4_interview_end_decided"
 		],
-		"OnLeftUnlockPools": ["Engineer"],
+		"OnLeftUnlockPools": [
+			"Engineer"
+		],
 		"OnRightAddFlags": [
 			"steward_engineer_4_interview_end_no",
 			"steward_engineer_4_interview_end_decided"
 		],
-		"OnRightUnlockPools": ["Engineer"],
+		"OnRightUnlockPools": [
+			"Engineer"
+		],
 		"Pool": "Engineer_Interview",
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
@@ -15543,7 +15615,9 @@
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["hunters_all_hired"],
+		"RequireFlagsAny": [
+			"hunters_all_hired"
+		],
 		"RightDiscontent": -5.0,
 		"RightFaith": 0.0,
 		"RightHope": 5.0,
@@ -15573,17 +15647,23 @@
 			"steward_cook_hire_start_2_yes",
 			"steward_cook_hire_start_2_decided"
 		],
-		"OnLeftUnlockPools": ["Cook_Interview"],
+		"OnLeftUnlockPools": [
+			"Cook_Interview"
+		],
 		"OnRightAddFlags": [
 			"steward_cook_hire_start_2_no",
 			"steward_cook_hire_start_2_decided"
 		],
-		"OnRightUnlockPools": ["Cook_Interview"],
+		"OnRightUnlockPools": [
+			"Cook_Interview"
+		],
 		"Pool": "Citizen",
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["steward_cook_hire_start_decided"],
+		"RequireFlagsAny": [
+			"steward_cook_hire_start_decided"
+		],
 		"RightDiscontent": -5.0,
 		"RightFaith": 0.0,
 		"RightHope": 5.0,
@@ -15830,7 +15910,9 @@
 			"steward_cook_1_interview_end_yes",
 			"steward_cook_1_interview_end_decided"
 		],
-		"OnLeftUnlockPools": ["Cook"],
+		"OnLeftUnlockPools": [
+			"Cook"
+		],
 		"OnRightAddFlags": [
 			"steward_cook_1_interview_end_no",
 			"steward_cook_1_interview_end_decided"
@@ -15861,7 +15943,9 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": ["steward_cook_1_interview_end_yes"],
+		"BlockFlags": [
+			"steward_cook_1_interview_end_yes"
+		],
 		"Description": "I studied in Paris before the frost. Now, I specialize in 'Snow-Cured Mystery'.",
 		"Id": "cook_2_interview_1",
 		"LeftDiscontent": 0.0,
@@ -16090,7 +16174,9 @@
 			"steward_cook_2_interview_end_yes",
 			"steward_cook_2_interview_end_decided"
 		],
-		"OnLeftUnlockPools": ["Cook"],
+		"OnLeftUnlockPools": [
+			"Cook"
+		],
 		"OnRightAddFlags": [
 			"steward_cook_2_interview_end_no",
 			"steward_cook_2_interview_end_decided"
@@ -16121,7 +16207,9 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": ["steward_cook_2_interview_end_yes"],
+		"BlockFlags": [
+			"steward_cook_2_interview_end_yes"
+		],
 		"Description": "Meat is meat. Don't ask where I found it, and I won't lie to you.",
 		"Id": "cook_3_interview_1",
 		"LeftDiscontent": 0.0,
@@ -16350,7 +16438,9 @@
 			"steward_cook_3_interview_end_yes",
 			"steward_cook_3_interview_end_decided"
 		],
-		"OnLeftUnlockPools": ["Cook"],
+		"OnLeftUnlockPools": [
+			"Cook"
+		],
 		"OnRightAddFlags": [
 			"steward_cook_3_interview_end_no",
 			"steward_cook_3_interview_end_decided"
@@ -16381,7 +16471,9 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": ["steward_cook_3_interview_end_yes"],
+		"BlockFlags": [
+			"steward_cook_3_interview_end_yes"
+		],
 		"Description": "A human is just a biological engine. I provide the fuel.",
 		"Id": "cook_4_interview_1",
 		"LeftDiscontent": 0.0,
@@ -16610,12 +16702,16 @@
 			"steward_cook_4_interview_end_yes",
 			"steward_cook_4_interview_end_decided"
 		],
-		"OnLeftUnlockPools": ["Cook"],
+		"OnLeftUnlockPools": [
+			"Cook"
+		],
 		"OnRightAddFlags": [
 			"steward_cook_4_interview_end_no",
 			"steward_cook_4_interview_end_decided"
 		],
-		"OnRightUnlockPools": ["Cook"],
+		"OnRightUnlockPools": [
+			"Cook"
+		],
 		"Pool": "Cook_Interview",
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
@@ -16663,10 +16759,12 @@
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["steward_engineer_1_interview_end_yes",
+		"RequireFlagsAny": [
+			"steward_engineer_1_interview_end_yes",
 			"steward_engineer_2_interview_end_yes",
 			"steward_engineer_3_interview_end_yes",
-			"steward_engineer_4_interview_end_yes"],
+			"steward_engineer_4_interview_end_yes"
+		],
 		"RightDiscontent": -5.0,
 		"RightFaith": 0.0,
 		"RightHope": 5.0,
@@ -16696,17 +16794,23 @@
 			"steward_explorer_hire_start_2_yes",
 			"steward_explorer_hire_start_2_decided"
 		],
-		"OnLeftUnlockPools": ["Explorer_Interview"],
+		"OnLeftUnlockPools": [
+			"Explorer_Interview"
+		],
 		"OnRightAddFlags": [
 			"steward_explorer_hire_start_2_no",
 			"steward_explorer_hire_start_2_decided"
 		],
-		"OnRightUnlockPools": ["Explorer_Interview"],
+		"OnRightUnlockPools": [
+			"Explorer_Interview"
+		],
 		"Pool": "Citizen",
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["steward_explorer_hire_start_decided"],
+		"RequireFlagsAny": [
+			"steward_explorer_hire_start_decided"
+		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
 		"RightHope": 0.0,
@@ -16953,7 +17057,9 @@
 			"steward_explorer_1_interview_end_yes",
 			"steward_explorer_1_interview_end_decided"
 		],
-		"OnLeftUnlockPools": ["Explorer"],
+		"OnLeftUnlockPools": [
+			"Explorer"
+		],
 		"OnRightAddFlags": [
 			"steward_explorer_1_interview_end_no",
 			"steward_explorer_1_interview_end_decided"
@@ -16984,7 +17090,9 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": ["steward_explorer_1_interview_end_yes"],
+		"BlockFlags": [
+			"steward_explorer_1_interview_end_yes"
+		],
 		"Description": "If I stop moving, I'll freeze. If I keep moving, I can find anything useful for the city!",
 		"Id": "explorer_2_interview_1",
 		"LeftDiscontent": 0.0,
@@ -17213,7 +17321,9 @@
 			"steward_explorer_2_interview_end_yes",
 			"steward_explorer_2_interview_end_decided"
 		],
-		"OnLeftUnlockPools": ["Explorer"],
+		"OnLeftUnlockPools": [
+			"Explorer"
+		],
 		"OnRightAddFlags": [
 			"steward_explorer_2_interview_end_no",
 			"steward_explorer_2_interview_end_decided"
@@ -17244,7 +17354,9 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": ["steward_explorer_2_interview_end_yes"],
+		"BlockFlags": [
+			"steward_explorer_2_interview_end_yes"
+		],
 		"Description": "A map is just a list of places where people have already died. I’m making a new list.",
 		"Id": "explorer_3_interview_1",
 		"LeftDiscontent": 0.0,
@@ -17473,7 +17585,9 @@
 			"steward_explorer_3_interview_end_yes",
 			"steward_explorer_3_interview_end_decided"
 		],
-		"OnLeftUnlockPools": ["Explorer"],
+		"OnLeftUnlockPools": [
+			"Explorer"
+		],
 		"OnRightAddFlags": [
 			"steward_explorer_3_interview_end_no",
 			"steward_explorer_3_interview_end_decided"
@@ -17504,7 +17618,9 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": ["steward_explorer_3_interview_end_yes"],
+		"BlockFlags": [
+			"steward_explorer_3_interview_end_yes"
+		],
 		"Description": "I don't know where I am, but look! I found a crate of canned peaches!",
 		"Id": "explorer_4_interview_1",
 		"LeftDiscontent": 0.0,
@@ -17733,12 +17849,16 @@
 			"steward_explorer_4_interview_end_yes",
 			"steward_explorer_4_interview_end_decided"
 		],
-		"OnLeftUnlockPools": ["Explorer"],
+		"OnLeftUnlockPools": [
+			"Explorer"
+		],
 		"OnRightAddFlags": [
 			"steward_explorer_4_interview_end_no",
 			"steward_explorer_4_interview_end_decided"
 		],
-		"OnRightUnlockPools": ["Explorer"],
+		"OnRightUnlockPools": [
+			"Explorer"
+		],
 		"Pool": "Explorer_Interview",
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
@@ -17776,12 +17896,16 @@
 			"cook_build_cookhouse_yes",
 			"cook_build_cookhouse_decided"
 		],
-		"OnLeftUnlockPools": ["Cook"],
+		"OnLeftUnlockPools": [
+			"Cook"
+		],
 		"OnRightAddFlags": [
 			"cook_build_cookhouse_no",
 			"cook_build_cookhouse_decided"
 		],
-		"OnRightUnlockPools": ["Cook"],
+		"OnRightUnlockPools": [
+			"Cook"
+		],
 		"Pool": "Citizen",
 		"NpcPool": "Cook",
 		"RepeatPolicy": "never",
@@ -17821,12 +17945,16 @@
 			"medic_build_medical_post_yes",
 			"medic_build_medical_post_decided"
 		],
-		"OnLeftUnlockPools": ["Cook"],
+		"OnLeftUnlockPools": [
+			"Cook"
+		],
 		"OnRightAddFlags": [
 			"medic_build_medical_post_no",
 			"medic_build_medical_post_decided"
 		],
-		"OnRightUnlockPools": ["Cook"],
+		"OnRightUnlockPools": [
+			"Cook"
+		],
 		"Pool": "Citizen",
 		"NpcPool": "Medic",
 		"RepeatPolicy": "never",
@@ -17876,10 +18004,12 @@
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["steward_cook_1_interview_end_yes",
+		"RequireFlagsAny": [
+			"steward_cook_1_interview_end_yes",
 			"steward_cook_2_interview_end_yes",
 			"steward_cook_3_interview_end_yes",
-			"steward_cook_4_interview_end_yes"],
+			"steward_cook_4_interview_end_yes"
+		],
 		"RightDiscontent": -5.0,
 		"RightFaith": 0.0,
 		"RightHope": 5.0,
@@ -17909,17 +18039,23 @@
 			"steward_medic_hire_start_2_yes",
 			"steward_medic_hire_start_2_decided"
 		],
-		"OnLeftUnlockPools": ["Medic_Interview"],
+		"OnLeftUnlockPools": [
+			"Medic_Interview"
+		],
 		"OnRightAddFlags": [
 			"steward_medic_hire_start_2_no",
 			"steward_medic_hire_start_2_decided"
 		],
-		"OnRightUnlockPools": ["Medic_Interview"],
+		"OnRightUnlockPools": [
+			"Medic_Interview"
+		],
 		"Pool": "Citizen",
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["steward_medic_hire_start_yes"],
+		"RequireFlagsAny": [
+			"steward_medic_hire_start_yes"
+		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
 		"RightHope": 0.0,
@@ -18166,7 +18302,9 @@
 			"steward_medic_1_interview_end_yes",
 			"steward_medic_1_interview_end_decided"
 		],
-		"OnLeftUnlockPools": ["Medic"],
+		"OnLeftUnlockPools": [
+			"Medic"
+		],
 		"OnRightAddFlags": [
 			"steward_medic_1_interview_end_no",
 			"steward_medic_1_interview_end_decided"
@@ -18197,7 +18335,9 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": ["steward_medic_1_interview_end_yes"],
+		"BlockFlags": [
+			"steward_medic_1_interview_end_yes"
+		],
 		"Description": "A warm smile is the best medicine. And actual medicine. We have that, right?",
 		"Id": "medic_2_interview_1",
 		"LeftDiscontent": 0.0,
@@ -18426,7 +18566,9 @@
 			"steward_medic_2_interview_end_yes",
 			"steward_medic_2_interview_end_decided"
 		],
-		"OnLeftUnlockPools": ["Medic"],
+		"OnLeftUnlockPools": [
+			"Medic"
+		],
 		"OnRightAddFlags": [
 			"steward_medic_2_interview_end_no",
 			"steward_medic_2_interview_end_decided"
@@ -18457,7 +18599,9 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": ["steward_medic_2_interview_end_yes"],
+		"BlockFlags": [
+			"steward_medic_2_interview_end_yes"
+		],
 		"Description": "I’ve got a tonic for everything. Side effects include glowing in the dark.",
 		"Id": "medic_3_interview_1",
 		"LeftDiscontent": 0.0,
@@ -18686,7 +18830,9 @@
 			"steward_medic_3_interview_end_yes",
 			"steward_medic_3_interview_end_decided"
 		],
-		"OnLeftUnlockPools": ["Medic"],
+		"OnLeftUnlockPools": [
+			"Medic"
+		],
 		"OnRightAddFlags": [
 			"steward_medic_3_interview_end_no",
 			"steward_medic_3_interview_end_decided"
@@ -18717,7 +18863,9 @@
 		"Title": ""
 	},
 	{
-		"BlockFlags": ["steward_medic_3_interview_end_yes"],
+		"BlockFlags": [
+			"steward_medic_3_interview_end_yes"
+		],
 		"Description": "The human body is just another machine. A very leaky, complaining machine.",
 		"Id": "medic_4_interview_1",
 		"LeftDiscontent": 0.0,
@@ -18946,12 +19094,16 @@
 			"steward_medic_4_interview_end_yes",
 			"steward_medic_4_interview_end_decided"
 		],
-		"OnLeftUnlockPools": ["medic"],
+		"OnLeftUnlockPools": [
+			"medic"
+		],
 		"OnRightAddFlags": [
 			"steward_medic_4_interview_end_no",
 			"steward_medic_4_interview_end_decided"
 		],
-		"OnRightUnlockPools": ["medic"],
+		"OnRightUnlockPools": [
+			"medic"
+		],
 		"Pool": "Medic_Interview",
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
@@ -18989,12 +19141,16 @@
 			"priest_believing_in_faith_yes",
 			"priest_believing_in_faith_decided"
 		],
-		"OnLeftUnlockPools": ["Priest"],
+		"OnLeftUnlockPools": [
+			"Priest"
+		],
 		"OnRightAddFlags": [
 			"priest_believing_in_faith_no",
 			"priest_believing_in_faith_decided"
 		],
-		"OnRightUnlockPools": ["Priest"],
+		"OnRightUnlockPools": [
+			"Priest"
+		],
 		"Pool": "Citizen",
 		"NpcPool": "Citizen",
 		"RepeatPolicy": "never",
@@ -19038,7 +19194,9 @@
 		"Pool": "Citizen",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["all_hunters_hired"],
+		"RequireFlagsAny": [
+			"all_hunters_hired"
+		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
 		"RightHope": 5.0,
@@ -19068,17 +19226,23 @@
 			"our_inventory_manager_2_yes",
 			"our_inventory_manager_2_decided"
 		],
-		"OnLeftUnlockPools": ["Inventory_Manager"],
+		"OnLeftUnlockPools": [
+			"Inventory_Manager"
+		],
 		"OnRightAddFlags": [
 			"our_inventory_manager_2_no",
 			"our_inventory_manager_2_decided"
 		],
-		"OnRightUnlockPools": ["Inventory_Manager"],
+		"OnRightUnlockPools": [
+			"Inventory_Manager"
+		],
 		"Pool": "Citizen",
 		"NpcPool": "Citizen",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["our_inventory_manager_yes"],
+		"RequireFlagsAny": [
+			"our_inventory_manager_yes"
+		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
 		"RightHope": 5.0,
@@ -19108,19 +19272,25 @@
 			"steward_city_growth_yes",
 			"steward_city_growth_decided"
 		],
-		"OnLeftUnlockPools": ["Steward"],
+		"OnLeftUnlockPools": [
+			"Steward"
+		],
 		"OnRightAddFlags": [
 			"steward_city_growth_no",
 			"steward_city_growth_decided"
 		],
-		"OnRightUnlockPools": ["Steward"],
+		"OnRightUnlockPools": [
+			"Steward"
+		],
 		"Pool": "Citizen",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["steward_explorer_1_interview_end_yes",
+		"RequireFlagsAny": [
+			"steward_explorer_1_interview_end_yes",
 			"steward_explorer_2_interview_end_yes",
 			"steward_explorer_3_interview_end_yes",
-			"steward_explorer_4_interview_end_yes"],
+			"steward_explorer_4_interview_end_yes"
+		],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
 		"RightHope": 5.0,
@@ -19139,21 +19309,21 @@
 	},
 	{
 		"BlockFlags": [],
-		"Description": "Chief, there is a pipe leaking and we need another hand! Can you help?",
-		"Id": "engineer_pipe_leaking",
+		"Description": "Chief, generator's pressure is going crazy, we should manually adjust them very quickly!",
+		"Id": "engineer_pressure_fix",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 0.0,
 		"LeftText": "Let me see",
 		"OnLeftAddFlags": [
-			"engineer_pipe_leaking_yes",
-			"engineer_pipe_leaking_decided"
+			"engineer_pressure_fix_yes",
+			"engineer_pressure_fix_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
-			"engineer_pipe_leaking_no",
-			"engineer_pipe_leaking_decided"
+			"engineer_pressure_fix_no",
+			"engineer_pressure_fix_decided"
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Citizen",
@@ -19169,7 +19339,7 @@
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
-		"SequenceId": "engineer_pipe_leak_minigame",
+		"SequenceId": "engineer_pressure_fix_minigame",
 		"SequenceIndex": 0.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "",
@@ -19180,36 +19350,38 @@
 	{
 		"BlockFlags": [],
 		"Description": "Great job, Chief! The pipe restored now.",
-		"Id": "engineer_pipe_leaking_success",
+		"Id": "engineer_pressure_fix_success",
 		"LeftDiscontent": 0.0,
 		"LeftFaith": 0.0,
 		"LeftHope": 0.0,
 		"LeftOrder": 0.0,
 		"LeftText": "I'm good at this",
 		"OnLeftAddFlags": [
-			"engineer_pipe_leaking_success_yes",
-			"engineer_pipe_leaking_success_decided"
+			"engineer_pressure_fix_success_yes",
+			"engineer_pressure_fix_success_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
-			"engineer_pipe_leaking_success_no",
-			"engineer_pipe_leaking_success_decided"
+			"engineer_pressure_fix_success_no",
+			"engineer_pressure_fix_success_decided"
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Citizen",
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["engineer_pipe_minigame_success"],
-		"RightDiscontent": 0.0,
-		"RightFaith": 0.0,
-		"RightHope": 0.0,
-		"RightOrder": 0.0,
-		"RightText": "Anything to city!",
+		"RequireFlagsAny": [
+			"engineer_pressure_fix_success"
+		],
+		"RightDiscontent": -5.0,
+		"RightFaith": 5.0,
+		"RightHope": 10.0,
+		"RightOrder": 5.0,
+		"RightText": "Anything for city!",
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
-		"SequenceId": "engineer_pipe_leak_minigame",
+		"SequenceId": "engineer_pressure_fix_minigame",
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "",
@@ -19220,36 +19392,38 @@
 	{
 		"BlockFlags": [],
 		"Description": "We failed to fix the pipe leak sir. ",
-		"Id": "engineer_pipe_leaking_fail",
-		"LeftDiscontent": 0.0,
-		"LeftFaith": 0.0,
-		"LeftHope": 0.0,
-		"LeftOrder": 0.0,
+		"Id": "engineer_pressure_fix_fail",
+		"LeftDiscontent": 10.0,
+		"LeftFaith": -5.0,
+		"LeftHope": -10.0,
+		"LeftOrder": -5.0,
 		"LeftText": "...",
 		"OnLeftAddFlags": [
-			"engineer_pipe_leaking_fail_yes",
-			"engineer_pipe_leaking_fail_decided"
+			"engineer_pressure_fix_yes",
+			"engineer_pressure_fix_decided"
 		],
 		"OnLeftUnlockPools": [],
 		"OnRightAddFlags": [
-			"engineer_pipe_leaking_fail_no",
-			"engineer_pipe_leaking_fail_decided"
+			"engineer_pressure_fix_no",
+			"engineer_pressure_fix_decided"
 		],
 		"OnRightUnlockPools": [],
 		"Pool": "Citizen",
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["engineer_pipe_minigame_fail"],
-		"RightDiscontent": 0.0,
-		"RightFaith": 0.0,
-		"RightHope": 0.0,
-		"RightOrder": 0.0,
+		"RequireFlagsAny": [
+			"engineer_pressure_fix_fail"
+		],
+		"RightDiscontent": 10.0,
+		"RightFaith": -5.0,
+		"RightHope": -10.0,
+		"RightOrder": -5.0,
 		"RightText": "Careful next time",
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
-		"SequenceId": "engineer_pipe_leak_minigame",
+		"SequenceId": "engineer_pressure_fix_minigame",
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "",
@@ -19301,10 +19475,10 @@
 		"BlockFlags": [],
 		"Description": "Great job, Chief! Now we will be able to hear who those call from radio for help.",
 		"Id": "steward_radio_frequency_success",
-		"LeftDiscontent": 0.0,
-		"LeftFaith": 0.0,
-		"LeftHope": 0.0,
-		"LeftOrder": 0.0,
+		"LeftDiscontent": 5.0,
+		"LeftFaith": 5.0,
+		"LeftHope": 10.0,
+		"LeftOrder": 5.0,
 		"LeftText": "I'm good at this",
 		"OnLeftAddFlags": [
 			"steward_radio_frequency_success_yes",
@@ -19320,12 +19494,14 @@
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["steward_radio_frequency_minigame_success"],
-		"RightDiscontent": 0.0,
-		"RightFaith": 0.0,
-		"RightHope": 0.0,
-		"RightOrder": 0.0,
-		"RightText": "Anything to city!",
+		"RequireFlagsAny": [
+			"steward_radio_frequency_minigame_success"
+		],
+		"RightDiscontent": 5.0,
+		"RightFaith": 5.0,
+		"RightHope": 10.0,
+		"RightOrder": 5.0,
+		"RightText": "Anything for city!",
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
@@ -19341,10 +19517,10 @@
 		"BlockFlags": [],
 		"Description": "We failed to find the correct frequency for the radio, sir.",
 		"Id": "steward_radio_frequency_fail",
-		"LeftDiscontent": 0.0,
-		"LeftFaith": 0.0,
-		"LeftHope": 0.0,
-		"LeftOrder": 0.0,
+		"LeftDiscontent": 10.0,
+		"LeftFaith": -5.0,
+		"LeftHope": -10.0,
+		"LeftOrder": -5.0,
 		"LeftText": "...",
 		"OnLeftAddFlags": [
 			"steward_radio_frequency_fail_yes",
@@ -19360,16 +19536,555 @@
 		"NpcPool": "Steward",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": ["steward_radio_frequency_minigame_fail"],
-		"RightDiscontent": 0.0,
-		"RightFaith": 0.0,
-		"RightHope": 0.0,
-		"RightOrder": 0.0,
+		"RequireFlagsAny": [
+			"steward_radio_frequency_minigame_fail"
+		],
+		"RightDiscontent": 10.0,
+		"RightFaith": -5.0,
+		"RightHope": -10.0,
+		"RightOrder": -5.0,
 		"RightText": "Careful next time",
 		"RunMax": 999.0,
 		"RunMin": 0.0,
 		"SequenceAdvanceOn": "Any",
 		"SequenceId": "steward_radio_frequency_minigame",
+		"SequenceIndex": 1.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Chief, a stranger arrived to the city and wanted to talk with you.",
+		"Id": "steward_a_stranger_arrived",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Alright",
+		"OnLeftAddFlags": [
+			"steward_a_stranger_arrived_yes",
+			"steward_a_stranger_arrived_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"steward_a_stranger_arrived_no",
+			"steward_a_stranger_arrived_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Citizen",
+		"NpcPool": "Steward",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "Let's see what he wants",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "steward_a_stranger_arrived",
+		"SequenceIndex": 0.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Hello, let me introduce myself first. I'm not telling my name to anyone so you can call me The Stranger.",
+		"Id": "the_stranger_introduced",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Whatever",
+		"OnLeftAddFlags": [
+			"the_stranger_introduced_yes",
+			"the_stranger_introduced_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"the_stranger_introduced_no",
+			"the_stranger_introduced_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Citizen",
+		"NpcPool": "Stranger",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "Why?",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "steward_a_stranger_arrived",
+		"SequenceIndex": 1.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Don't be so curious, Chief. It is not that good.",
+		"Id": "the_stranger_curious",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Well...",
+		"OnLeftAddFlags": [
+			"the_stranger_curious_yes",
+			"the_stranger_curious_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"the_stranger_curious_no",
+			"the_stranger_curious_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Citizen",
+		"NpcPool": "Stranger",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"the_stranger_introduced_no"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "Anyway",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "steward_a_stranger_arrived",
+		"SequenceIndex": 2.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "I'm traveling the survived cities across this country for trading and here I am now.",
+		"Id": "the_stranger_traveling_1",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "What are you trading?",
+		"OnLeftAddFlags": [
+			"the_stranger_traveling_1_yes",
+			"the_stranger_traveling_1_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"the_stranger_traveling_1_no",
+			"the_stranger_traveling_1_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Citizen",
+		"NpcPool": "Stranger",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"the_stranger_introduced_yes",
+			"the_stranger_curious_decided"
+		],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "Let's see",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "steward_a_stranger_arrived",
+		"SequenceIndex": 3.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Chief, generator's heat drops very quickly! We must do something!",
+		"Id": "engineer_generator_heat",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Let me see",
+		"OnLeftAddFlags": [
+			"engineer_generator_heat_yes",
+			"engineer_generator_heat_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"engineer_generator_heat_no",
+			"engineer_generator_heat_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Citizen",
+		"NpcPool": "Engineer",
+		"RepeatPolicy": "always",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "You guys can fix it",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "engineer_generator_heat_minigame",
+		"SequenceIndex": 0.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Great job, Chief! Now the generator is stable and running great!",
+		"Id": "engineer_generator_heat_success",
+		"LeftDiscontent": 5.0,
+		"LeftFaith": 5.0,
+		"LeftHope": 10.0,
+		"LeftOrder": 5.0,
+		"LeftText": "I'm good at this",
+		"OnLeftAddFlags": [
+			"engineer_generator_heat_yes",
+			"engineer_generator_heat_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"engineer_generator_heat_no",
+			"engineer_generator_heat_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Citizen",
+		"NpcPool": "Engineer",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"engineer_generator_heat_minigame_success"
+		],
+		"RightDiscontent": 5.0,
+		"RightFaith": 5.0,
+		"RightHope": 10.0,
+		"RightOrder": 5.0,
+		"RightText": "Anything for city!",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "engineer_generator_heat_minigame",
+		"SequenceIndex": 1.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "We failed to stable it sir. Generator shut itself down and we must repair it now.",
+		"Id": "engineer_generator_heat_fail",
+		"LeftDiscontent": 10.0,
+		"LeftFaith": -5.0,
+		"LeftHope": -10.0,
+		"LeftOrder": -5.0,
+		"LeftText": "...",
+		"OnLeftAddFlags": [
+			"engineer_generator_heat_yes",
+			"engineer_generator_heat_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"engineer_generator_heat_no",
+			"engineer_generator_heat_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Citizen",
+		"NpcPool": "Engineer",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"engineer_generator_heat_minigame_fail"
+		],
+		"RightDiscontent": 10.0,
+		"RightFaith": -5.0,
+		"RightHope": -10.0,
+		"RightOrder": -5.0,
+		"RightText": "Careful next time",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "engineer_generator_heat_minigame",
+		"SequenceIndex": 1.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Chief, one of the pipes started leaking! We must patch it!",
+		"Id": "engineer_generator_pipe_patch",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "Let me see",
+		"OnLeftAddFlags": [
+			"engineer_generator_pipe_patch_yes",
+			"engineer_generator_pipe_patch_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"engineer_generator_pipe_patch_no",
+			"engineer_generator_pipe_patch_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Citizen",
+		"NpcPool": "Engineer",
+		"RepeatPolicy": "always",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "You guys can fix it",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "engineer_generator_pipe_patch_minigame",
+		"SequenceIndex": 0.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Great job, Chief! Now the pipe is stable and running great!",
+		"Id": "engineer_generator_pipe_patch_success",
+		"LeftDiscontent": 5.0,
+		"LeftFaith": 5.0,
+		"LeftHope": 10.0,
+		"LeftOrder": 5.0,
+		"LeftText": "I'm good at this",
+		"OnLeftAddFlags": [
+			"engineer_generator_pipe_patch_success_yes",
+			"engineer_generator_pipe_patch_success_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"engineer_generator_pipe_patch_success_no",
+			"engineer_generator_pipe_patch_success_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Citizen",
+		"NpcPool": "Engineer",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"engineer_generator_pipe_patch_minigame_success"
+		],
+		"RightDiscontent": 5.0,
+		"RightFaith": 5.0,
+		"RightHope": 10.0,
+		"RightOrder": 5.0,
+		"RightText": "Anything for city!",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "engineer_generator_pipe_patch_minigame",
+		"SequenceIndex": 1.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "We failed to stable it sir. Generator shut itself down and we must repair the pipe now.",
+		"Id": "engineer_generator_pipe_patch_fail",
+		"LeftDiscontent": 10.0,
+		"LeftFaith": -5.0,
+		"LeftHope": -10.0,
+		"LeftOrder": -5.0,
+		"LeftText": "...",
+		"OnLeftAddFlags": [
+			"engineer_generator_pipe_patch_fail_yes",
+			"engineer_generator_pipe_patch_fail_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"engineer_generator_pipe_patch_fail_no",
+			"engineer_generator_pipe_patch_fail_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Citizen",
+		"NpcPool": "Engineer",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"engineer_generator_pipe_patch_minigame_fail"
+		],
+		"RightDiscontent": 10.0,
+		"RightFaith": -5.0,
+		"RightHope": -10.0,
+		"RightOrder": -5.0,
+		"RightText": "Careful next time",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "engineer_generator_pipe_patch_minigame",
+		"SequenceIndex": 1.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Chief, our medical post is buried under snow! We should clear it immediately! ;; Chief, one of the houses is buried under snow! We should clear it immediately! ;; Chief, our cookhouse is buried under snow! We should clear it immediately!",
+		"Id": "steward_buried_snow",
+		"LeftDiscontent": 0.0,
+		"LeftFaith": 0.0,
+		"LeftHope": 0.0,
+		"LeftOrder": 0.0,
+		"LeftText": "I'll help clearing!",
+		"OnLeftAddFlags": [
+			"steward_buried_snow_yes",
+			"steward_buried_snow_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"steward_buried_snow_no",
+			"steward_buried_snow_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Citizen",
+		"NpcPool": "Steward",
+		"RepeatPolicy": "always",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [],
+		"RightDiscontent": 0.0,
+		"RightFaith": 0.0,
+		"RightHope": 0.0,
+		"RightOrder": 0.0,
+		"RightText": "Take Captain and start clear!",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "steward_buried_snow_minigame",
+		"SequenceIndex": 0.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "Great job, Chief! We cleared all the snow!",
+		"Id": "steward_buried_snow_success",
+		"LeftDiscontent": 5.0,
+		"LeftFaith": 5.0,
+		"LeftHope": 10.0,
+		"LeftOrder": 5.0,
+		"LeftText": "Yes!",
+		"OnLeftAddFlags": [
+			"steward_buried_snow_success_yes",
+			"steward_buried_snow_success_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"steward_buried_snow_success_no",
+			"steward_buried_snow_success_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Citizen",
+		"NpcPool": "Engineer",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"steward_buried_snow_minigame_success"
+		],
+		"RightDiscontent": 5.0,
+		"RightFaith": 5.0,
+		"RightHope": 10.0,
+		"RightOrder": 5.0,
+		"RightText": "Anything for city!",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "steward_buried_snow_minigame",
+		"SequenceIndex": 1.0,
+		"SequenceMode": "Immediate",
+		"StoryId": "",
+		"StoryMinGap": 0.0,
+		"StoryStep": 0.0,
+		"Title": ""
+	},
+	{
+		"BlockFlags": [],
+		"Description": "We were too late with clearing sir. We have to use extra supplies for our lost.",
+		"Id": "steward_buried_snow_fail",
+		"LeftDiscontent": 10.0,
+		"LeftFaith": -5.0,
+		"LeftHope": -10.0,
+		"LeftOrder": -5.0,
+		"LeftText": "...",
+		"OnLeftAddFlags": [
+			"steward_buried_snow_fail_yes",
+			"steward_buried_snow_fail_decided"
+		],
+		"OnLeftUnlockPools": [],
+		"OnRightAddFlags": [
+			"steward_buried_snow_fail_no",
+			"steward_buried_snow_fail_decided"
+		],
+		"OnRightUnlockPools": [],
+		"Pool": "Citizen",
+		"NpcPool": "Engineer",
+		"RepeatPolicy": "never",
+		"RequireFlagsAll": [],
+		"RequireFlagsAny": [
+			"steward_buried_snow_minigame_fail"
+		],
+		"RightDiscontent": 10.0,
+		"RightFaith": -5.0,
+		"RightHope": -10.0,
+		"RightOrder": -5.0,
+		"RightText": "Okay",
+		"RunMax": 999.0,
+		"RunMin": 0.0,
+		"SequenceAdvanceOn": "Any",
+		"SequenceId": "steward_buried_snow_minigame",
 		"SequenceIndex": 1.0,
 		"SequenceMode": "Immediate",
 		"StoryId": "",

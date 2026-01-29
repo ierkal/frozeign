@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b570hdnewxoqv"]
+[gd_scene format=3 uid="uid://b570hdnewxoqv"]
 
-[ext_resource type="Texture2D" uid="uid://bgbksnxbim56f" path="res://Assets/Sprites/ChatGPT Image Nov 11, 2025, 01_41_27 PM.png" id="1_uhp2r"]
+[ext_resource type="Texture2D" uid="uid://b78gsr1vnk6pu" path="res://Assets/Sprites/Backgrounds/MainScreen_bg.png" id="1_uhp2r"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ngobd"]
 texture = ExtResource("1_uhp2r")
 
-[node name="Container_UI" type="Control"]
+[node name="Container_UI" type="Control" unique_id=1105429494]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=359877622]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ngobd")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1708107658]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
