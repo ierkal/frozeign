@@ -42,8 +42,10 @@ var _dying_chief_name: String = ""  # Store dying chief's name before picking ne
 @onready var buff_screen_effect: BuffScreenEffect = %BuffScreenEffect
 @onready var card_unlock_animation: CardUnlockAnimation = %CardUnlockAnimation
 @onready var death_screen: DeathScreen = %DeathScreen
+@onready var skill_check_minigame: SkillCheckMinigame = %SkillCheckMinigame
 
 var _buff_intro_active: bool = false
+var _minigame_active: bool = false
 
 func _ready() -> void:
 	add_to_group("GameManager")
@@ -96,6 +98,12 @@ func _ready() -> void:
 		death_screen.restart_requested.connect(_on_death_screen_restart)
 		death_screen.need_quest_data.connect(_on_death_screen_needs_quest_data)
 		death_screen.need_new_chief_name.connect(_on_death_screen_needs_new_chief_name)
+
+	# Connect minigame signals
+	EventBus.minigame_requested.connect(_on_minigame_requested)
+	if skill_check_minigame:
+		skill_check_minigame.minigame_completed.connect(_on_skill_check_completed)
+
 	deck.begin_starter_phase()   # show Pool:"Starter" cards first
 	_on_request_deck_draw()
 
@@ -135,6 +143,10 @@ func _dismiss_buff_intro_effect() -> void:
 		EventBus.buff_intro_card_dismissed.emit()
 
 func _on_request_deck_draw() -> void:
+	# Skip drawing if minigame is active
+	if _minigame_active:
+		return
+
 	# A) Check for Game Over first - show death screen before reset
 	if _death_phase == DeathPhase.GAME_OVER:
 		_show_death_screen()
@@ -421,3 +433,25 @@ func _on_death_screen_needs_new_chief_name() -> void:
 		# Pre-pick the next chief name so we can show it in death screen
 		chief_manager.pick_random_name()
 		death_screen.set_new_chief_name(chief_manager.current_chief_name)
+
+
+# ===== Minigame Handling =====
+func _on_minigame_requested(minigame_id: String, card_data: Dictionary) -> void:
+	if minigame_id == "skill_check" and skill_check_minigame:
+		_minigame_active = true
+		card_ui.set_input_blocked(true)
+		skill_check_minigame.show_minigame(card_data)
+
+
+func _on_skill_check_completed(success: bool) -> void:
+	_minigame_active = false
+	card_ui.set_input_blocked(false)
+
+	# Notify deck of minigame result
+	deck.on_minigame_completed("skill_check", success)
+
+	# Emit signal for other systems
+	EventBus.minigame_completed.emit("skill_check", success)
+
+	# Draw the next card (result card)
+	_on_request_deck_draw()

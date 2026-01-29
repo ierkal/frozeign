@@ -87,3 +87,8 @@ func set_npc_image(texture: Texture2D) -> void:
 	"""Set the NPC image on the card."""
 	if card_texture and texture:
 		card_texture.texture = texture
+
+
+func set_input_blocked(blocked: bool) -> void:
+	"""Block/unblock card input during minigames."""
+	card_drag.set_input_enabled(not blocked)

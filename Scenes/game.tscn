@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dihplp2ct2wv4"]
+[gd_scene load_steps=21 format=3 uid="uid://dihplp2ct2wv4"]
 
 [ext_resource type="Script" uid="uid://dfg8yyl72e2v8" path="res://Scripts/Manager/game_manager.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://b570hdnewxoqv" path="res://Scenes/container_ui.tscn" id="1_wrm1d"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cvk6qqd83hay6" path="res://Scenes/buff_screen_effect.tscn" id="13_buff"]
 [ext_resource type="PackedScene" uid="uid://d1n2q0620gau0" path="res://Scenes/card_unlock_animation.tscn" id="14_unlock"]
 [ext_resource type="PackedScene" uid="uid://dovjv67r8i5dv" path="res://Scenes/death_screen.tscn" id="15_death"]
+[ext_resource type="PackedScene" uid="uid://dunl1d8c67v3r" path="res://Scenes/skill_check_minigame.tscn" id="16_minigame"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rfjv2"]
 font = ExtResource("11_rku1e")
@@ -92,6 +93,11 @@ visible = false
 layout_mode = 1
 
 [node name="DeathScreen" parent="CanvasLayer/Container_UI" instance=ExtResource("15_death")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="SkillCheckMinigame" parent="CanvasLayer/Container_UI" instance=ExtResource("16_minigame")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1

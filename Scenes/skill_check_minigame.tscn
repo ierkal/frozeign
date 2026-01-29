@@ -1,0 +1,209 @@
+[gd_scene format=3 uid="uid://dunl1d8c67v3r"]
+
+[ext_resource type="Script" uid="uid://cplo4bjafgdbp" path="res://Scripts/Minigame/skill_check_minigame.gd" id="1_minigame"]
+[ext_resource type="Script" uid="uid://qdjrpie1pwt" path="res://Scripts/Minigame/safe_zone_drawer.gd" id="2_drawer"]
+[ext_resource type="Texture2D" uid="uid://dmmhhd8qlh4dd" path="res://Assets/Sprites/check-mark.png" id="2_jyhne"]
+[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="3_font"]
+
+[node name="SkillCheckMinigame" type="Control" unique_id=640011979]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_minigame")
+rotation_speed = 240.0
+checkmark_texture = ExtResource("2_jyhne")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1915167873]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.85)
+
+[node name="ContentContainer" type="CenterContainer" parent="." unique_id=242896600]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContentContainer" unique_id=529612652]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="ContentContainer/VBoxContainer" unique_id=1670424758]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 48
+text = "Pipe Repair"
+horizontal_alignment = 1
+
+[node name="CircleContainer" type="Control" parent="ContentContainer/VBoxContainer" unique_id=1935885872]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="CircleBackground" type="ColorRect" parent="ContentContainer/VBoxContainer/CircleContainer" unique_id=779280855]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.2, 1)
+
+[node name="CircleRing" type="ColorRect" parent="ContentContainer/VBoxContainer/CircleContainer" unique_id=1920798342]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.25, 0.25, 0.3, 1)
+
+[node name="SafeZoneDrawer" type="Control" parent="ContentContainer/VBoxContainer/CircleContainer" unique_id=160125426]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_drawer")
+
+[node name="NeedleAnchor" type="Control" parent="ContentContainer/VBoxContainer/CircleContainer" unique_id=1975674741]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Needle" type="ColorRect" parent="ContentContainer/VBoxContainer/CircleContainer/NeedleAnchor" unique_id=1745086150]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -130.0
+offset_right = 3.0
+mouse_filter = 2
+
+[node name="NeedleCenter" type="ColorRect" parent="ContentContainer/VBoxContainer/CircleContainer/NeedleAnchor" unique_id=1192445208]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+mouse_filter = 2
+color = Color(0.9, 0.9, 0.95, 1)
+
+[node name="InstructionLabel" type="Label" parent="ContentContainer/VBoxContainer" unique_id=1173722823]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 28
+text = "Tap when in green zone!"
+horizontal_alignment = 1
+
+[node name="CheckboxContainer" type="HBoxContainer" parent="ContentContainer/VBoxContainer" unique_id=1346657189]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_constants/separation = 30
+
+[node name="Checkbox1" type="Panel" parent="ContentContainer/VBoxContainer/CheckboxContainer" unique_id=353224278]
+self_modulate = Color(0.3, 0.3, 0.35, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Checkmark" type="TextureRect" parent="ContentContainer/VBoxContainer/CheckboxContainer/Checkbox1" unique_id=2046955300]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_jyhne")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Checkbox2" type="Panel" parent="ContentContainer/VBoxContainer/CheckboxContainer" unique_id=143971951]
+self_modulate = Color(0.3, 0.3, 0.35, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Checkmark" type="TextureRect" parent="ContentContainer/VBoxContainer/CheckboxContainer/Checkbox2" unique_id=1020288402]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_jyhne")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Checkbox3" type="Panel" parent="ContentContainer/VBoxContainer/CheckboxContainer" unique_id=1278051464]
+self_modulate = Color(0.3, 0.3, 0.35, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Checkmark" type="TextureRect" parent="ContentContainer/VBoxContainer/CheckboxContainer/Checkbox3" unique_id=519974839]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_jyhne")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TapArea" type="Control" parent="." unique_id=806273133]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

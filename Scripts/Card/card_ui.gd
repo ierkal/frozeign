@@ -25,6 +25,7 @@ var _card: Node = null
 var _current_presented: Dictionary = {}
 var _preview_side: String = ""
 var _is_buff_info_card: bool = false
+var _input_blocked: bool = false
 
 var _tween_left: Tween = null
 var _tween_right: Tween = null
@@ -270,6 +271,15 @@ func _toggle_panel(p: Panel, open: bool, is_left: bool) -> void:
 		else:
 			_tween_right.tween_property(p, "scale:y", 0.0, 0.1).from_current()
 
+
+
+# --------------------
+# INPUT BLOCKING (for minigames)
+# --------------------
+func set_input_blocked(blocked: bool) -> void:
+	_input_blocked = blocked
+	if _card and _card.has_method("set_input_blocked"):
+		_card.set_input_blocked(blocked)
 
 
 # --------------------

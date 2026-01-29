@@ -6,6 +6,9 @@ signal flag_added_signal(flag_name)
 signal pool_unlocked(pool_name)
 signal card_committed_signal(card_id: String, side: String, pending_hire_npc: String)
 
+# Cards that trigger minigames (only when choosing positive/left side)
+const MINIGAME_CARDS := ["engineer_pipe_leaking"]
+
 # ===========================================
 # DEBUG: Inspector controls for testing pools
 # ===========================================
@@ -532,22 +535,28 @@ func on_card_committed(card_id: String, side: String) -> void:
 
 	for f in flist:
 		add_flag(str(f))
-		
+
 	# 2) Unlock Pools (NEW)
 	var unlock_list: Array = []
 	if side == "left":
 		unlock_list = card.get("OnLeftUnlockPools", [])
 	else:
 		unlock_list = card.get("OnRightUnlockPools", [])
-		
+
 	for p in unlock_list:
 		unlock_pool(str(p))
 
-	# 3) Immediate sequence advance (choice-dependent)
+	# 3) Check for minigame trigger (only on positive/left choice)
+	if card_id in MINIGAME_CARDS and side == "left":
+		EventBus.minigame_requested.emit("skill_check", {"card_id": card_id, "side": side})
+		# Don't advance sequence yet - minigame will handle it
+		return
+
+	# 4) Immediate sequence advance (choice-dependent)
 	if _should_advance_sequence(card, side):
 		_queue_next_sequence_step(card)
 
-	# 4) RepeatPolicy
+	# 5) RepeatPolicy
 	var policy: String = card.get("RepeatPolicy", "never")
 
 	if policy == "never":
@@ -599,6 +608,17 @@ func get_unique_cards_count() -> int:
 			count += 1
 	return count
 	
+# Called when a minigame completes to handle the result
+func on_minigame_completed(minigame_id: String, success: bool) -> void:
+	if minigame_id == "skill_check":
+		if success:
+			add_flag("engineer_pipe_minigame_success")
+			queue_card("engineer_pipe_leaking_success")
+		else:
+			add_flag("engineer_pipe_minigame_fail")
+			queue_card("engineer_pipe_leaking_fail")
+
+
 # Belirli bir ID'ye sahip kartı bulup sequence sırasının en önüne koyar
 func force_next_card(card_id: String) -> void:
 	var card_data = find_card_by_id(card_id)
