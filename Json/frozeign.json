@@ -19618,7 +19618,7 @@
 		"NpcPool": "Stranger",
 		"RepeatPolicy": "never",
 		"RequireFlagsAll": [],
-		"RequireFlagsAny": [],
+		"RequireFlagsAny": ["steward_a_stranger_arrived_decided"],
 		"RightDiscontent": 0.0,
 		"RightFaith": 0.0,
 		"RightHope": 0.0,

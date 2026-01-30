@@ -1,25 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://coxxcvpe3x2b0"]
+[gd_scene format=3 uid="uid://coxxcvpe3x2b0"]
 
-[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="1_0ndvq"]
+[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="1_0ndvq"]
 [ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="1_oiw6n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0ndvq"]
 font = ExtResource("1_0ndvq")
-font_size = 42
+font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_q7rug"]
 font = ExtResource("1_0ndvq")
-font_size = 36
+font_size = 24
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0ndvq"]
 
-[node name="QuestItemVBox" type="VBoxContainer"]
+[node name="QuestItemVBox" type="VBoxContainer" unique_id=1092275714]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 140.0
 grow_horizontal = 2
 
-[node name="QuestTitle" type="Label" parent="."]
+[node name="QuestTitle" type="Label" parent="." unique_id=21932999]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
@@ -32,7 +32,7 @@ _min_size = 16
 _current_font_size = 42
 _editor_defaults_set = true
 
-[node name="QuestDescription" type="Label" parent="."]
+[node name="QuestDescription" type="Label" parent="." unique_id=434675563]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
@@ -45,6 +45,6 @@ _min_size = 12
 _current_font_size = 36
 _editor_defaults_set = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=770107093]
 layout_mode = 2
 texture = SubResource("CanvasTexture_0ndvq")

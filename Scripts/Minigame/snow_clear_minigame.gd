@@ -169,7 +169,7 @@ func _start_game() -> void:
 	# Show in-game UI
 	timer_label.visible = true
 	hint_label.visible = true
-	hint_label.add_theme_color_override("font_color", Color(1.0, 0.7, 0.2, 1.0))  # Orange like timer
+	LabelUtils.set_font_color(hint_label, Color(1.0, 0.7, 0.2, 1.0))  # Orange like timer
 	_update_timer_label()
 
 	# Generate snow patches (fullscreen)
@@ -395,7 +395,7 @@ func _update_timer_label() -> void:
 		color = Color(0.9, 0.3, 0.2, 1.0)  # Red when low
 
 	timer_label.text = "Time: %d" % seconds
-	timer_label.add_theme_color_override("font_color", color)
+	LabelUtils.set_font_color(timer_label, color)
 
 
 func _complete_minigame(success: bool) -> void:
@@ -406,10 +406,10 @@ func _complete_minigame(success: bool) -> void:
 	# Show result in hint label
 	if success:
 		hint_label.text = "Snow cleared!"
-		hint_label.add_theme_color_override("font_color", Color(0.3, 0.9, 0.3))  # Green for success
+		LabelUtils.set_font_color(hint_label, Color(0.3, 0.9, 0.3))  # Green for success
 	else:
 		hint_label.text = "Not cleared!"
-		hint_label.add_theme_color_override("font_color", Color(0.9, 0.2, 0.2))  # Red for fail
+		LabelUtils.set_font_color(hint_label, Color(0.9, 0.2, 0.2))  # Red for fail
 
 	await get_tree().create_timer(1.5).timeout
 

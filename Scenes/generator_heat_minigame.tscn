@@ -2,6 +2,36 @@
 
 [ext_resource type="Script" uid="uid://cq2kv4fub83r5" path="res://Scripts/Minigame/generator_heat_minigame.gd" id="1_minigame"]
 [ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="2_font"]
+[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="3_oektx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4j2al"]
+font = ExtResource("3_oektx")
+font_size = 29
+
+[sub_resource type="LabelSettings" id="LabelSettings_wbynx"]
+font = ExtResource("3_oektx")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_0kp7b"]
+font = ExtResource("3_oektx")
+font_color = Color(0.40392157, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tf7v6"]
+font = ExtResource("3_oektx")
+font_size = 14
+font_color = Color(0.92941177, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bh6vk"]
+font = ExtResource("3_oektx")
+font_color = Color(0.3904698, 0.30993047, 0.20950529, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wcgta"]
+font = ExtResource("3_oektx")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_tpo1k"]
+font = ExtResource("3_oektx")
+font_color = Color(0.5211406, 0.5211406, 0.5211405, 1)
 
 [node name="GeneratorHeatMinigame" type="Control" unique_id=1293878268]
 layout_mode = 3
@@ -42,7 +72,8 @@ theme_override_constants/separation = 15
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 42
-text = "Generator Heat"
+text = "Generator Heat Level"
+label_settings = SubResource("LabelSettings_4j2al")
 horizontal_alignment = 1
 
 [node name="TimerLabel" type="Label" parent="ContentContainer/VBoxContainer" unique_id=1918023401]
@@ -51,10 +82,11 @@ theme_override_colors/font_color = Color(0.9, 0.7, 0.2, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 32
 text = "Time: 20.0"
+label_settings = SubResource("LabelSettings_wbynx")
 horizontal_alignment = 1
 
 [node name="GeneratorPanel" type="Control" parent="ContentContainer/VBoxContainer" unique_id=33544958]
-custom_minimum_size = Vector2(300, 350)
+custom_minimum_size = Vector2(450, 600)
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 2
@@ -140,16 +172,17 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 5.0
-offset_top = -10.0
-offset_right = 35.0
-offset_bottom = 10.0
+offset_left = 7.5
+offset_top = -10.5
+offset_right = 45.5
+offset_bottom = 10.5
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.2, 0.9, 0.3, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 14
 text = "80%"
+label_settings = SubResource("LabelSettings_0kp7b")
 
 [node name="DangerLine" type="ColorRect" parent="ContentContainer/VBoxContainer/GeneratorPanel/HeatBarContainer/HeatBar" unique_id=253812605]
 layout_mode = 1
@@ -171,27 +204,24 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 5.0
-offset_top = -10.0
-offset_right = 35.0
-offset_bottom = 10.0
+offset_left = 6.5
+offset_top = -10.5
+offset_right = 44.5
+offset_bottom = 10.5
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.9, 0.3, 0.1, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 14
 text = "20%"
+label_settings = SubResource("LabelSettings_tf7v6")
 
 [node name="DangerLine2" type="ColorRect" parent="ContentContainer/VBoxContainer/GeneratorPanel/HeatBarContainer/HeatBar" unique_id=1915099199]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.8
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 0.8
-offset_top = -252.5
-offset_bottom = -248.5
+offset_bottom = 4.0
 grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 2
 color = Color(0.9, 0.3, 0.1, 1)
 
@@ -202,16 +232,17 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 5.0
-offset_top = -7.0
-offset_right = 81.0
-offset_bottom = 13.0
+offset_left = 4.5
+offset_top = -7.5
+offset_right = 129.5
+offset_bottom = 13.5
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.9, 0.3, 0.1, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 14
 text = "100% - Overload"
+label_settings = SubResource("LabelSettings_tf7v6")
 
 [node name="GeneratorImageContainer" type="Control" parent="ContentContainer/VBoxContainer/GeneratorPanel" unique_id=116047470]
 layout_mode = 1
@@ -219,6 +250,7 @@ anchor_left = 0.4
 anchor_top = 0.1
 anchor_right = 0.95
 anchor_bottom = 0.9
+offset_left = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -244,6 +276,7 @@ theme_override_colors/font_color = Color(0.5, 0.45, 0.4, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 24
 text = "GENERATOR"
+label_settings = SubResource("LabelSettings_bh6vk")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -252,6 +285,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 28
 text = "Tap to begin!"
+label_settings = SubResource("LabelSettings_wcgta")
 horizontal_alignment = 1
 
 [node name="HintLabel" type="Label" parent="ContentContainer/VBoxContainer" unique_id=40687258]
@@ -260,6 +294,7 @@ theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 18
 text = "Tap rapidly to maintain heat above the green line"
+label_settings = SubResource("LabelSettings_tpo1k")
 horizontal_alignment = 1
 
 [node name="TapArea" type="Control" parent="." unique_id=904736861]
@@ -267,5 +302,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 36.0
+offset_right = 2.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2

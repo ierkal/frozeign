@@ -3,6 +3,39 @@
 [ext_resource type="Script" uid="uid://1mr7bqwy7xsq" path="res://Scripts/Minigame/radio_frequency_minigame.gd" id="1_minigame"]
 [ext_resource type="Script" uid="uid://2iabttw3bti1" path="res://Scripts/Minigame/wave_display_drawer.gd" id="2_drawer"]
 [ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="3_font"]
+[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="3_vyyds"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ih6cf"]
+font = ExtResource("3_vyyds")
+font_size = 39
+
+[sub_resource type="LabelSettings" id="LabelSettings_cexqd"]
+font = ExtResource("3_vyyds")
+font_size = 24
+font_color = Color(1, 0.8980392, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iqstx"]
+font = ExtResource("3_vyyds")
+font_size = 14
+font_color = Color(0.77254903, 0.47843137, 0.3254902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wij34"]
+font = ExtResource("3_vyyds")
+font_size = 12
+font_color = Color(0.61745477, 0.61745477, 0.6174547, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g8ejj"]
+font = ExtResource("3_vyyds")
+font_size = 12
+font_color = Color(0.68307734, 0.6830774, 0.68307734, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6mjel"]
+font = ExtResource("3_vyyds")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_ykbvg"]
+font = ExtResource("3_vyyds")
+font_color = Color(0.51718444, 0.5171845, 0.51718444, 1)
 
 [node name="RadioFrequencyMinigame" type="Control" unique_id=1277699127]
 layout_mode = 3
@@ -43,6 +76,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 42
 text = "Radio Tuning"
+label_settings = SubResource("LabelSettings_ih6cf")
 horizontal_alignment = 1
 
 [node name="TimerLabel" type="Label" parent="ContentContainer/VBoxContainer" unique_id=533956637]
@@ -51,6 +85,7 @@ theme_override_colors/font_color = Color(0.9, 0.7, 0.2, 1)
 theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 32
 text = "Time: 20.0"
+label_settings = SubResource("LabelSettings_cexqd")
 horizontal_alignment = 1
 
 [node name="RadioPanel" type="Control" parent="ContentContainer/VBoxContainer" unique_id=223751035]
@@ -147,6 +182,7 @@ theme_override_colors/font_color = Color(0.6, 0.5, 0.4, 1)
 theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 18
 text = "RADIO"
+label_settings = SubResource("LabelSettings_iqstx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -175,6 +211,7 @@ theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
 theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 14
 text = "FREQ"
+label_settings = SubResource("LabelSettings_wij34")
 horizontal_alignment = 1
 
 [node name="PhaseSlider" type="HSlider" parent="ContentContainer/VBoxContainer/RadioPanel" unique_id=1143194105]
@@ -204,6 +241,7 @@ theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
 theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 14
 text = "PHASE"
+label_settings = SubResource("LabelSettings_g8ejj")
 horizontal_alignment = 1
 
 [node name="InstructionLabel" type="Label" parent="ContentContainer/VBoxContainer" unique_id=866529529]
@@ -211,6 +249,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 26
 text = "Tap to begin!"
+label_settings = SubResource("LabelSettings_6mjel")
 horizontal_alignment = 1
 
 [node name="HintLabel" type="Label" parent="ContentContainer/VBoxContainer" unique_id=1638567118]
@@ -219,6 +258,7 @@ theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
 theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 18
 text = "Match the green wave with sliders"
+label_settings = SubResource("LabelSettings_ykbvg")
 horizontal_alignment = 1
 
 [node name="TapArea" type="Control" parent="." unique_id=98240416]

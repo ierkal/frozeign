@@ -1,8 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://bn413rx18pqdq"]
+[gd_scene format=3 uid="uid://bn413rx18pqdq"]
 
-[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="1_baul8"]
 [ext_resource type="Script" uid="uid://dyesrk6ckpgsa" path="res://Scripts/Menu/home_count_item.gd" id="1_kqx8t"]
-[ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="2_kqx8t"]
+[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="2_kqx8t"]
 [ext_resource type="Texture2D" uid="uid://c2g7tqd2s8x0l" path="res://Assets/Sprites/right.png" id="4_uiw8b"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kqx8t"]
@@ -18,12 +17,12 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jsfyh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0ndvq"]
-font = ExtResource("1_baul8")
-font_size = 42
+font = ExtResource("2_kqx8t")
+font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_q7rug"]
-font = ExtResource("1_baul8")
-font_size = 36
+font = ExtResource("2_kqx8t")
+font_size = 24
 
 [sub_resource type="Gradient" id="Gradient_baul8"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -45,7 +44,7 @@ colors = PackedColorArray(1, 0.45882353, 0.20784314, 1, 1, 0.45882353, 0.2078431
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_jsfyh"]
 gradient = SubResource("Gradient_y80hu")
 
-[node name="Panel" type="Panel"]
+[node name="Panel" type="Panel" unique_id=1992250028]
 custom_minimum_size = Vector2(0, 144.74)
 anchors_preset = 10
 anchor_right = 1.0
@@ -53,7 +52,7 @@ grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_kqx8t")
 script = ExtResource("1_kqx8t")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=346882161]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,14 +65,14 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_jejsi")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_y80hu")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jsfyh")
 
-[node name="HomeCountItem" type="VBoxContainer" parent="."]
+[node name="HomeCountItem" type="VBoxContainer" parent="." unique_id=52850579]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 140.0
 grow_horizontal = 2
 
-[node name="ItemTitle" type="Label" parent="HomeCountItem"]
+[node name="ItemTitle" type="Label" parent="HomeCountItem" unique_id=1064395931]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
@@ -82,13 +81,8 @@ text = "Item Title"
 label_settings = SubResource("LabelSettings_0ndvq")
 autowrap_mode = 3
 clip_text = true
-script = ExtResource("2_kqx8t")
-_max_size = 42
-_min_size = 42
-_current_font_size = 42
-_editor_defaults_set = true
 
-[node name="ItemDescription" type="Label" parent="HomeCountItem"]
+[node name="ItemDescription" type="Label" parent="HomeCountItem" unique_id=322399468]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(600, 64)
 layout_mode = 2
@@ -98,20 +92,15 @@ text = "Item DescriptionItem DescriptionItem Description"
 label_settings = SubResource("LabelSettings_q7rug")
 autowrap_mode = 3
 clip_text = true
-script = ExtResource("2_kqx8t")
-_max_size = 36
-_min_size = 36
-_current_font_size = 36
-_editor_defaults_set = true
 
-[node name="TextureRect" type="TextureRect" parent="HomeCountItem"]
+[node name="TextureRect" type="TextureRect" parent="HomeCountItem" unique_id=1143816582]
 custom_minimum_size = Vector2(0, 22)
 layout_mode = 2
 size_flags_vertical = 6
 texture = SubResource("GradientTexture1D_kqx8t")
 stretch_mode = 1
 
-[node name="ProgressBar" type="TextureProgressBar" parent="HomeCountItem/TextureRect"]
+[node name="ProgressBar" type="TextureProgressBar" parent="HomeCountItem/TextureRect" unique_id=265289756]
 unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(0, 18)
@@ -131,7 +120,7 @@ nine_patch_stretch = true
 texture_under = SubResource("GradientTexture1D_jejsi")
 texture_progress = SubResource("GradientTexture1D_jsfyh")
 
-[node name="Arrow" type="TextureRect" parent="."]
+[node name="Arrow" type="TextureRect" parent="." unique_id=1310652101]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0

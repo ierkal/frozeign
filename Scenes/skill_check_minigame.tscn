@@ -4,6 +4,15 @@
 [ext_resource type="Script" uid="uid://qdjrpie1pwt" path="res://Scripts/Minigame/safe_zone_drawer.gd" id="2_drawer"]
 [ext_resource type="Texture2D" uid="uid://dmmhhd8qlh4dd" path="res://Assets/Sprites/check-mark.png" id="2_jyhne"]
 [ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="3_font"]
+[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="4_kjtkk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8xsr1"]
+font = ExtResource("4_kjtkk")
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_5xvca"]
+font = ExtResource("4_kjtkk")
+font_size = 20
 
 [node name="SkillCheckMinigame" type="Control" unique_id=640011979]
 layout_mode = 3
@@ -45,6 +54,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 48
 text = "Pressure Adjusting"
+label_settings = SubResource("LabelSettings_8xsr1")
 horizontal_alignment = 1
 
 [node name="CircleContainer" type="Control" parent="ContentContainer/VBoxContainer" unique_id=1935885872]
@@ -123,6 +133,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 28
 text = "Tap when in green zone!"
+label_settings = SubResource("LabelSettings_5xvca")
 horizontal_alignment = 1
 
 [node name="CheckboxContainer" type="HBoxContainer" parent="ContentContainer/VBoxContainer" unique_id=1346657189]

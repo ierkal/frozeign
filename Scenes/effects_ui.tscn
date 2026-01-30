@@ -1,17 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvjw3u03pjndp"]
+[gd_scene format=3 uid="uid://bvjw3u03pjndp"]
 
 [ext_resource type="Script" uid="uid://c0vb6tqcay4d5" path="res://Scripts/Buffs/effects_ui.gd" id="1_vwfkb"]
 [ext_resource type="PackedScene" uid="uid://dnjrhsnr81xcm" path="res://Scenes/effect_item.tscn" id="2_32e7k"]
-[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="3_ig5wc"]
+[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="3_32e7k"]
 [ext_resource type="PackedScene" uid="uid://to0c4eroteek" path="res://Scenes/close_btn.tscn" id="4_vgcsx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_18kpa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_30nqa"]
-font = ExtResource("3_ig5wc")
-font_size = 44
+font = ExtResource("3_32e7k")
+font_size = 36
 
-[node name="EffectsUI" type="Control"]
+[node name="EffectsUI" type="Control" unique_id=1752888381]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +21,7 @@ grow_vertical = 2
 script = ExtResource("1_vwfkb")
 effect_item_scene = ExtResource("2_32e7k")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=664521640]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,7 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_18kpa")
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="Panel" unique_id=527785463]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -42,7 +42,7 @@ label_settings = SubResource("LabelSettings_30nqa")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1252519152]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,16 +54,16 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer" unique_id=291277356]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="EffectListVbox" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer"]
+[node name="EffectListVbox" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer" unique_id=1938776634]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CloseBtn" parent="." instance=ExtResource("4_vgcsx")]
+[node name="CloseBtn" parent="." unique_id=2057985739 instance=ExtResource("4_vgcsx")]
 visible = false
 layout_mode = 1

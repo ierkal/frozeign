@@ -1,14 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://dh3iui73lwbai"]
+[gd_scene format=3 uid="uid://dh3iui73lwbai"]
 
 [ext_resource type="Script" uid="uid://c7xwphipltatm" path="res://Scripts/Card/card_ui.gd" id="1_y8epe"]
 [ext_resource type="PackedScene" uid="uid://027tabfol74i" path="res://Scenes/buff_info_card.tscn" id="2_buffinfo"]
 [ext_resource type="PackedScene" uid="uid://b8bsyifay8tjn" path="res://Scenes/card.tscn" id="2_y8epe"]
 [ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="3_2ndah"]
-[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="3_278fk"]
+[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="6_vxiou"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_2ndah"]
-font = ExtResource("3_278fk")
-font_size = 38
+[sub_resource type="LabelSettings" id="LabelSettings_y8epe"]
+font = ExtResource("6_vxiou")
+font_size = 28
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cardslot"]
 bg_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
@@ -18,18 +18,18 @@ corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_278fk"]
-font = ExtResource("3_278fk")
-font_size = 32
+font = ExtResource("6_vxiou")
+font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_vxiou"]
-font = ExtResource("3_278fk")
-font_size = 32
+font = ExtResource("6_vxiou")
+font_size = 20
 
-[sub_resource type="LabelSettings" id="LabelSettings_y8epe"]
-font = ExtResource("3_278fk")
-font_size = 32
+[sub_resource type="LabelSettings" id="LabelSettings_2ndah"]
+font = ExtResource("6_vxiou")
+font_size = 26
 
-[node name="Card_UI" type="Control"]
+[node name="Card_UI" type="Control" unique_id=1010778823]
 layout_mode = 3
 anchors_preset = 13
 anchor_left = 0.5
@@ -44,68 +44,67 @@ size_flags_vertical = 4
 script = ExtResource("1_y8epe")
 card_scene = ExtResource("2_y8epe")
 buff_info_card_scene = ExtResource("2_buffinfo")
+card_slot_padding = Vector4(25, 20, 32.005, 15)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 1.5258789e-05
-offset_right = 647.0
-offset_bottom = 815.0
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2134508668]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=867388763]
 layout_mode = 2
 
-[node name="CardDescription" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="CardOwnerName" type="Label" parent="MarginContainer/VBoxContainer" unique_id=806405515]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 160)
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 0
-text = "Our coal is running out of stock. How should we proceed, Chief?Our coal is running out of stock. How should we proceed, Chief?"
-label_settings = SubResource("LabelSettings_2ndah")
+text = "The Steward"
+label_settings = SubResource("LabelSettings_y8epe")
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
 clip_text = true
-max_lines_visible = 3
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1055530639]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CardSlot" type="Panel" parent="MarginContainer/VBoxContainer/Control"]
+[node name="CardSlot" type="Panel" parent="MarginContainer/VBoxContainer/Control" unique_id=957835289]
 unique_name_in_owner = true
 layout_mode = 0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cardslot")
 
-[node name="TextureParent" type="TextureRect" parent="MarginContainer/VBoxContainer/Control"]
+[node name="TextureParent" type="TextureRect" parent="MarginContainer/VBoxContainer/Control" unique_id=569445118]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 66.0
+anchor_bottom = 0.92100006
+offset_bottom = -0.0040283203
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.92
 expand_mode = 1
 
-[node name="Card" parent="MarginContainer/VBoxContainer/Control/TextureParent" instance=ExtResource("2_y8epe")]
-visible = false
+[node name="Card" parent="MarginContainer/VBoxContainer/Control/TextureParent" unique_id=1337337142 instance=ExtResource("2_y8epe")]
 layout_mode = 1
 
-[node name="DecisionTexts" type="Control" parent="MarginContainer/VBoxContainer/Control"]
+[node name="DecisionTexts" type="Control" parent="MarginContainer/VBoxContainer/Control" unique_id=932831816]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control/DecisionTexts"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control/DecisionTexts" unique_id=1299295625]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,12 +113,12 @@ offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ChoiceBGLeft" type="Panel" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer"]
+[node name="ChoiceBGLeft" type="Panel" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer" unique_id=1360522609]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LeftText" type="Label" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer/ChoiceBGLeft"]
+[node name="LeftText" type="Label" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer/ChoiceBGLeft" unique_id=491060626]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -138,12 +137,12 @@ _min_size = 32
 _current_font_size = 32
 _editor_defaults_set = true
 
-[node name="ChoiceBGRight" type="Panel" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer"]
+[node name="ChoiceBGRight" type="Panel" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer" unique_id=2080933365]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RightText" type="Label" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer/ChoiceBGRight"]
+[node name="RightText" type="Label" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer/ChoiceBGRight" unique_id=531806562]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -162,18 +161,20 @@ _min_size = 32
 _current_font_size = 32
 _editor_defaults_set = true
 
-[node name="CardOwnerName" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="CardDescription" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1146398556]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 204)
 layout_mode = 2
-size_flags_vertical = 0
-text = "The Steward"
-label_settings = SubResource("LabelSettings_y8epe")
+size_flags_vertical = 10
+size_flags_stretch_ratio = 0.0
+text = "Our coal is running out of stock. How should we proceed, Chief?Our coal is running out of stock. How should we proceed, Chief?"
+label_settings = SubResource("LabelSettings_2ndah")
 horizontal_alignment = 1
-vertical_alignment = 1
+autowrap_mode = 3
 clip_text = true
+max_lines_visible = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=40528746]
 visible = false
 layout_mode = 1
 anchors_preset = 15

@@ -1,23 +1,59 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1ea2cdb8c3vy"]
+[gd_scene format=3 uid="uid://d1ea2cdb8c3vy"]
 
 [ext_resource type="Texture2D" uid="uid://bkdwbnaw1pvvn" path="res://icon.svg" id="1_4ntvn"]
 [ext_resource type="Script" uid="uid://dh2wfns2d5yg8" path="res://Scripts/Card/card_texture.gd" id="2_1ku8j"]
-[ext_resource type="Shader" path="res://Assets/Shaders/rounded_corners.gdshader" id="3_rounded"]
+[ext_resource type="Shader" uid="uid://belydl7cox4uv" path="res://Assets/Shaders/rounded_corners.gdshader" id="3_rounded"]
+[ext_resource type="Texture2D" uid="uid://dj2qnvk2vyjvr" path="res://Assets/Sprites/cardbg.png" id="4_rear"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rounded"]
 shader = ExtResource("3_rounded")
 shader_parameter/corner_radius = 0.025
 
-[node name="CardTexture" type="TextureRect"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rear"]
+shader = ExtResource("3_rounded")
+shader_parameter/corner_radius = 0.025
+
+[node name="CardTexture" type="TextureRect" unique_id=87499032]
+material = SubResource("ShaderMaterial_rounded")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(309, 215)
-material = SubResource("ShaderMaterial_rounded")
 texture = ExtResource("1_4ntvn")
 stretch_mode = 5
 script = ExtResource("2_1ku8j")
+
+[node name="CardRear" type="TextureRect" parent="." unique_id=123456789]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+material = SubResource("ShaderMaterial_rear")
+texture = ExtResource("4_rear")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NPCImage" type="TextureRect" parent="." unique_id=461292237]
+visible = false
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 49.0
+offset_top = 87.111084
+offset_right = -49.0
+offset_bottom = -87.111084
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

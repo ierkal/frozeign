@@ -78,7 +78,7 @@ func _process(delta: float) -> void:
 		if freq_diff <= match_threshold and phase_diff <= match_threshold:
 			_match_timer += delta
 			instruction_label.text = "Hold it! %.1f" % max(0, match_time_required - _match_timer)
-			instruction_label.add_theme_color_override("font_color", Color(0.2, 0.8, 0.3))
+			LabelUtils.set_font_color(instruction_label, Color(0.2, 0.8, 0.3))
 
 			if _match_timer >= match_time_required:
 				_complete_minigame(true)
@@ -86,7 +86,7 @@ func _process(delta: float) -> void:
 		else:
 			_match_timer = 0.0
 			instruction_label.text = "Adjust the frequency!"
-			instruction_label.remove_theme_color_override("font_color")
+			LabelUtils.remove_font_color(instruction_label)
 
 	# Update wave animation
 	_wave_time += delta
@@ -174,10 +174,10 @@ func _complete_minigame(success: bool) -> void:
 
 	if success:
 		instruction_label.text = "Signal locked!"
-		instruction_label.add_theme_color_override("font_color", Color(0.2, 0.8, 0.3))
+		LabelUtils.set_font_color(instruction_label, Color(0.2, 0.8, 0.3))
 	else:
 		instruction_label.text = "Signal lost..."
-		instruction_label.add_theme_color_override("font_color", Color(0.8, 0.2, 0.2))
+		LabelUtils.set_font_color(instruction_label, Color(0.8, 0.2, 0.2))
 
 	await get_tree().create_timer(1.5).timeout
 

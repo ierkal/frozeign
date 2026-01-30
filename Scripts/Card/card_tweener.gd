@@ -16,8 +16,23 @@ func flip(target: Control) -> void:
 	_kill()
 	_tween = target.create_tween()
 	_tween.tween_property(target, "scale:x", 0.0, cfg.flip_duration)
+	_tween.tween_callback(func(): _swap_card_faces(target))
 	_tween.tween_property(target, "scale:x", 1.0, cfg.flip_duration)
 	_tween.tween_callback(func(): flip_finished.emit())
+
+
+func _swap_card_faces(target: Control) -> void:
+	var card_texture = target.get_node_or_null("CardTexture")
+	if not card_texture:
+		return
+
+	var card_rear = card_texture.get_node_or_null("CardRear")
+	var npc_image = card_texture.get_node_or_null("NPCImage")
+
+	if card_rear:
+		card_rear.visible = false
+	if npc_image:
+		npc_image.visible = true
 
 func reset_transform(target: Control, original_pos: Vector2) -> void:
 	_kill()

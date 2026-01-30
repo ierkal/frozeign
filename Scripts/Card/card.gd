@@ -85,8 +85,9 @@ func _on_thrown_finished() -> void:
 
 func set_npc_image(texture: Texture2D) -> void:
 	"""Set the NPC image on the card."""
-	if card_texture and texture:
-		card_texture.texture = texture
+	var npc_image: TextureRect = card_texture.get_node_or_null("NPCImage")
+	if npc_image and texture:
+		npc_image.texture = texture
 
 
 func set_input_blocked(blocked: bool) -> void:

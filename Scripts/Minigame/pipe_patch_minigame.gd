@@ -435,9 +435,9 @@ func _update_taps_label() -> void:
 	if taps_label:
 		taps_label.text = "Taps: %d" % _taps_remaining
 		if _taps_remaining <= 1:
-			taps_label.add_theme_color_override("font_color", Color(0.9, 0.3, 0.2))
+			LabelUtils.set_font_color(taps_label, Color(0.9, 0.3, 0.2))
 		else:
-			taps_label.remove_theme_color_override("font_color")
+			LabelUtils.remove_font_color(taps_label)
 
 
 func _patch_spot(index: int) -> void:
@@ -472,21 +472,21 @@ func _patch_spot(index: int) -> void:
 
 	# Success feedback
 	instruction_label.text = "Patched!"
-	instruction_label.add_theme_color_override("font_color", Color(0.2, 0.8, 0.3))
+	LabelUtils.set_font_color(instruction_label, Color(0.2, 0.8, 0.3))
 
 	# Reset instruction after brief delay
 	await get_tree().create_timer(0.3).timeout
 	if _current_phase == Phase.ACTIVE:
 		instruction_label.text = "Keep going!"
-		instruction_label.remove_theme_color_override("font_color")
+		LabelUtils.remove_font_color(instruction_label)
 
 
 func _show_miss_feedback() -> void:
 	# Brief red flash on instruction
-	instruction_label.add_theme_color_override("font_color", Color(0.9, 0.3, 0.2))
+	LabelUtils.set_font_color(instruction_label, Color(0.9, 0.3, 0.2))
 	await get_tree().create_timer(0.15).timeout
 	if _current_phase == Phase.ACTIVE:
-		instruction_label.remove_theme_color_override("font_color")
+		LabelUtils.remove_font_color(instruction_label)
 
 
 func _on_run_complete() -> void:
@@ -503,12 +503,12 @@ func _on_run_complete() -> void:
 		# Show checkmark for this run
 		_show_checkmark(_current_run - 1, true)
 		instruction_label.text = "Pipe %d repaired!" % _current_run
-		instruction_label.add_theme_color_override("font_color", Color(0.2, 0.8, 0.3))
+		LabelUtils.set_font_color(instruction_label, Color(0.2, 0.8, 0.3))
 	else:
 		# Run failed
 		_show_checkmark(_current_run - 1, false)
 		instruction_label.text = "Pipe %d failed!" % _current_run
-		instruction_label.add_theme_color_override("font_color", Color(0.9, 0.2, 0.2))
+		LabelUtils.set_font_color(instruction_label, Color(0.9, 0.2, 0.2))
 		await get_tree().create_timer(1.0).timeout
 		_complete_minigame(false)
 		return
@@ -524,7 +524,7 @@ func _on_run_complete() -> void:
 		await get_tree().create_timer(between_run_delay).timeout
 
 		if _current_phase == Phase.BETWEEN_RUNS:
-			instruction_label.remove_theme_color_override("font_color")
+			LabelUtils.remove_font_color(instruction_label)
 			_start_run()
 
 
@@ -560,10 +560,10 @@ func _complete_minigame(success: bool) -> void:
 
 	if success:
 		instruction_label.text = "All pipes repaired!"
-		instruction_label.add_theme_color_override("font_color", Color(0.2, 0.8, 0.3))
+		LabelUtils.set_font_color(instruction_label, Color(0.2, 0.8, 0.3))
 	else:
 		instruction_label.text = "Repair failed!"
-		instruction_label.add_theme_color_override("font_color", Color(0.9, 0.2, 0.2))
+		LabelUtils.set_font_color(instruction_label, Color(0.9, 0.2, 0.2))
 
 	await get_tree().create_timer(1.5).timeout
 

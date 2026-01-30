@@ -4,6 +4,30 @@
 [ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="2_font"]
 [ext_resource type="Texture2D" uid="uid://b78gsr1vnk6pu" path="res://Assets/Sprites/Backgrounds/MainScreen_bg.png" id="2_m4owu"]
 [ext_resource type="Texture2D" uid="uid://bgbksnxbim56f" path="res://Assets/Sprites/ChatGPT Image Nov 11, 2025, 01_41_27 PM.png" id="3_184go"]
+[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="5_184go"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wcqdt"]
+font = ExtResource("5_184go")
+font_size = 38
+
+[sub_resource type="LabelSettings" id="LabelSettings_1tl5j"]
+font = ExtResource("5_184go")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_6jj3f"]
+font = ExtResource("5_184go")
+font_size = 20
+font_color = Color(1, 0.8980392, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1rfgr"]
+font = ExtResource("5_184go")
+font_size = 20
+font_color = Color(1, 0.89411765, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2q1ec"]
+font = ExtResource("5_184go")
+font_size = 20
+font_color = Color(1, 0.8901961, 0, 1)
 
 [node name="SnowClearMinigame" type="Control" unique_id=1336601900]
 layout_mode = 3
@@ -13,8 +37,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_minigame")
-clear_radius = 50.0
-snow_opacity_decrease = 0.08
 particle_spawn_interval = 0.1
 background_images = Array[Texture2D]([ExtResource("2_m4owu"), ExtResource("3_184go"), ExtResource("3_184go")])
 
@@ -87,6 +109,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 48
 text = "Clear the Snow!"
+label_settings = SubResource("LabelSettings_wcqdt")
 horizontal_alignment = 1
 
 [node name="InstructionLabel" type="Label" parent="PreGamePanel/VBoxContainer" unique_id=589996420]
@@ -94,6 +117,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 28
 text = "The building is buried under snow!"
+label_settings = SubResource("LabelSettings_1tl5j")
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -103,6 +127,7 @@ theme_override_colors/font_color = Color(0.9, 0.9, 0.2, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 32
 text = "Tap to start!"
+label_settings = SubResource("LabelSettings_6jj3f")
 horizontal_alignment = 1
 
 [node name="TimerLabel" type="Label" parent="." unique_id=1519156597]
@@ -120,6 +145,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 42
 text = "Time: 20"
+label_settings = SubResource("LabelSettings_1rfgr")
 horizontal_alignment = 1
 
 [node name="HintLabel" type="Label" parent="." unique_id=326956627]
@@ -140,6 +166,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 36
 text = "Swipe over the snow to clear it!"
+label_settings = SubResource("LabelSettings_2q1ec")
 horizontal_alignment = 1
 
 [node name="TapArea" type="Control" parent="." unique_id=1850434868]

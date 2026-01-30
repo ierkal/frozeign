@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8bsyifay8tjn"]
+[gd_scene format=3 uid="uid://b8bsyifay8tjn"]
 
 [ext_resource type="Script" uid="uid://bbi164prxkiwl" path="res://Scripts/Card/card.gd" id="1_eumee"]
 [ext_resource type="Resource" uid="uid://cc3rgolfuk36k" path="res://Resources/Card.tres" id="2_bnspj"]
@@ -6,14 +6,14 @@
 [ext_resource type="Script" uid="uid://2ake0pica1o4" path="res://Scripts/Card/card_decision.gd" id="3_bnspj"]
 [ext_resource type="Script" uid="uid://cqty5jwcwwwb6" path="res://Scripts/Card/card_drag.gd" id="3_e6po8"]
 [ext_resource type="Shader" uid="uid://belydl7cox4uv" path="res://Assets/Shaders/rounded_corners.gdshader" id="4_mm04k"]
-[ext_resource type="Texture2D" uid="uid://dvnrrh86p1mx7" path="res://Assets/Sprites/dummy_npc.png" id="4_u5wvb"]
 [ext_resource type="Script" uid="uid://bnq6gvx10hwgu" path="res://Scripts/Card/card_tweener.gd" id="4_xnv4g"]
+[ext_resource type="Texture2D" uid="uid://3kfj3ysdaisq" path="res://Assets/Sprites/card.png" id="5_u5wvb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yvxpl"]
 shader = ExtResource("4_mm04k")
 shader_parameter/corner_radius = 0.05
 
-[node name="Card" type="Control"]
+[node name="Card" type="Control" unique_id=1337337142]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,44 +27,34 @@ mouse_filter = 2
 script = ExtResource("1_eumee")
 cfg = ExtResource("2_bnspj")
 
-[node name="CardTexture" parent="." instance=ExtResource("2_e6po8")]
+[node name="CardTexture" parent="." unique_id=1516392846 instance=ExtResource("2_e6po8")]
 material = SubResource("ShaderMaterial_yvxpl")
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -308.0
-offset_top = -270.0
-offset_right = 308.0
-offset_bottom = 270.0
-pivot_offset = Vector2(0, 0)
+offset_left = 8.0
+offset_top = 14.0
+offset_right = -8.0
+offset_bottom = -14.444336
+pivot_offset = Vector2(324, 576)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("4_u5wvb")
+texture = ExtResource("5_u5wvb")
 expand_mode = 1
-stretch_mode = 0
 script = null
 
-[node name="CardDrag" type="Control" parent="."]
+[node name="CardDrag" type="Control" parent="." unique_id=870085888]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 73.0
-offset_right = 4.0
-offset_bottom = 73.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_e6po8")
 cfg = ExtResource("2_bnspj")
 
-[node name="CardDecision" type="Node" parent="."]
+[node name="CardDecision" type="Node" parent="." unique_id=318641969]
 script = ExtResource("3_bnspj")
 
-[node name="CardTweener" type="Node" parent="."]
+[node name="CardTweener" type="Node" parent="." unique_id=1765471744]
 script = ExtResource("4_xnv4g")
 cfg = ExtResource("2_bnspj")
 

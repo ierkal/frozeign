@@ -1,17 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbhpoouridre6"]
+[gd_scene format=3 uid="uid://bbhpoouridre6"]
 
 [ext_resource type="Script" uid="uid://bdc1wsxt6x1xd" path="res://Scripts/Menu/settings_ui.gd" id="1_settings"]
-[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="2_font"]
+[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="2_1k4ne"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_panel"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_title"]
-font = ExtResource("2_font")
-font_size = 44
+font = ExtResource("2_1k4ne")
+font_size = 38
 
 [sub_resource type="LabelSettings" id="LabelSettings_label"]
-font = ExtResource("2_font")
-font_size = 32
+font = ExtResource("2_1k4ne")
+font_size = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slider_bg"]
 bg_color = Color(0.4, 0.4, 0.4, 1)
@@ -32,7 +32,7 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[node name="SettingsUI" type="Control"]
+[node name="SettingsUI" type="Control" unique_id=523849313]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,7 +41,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_settings")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1910872349]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,7 +50,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_panel")
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="Panel" unique_id=624264220]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -62,7 +62,7 @@ label_settings = SubResource("LabelSettings_title")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=2008976015]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,24 +74,24 @@ theme_override_constants/margin_top = 120
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 25
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1960807480]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="MusicContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="MusicContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1073740034]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="MusicLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/MusicContainer"]
+[node name="MusicLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/MusicContainer" unique_id=946271359]
 layout_mode = 2
 text = "Music Volume"
 label_settings = SubResource("LabelSettings_label")
 
-[node name="MusicHBox" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MusicContainer"]
+[node name="MusicHBox" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MusicContainer" unique_id=1017619526]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="MusicSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/MusicContainer/MusicHBox"]
+[node name="MusicSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/MusicContainer/MusicHBox" unique_id=2083568603]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
@@ -101,7 +101,7 @@ theme_override_styles/grabber_area = SubResource("StyleBoxFlat_slider_fill")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_slider_fill")
 value = 80.0
 
-[node name="MusicValue" type="Label" parent="Panel/MarginContainer/VBoxContainer/MusicContainer/MusicHBox"]
+[node name="MusicValue" type="Label" parent="Panel/MarginContainer/VBoxContainer/MusicContainer/MusicHBox" unique_id=1409859296]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
@@ -109,20 +109,20 @@ text = "80%"
 label_settings = SubResource("LabelSettings_label")
 horizontal_alignment = 2
 
-[node name="SFXContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="SFXContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1322309367]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="SFXLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/SFXContainer"]
+[node name="SFXLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/SFXContainer" unique_id=879408058]
 layout_mode = 2
 text = "SFX Volume"
 label_settings = SubResource("LabelSettings_label")
 
-[node name="SFXHBox" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/SFXContainer"]
+[node name="SFXHBox" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/SFXContainer" unique_id=1646928433]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="SFXSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/SFXContainer/SFXHBox"]
+[node name="SFXSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/SFXContainer/SFXHBox" unique_id=704087177]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
@@ -132,7 +132,7 @@ theme_override_styles/grabber_area = SubResource("StyleBoxFlat_slider_fill")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_slider_fill")
 value = 80.0
 
-[node name="SFXValue" type="Label" parent="Panel/MarginContainer/VBoxContainer/SFXContainer/SFXHBox"]
+[node name="SFXValue" type="Label" parent="Panel/MarginContainer/VBoxContainer/SFXContainer/SFXHBox" unique_id=1835362087]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
@@ -140,30 +140,30 @@ text = "80%"
 label_settings = SubResource("LabelSettings_label")
 horizontal_alignment = 2
 
-[node name="LanguageContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="LanguageContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=2139249519]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="LanguageLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/LanguageContainer"]
+[node name="LanguageLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/LanguageContainer" unique_id=1081653973]
 layout_mode = 2
 text = "Language"
 label_settings = SubResource("LabelSettings_label")
 
-[node name="LanguageDropdown" type="OptionButton" parent="Panel/MarginContainer/VBoxContainer/LanguageContainer"]
+[node name="LanguageDropdown" type="OptionButton" parent="Panel/MarginContainer/VBoxContainer/LanguageContainer" unique_id=38772041]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_font")
-theme_override_font_sizes/font_size = 28
+theme_override_fonts/font = ExtResource("2_1k4ne")
+theme_override_font_sizes/font_size = 22
 selected = 0
 item_count = 1
 popup/item_0/text = "English"
 popup/item_0/id = 0
 
-[node name="LanguageDropdownPopup" type="PopupMenu" parent="Panel/MarginContainer/VBoxContainer/LanguageContainer/LanguageDropdown"]
+[node name="LanguageDropdownPopup" type="PopupMenu" parent="Panel/MarginContainer/VBoxContainer/LanguageContainer/LanguageDropdown" unique_id=1596362584]
 oversampling_override = 1.0
-theme_override_fonts/font = ExtResource("2_font")
-theme_override_font_sizes/font_size = 28
+theme_override_fonts/font = ExtResource("2_1k4ne")
+theme_override_font_sizes/font_size = 22
 
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/MusicContainer/MusicHBox/MusicSlider" to="." method="_on_music_slider_changed"]
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/SFXContainer/SFXHBox/SFXSlider" to="." method="_on_sfx_slider_changed"]

@@ -1,18 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://b46lgfx1p243y"]
+[gd_scene format=3 uid="uid://b46lgfx1p243y"]
 
 [ext_resource type="Script" uid="uid://dn7ikwxxm0otj" path="res://Scripts/Quest/quest_ui.gd" id="1_vg0qh"]
 [ext_resource type="PackedScene" uid="uid://coxxcvpe3x2b0" path="res://Scenes/quest_item.tscn" id="2_mv1j6"]
-[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="3_18kpa"]
+[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="3_30nqa"]
 [ext_resource type="PackedScene" uid="uid://to0c4eroteek" path="res://Scenes/close_btn.tscn" id="4_30nqa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30nqa"]
 bg_color = Color(0.033853274, 0.03385329, 0.033853233, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_30nqa"]
-font = ExtResource("3_18kpa")
-font_size = 44
+font = ExtResource("3_30nqa")
+font_size = 38
 
-[node name="QuestUI" type="Control"]
+[node name="QuestUI" type="Control" unique_id=521096160]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +22,7 @@ grow_vertical = 2
 script = ExtResource("1_vg0qh")
 quest_item_scene = ExtResource("2_mv1j6")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1911845311]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,7 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_30nqa")
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="Panel" unique_id=1638185822]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -43,7 +43,7 @@ label_settings = SubResource("LabelSettings_30nqa")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=75332903]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,15 +55,15 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer" unique_id=701209110]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="QuestListVbox" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer"]
+[node name="QuestListVbox" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer" unique_id=715800398]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CloseBtn" parent="." instance=ExtResource("4_30nqa")]
+[node name="CloseBtn" parent="." unique_id=1624883434 instance=ExtResource("4_30nqa")]
 layout_mode = 1

@@ -79,7 +79,7 @@ func _process(delta: float) -> void:
 		# Check for overload (instant fail)
 		if _heat_value >= overload_threshold:
 			instruction_label.text = "OVERLOAD!"
-			instruction_label.add_theme_color_override("font_color", Color(0.9, 0.2, 0.1))
+			LabelUtils.set_font_color(instruction_label, Color(0.9, 0.2, 0.1))
 			_complete_minigame(false)
 			return
 
@@ -90,7 +90,7 @@ func _process(delta: float) -> void:
 
 			var remaining = hold_time_required - _success_timer
 			instruction_label.text = "HOLD IT! %.1f" % max(0, remaining)
-			instruction_label.add_theme_color_override("font_color", Color(0.2, 0.8, 0.3))
+			LabelUtils.set_font_color(instruction_label, Color(0.2, 0.8, 0.3))
 
 			if _success_timer >= hold_time_required:
 				_complete_minigame(true)
@@ -104,10 +104,10 @@ func _process(delta: float) -> void:
 			var countdown = danger_countdown - _danger_timer
 			if countdown > 0:
 				instruction_label.text = "DANGER! %.0f" % ceil(countdown)
-				instruction_label.add_theme_color_override("font_color", Color(0.9, 0.3, 0.1))
+				LabelUtils.set_font_color(instruction_label, Color(0.9, 0.3, 0.1))
 			else:
 				instruction_label.text = "SHUTDOWN!"
-				instruction_label.add_theme_color_override("font_color", Color(0.8, 0.2, 0.2))
+				LabelUtils.set_font_color(instruction_label, Color(0.8, 0.2, 0.2))
 				_complete_minigame(false)
 				return
 
@@ -116,7 +116,7 @@ func _process(delta: float) -> void:
 			_success_timer = 0.0
 			_danger_timer = 0.0
 			instruction_label.text = "TAP TO HEAT UP!"
-			instruction_label.remove_theme_color_override("font_color")
+			LabelUtils.remove_font_color(instruction_label)
 
 		# Update visual
 		_update_heat_bar()
@@ -207,7 +207,7 @@ func _complete_minigame(success: bool) -> void:
 
 	if success:
 		instruction_label.text = "Generator Stable!"
-		instruction_label.add_theme_color_override("font_color", Color(0.2, 0.8, 0.3))
+		LabelUtils.set_font_color(instruction_label, Color(0.2, 0.8, 0.3))
 	else:
 		if _heat_value >= overload_threshold:
 			instruction_label.text = "Generator Overloaded!"
@@ -215,7 +215,7 @@ func _complete_minigame(success: bool) -> void:
 			instruction_label.text = "Generator Shutdown!"
 		else:
 			instruction_label.text = "Time's Up!"
-		instruction_label.add_theme_color_override("font_color", Color(0.8, 0.2, 0.2))
+		LabelUtils.set_font_color(instruction_label, Color(0.8, 0.2, 0.2))
 
 	await get_tree().create_timer(1.5).timeout
 

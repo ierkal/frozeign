@@ -10,6 +10,7 @@ const SIDE_RIGHT := "right"
 
 @export var card_scene: PackedScene
 @export var buff_info_card_scene: PackedScene
+@export var card_slot_padding: Vector4 = Vector4(0, 0, 0, 0)  ## Padding for CardSlot (left, top, right, bottom)
 
 @onready var card_owner_name: Label = %CardOwnerName
 @onready var card_description: Label = %CardDescription
@@ -120,23 +121,52 @@ func _sync_card_slot() -> void:
 		return
 
 	# Get the CardTexture node from the card
-	var card_texture: Control = _card.get_node_or_null("CardTexture")
+	var card_texture: TextureRect = _card.get_node_or_null("CardTexture")
 	if not card_texture:
 		return
 
-	# Get CardTexture's global rect
-	var texture_global_rect := card_texture.get_global_rect()
+	# Calculate the actual visible texture rect (accounting for aspect ratio)
+	var visible_rect := _get_visible_texture_rect(card_texture)
 
 	# Convert to local coordinates relative to CardSlot's parent
 	var slot_parent := card_slot.get_parent() as Control
 	if not slot_parent:
 		return
 
-	var local_pos := slot_parent.get_global_transform().affine_inverse() * texture_global_rect.position
+	var local_pos := slot_parent.get_global_transform().affine_inverse() * visible_rect.position
 
-	# Set CardSlot to match exactly
-	card_slot.position = local_pos
-	card_slot.size = texture_global_rect.size
+	# Apply padding (left, top, right, bottom)
+	var padded_pos := local_pos + Vector2(card_slot_padding.x, card_slot_padding.y)
+	var padded_size := visible_rect.size - Vector2(card_slot_padding.x + card_slot_padding.z, card_slot_padding.y + card_slot_padding.w)
+
+	# Set CardSlot to match with padding
+	card_slot.position = padded_pos
+	card_slot.size = padded_size
+
+
+func _get_visible_texture_rect(tex_rect: TextureRect) -> Rect2:
+	"""Calculate the actual visible texture rect accounting for stretch mode."""
+	var texture := tex_rect.texture
+	if not texture:
+		return tex_rect.get_global_rect()
+
+	var container_rect := tex_rect.get_global_rect()
+	var texture_size := Vector2(texture.get_width(), texture.get_height())
+
+	# For STRETCH_KEEP_ASPECT_CENTERED (mode 5), calculate actual visible size
+	if tex_rect.stretch_mode == TextureRect.STRETCH_KEEP_ASPECT_CENTERED:
+		var container_size: Vector2 = container_rect.size
+		var scale_x: float = container_size.x / texture_size.x
+		var scale_y: float = container_size.y / texture_size.y
+		var tex_scale: float = min(scale_x, scale_y)
+
+		var visible_size: Vector2 = texture_size * tex_scale
+		var offset: Vector2 = (container_size - visible_size) / 2.0
+
+		return Rect2(container_rect.position + offset, visible_size)
+
+	# For other modes, just return the container rect
+	return container_rect
 
 
 func _on_resized() -> void:
