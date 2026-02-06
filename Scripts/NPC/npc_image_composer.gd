@@ -11,8 +11,8 @@ const PROFESSION_PARTS := {
 	"Hunter": { "hat": "", "body": "" },
 	"Priest": { "hat": "", "body": "" },
 	"Inventory Manager": { "hat": "", "body": "" },
-	"Inspector": { "hat": "", "body": "" },
-	"Workers Council": { "hat": "", "body": "" }
+	"Guild": { "hat": "", "body": "" },
+	"Syndicate": { "hat": "", "body": "" }
 }
 
 # Layer order for compositing (back to front)

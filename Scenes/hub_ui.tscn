@@ -1,0 +1,279 @@
+[gd_scene format=3 uid="uid://3yh02q8dosth"]
+
+[ext_resource type="Script" uid="uid://cq3oad15evxfm" path="res://Scripts/Menu/hub_ui.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="2_font"]
+[ext_resource type="Texture2D" uid="uid://ch47vuvvpgyqn" path="res://Assets/Sprites/dollar.png" id="3_ba6ll"]
+[ext_resource type="PackedScene" uid="uid://to0c4eroteek" path="res://Scenes/close_btn.tscn" id="3_close_btn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.033853274, 0.03385329, 0.033853233, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_resource_bar"]
+bg_color = Color(0.1, 0.1, 0.12, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25, 0.25, 0.3, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tab_btn"]
+bg_color = Color(0.15, 0.15, 0.15, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="HubUI" type="Control" unique_id=1498488703]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Panel" type="Panel" parent="." unique_id=1772269905]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="TitleLabel" type="Label" parent="Panel" unique_id=1733630374]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+text = "Inventory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContentContainer" type="Control" parent="Panel" unique_id=938157975]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 70.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryContent" type="MarginContainer" parent="Panel/ContentContainer" unique_id=1929889099]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/ContentContainer/InventoryContent" unique_id=149231983]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ContentContainer/InventoryContent/ScrollContainer" unique_id=1517635682]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="ResourcesLabel" type="Label" parent="Panel/ContentContainer/InventoryContent/ScrollContainer/VBoxContainer" unique_id=303514787]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+text = "Resources"
+
+[node name="CoinResource" type="Panel" parent="Panel/ContentContainer/InventoryContent/ScrollContainer/VBoxContainer" unique_id=2142969674]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_resource_bar")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ContentContainer/InventoryContent/ScrollContainer/VBoxContainer/CoinResource" unique_id=1316100779]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_right = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="CoinIcon" type="TextureRect" parent="Panel/ContentContainer/InventoryContent/ScrollContainer/VBoxContainer/CoinResource/HBoxContainer" unique_id=1806652520]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_ba6ll")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoinLabel" type="Label" parent="Panel/ContentContainer/InventoryContent/ScrollContainer/VBoxContainer/CoinResource/HBoxContainer" unique_id=841243746]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 24
+text = "0"
+vertical_alignment = 1
+
+[node name="CoinName" type="Label" parent="Panel/ContentContainer/InventoryContent/ScrollContainer/VBoxContainer/CoinResource/HBoxContainer" unique_id=1710192461]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 16
+text = "Coins"
+vertical_alignment = 1
+
+[node name="ItemsSection" type="VBoxContainer" parent="Panel/ContentContainer/InventoryContent/ScrollContainer/VBoxContainer" unique_id=1122334455]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+
+[node name="ItemsLabel" type="Label" parent="Panel/ContentContainer/InventoryContent/ScrollContainer/VBoxContainer/ItemsSection" unique_id=1342561846]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+text = "Items"
+
+[node name="ItemsContainer" type="VBoxContainer" parent="Panel/ContentContainer/InventoryContent/ScrollContainer/VBoxContainer/ItemsSection" unique_id=1122334456]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="TradeRouteContent" type="MarginContainer" parent="Panel/ContentContainer" unique_id=724249605]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/ContentContainer/TradeRouteContent" unique_id=1382156446]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ContentContainer/TradeRouteContent/ScrollContainer" unique_id=723240167]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlaceholderLabel" type="Label" parent="Panel/ContentContainer/TradeRouteContent/ScrollContainer/VBoxContainer" unique_id=2056019191]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 20
+text = "Trade Route content will go here..."
+horizontal_alignment = 1
+
+[node name="UpgradesContent" type="MarginContainer" parent="Panel/ContentContainer" unique_id=1893814071]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/ContentContainer/UpgradesContent" unique_id=937974332]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ContentContainer/UpgradesContent/ScrollContainer" unique_id=1208187153]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlaceholderLabel" type="Label" parent="Panel/ContentContainer/UpgradesContent/ScrollContainer/VBoxContainer" unique_id=1160746240]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 20
+text = "Upgrades content will go here..."
+horizontal_alignment = 1
+
+[node name="TabContainer" type="HBoxContainer" parent="Panel" unique_id=532884211]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -70.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="TabInventory" type="Button" parent="Panel/TabContainer" unique_id=1356405292]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_tab_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tab_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tab_btn")
+text = "1"
+icon_alignment = 1
+expand_icon = true
+
+[node name="TabTradeRoute" type="Button" parent="Panel/TabContainer" unique_id=1226162370]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_tab_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tab_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tab_btn")
+text = "2"
+icon_alignment = 1
+expand_icon = true
+
+[node name="TabUpgrades" type="Button" parent="Panel/TabContainer" unique_id=1088165080]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_tab_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tab_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tab_btn")
+text = "3"
+icon_alignment = 1
+expand_icon = true
+
+[node name="CloseBtn" parent="." unique_id=465415415 instance=ExtResource("3_close_btn")]
+layout_mode = 1

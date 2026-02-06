@@ -8,16 +8,6 @@
 [ext_resource type="Script" uid="uid://ch33aoqmmwgj7" path="res://Scripts/Buffs/active_buffs_ui.gd" id="5_sm1l2"]
 [ext_resource type="PackedScene" uid="uid://cpgnvcic23yn7" path="res://Scenes/buff_texture.tscn" id="6_qqtd1"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rnqkj"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oxlb5"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tosxb"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4g6fi"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iaajx"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqtd1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4g6fi"]
@@ -34,6 +24,16 @@ font_size = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g6fi"]
 bg_color = Color(0.54340523, 0.7180224, 0.86675054, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rnqkj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oxlb5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tosxb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4g6fi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iaajx"]
 
 [node name="SurvivedDays" type="Control" unique_id=820952077]
 layout_mode = 3
@@ -56,20 +56,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_qqtd1")
 expand_mode = 1
-
-[node name="MenuButton" type="Button" parent="." unique_id=2011248772]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_rnqkj")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_oxlb5")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_tosxb")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_4g6fi")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_iaajx")
-script = ExtResource("2_tosxb")
 
 [node name="Panel" type="Panel" parent="." unique_id=294318839]
 layout_mode = 1
@@ -193,3 +179,17 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_4g6fi")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_4g6fi")
+
+[node name="MenuButton" type="Button" parent="." unique_id=2011248772]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rnqkj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oxlb5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tosxb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4g6fi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iaajx")
+script = ExtResource("2_tosxb")

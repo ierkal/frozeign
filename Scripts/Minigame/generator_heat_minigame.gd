@@ -126,7 +126,7 @@ func show_minigame(card_data: Dictionary) -> void:
 	_card_data = card_data
 	_reset_state()
 
-	title_label.text = "Generator Heat"
+	title_label.text = "Steam Hub Heat"
 	instruction_label.text = "Tap to begin!"
 	hint_label.text = "Tap rapidly to maintain heat above the green line"
 	timer_label.text = "Time: %.1f" % time_limit
@@ -206,13 +206,13 @@ func _complete_minigame(success: bool) -> void:
 	_current_phase = Phase.COMPLETED
 
 	if success:
-		instruction_label.text = "Generator Stable!"
+		instruction_label.text = "Steam Hub Stable!"
 		LabelUtils.set_font_color(instruction_label, Color(0.2, 0.8, 0.3))
 	else:
 		if _heat_value >= overload_threshold:
-			instruction_label.text = "Generator Overloaded!"
+			instruction_label.text = "Steam Hub Overloaded!"
 		elif _heat_value <= danger_threshold:
-			instruction_label.text = "Generator Shutdown!"
+			instruction_label.text = "Steam Hub Shutdown!"
 		else:
 			instruction_label.text = "Time's Up!"
 		LabelUtils.set_font_color(instruction_label, Color(0.8, 0.2, 0.2))

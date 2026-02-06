@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dihplp2ct2wv4"]
+[gd_scene format=3 uid="uid://dihplp2ct2wv4"]
 
 [ext_resource type="Script" uid="uid://dfg8yyl72e2v8" path="res://Scripts/Manager/game_manager.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://b570hdnewxoqv" path="res://Scenes/container_ui.tscn" id="1_wrm1d"]
@@ -19,70 +19,84 @@
 [ext_resource type="PackedScene" uid="uid://d1n2q0620gau0" path="res://Scenes/card_unlock_animation.tscn" id="14_unlock"]
 [ext_resource type="PackedScene" uid="uid://dovjv67r8i5dv" path="res://Scenes/death_screen.tscn" id="15_death"]
 [ext_resource type="PackedScene" uid="uid://dunl1d8c67v3r" path="res://Scenes/skill_check_minigame.tscn" id="16_minigame"]
-[ext_resource type="PackedScene" path="res://Scenes/radio_frequency_minigame.tscn" id="17_radio_minigame"]
-[ext_resource type="PackedScene" path="res://Scenes/generator_heat_minigame.tscn" id="18_generator_heat_minigame"]
-[ext_resource type="PackedScene" path="res://Scenes/pipe_patch_minigame.tscn" id="19_pipe_patch_minigame"]
-[ext_resource type="PackedScene" path="res://Scenes/snow_clear_minigame.tscn" id="20_snow_clear_minigame"]
+[ext_resource type="PackedScene" uid="uid://ds5a3tmaomtc" path="res://Scenes/radio_frequency_minigame.tscn" id="17_radio_minigame"]
+[ext_resource type="PackedScene" uid="uid://cvcaemna745ri" path="res://Scenes/generator_heat_minigame.tscn" id="18_generator_heat_minigame"]
+[ext_resource type="PackedScene" uid="uid://dxud5qu5fi86c" path="res://Scenes/pipe_patch_minigame.tscn" id="19_pipe_patch_minigame"]
+[ext_resource type="PackedScene" uid="uid://cb4txjam154bm" path="res://Scenes/snow_clear_minigame.tscn" id="20_snow_clear_minigame"]
+[ext_resource type="Script" uid="uid://oillaa7vx1fc" path="res://Scripts/Manager/currency_manager.gd" id="21_currency_manager"]
+[ext_resource type="PackedScene" uid="uid://3yh02q8dosth" path="res://Scenes/hub_ui.tscn" id="21_hub_ui"]
+[ext_resource type="PackedScene" uid="uid://e30ae74tpux4" path="res://Scenes/reward_popup.tscn" id="22_reward_popup"]
+[ext_resource type="Script" uid="uid://dxl7vnir1xwgb" path="res://Scripts/Manager/item_manager.gd" id="23_item_manager"]
+[ext_resource type="PackedScene" uid="uid://b80x8txcqw52u" path="res://Scenes/shop_panel.tscn" id="24_shop_panel"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rfjv2"]
 font = ExtResource("11_rku1e")
 font_size = 42
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=309508424]
 script = ExtResource("1_3dryh")
 
-[node name="ChiefManager" type="Node2D" parent="."]
+[node name="ChiefManager" type="Node2D" parent="." unique_id=1348726998]
 unique_name_in_owner = true
 script = ExtResource("2_rfjv2")
 
-[node name="QuestManager" type="Node2D" parent="." node_paths=PackedStringArray("deck_ref")]
+[node name="QuestManager" type="Node2D" parent="." unique_id=1323691593 node_paths=PackedStringArray("deck_ref")]
 unique_name_in_owner = true
 script = ExtResource("2_v158k")
 deck_ref = NodePath("../Deck")
 
-[node name="Deck" type="Node2D" parent="."]
+[node name="Deck" type="Node2D" parent="." unique_id=1987337852]
 unique_name_in_owner = true
 script = ExtResource("2_1l0tm")
 
-[node name="StatsManager" type="Node2D" parent="."]
+[node name="StatsManager" type="Node2D" parent="." unique_id=1125249807]
 unique_name_in_owner = true
 script = ExtResource("3_v158k")
 
-[node name="CharacterRepository" type="Node2D" parent="."]
+[node name="CharacterRepository" type="Node2D" parent="." unique_id=1265787191]
 unique_name_in_owner = true
 script = ExtResource("6_1phco")
 
-[node name="BuffManager" type="Node2D" parent="."]
+[node name="BuffManager" type="Node2D" parent="." unique_id=1329635969]
 unique_name_in_owner = true
 script = ExtResource("7_nb51f")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CurrencyManager" type="Node" parent="." unique_id=1562966005]
+unique_name_in_owner = true
+script = ExtResource("21_currency_manager")
+debug_add_coins = true
 
-[node name="Container_UI" parent="CanvasLayer" instance=ExtResource("1_wrm1d")]
+[node name="ItemManager" type="Node" parent="." unique_id=1346882717]
+unique_name_in_owner = true
+script = ExtResource("23_item_manager")
 
-[node name="CardUnlockAnimation" parent="CanvasLayer/Container_UI" instance=ExtResource("14_unlock")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1980440209]
+
+[node name="Container_UI" parent="CanvasLayer" unique_id=1455000818 instance=ExtResource("1_wrm1d")]
+
+[node name="CardUnlockAnimation" parent="CanvasLayer/Container_UI" unique_id=1481506715 instance=ExtResource("14_unlock")]
 unique_name_in_owner = true
 layout_mode = 1
 spawn_delay = 0.2
 
-[node name="Card_UI" parent="CanvasLayer/Container_UI" instance=ExtResource("2_3dryh")]
+[node name="Card_UI" parent="CanvasLayer/Container_UI" unique_id=285046814 instance=ExtResource("2_3dryh")]
 unique_name_in_owner = true
 layout_mode = 1
 offset_top = 150.0
 offset_bottom = -150.0
 
-[node name="StatsUI" parent="CanvasLayer/Container_UI" instance=ExtResource("3_wowpa")]
+[node name="StatsUI" parent="CanvasLayer/Container_UI" unique_id=1645844422 instance=ExtResource("3_wowpa")]
 unique_name_in_owner = true
 layout_mode = 1
 offset_top = -1.0
 offset_bottom = 147.0
 metadata/_edit_use_anchors_ = true
 
-[node name="SurvivedDays" parent="CanvasLayer/Container_UI" instance=ExtResource("7_1l0tm")]
+[node name="SurvivedDays" parent="CanvasLayer/Container_UI" unique_id=1237315317 instance=ExtResource("7_1l0tm")]
 unique_name_in_owner = true
 layout_mode = 1
 
-[node name="BuffScreenEffect" parent="CanvasLayer/Container_UI" instance=ExtResource("13_buff")]
+[node name="BuffScreenEffect" parent="CanvasLayer/Container_UI" unique_id=2134661079 instance=ExtResource("13_buff")]
 unique_name_in_owner = true
 layout_mode = 1
 contrast = 1.1
@@ -91,43 +105,59 @@ brightness = 0.05000000000000004
 tint_color = Color(0.602431, 0.9285481, 0.99999994, 1)
 tint_strength = 0.296
 
-[node name="HomeMenuUI" parent="CanvasLayer/Container_UI" instance=ExtResource("10_rfjv2")]
+[node name="HomeMenuUI" parent="CanvasLayer/Container_UI" unique_id=1272587904 instance=ExtResource("10_rfjv2")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="DeathScreen" parent="CanvasLayer/Container_UI" instance=ExtResource("15_death")]
+[node name="HubUI" parent="CanvasLayer/Container_UI" unique_id=42300817 instance=ExtResource("21_hub_ui")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="SkillCheckMinigame" parent="CanvasLayer/Container_UI" instance=ExtResource("16_minigame")]
+[node name="DeathScreen" parent="CanvasLayer/Container_UI" unique_id=176838705 instance=ExtResource("15_death")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="RadioFrequencyMinigame" parent="CanvasLayer/Container_UI" instance=ExtResource("17_radio_minigame")]
+[node name="SkillCheckMinigame" parent="CanvasLayer/Container_UI" unique_id=2072145613 instance=ExtResource("16_minigame")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="GeneratorHeatMinigame" parent="CanvasLayer/Container_UI" instance=ExtResource("18_generator_heat_minigame")]
+[node name="RadioFrequencyMinigame" parent="CanvasLayer/Container_UI" unique_id=1143893269 instance=ExtResource("17_radio_minigame")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="PipePatchMinigame" parent="CanvasLayer/Container_UI" instance=ExtResource("19_pipe_patch_minigame")]
+[node name="GeneratorHeatMinigame" parent="CanvasLayer/Container_UI" unique_id=1015534149 instance=ExtResource("18_generator_heat_minigame")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="SnowClearMinigame" parent="CanvasLayer/Container_UI" instance=ExtResource("20_snow_clear_minigame")]
+[node name="PipePatchMinigame" parent="CanvasLayer/Container_UI" unique_id=460358522 instance=ExtResource("19_pipe_patch_minigame")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="QuestCompletedNotification" type="Panel" parent="CanvasLayer/Container_UI"]
+[node name="SnowClearMinigame" parent="CanvasLayer/Container_UI" unique_id=630659567 instance=ExtResource("20_snow_clear_minigame")]
 unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="ShopPanel" parent="CanvasLayer/Container_UI" unique_id=743032020 instance=ExtResource("24_shop_panel")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="RewardPopup" parent="CanvasLayer/Container_UI" unique_id=1402209413 instance=ExtResource("22_reward_popup")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="QuestCompletedNotification" type="Panel" parent="CanvasLayer/Container_UI" unique_id=1788875823]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -136,7 +166,8 @@ grow_horizontal = 2
 script = ExtResource("10_rku1e")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer/Container_UI/QuestCompletedNotification"]
+[node name="Label" type="Label" parent="CanvasLayer/Container_UI/QuestCompletedNotification" unique_id=789193127]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

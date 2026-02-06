@@ -119,6 +119,40 @@ func get_or_create_npc(npc_name: String) -> Dictionary:
 	return npc_data
 
 
+func get_or_create_stranger() -> Dictionary:
+	"""Get or create The Stranger - a special NPC with fixed appearance.
+	The Stranger is NOT a council member or profession - just a unique merchant NPC."""
+	var stranger_name = "The Stranger"
+
+	if _npcs.has(stranger_name):
+		return _npcs[stranger_name]
+
+	# Create The Stranger with a fixed seed for consistent appearance
+	var old_seed = randi()
+	seed(12345)  # Fixed seed for consistent Stranger appearance
+
+	var npc_data = {
+		"name": stranger_name,
+		"face": _get_random_part("face"),
+		"eye": _get_random_part("eye"),
+		"mouth": _get_random_part("mouth"),
+		"nose": _get_random_part("nose"),
+		"body": _get_random_part("body"),
+		"hat": _get_random_part("hat"),
+		"profession": "",
+		"is_council": false
+	}
+
+	# Restore randomness
+	seed(old_seed)
+	randomize()
+
+	_npcs[stranger_name] = npc_data
+	print("NpcGenerator: Created The Stranger")
+
+	return npc_data
+
+
 func _generate_random_appearance(npc_name: String) -> Dictionary:
 	"""Generate random appearance parts for an NPC."""
 	var npc_data = {

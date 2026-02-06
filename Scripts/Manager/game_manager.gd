@@ -47,9 +47,18 @@ var _dying_chief_name: String = ""  # Store dying chief's name before picking ne
 @onready var generator_heat_minigame: GeneratorHeatMinigame = %GeneratorHeatMinigame
 @onready var pipe_patch_minigame: PipePatchMinigame = %PipePatchMinigame
 @onready var snow_clear_minigame: SnowClearMinigame = %SnowClearMinigame
+@onready var currency_manager: CurrencyManager = %CurrencyManager
+@onready var reward_popup: RewardPopup = %RewardPopup
+@onready var hub_ui: HubUI = %HubUI
+@onready var item_manager: ItemManager = %ItemManager
+@onready var shop_panel: ShopPanel = %ShopPanel
 
 var _buff_intro_active: bool = false
 var _minigame_active: bool = false
+var _shop_active: bool = false
+var _pending_minigame_result: Dictionary = {}  # Stores minigame result while popup is shown
+var _pending_shop_purchase: Dictionary = {}  # Stores purchase result while popup is shown
+var _coin_icon: Texture2D = preload("res://Assets/Sprites/dollar.png")
 
 func _ready() -> void:
 	add_to_group("GameManager")
@@ -116,6 +125,29 @@ func _ready() -> void:
 	if snow_clear_minigame:
 		snow_clear_minigame.minigame_completed.connect(_on_snow_clear_completed)
 
+	# Setup reward popup
+	if reward_popup:
+		reward_popup.popup_closed.connect(_on_reward_popup_closed)
+
+	# Setup item manager
+	if item_manager:
+		item_manager.setup(stats)
+		item_manager.load_items_from_file(GameConstants.JSON_PATH_ITEMS)
+
+	# Setup hub UI with currency manager and item manager
+	if hub_ui:
+		hub_ui.setup(currency_manager, item_manager)
+		hub_ui.item_use_requested.connect(_on_item_use_requested)
+
+	# Setup shop panel
+	if shop_panel:
+		shop_panel.setup(currency_manager, item_manager)
+		shop_panel.item_purchased.connect(_on_shop_item_purchased)
+		shop_panel.shop_closed.connect(_on_shop_closed)
+
+	# Connect shop signal
+	EventBus.shop_requested.connect(_on_shop_requested)
+
 	deck.begin_starter_phase()   # show Pool:"Starter" cards first
 	_on_request_deck_draw()
 
@@ -155,8 +187,8 @@ func _dismiss_buff_intro_effect() -> void:
 		EventBus.buff_intro_card_dismissed.emit()
 
 func _on_request_deck_draw() -> void:
-	# Skip drawing if minigame is active
-	if _minigame_active:
+	# Skip drawing if minigame or shop is active
+	if _minigame_active or _shop_active:
 		return
 
 	# A) Check for Game Over first - show death screen before reset
@@ -218,6 +250,10 @@ func _on_card_effect_committed(effect: Dictionary) -> void:
 
 	# Dismiss buff intro effect if active
 	_dismiss_buff_intro_effect()
+
+	# Progress shop restock timers
+	if item_manager:
+		item_manager.on_card_swiped()
 
 	# Check if the card itself has any stat changes
 	var card_has_stat_changes = false
@@ -471,71 +507,125 @@ func _on_minigame_requested(minigame_id: String, card_data: Dictionary) -> void:
 		snow_clear_minigame.show_minigame(card_data)
 
 
-func _on_skill_check_completed(success: bool) -> void:
+func _handle_minigame_completed(minigame_id: String, success: bool) -> void:
+	if success:
+		# Store result for after popup closes
+		_pending_minigame_result = {
+			"minigame_id": minigame_id,
+			"success": success
+		}
+
+		# Award coin
+		if currency_manager:
+			currency_manager.add_coins(1)
+
+		# Show reward popup (minigame stays hidden, popup handles everything)
+		if reward_popup:
+			reward_popup.show_reward(
+				_coin_icon,
+				"Coin",
+				"Currency used for upgrades and trade.",
+				minigame_id
+			)
+		else:
+			# Fallback if no popup
+			_finalize_minigame_completion(minigame_id, success)
+	else:
+		# Failed - proceed normally without popup
+		_finalize_minigame_completion(minigame_id, success)
+
+
+func _on_reward_popup_closed() -> void:
+	if not _pending_minigame_result.is_empty():
+		var minigame_id = _pending_minigame_result.get("minigame_id", "")
+		var success = _pending_minigame_result.get("success", false)
+		_pending_minigame_result.clear()
+		_finalize_minigame_completion(minigame_id, success)
+	elif not _pending_shop_purchase.is_empty():
+		# Shop purchase popup closed - just clear the pending data
+		# Shop panel is still open, player can continue shopping
+		_pending_shop_purchase.clear()
+
+
+func _finalize_minigame_completion(minigame_id: String, success: bool) -> void:
 	_minigame_active = false
 	card_ui.set_input_blocked(false)
 
 	# Notify deck of minigame result
-	deck.on_minigame_completed("skill_check", success)
+	deck.on_minigame_completed(minigame_id, success)
 
 	# Emit signal for other systems
-	EventBus.minigame_completed.emit("skill_check", success)
+	EventBus.minigame_completed.emit(minigame_id, success)
 
 	# Draw the next card (result card)
 	_on_request_deck_draw()
+
+
+func _on_skill_check_completed(success: bool) -> void:
+	_handle_minigame_completed("skill_check", success)
 
 
 func _on_radio_frequency_completed(success: bool) -> void:
-	_minigame_active = false
-	card_ui.set_input_blocked(false)
-
-	# Notify deck of minigame result
-	deck.on_minigame_completed("radio_frequency", success)
-
-	# Emit signal for other systems
-	EventBus.minigame_completed.emit("radio_frequency", success)
-
-	# Draw the next card (result card)
-	_on_request_deck_draw()
+	_handle_minigame_completed("radio_frequency", success)
 
 
 func _on_generator_heat_completed(success: bool) -> void:
-	_minigame_active = false
-	card_ui.set_input_blocked(false)
-
-	# Notify deck of minigame result
-	deck.on_minigame_completed("generator_heat", success)
-
-	# Emit signal for other systems
-	EventBus.minigame_completed.emit("generator_heat", success)
-
-	# Draw the next card (result card)
-	_on_request_deck_draw()
+	_handle_minigame_completed("generator_heat", success)
 
 
 func _on_pipe_patch_completed(success: bool) -> void:
-	_minigame_active = false
-	card_ui.set_input_blocked(false)
-
-	# Notify deck of minigame result
-	deck.on_minigame_completed("pipe_patch", success)
-
-	# Emit signal for other systems
-	EventBus.minigame_completed.emit("pipe_patch", success)
-
-	# Draw the next card (result card)
-	_on_request_deck_draw()
+	_handle_minigame_completed("pipe_patch", success)
 
 
 func _on_snow_clear_completed(success: bool) -> void:
-	_minigame_active = false
+	_handle_minigame_completed("snow_clear", success)
+
+
+# ===== Shop Handling =====
+func _on_shop_requested(_card_id: String) -> void:
+	if shop_panel:
+		_shop_active = true
+		card_ui.set_input_blocked(true)
+		shop_panel.show_shop()
+
+
+func _on_shop_item_purchased(item_id: String, item_data: Dictionary) -> void:
+	# Store purchase for after popup closes
+	_pending_shop_purchase = {
+		"item_id": item_id,
+		"item_data": item_data
+	}
+
+	# Show reward popup for purchased item
+	if reward_popup:
+		var icon_path = item_data.get("icon", "")
+		var icon: Texture2D = null
+		if icon_path != "" and FileAccess.file_exists(icon_path):
+			icon = load(icon_path)
+		else:
+			icon = _coin_icon  # Fallback
+
+		reward_popup.show_reward(
+			icon,
+			item_data.get("name", "Item"),
+			item_data.get("description", "You purchased an item."),
+			"shop_purchase"
+		)
+
+
+func _on_shop_closed() -> void:
+	_shop_active = false
 	card_ui.set_input_blocked(false)
-
-	# Notify deck of minigame result
-	deck.on_minigame_completed("snow_clear", success)
-
-	# Emit signal for other systems
-	EventBus.minigame_completed.emit("snow_clear", success)
-
-	# Draw the next card (result card)
+	EventBus.shop_closed.emit()
 	_on_request_deck_draw()
+
+
+func _on_item_use_requested(item_id: String) -> void:
+	if not item_manager:
+		return
+
+	var result = item_manager.use_item(item_id)
+	if result.get("success", false):
+		var item_data = item_manager.get_item_data(item_id)
+		var message = result.get("message", "Item used")
+		reward_ui.play_notification(message)

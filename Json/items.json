@@ -1,0 +1,72 @@
+[
+	{
+		"id": "warm_meal",
+		"name": "Warm Meal",
+		"description": "A hearty meal that boosts morale. Increases Hope by 10 when used.",
+		"icon": "res://Assets/Sprites/dollar.png",
+		"price": 3,
+		"max_stock": 3,
+		"restock_cards": 20,
+		"effect": {
+			"type": "stat_boost",
+			"stat": "Hope",
+			"value": 10
+		}
+	},
+	{
+		"id": "discipline_rod",
+		"name": "Discipline Rod",
+		"description": "A symbol of authority. Increases Order by 10 when used.",
+		"icon": "res://Assets/Sprites/dollar.png",
+		"price": 3,
+		"max_stock": 3,
+		"restock_cards": 20,
+		"effect": {
+			"type": "stat_boost",
+			"stat": "Order",
+			"value": 10
+		}
+	},
+	{
+		"id": "prayer_beads",
+		"name": "Prayer Beads",
+		"description": "Sacred beads for meditation. Increases Faith by 10 when used.",
+		"icon": "res://Assets/Sprites/dollar.png",
+		"price": 3,
+		"max_stock": 3,
+		"restock_cards": 20,
+		"effect": {
+			"type": "stat_boost",
+			"stat": "Faith",
+			"value": 10
+		}
+	},
+	{
+		"id": "calming_herbs",
+		"name": "Calming Herbs",
+		"description": "Natural herbs to ease tensions. Decreases Discontent by 10 when used.",
+		"icon": "res://Assets/Sprites/dollar.png",
+		"price": 4,
+		"max_stock": 3,
+		"restock_cards": 15,
+		"effect": {
+			"type": "stat_boost",
+			"stat": "Discontent",
+			"value": -10
+		}
+	},
+	{
+		"id": "mystery_box",
+		"name": "Mystery Box",
+		"description": "What's inside? The Stranger won't tell. Random stat boost of 5-15.",
+		"icon": "res://Assets/Sprites/dollar.png",
+		"price": 2,
+		"max_stock": 3,
+		"restock_cards": 25,
+		"effect": {
+			"type": "random_stat_boost",
+			"min_value": 5,
+			"max_value": 15
+		}
+	}
+]

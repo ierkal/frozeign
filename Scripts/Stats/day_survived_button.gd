@@ -1,3 +1,7 @@
 extends Button
-func _on_quest_menu_button_pressed() -> void:
-	EventBus.quest_menu_requested.emit()
+
+func _ready() -> void:
+	pressed.connect(_on_button_pressed)
+
+func _on_button_pressed() -> void:
+	EventBus.hub_ui_requested.emit()

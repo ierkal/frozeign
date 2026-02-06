@@ -11,9 +11,11 @@ signal card_committed(side: String)
 @onready var card_drag: Control = $CardDrag
 @onready var decision: Node = $CardDecision
 @onready var card_tweener: Node = $CardTweener
-@onready var icon_texture: TextureRect = $CardPanel/VBoxContainer/IconContainer/Icon
-@onready var title_label: Label = $CardPanel/VBoxContainer/TitleLabel
-@onready var description_label: Label = $CardPanel/VBoxContainer/DescriptionLabel
+@onready var card_texture: TextureRect = $CardTexture
+@onready var content_container: VBoxContainer = $CardTexture/ContentContainer
+@onready var icon_texture: TextureRect = %Icon
+@onready var title_label: Label = %TitleLabel
+@onready var description_label: Label = %DescriptionLabel
 
 var _original_pos: Vector2
 var _thrown := false
@@ -57,6 +59,8 @@ func flip_card() -> void:
 
 func _on_flip_finished() -> void:
 	card_drag.set_input_enabled(true)
+	if content_container:
+		content_container.visible = true
 
 
 func _on_drag_started() -> void:

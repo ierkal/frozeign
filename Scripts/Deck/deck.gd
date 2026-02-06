@@ -7,16 +7,19 @@ signal pool_unlocked(pool_name)
 signal card_committed_signal(card_id: String, side: String, pending_hire_npc: String)
 
 # Cards that trigger minigames (only when choosing positive/left side)
-const MINIGAME_CARDS := ["engineer_pressure_fix", "steward_radio_frequency", "engineer_generator_heat", "engineer_generator_pipe_patch", "steward_buried_snow"]
+const MINIGAME_CARDS := ["engineer_pressure_fix", "steward_radio_frequency", "engineer_fix_heat", "engineer_pipe_patch", "steward_buried_snow"]
 
 # Maps card IDs to their minigame type
 const CARD_TO_MINIGAME := {
 	"engineer_pressure_fix": "skill_check",
 	"steward_radio_frequency": "radio_frequency",
-	"engineer_generator_heat": "generator_heat",
-	"engineer_generator_pipe_patch": "pipe_patch",
+	"engineer_fix_heat": "generator_heat",
+	"engineer_pipe_patch": "pipe_patch",
 	"steward_buried_snow": "snow_clear"
 }
+
+# Cards that trigger the shop (only when choosing positive/left side)
+const SHOP_CARDS := ["the_stranger_traveling_2", "the_stranger_traveling_2_1", "the_stranger_traveling_2_2"]
 
 # ===========================================
 # DEBUG: Inspector controls for testing pools
@@ -246,6 +249,11 @@ func _is_card_drawable(card: Dictionary) -> bool:
 	var id: String = card.get("Id", "")
 	var pool: String = card.get("Pool", "")
 
+	# 0. Draw Chance Check (for rare cards)
+	var draw_chance: float = card.get("DrawChance", 1.0)
+	if draw_chance < 1.0 and randf() > draw_chance:
+		return false
+
 	# 1. Pool Lock Check (NEW)
 	if not is_pool_unlocked(pool):
 		return false
@@ -390,7 +398,7 @@ func prepare_presented(card: Dictionary) -> Dictionary:
 		if card_id == "factory_inspector_introduction":
 			_interview_manager._auto_hire_npc("Inspector")
 			pre_hired_profession = "Inspector"
-		elif card_id == "workers_council_introduction_2":
+		elif card_id == "syndicate_introduction_2":
 			_interview_manager._auto_hire_npc("Workers Council")
 			pre_hired_profession = "Workers Council"
 
@@ -441,7 +449,16 @@ func prepare_presented(card: Dictionary) -> Dictionary:
 			if _npc_image_composer:
 				npc_image = _npc_image_composer.get_or_compose_image(random_name)
 
-	# 4. Profession NPC pool (Steward, Captain) - use assigned NPC with profession prefix
+	# 4. Stranger pool - fixed NPC "The Stranger"
+	elif npc_pool == "Stranger" and _npc_generator:
+		resolved_npc_name = "The Stranger"
+		dynamic_title = "The Stranger"
+		# Create or get The Stranger's consistent appearance
+		_npc_generator.get_or_create_stranger()
+		if _npc_image_composer:
+			npc_image = _npc_image_composer.get_or_compose_image("The Stranger")
+
+	# 5. Profession NPC pool (Steward, Captain) - use assigned NPC with profession prefix
 	elif npc_pool != "" and _npc_generator:
 		var npc_data = _npc_generator.get_npc_for_profession(npc_pool)
 		if not npc_data.is_empty():
@@ -574,11 +591,17 @@ func on_card_committed(card_id: String, side: String) -> void:
 		# Don't advance sequence yet - minigame will handle it
 		return
 
-	# 4) Immediate sequence advance (choice-dependent)
+	# 4) Check for shop trigger (both sides open the shop)
+	if card_id in SHOP_CARDS:
+		EventBus.shop_requested.emit(card_id)
+		# Don't advance sequence yet - shop will handle it
+		return
+
+	# 5) Immediate sequence advance (choice-dependent)
 	if _should_advance_sequence(card, side):
 		_queue_next_sequence_step(card)
 
-	# 5) RepeatPolicy
+	# 6) RepeatPolicy
 	var policy: String = card.get("RepeatPolicy", "never")
 
 	if policy == "never":
@@ -648,18 +671,18 @@ func on_minigame_completed(minigame_id: String, success: bool) -> void:
 			queue_card("steward_radio_frequency_fail")
 	elif minigame_id == "generator_heat":
 		if success:
-			add_flag("engineer_generator_heat_minigame_success")
-			queue_card("engineer_generator_heat_success")
+			add_flag("engineer_fix_heat_minigame_success")
+			queue_card("engineer_fix_heat_success")
 		else:
-			add_flag("engineer_generator_heat_minigame_fail")
-			queue_card("engineer_generator_heat_fail")
+			add_flag("engineer_fix_heat_minigame_fail")
+			queue_card("engineer_fix_heat_fail")
 	elif minigame_id == "pipe_patch":
 		if success:
-			add_flag("engineer_generator_pipe_patch_minigame_success")
-			queue_card("engineer_generator_pipe_patch_success")
+			add_flag("engineer_pipe_patch_minigame_success")
+			queue_card("engineer_pipe_patch_success")
 		else:
-			add_flag("engineer_generator_pipe_patch_minigame_fail")
-			queue_card("engineer_generator_pipe_patch_fail")
+			add_flag("engineer_pipe_patch_minigame_fail")
+			queue_card("engineer_pipe_patch_fail")
 	elif minigame_id == "snow_clear":
 		if success:
 			add_flag("steward_buried_snow_minigame_success")

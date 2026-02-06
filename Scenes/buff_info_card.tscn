@@ -6,23 +6,23 @@
 [ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="3_xpeow"]
 [ext_resource type="Script" uid="uid://2ake0pica1o4" path="res://Scripts/Card/card_decision.gd" id="4_decision"]
 [ext_resource type="Script" uid="uid://bnq6gvx10hwgu" path="res://Scripts/Card/card_tweener.gd" id="5_tweener"]
+[ext_resource type="Shader" uid="uid://belydl7cox4uv" path="res://Assets/Shaders/rounded_corners.gdshader" id="6_shader"]
+[ext_resource type="Texture2D" uid="uid://3kfj3ysdaisq" path="res://Assets/Sprites/card.png" id="7_card"]
+[ext_resource type="Texture2D" uid="uid://dj2qnvk2vyjvr" path="res://Assets/Sprites/cardbg.png" id="8_rear"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
-bg_color = Color(0.95, 0.95, 0.95, 1)
-corner_radius_top_left = 32
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_card"]
+shader = ExtResource("6_shader")
+shader_parameter/corner_radius = 0.05
 
-[sub_resource type="LabelSettings" id="LabelSettings_1ojq1"]
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
 font = ExtResource("3_xpeow")
-font_size = 64
-font_color = Color(0.06879827, 0.06879828, 0.06879828, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_xulsl"]
-font = ExtResource("3_xpeow")
-font_size = 38
+font_size = 48
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_desc"]
+font = ExtResource("3_xpeow")
+font_size = 32
+font_color = Color(0.8, 0.8, 0.8, 1)
 
 [node name="BuffInfoCard" type="Control" unique_id=1329080878]
 layout_mode = 3
@@ -38,87 +38,94 @@ mouse_filter = 2
 script = ExtResource("1_script")
 cfg = ExtResource("2_config")
 
-[node name="CardPanel" type="Panel" parent="." unique_id=180544723]
+[node name="CardTexture" type="TextureRect" parent="." unique_id=180544723]
+material = SubResource("ShaderMaterial_card")
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -308.0
-offset_top = -270.0
-offset_right = 308.0
-offset_bottom = 270.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 14.0
+offset_right = -8.0
+offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(324, 576)
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+texture = ExtResource("7_card")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CardPanel" unique_id=1023581609]
+[node name="CardRear" type="TextureRect" parent="CardTexture"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_rear")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ContentContainer" type="VBoxContainer" parent="CardTexture" unique_id=1723899012]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 87.0
+offset_top = 243.0
+offset_right = -110.0
+offset_bottom = -249.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 20
+alignment = 1
 
-[node name="TopMargin" type="Control" parent="CardPanel/VBoxContainer" unique_id=515992475]
-custom_minimum_size = Vector2(0, 40)
+[node name="IconContainer" type="CenterContainer" parent="CardTexture/ContentContainer" unique_id=2008363106]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
-[node name="IconContainer" type="CenterContainer" parent="CardPanel/VBoxContainer" unique_id=1028935171]
-custom_minimum_size = Vector2(0, 180)
-layout_mode = 2
-
-[node name="Icon" type="TextureRect" parent="CardPanel/VBoxContainer/IconContainer" unique_id=1378752570]
-custom_minimum_size = Vector2(140, 140)
+[node name="Icon" type="TextureRect" parent="CardTexture/ContentContainer/IconContainer" unique_id=1378752570]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TitleLabel" type="Label" parent="CardPanel/VBoxContainer" unique_id=450537771]
+[node name="TitleLabel" type="Label" parent="CardTexture/ContentContainer" unique_id=450537771]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.15, 0.15, 0.15, 1)
-theme_override_font_sizes/font_size = 48
 text = "Buff Title"
-label_settings = SubResource("LabelSettings_1ojq1")
+label_settings = SubResource("LabelSettings_title")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DescriptionLabel" type="Label" parent="CardPanel/VBoxContainer" unique_id=2113189459]
+[node name="DescriptionLabel" type="Label" parent="CardTexture/ContentContainer" unique_id=2113189459]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.3, 0.3, 0.3, 1)
-theme_override_font_sizes/font_size = 32
 text = "Buff description goes here. This explains what the buff does."
-label_settings = SubResource("LabelSettings_xulsl")
+label_settings = SubResource("LabelSettings_desc")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="BottomMargin" type="Control" parent="CardPanel/VBoxContainer" unique_id=727162014]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-
-[node name="CardDrag" type="Control" parent="." unique_id=709459139]
+[node name="CardDrag" type="Control" parent="." unique_id=2101623206]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 73.0
-offset_right = 4.0
-offset_bottom = 73.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_drag")
 cfg = ExtResource("2_config")
 
-[node name="CardDecision" type="Node" parent="." unique_id=1961581882]
+[node name="CardDecision" type="Node" parent="." unique_id=787491739]
 script = ExtResource("4_decision")
 
-[node name="CardTweener" type="Node" parent="." unique_id=726462474]
+[node name="CardTweener" type="Node" parent="." unique_id=1357958611]
 script = ExtResource("5_tweener")
 cfg = ExtResource("2_config")
 
