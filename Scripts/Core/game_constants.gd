@@ -4,11 +4,11 @@ class_name GameConstants
 ## Contains stat keys, resource paths, default values, and UI colors.
 
 # Stat keys (used in 5+ files)
-const STAT_HOPE := "Hope"
-const STAT_DISCONTENT := "Discontent"
-const STAT_ORDER := "Order"
-const STAT_FAITH := "Faith"
-const ALL_STATS := [STAT_HOPE, STAT_DISCONTENT, STAT_ORDER, STAT_FAITH]
+const STAT_MORALE := "Morale"
+const STAT_DISSENT := "Dissent"
+const STAT_AUTHORITY := "Authority"
+const STAT_DEVOTION := "Devotion"
+const ALL_STATS := [STAT_MORALE, STAT_DISSENT, STAT_AUTHORITY, STAT_DEVOTION]
 
 # Resource paths
 const JSON_PATH_CARDS := "res://Json/frozeign.json"

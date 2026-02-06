@@ -2,24 +2,24 @@ extends Control
 class_name StatsUI
 
 # --- BARLAR ---
-@onready var hope: TextureProgressBar = %Hope
-@onready var discontent: TextureProgressBar = %Discontent
-@onready var order: TextureProgressBar = %Order
-@onready var faith: TextureProgressBar = %Faith
+@onready var morale: TextureProgressBar = %Morale
+@onready var dissent: TextureProgressBar = %Dissent
+@onready var authority: TextureProgressBar = %Authority
+@onready var devotion: TextureProgressBar = %Devotion
 
 # --- NOKTALAR (Kart Önizlemesi İçin) ---
 # Bunlar sadece oyuncu kartı sürüklerken "bak burası etkilenecek" demek için
-@onready var hope_point: TextureRect = %HopePoint
-@onready var discontent_point: TextureRect = %DiscontentPoint
-@onready var order_point: TextureRect = %OrderPoint
-@onready var faith_point: TextureRect = %FaithPoint
+@onready var morale_point: TextureRect = %MoralePoint
+@onready var dissent_point: TextureRect = %DissentPoint
+@onready var authority_point: TextureRect = %AuthorityPoint
+@onready var devotion_point: TextureRect = %DevotionPoint
 
 # --- OKLAR (Buff/Debuff Durumu İçin) ---
 # Bunlar "şu an üzerinde bir etki var" demek için (Yeni eklediklerin)
-@onready var hope_arrow: TextureRect = %HopeArrow
-@onready var discontent_arrow: TextureRect = %DiscontentArrow
-@onready var order_arrow: TextureRect = %OrderArrow
-@onready var faith_arrow: TextureRect = %FaithArrow
+@onready var morale_arrow: TextureRect = %MoraleArrow
+@onready var dissent_arrow: TextureRect = %DissentArrow
+@onready var authority_arrow: TextureRect = %AuthorityArrow
+@onready var devotion_arrow: TextureRect = %DevotionArrow
 
 # --- AYARLAR ---
 @export var arrow_up_texture: Texture2D 
@@ -34,10 +34,10 @@ var _base_tint := {}
 
 func _ready() -> void:
 	add_to_group("StatsUI")
-	_store_default_tint(hope)
-	_store_default_tint(discontent)
-	_store_default_tint(order)
-	_store_default_tint(faith)
+	_store_default_tint(morale)
+	_store_default_tint(dissent)
+	_store_default_tint(authority)
+	_store_default_tint(devotion)
 
 	# Başlangıç temizliği
 	clear_preview() # Noktaları gizle
@@ -78,35 +78,35 @@ func _apply_safe_area() -> void:
 # --------------------------------------------------------
 func show_preview(effect: Dictionary) -> void:
 	# Noktaları göster (Sadece etki varsa)
-	hope_point.visible = effect.has("Hope") and effect["Hope"] != 0
-	discontent_point.visible = effect.has("Discontent") and effect["Discontent"] != 0
-	order_point.visible = effect.has("Order") and effect["Order"] != 0
-	faith_point.visible = effect.has("Faith") and effect["Faith"] != 0
+	morale_point.visible = effect.has("Morale") and effect["Morale"] != 0
+	dissent_point.visible = effect.has("Dissent") and effect["Dissent"] != 0
+	authority_point.visible = effect.has("Authority") and effect["Authority"] != 0
+	devotion_point.visible = effect.has("Devotion") and effect["Devotion"] != 0
 
 func clear_preview() -> void:
-	hope_point.visible = false
-	discontent_point.visible = false
-	order_point.visible = false
-	faith_point.visible = false
+	morale_point.visible = false
+	dissent_point.visible = false
+	authority_point.visible = false
+	devotion_point.visible = false
 
 # --------------------------------------------------------
 # 2. BÖLÜM: BUFF SİSTEMİ (OKLAR)
 # Buff başladığında veya bittiğinde çalışır
 # --------------------------------------------------------
 func _reset_arrows() -> void:
-	if hope_arrow: hope_arrow.visible = false
-	if discontent_arrow: discontent_arrow.visible = false
-	if order_arrow: order_arrow.visible = false
-	if faith_arrow: faith_arrow.visible = false
+	if morale_arrow: morale_arrow.visible = false
+	if dissent_arrow: dissent_arrow.visible = false
+	if authority_arrow: authority_arrow.visible = false
+	if devotion_arrow: devotion_arrow.visible = false
 
 func _on_buff_modifiers_changed(effects: Dictionary) -> void:
-	# Hope, Order, Faith: Normal mantık (Artış iyi, Azalış kötü)
-	# Discontent: Ters mantık (Artış kötü, Azalış iyi)
-	
-	_update_arrow(hope_arrow, effects.get("Hope", 0), false)
-	_update_arrow(discontent_arrow, effects.get("Discontent", 0), true)
-	_update_arrow(order_arrow, effects.get("Order", 0), false)
-	_update_arrow(faith_arrow, effects.get("Faith", 0), false)
+	# Morale, Authority, Devotion: Normal mantık (Artış iyi, Azalış kötü)
+	# Dissent: Ters mantık (Artış kötü, Azalış iyi)
+
+	_update_arrow(morale_arrow, effects.get("Morale", 0), false)
+	_update_arrow(dissent_arrow, effects.get("Dissent", 0), true)
+	_update_arrow(authority_arrow, effects.get("Authority", 0), false)
+	_update_arrow(devotion_arrow, effects.get("Devotion", 0), false)
 
 func _update_arrow(arrow: TextureRect, value: int, is_inverse_stat: bool) -> void:
 	if not arrow: return
@@ -129,7 +129,7 @@ func _update_arrow(arrow: TextureRect, value: int, is_inverse_stat: bool) -> voi
 	var is_good_effect: bool
 	
 	if is_inverse_stat:
-		# Discontent için: Azalması (-) iyidir (Yeşil), Artması (+) kötüdür (Kırmızı)
+		# Dissent için: Azalması (-) iyidir (Yeşil), Artması (+) kötüdür (Kırmızı)
 		is_good_effect = (value < 0)
 	else:
 		# Diğerleri için: Artması (+) iyidir (Yeşil), Azalması (-) kötüdür (Kırmızı)
@@ -144,10 +144,10 @@ func _update_arrow(arrow: TextureRect, value: int, is_inverse_stat: bool) -> voi
 # 3. BÖLÜM: UPDATE & ANIMATION (BARLAR)
 # --------------------------------------------------------
 func update_stats(h: int, d: int, o: int, f: int) -> void:
-	apply_stat_change(hope, h)
-	apply_stat_change(discontent, d)
-	apply_stat_change(order, o)
-	apply_stat_change(faith, f)
+	apply_stat_change(morale, h)
+	apply_stat_change(dissent, d)
+	apply_stat_change(authority, o)
+	apply_stat_change(devotion, f)
 
 func apply_stat_change(bar: TextureProgressBar, new_value: int) -> void:
 	var clamped_value = clamp(new_value, int(bar.min_value), int(bar.max_value))
@@ -178,11 +178,11 @@ func flash_change(bar: TextureProgressBar, old_val: int, new_val: int) -> void:
 	# Değişim İYİ mi KÖTÜ mü?
 	var is_good_change: bool = false
 	
-	if bar == discontent:
-		# Discontent için: AZALMASI (new < old) İYİDİR
+	if bar == dissent:
+		# Dissent için: AZALMASI (new < old) İYİDİR
 		is_good_change = (new_val < old_val)
 	else:
-		# Hope, Order, Faith için: ARTMASI (new > old) İYİDİR
+		# Morale, Authority, Devotion için: ARTMASI (new > old) İYİDİR
 		is_good_change = (new_val > old_val)
 
 	# Rengi seç

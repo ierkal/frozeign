@@ -515,17 +515,17 @@ func prepare_presented(card: Dictionary) -> Dictionary:
 
 	var left := {
 		"text": card.get("LeftText", ""),
-		"Hope": card.get("LeftHope", 0),
-		"Discontent": card.get("LeftDiscontent", 0),
-		"Order": card.get("LeftOrder", 0),
-		"Faith": card.get("LeftFaith", 0)
+		"Morale": card.get("LeftMorale", 0),
+		"Dissent": card.get("LeftDissent", 0),
+		"Authority": card.get("LeftAuthority", 0),
+		"Devotion": card.get("LeftDevotion", 0)
 	}
 	var right := {
 		"text": card.get("RightText", ""),
-		"Hope": card.get("RightHope", 0),
-		"Discontent": card.get("RightDiscontent", 0),
-		"Order": card.get("RightOrder", 0),
-		"Faith": card.get("RightFaith", 0)
+		"Morale": card.get("RightMorale", 0),
+		"Dissent": card.get("RightDissent", 0),
+		"Authority": card.get("RightAuthority", 0),
+		"Devotion": card.get("RightDevotion", 0)
 	}
 
 	var swap := randi() % 2 == 0

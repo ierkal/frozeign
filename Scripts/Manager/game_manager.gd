@@ -349,10 +349,10 @@ func _assign_death_npc(presented: Dictionary) -> Dictionary:
 func _build_final_death_card() -> Dictionary:
 	var no_eff := {
 		"text": "",
-		"Hope": 0,
-		"Discontent": 0,
-		"Order": 0,
-		"Faith": 0
+		"Morale": 0,
+		"Dissent": 0,
+		"Authority": 0,
+		"Devotion": 0
 	}
 
 	return {
@@ -434,7 +434,7 @@ func _soft_reset_game() -> void:
 	deck.soft_reset_deck() # Yeni yazdığımız fonksiyon
 	
 	# UI'ı güncelle
-	stats_ui.update_stats(stats.hope, stats.discontent, stats.order, stats.faith)
+	stats_ui.update_stats(stats.morale, stats.dissent, stats.authority, stats.devotion)
 	
 	# Yeni liderle ilk kartı çek
 	_on_request_deck_draw()

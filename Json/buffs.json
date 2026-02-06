@@ -7,8 +7,8 @@
 		"duration": 0,
 		"trigger_flag": "test_card_decided",
 		"effects": {
-			"Hope": -5,
-			"Discontent": 0
+			"Morale": -5,
+			"Dissent": 0
 		}
 	}
 }

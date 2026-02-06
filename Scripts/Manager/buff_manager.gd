@@ -66,10 +66,10 @@ func _load_database() -> void:
 # O anki tur için geçerli toplam stat değişimlerini döndürür
 func get_active_stat_modifiers() -> Dictionary:
 	var total_effects = {
-		"Hope": 0,
-		"Discontent": 0,
-		"Order": 0,
-		"Faith": 0
+		"Morale": 0,
+		"Dissent": 0,
+		"Authority": 0,
+		"Devotion": 0
 	}
 	
 	for buff_key in active_buffs:

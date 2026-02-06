@@ -144,7 +144,7 @@ func use_item(item_id: String) -> Dictionary:
 			var min_val = effect.get("min_value", 5)
 			var max_val = effect.get("max_value", 15)
 			var value = randi_range(min_val, max_val)
-			var stats = ["Hope", "Order", "Faith"]
+			var stats = ["Morale", "Authority", "Devotion"]
 			var random_stat = stats[randi() % stats.size()]
 			if _stats_manager:
 				_apply_stat_change(random_stat, value)

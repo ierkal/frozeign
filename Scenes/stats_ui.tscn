@@ -59,7 +59,7 @@ size_flags_vertical = 4
 theme_override_constants/separation = 55
 alignment = 1
 
-[node name="Faith" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
+[node name="Devotion" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(84, 84)
 layout_mode = 2
@@ -71,7 +71,7 @@ nine_patch_stretch = true
 texture_under = ExtResource("2_sw22t")
 texture_progress = ExtResource("3_bqow0")
 
-[node name="FaithPoint" type="TextureRect" parent="MarginContainer/HBoxContainer/Faith"]
+[node name="DevotionPoint" type="TextureRect" parent="MarginContainer/HBoxContainer/Devotion"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
@@ -84,7 +84,7 @@ offset_bottom = -12.0
 grow_horizontal = 2
 texture = SubResource("CanvasTexture_dv0x8")
 
-[node name="FaithArrow" type="TextureRect" parent="MarginContainer/HBoxContainer/Faith"]
+[node name="DevotionArrow" type="TextureRect" parent="MarginContainer/HBoxContainer/Devotion"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 6
@@ -101,7 +101,7 @@ grow_vertical = 2
 texture = ExtResource("3_oysga")
 expand_mode = 1
 
-[node name="Hope" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
+[node name="Morale" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(84, 84)
 layout_mode = 2
@@ -113,7 +113,7 @@ nine_patch_stretch = true
 texture_under = ExtResource("8_oysga")
 texture_progress = ExtResource("9_yyw1w")
 
-[node name="HopePoint" type="TextureRect" parent="MarginContainer/HBoxContainer/Hope"]
+[node name="MoralePoint" type="TextureRect" parent="MarginContainer/HBoxContainer/Morale"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
@@ -126,7 +126,7 @@ offset_bottom = -12.0
 grow_horizontal = 2
 texture = SubResource("CanvasTexture_dv0x8")
 
-[node name="HopeArrow" type="TextureRect" parent="MarginContainer/HBoxContainer/Hope"]
+[node name="MoraleArrow" type="TextureRect" parent="MarginContainer/HBoxContainer/Morale"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 6
@@ -143,7 +143,7 @@ grow_vertical = 2
 texture = ExtResource("3_oysga")
 expand_mode = 1
 
-[node name="Order" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
+[node name="Authority" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(84, 84)
 layout_mode = 2
@@ -155,7 +155,7 @@ nine_patch_stretch = true
 texture_under = ExtResource("4_8v0cf")
 texture_progress = ExtResource("5_sw22t")
 
-[node name="OrderPoint" type="TextureRect" parent="MarginContainer/HBoxContainer/Order"]
+[node name="AuthorityPoint" type="TextureRect" parent="MarginContainer/HBoxContainer/Authority"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
@@ -168,7 +168,7 @@ offset_bottom = -12.0
 grow_horizontal = 2
 texture = SubResource("CanvasTexture_dv0x8")
 
-[node name="OrderArrow" type="TextureRect" parent="MarginContainer/HBoxContainer/Order"]
+[node name="AuthorityArrow" type="TextureRect" parent="MarginContainer/HBoxContainer/Authority"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 6
@@ -185,7 +185,7 @@ grow_vertical = 2
 texture = ExtResource("3_oysga")
 expand_mode = 1
 
-[node name="Discontent" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
+[node name="Dissent" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(84, 84)
 layout_mode = 2
@@ -197,7 +197,7 @@ nine_patch_stretch = true
 texture_under = ExtResource("2_yvg2w")
 texture_progress = ExtResource("3_wvi1r")
 
-[node name="DiscontentPoint" type="TextureRect" parent="MarginContainer/HBoxContainer/Discontent"]
+[node name="DissentPoint" type="TextureRect" parent="MarginContainer/HBoxContainer/Dissent"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
@@ -210,7 +210,7 @@ offset_bottom = -12.0
 grow_horizontal = 2
 texture = SubResource("CanvasTexture_dv0x8")
 
-[node name="DiscontentArrow" type="TextureRect" parent="MarginContainer/HBoxContainer/Discontent"]
+[node name="DissentArrow" type="TextureRect" parent="MarginContainer/HBoxContainer/Dissent"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 6

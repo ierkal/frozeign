@@ -2,56 +2,56 @@
 	{
 		"id": "warm_meal",
 		"name": "Warm Meal",
-		"description": "A hearty meal that boosts morale. Increases Hope by 10 when used.",
+		"description": "A hearty meal that boosts morale. Increases Morale by 10 when used.",
 		"icon": "res://Assets/Sprites/dollar.png",
 		"price": 3,
 		"max_stock": 3,
 		"restock_cards": 20,
 		"effect": {
 			"type": "stat_boost",
-			"stat": "Hope",
+			"stat": "Morale",
 			"value": 10
 		}
 	},
 	{
 		"id": "discipline_rod",
 		"name": "Discipline Rod",
-		"description": "A symbol of authority. Increases Order by 10 when used.",
+		"description": "A symbol of authority. Increases Authority by 10 when used.",
 		"icon": "res://Assets/Sprites/dollar.png",
 		"price": 3,
 		"max_stock": 3,
 		"restock_cards": 20,
 		"effect": {
 			"type": "stat_boost",
-			"stat": "Order",
+			"stat": "Authority",
 			"value": 10
 		}
 	},
 	{
 		"id": "prayer_beads",
 		"name": "Prayer Beads",
-		"description": "Sacred beads for meditation. Increases Faith by 10 when used.",
+		"description": "Sacred beads for meditation. Increases Devotion by 10 when used.",
 		"icon": "res://Assets/Sprites/dollar.png",
 		"price": 3,
 		"max_stock": 3,
 		"restock_cards": 20,
 		"effect": {
 			"type": "stat_boost",
-			"stat": "Faith",
+			"stat": "Devotion",
 			"value": 10
 		}
 	},
 	{
 		"id": "calming_herbs",
 		"name": "Calming Herbs",
-		"description": "Natural herbs to ease tensions. Decreases Discontent by 10 when used.",
+		"description": "Natural herbs to ease tensions. Decreases Dissent by 10 when used.",
 		"icon": "res://Assets/Sprites/dollar.png",
 		"price": 4,
 		"max_stock": 3,
 		"restock_cards": 15,
 		"effect": {
 			"type": "stat_boost",
-			"stat": "Discontent",
+			"stat": "Dissent",
 			"value": -10
 		}
 	},

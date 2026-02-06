@@ -1,20 +1,20 @@
 extends Node
 class_name StatsManager
 
-signal stats_changed(hope, discontent, order, faith)
+signal stats_changed(morale, dissent, authority, devotion)
 signal stat_threshold_reached(stat_name: String, value: int)
 
-var hope: int = GameConstants.DEFAULT_STAT_VALUE
-var discontent: int = GameConstants.DEFAULT_STAT_VALUE
-var order: int = GameConstants.DEFAULT_STAT_VALUE
-var faith: int = GameConstants.DEFAULT_STAT_VALUE
+var morale: int = GameConstants.DEFAULT_STAT_VALUE
+var dissent: int = GameConstants.DEFAULT_STAT_VALUE
+var authority: int = GameConstants.DEFAULT_STAT_VALUE
+var devotion: int = GameConstants.DEFAULT_STAT_VALUE
 
 func apply_effects(effect: Dictionary) -> void:
 	# apply deltas
-	hope += int(effect.get("Hope", 0))
-	discontent += int(effect.get("Discontent", 0))
-	order += int(effect.get("Order", 0))
-	faith += int(effect.get("Faith", 0))
+	morale += int(effect.get("Morale", 0))
+	dissent += int(effect.get("Dissent", 0))
+	authority += int(effect.get("Authority", 0))
+	devotion += int(effect.get("Devotion", 0))
 
 	# check death BEFORE clamping (so we can detect <0 or >100)
 	_check_out_of_bounds()
@@ -25,31 +25,31 @@ func apply_effects(effect: Dictionary) -> void:
 
 func _check_out_of_bounds() -> void:
 	# Emit only one, fixed priority
-	if hope < GameConstants.STAT_MIN or hope > GameConstants.STAT_MAX:
-		stat_threshold_reached.emit("hope", hope)
+	if morale < GameConstants.STAT_MIN or morale > GameConstants.STAT_MAX:
+		stat_threshold_reached.emit("morale", morale)
 		return
-	if discontent < GameConstants.STAT_MIN or discontent > GameConstants.STAT_MAX:
-		stat_threshold_reached.emit("discontent", discontent)
+	if dissent < GameConstants.STAT_MIN or dissent > GameConstants.STAT_MAX:
+		stat_threshold_reached.emit("dissent", dissent)
 		return
-	if order < GameConstants.STAT_MIN or order > GameConstants.STAT_MAX:
-		stat_threshold_reached.emit("order", order)
+	if authority < GameConstants.STAT_MIN or authority > GameConstants.STAT_MAX:
+		stat_threshold_reached.emit("authority", authority)
 		return
-	if faith < GameConstants.STAT_MIN or faith > GameConstants.STAT_MAX:
-		stat_threshold_reached.emit("faith", faith)
+	if devotion < GameConstants.STAT_MIN or devotion > GameConstants.STAT_MAX:
+		stat_threshold_reached.emit("devotion", devotion)
 		return
 
 func _clamp_stats() -> void:
-	hope = clamp(hope, GameConstants.STAT_MIN, GameConstants.STAT_MAX)
-	discontent = clamp(discontent, GameConstants.STAT_MIN, GameConstants.STAT_MAX)
-	order = clamp(order, GameConstants.STAT_MIN, GameConstants.STAT_MAX)
-	faith = clamp(faith, GameConstants.STAT_MIN, GameConstants.STAT_MAX)
+	morale = clamp(morale, GameConstants.STAT_MIN, GameConstants.STAT_MAX)
+	dissent = clamp(dissent, GameConstants.STAT_MIN, GameConstants.STAT_MAX)
+	authority = clamp(authority, GameConstants.STAT_MIN, GameConstants.STAT_MAX)
+	devotion = clamp(devotion, GameConstants.STAT_MIN, GameConstants.STAT_MAX)
 
 func _emit() -> void:
-	stats_changed.emit(hope, discontent, order, faith)
+	stats_changed.emit(morale, dissent, authority, devotion)
 
 func reset_stats() -> void:
-	hope = GameConstants.DEFAULT_STAT_VALUE
-	discontent = GameConstants.DEFAULT_STAT_VALUE
-	order = GameConstants.DEFAULT_STAT_VALUE
-	faith = GameConstants.DEFAULT_STAT_VALUE
-	stats_changed.emit(hope, discontent, order, faith)
+	morale = GameConstants.DEFAULT_STAT_VALUE
+	dissent = GameConstants.DEFAULT_STAT_VALUE
+	authority = GameConstants.DEFAULT_STAT_VALUE
+	devotion = GameConstants.DEFAULT_STAT_VALUE
+	stats_changed.emit(morale, dissent, authority, devotion)
