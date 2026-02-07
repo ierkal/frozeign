@@ -520,7 +520,8 @@ func prepare_presented(card: Dictionary) -> Dictionary:
 		"right": {},
 		"ui_left_original": "",
 		"ui_right_original": "",
-		"npc_image": npc_image
+		"npc_image": npc_image,
+		"npc_pool": npc_pool
 	}
 
 	var left := {

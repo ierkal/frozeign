@@ -7,6 +7,10 @@ class_name CardConfig
 @export var position_threshold: int = 200
 @export var input_position_threshold: int = 140
 
+@export_category("Vertical Drift")
+@export var vertical_max_offset: float = 30.0  ## Max pixels the card can drift up/down
+@export var vertical_speed: float = 0.03  ## How slowly vertical input is applied (lower = slower)
+
 @export_category("Animations")
 @export var throw_duration: float = 0.5
 @export var throw_distance: float = 400

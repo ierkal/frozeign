@@ -173,6 +173,7 @@ func play_sequence(type: String) -> void:
 	skip_circle.progress = 0.0
 
 	show()
+	AudioManager.play_art_sequence_music(type)
 
 	# Fade out skip hint after initial show period
 	if _hint_tween:
@@ -313,5 +314,6 @@ func _finish_sequence() -> void:
 	skip_hint_label.visible = false
 	skip_circle.visible = false
 
+	AudioManager.stop_art_sequence_music()
 	hide()
 	sequence_finished.emit(type)

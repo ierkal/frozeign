@@ -33,6 +33,7 @@ func show_reward(icon: Texture2D, reward_name: String, description: String, mini
 	popup_panel.pivot_offset = popup_panel.size / 2.0
 
 	show()
+	AudioManager.play_popup_shown()
 
 	# Animate in with ease
 	var tween = create_tween()

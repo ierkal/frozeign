@@ -16,6 +16,7 @@ const JSON_PATH_QUESTS := "res://Json/quests.json"
 const JSON_PATH_NPC_NAMES := "res://Json/npcnames.json"
 const JSON_PATH_CHARACTERS := "res://Json/characters.json"
 const JSON_PATH_ITEMS := "res://Json/items.json"
+const JSON_PATH_REACTIONS := "res://Json/reactions.json"
 
 const NPC_SPRITES_PATH := "res://Assets/Sprites/npc/"
 

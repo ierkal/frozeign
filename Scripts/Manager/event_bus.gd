@@ -13,3 +13,6 @@ signal reward_popup_closed
 # Shop signals
 signal shop_requested(card_id: String)
 signal shop_closed
+
+# NPC reaction system
+var npc_name_resolver: Callable = Callable()

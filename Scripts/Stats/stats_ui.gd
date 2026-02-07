@@ -93,7 +93,7 @@ func apply_stat_change(bar: TextureProgressBar, new_value: int) -> void:
 	flash_change(bar, old_value, clamped_value)
 	animate_bar(bar, clamped_value)
 
-func animate_bar(bar: TextureProgressBar, target: int, duration: float = 0.35) -> void:
+func animate_bar(bar: TextureProgressBar, target: int, duration: float = 1.5) -> void:
 	if _tweens.has(bar) and _tweens[bar].is_valid():
 		_tweens[bar].kill()
 
@@ -109,15 +109,8 @@ func flash_change(bar: TextureProgressBar, old_val: int, new_val: int) -> void:
 	bar.tint_progress = _base_tint[bar]
 	var base_color = _base_tint[bar]
 
-	# Değişim İYİ mi KÖTÜ mü?
-	var is_good_change: bool = false
-	
-	if bar == dissent:
-		# Dissent için: AZALMASI (new < old) İYİDİR
-		is_good_change = (new_val < old_val)
-	else:
-		# Morale, Authority, Devotion için: ARTMASI (new > old) İYİDİR
-		is_good_change = (new_val > old_val)
+	# All stats: increase = green, decrease = red
+	var is_good_change: bool = (new_val > old_val)
 
 	# Rengi seç
 	var target_flash_color = color_positive if is_good_change else color_negative
@@ -127,5 +120,5 @@ func flash_change(bar: TextureProgressBar, old_val: int, new_val: int) -> void:
 
 	# Yavaşça orijinal rengine (base_color) geri tween et
 	var tween := get_tree().create_tween()
-	tween.tween_property(bar, "tint_progress", base_color, 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween.tween_property(bar, "tint_progress", base_color, 1.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	_color_tweens[bar] = tween

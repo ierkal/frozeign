@@ -15,6 +15,7 @@ func _ready() -> void:
 func play_notification(text: String) -> void:
 	label.text = text
 	show()
+	AudioManager.play_notification()
 	
 	# Ekran boyutunu alıyoruz
 	var screen_size = get_viewport_rect().size

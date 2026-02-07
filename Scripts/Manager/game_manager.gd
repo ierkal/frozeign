@@ -34,6 +34,7 @@ var _death_value: int = 0
 var _death_is_storm: bool = false   # Track if this is a storm death
 var _current_chief_index: int = 0   # Number of chiefs so far
 var _dying_chief_name: String = ""  # Store dying chief's name before picking new one
+var _chief_token_active: bool = false
 
 @onready var reward_ui = %QuestCompletedNotification
 @onready var card_unlock_animation: CardUnlockAnimation = %CardUnlockAnimation
@@ -111,6 +112,9 @@ func _ready() -> void:
 
 	# Connect deck to NPC systems
 	deck.set_npc_systems(npc_generator, npc_image_composer)
+
+	# Setup NPC name resolver for reaction system
+	EventBus.npc_name_resolver = _resolve_npc_name
 
 	if home_menu_ui:
 		home_menu_ui.setup(self)
@@ -271,6 +275,10 @@ func _on_card_effect_committed(effect: Dictionary) -> void:
 	if card_id != "" and original_side != "":
 		deck.on_card_committed(card_id, original_side)
 
+	# Queue NPC reactions (after deck processes flags so met_* flags are available)
+	if card_ui.reaction_display and card_id != "" and original_side != "":
+		card_ui.reaction_display.on_card_committed(card_id, original_side)
+
 	# Check for ending or mid-game art sequences
 	if card_id in ENDING_CARDS and art_sequence:
 		_pending_ending_type = ENDING_CARDS[card_id]
@@ -291,6 +299,14 @@ func _on_card_count_reach() -> void:
 
 func _on_stat_threshold_reached(stat_name: String, value: int) -> void:
 	if _death_phase != DeathPhase.NONE:
+		return
+
+	if _chief_token_active:
+		_chief_token_active = false
+		survived_days.set_token_active(false)
+		stats.set(stat_name, GameConstants.DEFAULT_STAT_VALUE)
+		stats_ui.update_stats(stats.morale, stats.dissent, stats.authority, stats.devotion)
+		reward_ui.play_notification("Chief's Token saved your life!")
 		return
 
 	_death_phase = DeathPhase.EXPLANATION_NEXT
@@ -409,6 +425,8 @@ func _soft_reset_game() -> void:
 	_current_chief_index += 1
 	_death_phase = DeathPhase.NONE
 	_death_is_storm = false
+	_chief_token_active = false
+	survived_days.set_token_active(false)
 
 	# Reset stats
 	stats.reset_stats()
@@ -472,6 +490,36 @@ func _on_death_screen_needs_new_chief_name() -> void:
 		# Pre-pick the next chief name so we can show it in death screen
 		chief_manager.pick_random_name()
 		death_screen.set_new_chief_name(chief_manager.current_chief_name)
+
+
+# ===== NPC Name Resolver (for reaction system) =====
+func _resolve_npc_name(npc_pool: String) -> String:
+	# Council NPCs (Captain, Steward) - check if player has met them via deck flags
+	if npc_pool == "Captain":
+		if deck.has_flag("met_captain") and npc_generator:
+			var npc_data = npc_generator.get_npc_for_profession("Captain")
+			if not npc_data.is_empty():
+				return npc_data.get("name", "")
+		return ""
+
+	if npc_pool == "Steward":
+		if deck.has_flag("met_steward") and npc_generator:
+			var npc_data = npc_generator.get_npc_for_profession("Steward")
+			if not npc_data.is_empty():
+				return npc_data.get("name", "")
+		return ""
+
+	# Hired profession NPCs - check via interview_manager
+	if interview_manager and interview_manager.is_profession_hired(npc_pool):
+		return interview_manager.get_hired_npc_name(npc_pool)
+
+	# Check assigned NPCs via npc_generator (e.g. auto-hired)
+	if npc_generator:
+		var npc_data = npc_generator.get_npc_for_profession(npc_pool)
+		if not npc_data.is_empty():
+			return npc_data.get("name", "")
+
+	return ""
 
 
 # ===== Minigame Handling =====
@@ -621,6 +669,10 @@ func _on_item_use_requested(item_id: String) -> void:
 		var message = result.get("message", "Item used")
 		reward_ui.play_notification(message)
 
+		if result.get("effect_type", "") == "prevent_death":
+			_chief_token_active = true
+			survived_days.set_token_active(true)
+
 
 # ===== Art Sequence & Ending Handling =====
 func _set_game_ui_visible(is_visible: bool) -> void:
@@ -673,6 +725,8 @@ func _on_ending_reset() -> void:
 	_death_phase = DeathPhase.NONE
 	_death_is_storm = false
 	_pending_ending_type = ""
+	_chief_token_active = false
+	survived_days.set_token_active(false)
 
 	# Reset deck completely
 	deck.full_reset()

@@ -152,6 +152,10 @@ func use_item(item_id: String) -> Dictionary:
 				result["value"] = value
 				result["message"] = "Applied %s +%d" % [random_stat, value]
 
+		"prevent_death":
+			result["message"] = "Chief's Token activated!"
+			result["effect_type"] = "prevent_death"
+
 		_:
 			result["message"] = "Used %s" % item_data.get("name", item_id)
 

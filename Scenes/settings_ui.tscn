@@ -13,6 +13,11 @@ font_size = 38
 font = ExtResource("2_1k4ne")
 font_size = 30
 
+[sub_resource type="LabelSettings" id="LabelSettings_version"]
+font = ExtResource("2_1k4ne")
+font_size = 16
+font_color = Color(0.5, 0.5, 0.5, 0.6)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slider_bg"]
 bg_color = Color(0.4, 0.4, 0.4, 1)
 border_width_left = 1
@@ -164,6 +169,13 @@ popup/item_0/id = 0
 oversampling_override = 1.0
 theme_override_fonts/font = ExtResource("2_1k4ne")
 theme_override_font_sizes/font_size = 22
+
+[node name="VersionLabel" type="Label" parent="Panel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 10
+label_settings = SubResource("LabelSettings_version")
+horizontal_alignment = 1
 
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/MusicContainer/MusicHBox/MusicSlider" to="." method="_on_music_slider_changed"]
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/SFXContainer/SFXHBox/SFXSlider" to="." method="_on_sfx_slider_changed"]

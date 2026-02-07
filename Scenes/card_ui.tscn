@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://c7xwphipltatm" path="res://Scripts/Card/card_ui.gd" id="1_y8epe"]
 [ext_resource type="PackedScene" uid="uid://027tabfol74i" path="res://Scenes/buff_info_card.tscn" id="2_buffinfo"]
 [ext_resource type="PackedScene" uid="uid://b8bsyifay8tjn" path="res://Scenes/card.tscn" id="2_y8epe"]
-[ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="3_2ndah"]
 [ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="6_vxiou"]
+[ext_resource type="Shader" uid="uid://dlhotcxnaauak" path="res://Assets/Shaders/gradient_fade.gdshader" id="7_gradient"]
+[ext_resource type="Script" uid="uid://ocs3yeaw2aww" path="res://Scripts/Card/npc_reaction_display.gd" id="8_reaction"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y8epe"]
 font = ExtResource("6_vxiou")
@@ -17,13 +18,22 @@ corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
-[sub_resource type="LabelSettings" id="LabelSettings_278fk"]
-font = ExtResource("6_vxiou")
-font_size = 20
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gradient"]
+shader = ExtResource("7_gradient")
+shader_parameter/top_color = Color(0, 0, 0, 0.7)
+shader_parameter/bottom_color = Color(0, 0, 0, 0)
 
-[sub_resource type="LabelSettings" id="LabelSettings_vxiou"]
+[sub_resource type="Gradient" id="Gradient_choicebg"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_choicebg"]
+gradient = SubResource("Gradient_choicebg")
+width = 4
+height = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_choice"]
 font = ExtResource("6_vxiou")
-font_size = 20
+font_size = 21
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ndah"]
 font = ExtResource("6_vxiou")
@@ -98,28 +108,16 @@ expand_mode = 1
 [node name="Card" parent="MarginContainer/VBoxContainer/Control/TextureParent" unique_id=1337337142 instance=ExtResource("2_y8epe")]
 layout_mode = 1
 
-[node name="DecisionTexts" type="Control" parent="MarginContainer/VBoxContainer/Control" unique_id=932831816]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control/DecisionTexts" unique_id=1299295625]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 62.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ChoiceBGLeft" type="Panel" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer" unique_id=1360522609]
+[node name="ChoiceBG" type="TextureRect" parent="MarginContainer/VBoxContainer/Control" unique_id=263316453]
 unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-scale = Vector2(1, 0)
+modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_gradient")
+layout_mode = 0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_choicebg")
+expand_mode = 1
 
-[node name="LeftText" type="Label" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer/ChoiceBGLeft" unique_id=491060626]
+[node name="ChoiceText" type="Label" parent="MarginContainer/VBoxContainer/Control/ChoiceBG" unique_id=1062994763]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -127,41 +125,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-label_settings = SubResource("LabelSettings_278fk")
+label_settings = SubResource("LabelSettings_choice")
 vertical_alignment = 1
 autowrap_mode = 3
-script = ExtResource("3_2ndah")
-_max_size = 32
-_min_size = 32
-_current_font_size = 32
-_editor_defaults_set = true
-
-[node name="ChoiceBGRight" type="Panel" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer" unique_id=2080933365]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-scale = Vector2(1, 0)
-
-[node name="RightText" type="Label" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer/ChoiceBGRight" unique_id=531806562]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-label_settings = SubResource("LabelSettings_vxiou")
-horizontal_alignment = 2
-vertical_alignment = 1
-autowrap_mode = 3
-script = ExtResource("3_2ndah")
-_max_size = 32
-_min_size = 32
-_current_font_size = 32
-_editor_defaults_set = true
 
 [node name="CardDescription" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1146398556]
 unique_name_in_owner = true
@@ -187,3 +153,17 @@ offset_top = 1.5258789e-05
 offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ReactionContainer" type="Control" parent="." unique_id=998635179]
+unique_name_in_owner = true
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("8_reaction")
+stagger_delay = 1.0
+stay_duration = 4.0

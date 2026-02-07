@@ -1,0 +1,14 @@
+[
+	{
+		"card_id": "WELCOME_JONAS_01",
+		"side": "left",
+		"npc_pool": "Captain",
+		"text": "Good choice, Chief. This mountain will serve us well."
+	},
+	{
+		"card_id": "WELCOME_JONAS_01",
+		"side": "left",
+		"npc_pool": "Captain",
+		"text": "Hmm, we'll see about that."
+	}
+]

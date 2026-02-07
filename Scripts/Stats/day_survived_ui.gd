@@ -4,6 +4,7 @@ class_name SurvivedDaysUI
 @onready var day_label: Label = %DaysValue
 @onready var total_day_label: Label = %TotalDaysValue # Asla resetlenmez
 @onready var chief_name_label: Label = %ChiefName
+@onready var token_active_label: Label = %TokenActiveLabel
 var total_days: int = 0
 var current_days: int = 0
 
@@ -40,6 +41,10 @@ func on_day_survive() -> void:
 	current_days += 1
 	total_days += 1
 	_update_labels()
+
+func set_token_active(active: bool) -> void:
+	if token_active_label:
+		token_active_label.visible = active
 
 func reset_days() -> void:
 	current_days = 0

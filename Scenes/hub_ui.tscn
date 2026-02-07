@@ -163,64 +163,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="TradeRouteContent" type="MarginContainer" parent="Panel/ContentContainer" unique_id=724249605]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/ContentContainer/TradeRouteContent" unique_id=1382156446]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ContentContainer/TradeRouteContent/ScrollContainer" unique_id=723240167]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="PlaceholderLabel" type="Label" parent="Panel/ContentContainer/TradeRouteContent/ScrollContainer/VBoxContainer" unique_id=2056019191]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_font")
-theme_override_font_sizes/font_size = 20
-text = "Trade Route content will go here..."
-horizontal_alignment = 1
-
-[node name="UpgradesContent" type="MarginContainer" parent="Panel/ContentContainer" unique_id=1893814071]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/ContentContainer/UpgradesContent" unique_id=937974332]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ContentContainer/UpgradesContent/ScrollContainer" unique_id=1208187153]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="PlaceholderLabel" type="Label" parent="Panel/ContentContainer/UpgradesContent/ScrollContainer/VBoxContainer" unique_id=1160746240]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_font")
-theme_override_font_sizes/font_size = 20
-text = "Upgrades content will go here..."
-horizontal_alignment = 1
-
 [node name="TabContainer" type="HBoxContainer" parent="Panel" unique_id=532884211]
 layout_mode = 1
 anchors_preset = 12
@@ -247,33 +189,6 @@ text = "1"
 icon_alignment = 1
 expand_icon = true
 
-[node name="TabTradeRoute" type="Button" parent="Panel/TabContainer" unique_id=1226162370]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("2_font")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_tab_btn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_tab_btn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tab_btn")
-text = "2"
-icon_alignment = 1
-expand_icon = true
-
-[node name="TabUpgrades" type="Button" parent="Panel/TabContainer" unique_id=1088165080]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("2_font")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_tab_btn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_tab_btn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tab_btn")
-text = "3"
-icon_alignment = 1
-expand_icon = true
 
 [node name="CloseBtn" parent="." unique_id=465415415 instance=ExtResource("3_close_btn")]
 layout_mode = 1

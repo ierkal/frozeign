@@ -45,7 +45,6 @@ func _on_flip_finished() -> void:
 	card_drag.set_input_enabled(true)
 
 func _on_drag_started() -> void:
-	# no-op for now; place to start preview fx
 	pass
 
 func _on_drag_updated(current_x: float, rot: float) -> void:

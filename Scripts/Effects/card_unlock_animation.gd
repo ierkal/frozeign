@@ -33,6 +33,7 @@ func _init_card_pool() -> void:
 		_card_pool.append(card)
 
 func play_animation() -> void:
+	AudioManager.play_card_unlock()
 	# Get target rect from the texture parent
 	var target_rect: Rect2
 	var card_size: Vector2

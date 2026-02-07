@@ -68,5 +68,17 @@
 			"min_value": 5,
 			"max_value": 15
 		}
+	},
+	{
+		"id": "chief_token",
+		"name": "Chief's Token",
+		"description": "A token that may save the Chief from a terrible fate.",
+		"icon": "res://Assets/Sprites/dollar.png",
+		"price": 8,
+		"max_stock": 1,
+		"restock_cards": 45,
+		"effect": {
+			"type": "prevent_death"
+		}
 	}
 ]

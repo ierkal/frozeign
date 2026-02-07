@@ -26,6 +26,7 @@ func _ready() -> void:
 		tween.tween_property($VBoxContainer, "modulate:a", 1.0, fade_in_duration)
 		tween.tween_interval(display_duration)
 		tween.tween_property($VBoxContainer, "modulate:a", 0.0, fade_out_duration)
+		tween.tween_interval(0.3)
 		tween.tween_callback(_go_to_game)
 	else:
 		var tween := create_tween()
@@ -33,4 +34,5 @@ func _ready() -> void:
 		tween.tween_callback(_go_to_game)
 
 func _go_to_game() -> void:
+	AudioManager.play_general_music()
 	get_tree().change_scene_to_file("res://Scenes/game.tscn")
