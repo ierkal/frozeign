@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bvjw3u03pjndp"]
+[gd_scene format=3 uid="uid://bg57epylox1vn"]
 
-[ext_resource type="Script" uid="uid://c0vb6tqcay4d5" path="res://Scripts/Buffs/effects_ui.gd" id="1_vwfkb"]
-[ext_resource type="PackedScene" uid="uid://dnjrhsnr81xcm" path="res://Scenes/effect_item.tscn" id="2_32e7k"]
+[ext_resource type="Script" path="res://Scripts/Buffs/effects_ui.gd" id="1_vwfkb"]
+[ext_resource type="PackedScene" path="res://Scenes/effect_item.tscn" id="2_32e7k"]
 [ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="3_32e7k"]
 [ext_resource type="PackedScene" uid="uid://to0c4eroteek" path="res://Scenes/close_btn.tscn" id="4_vgcsx"]
 

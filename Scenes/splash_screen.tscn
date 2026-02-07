@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dfje4qlo5t571"]
+
+[ext_resource type="Script" uid="uid://cgdlvtue4naau" path="res://Scripts/UI/splash_screen.gd" id="1_splash"]
+[ext_resource type="Texture2D" uid="uid://bcd4mvb6hpxir" path="res://Assets/Sprites/Backgrounds/diesisinteractive.png" id="2_wwf30"]
+
+[node name="SplashScreen" type="Control" unique_id=16435948]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_splash")
+top_image = ExtResource("2_wwf30")
+display_duration = 2.0
+use_fade = true
+fade_in_duration = 0.5
+fade_out_duration = 0.5
+
+[node name="Background" type="ColorRect" parent="." unique_id=1496279572]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1523687281]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -333.0
+offset_top = -302.5
+offset_right = 333.0
+offset_bottom = 302.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="TopImage" type="TextureRect" parent="VBoxContainer" unique_id=518911814]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+stretch_mode = 5
+
+[node name="BottomImage" type="TextureRect" parent="VBoxContainer" unique_id=526148418]
+visible = false
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 3
+stretch_mode = 5

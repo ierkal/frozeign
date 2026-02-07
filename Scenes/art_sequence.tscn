@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://b0wvca0wv0f5"]
+
+[ext_resource type="Script" uid="uid://bk5y66ofv6ipn" path="res://Scripts/UI/art_sequence.gd" id="1_art"]
+[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="2_font"]
+[ext_resource type="Script" uid="uid://cw6w5qr2cfqsp" path="res://Scripts/UI/skip_circle_drawer.gd" id="3_skip"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_subtitle"]
+font = ExtResource("2_font")
+font_size = 22
+font_color = Color(0.9, 0.9, 0.95, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_skip_hint"]
+font = ExtResource("2_font")
+font_size = 18
+font_color = Color(0.6, 0.6, 0.65, 0.8)
+
+[node name="ArtSequence" type="Control" unique_id=848408111]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_art")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1156288776]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+
+[node name="CurrentImage" type="TextureRect" parent="." unique_id=649849948]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NextImage" type="TextureRect" parent="." unique_id=717986654]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SubtitleLabel" type="Label" parent="." unique_id=1825933002]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -120.0
+offset_right = 200.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_subtitle")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="SkipContainer" type="Control" parent="." unique_id=2111840601]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -60.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="SkipHintLabel" type="Label" parent="SkipContainer" unique_id=124042241]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -29.0
+offset_right = -69.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hold to skip"
+label_settings = SubResource("LabelSettings_skip_hint")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SkipCircle" type="Control" parent="SkipContainer" unique_id=954011871]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -18.0
+offset_right = -16.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_skip")
+radius = 14.0
+arc_width = 7.0

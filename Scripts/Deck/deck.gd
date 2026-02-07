@@ -179,6 +179,16 @@ func reset_deck() -> void:
 	_reset_unlocked_pools()
 	_refill_deck()
 
+func full_reset() -> void:
+	_flags.clear()
+	_card_states.clear()
+	_sequence_queue.clear()
+	_pending_hire_npc.clear()
+	current_chief_index = 0
+	_use_starter_phase = false
+	_reset_unlocked_pools()
+	_refill_deck()
+
 
 # ---------------------------------------------------
 # Draw logic

@@ -9,8 +9,6 @@ class_name GameManager
 @onready var quest_manager: QuestManager = %QuestManager
 @onready var home_menu_ui : HomeMenuUI = %HomeMenuUI
 @onready var chief_manager: ChiefManager = %ChiefManager
-@onready var buff_manager: BuffManager = $BuffManager
-
 # Interview system for hiring profession NPCs
 var interview_manager: InterviewManager
 
@@ -21,7 +19,6 @@ var npc_image_composer: NpcImageComposer
 var _dead_chiefs_history: Array = [] # { "name": String, "start_day": int, "death_day": int, "index": int }
 var _current_chief_start_day: int = 0  # Track when current chief started (cumulative day)
 var _last_card_had_effect: bool = false
-var _pending_buff_intros: Array = []
 @onready var character_repository: CharacterRepository = %CharacterRepository
 
 enum DeathPhase {
@@ -39,7 +36,6 @@ var _current_chief_index: int = 0   # Number of chiefs so far
 var _dying_chief_name: String = ""  # Store dying chief's name before picking new one
 
 @onready var reward_ui = %QuestCompletedNotification
-@onready var buff_screen_effect: BuffScreenEffect = %BuffScreenEffect
 @onready var card_unlock_animation: CardUnlockAnimation = %CardUnlockAnimation
 @onready var death_screen: DeathScreen = %DeathScreen
 @onready var skill_check_minigame: SkillCheckMinigame = %SkillCheckMinigame
@@ -52,24 +48,38 @@ var _dying_chief_name: String = ""  # Store dying chief's name before picking ne
 @onready var hub_ui: HubUI = %HubUI
 @onready var item_manager: ItemManager = %ItemManager
 @onready var shop_panel: ShopPanel = %ShopPanel
+@onready var art_sequence: ArtSequence = %ArtSequence
 
-var _buff_intro_active: bool = false
 var _minigame_active: bool = false
 var _shop_active: bool = false
+var _art_sequence_active: bool = false
+var _pending_ending_type: String = ""
+
+const ENDING_CARDS := {
+	"volcano_ending": "volcano",
+	"oracle_ending": "oracle",
+	"city_ending": "city"
+}
+const MID_SEQUENCE_CARD := "steward_city_growth"
 var _pending_minigame_result: Dictionary = {}  # Stores minigame result while popup is shown
 var _pending_shop_purchase: Dictionary = {}  # Stores purchase result while popup is shown
 var _coin_icon: Texture2D = preload("res://Assets/Sprites/dollar.png")
 
 func _ready() -> void:
 	add_to_group("GameManager")
+
+	# Hide game UI and show art sequence black background immediately,
+	# before the await below, to prevent any flash during loading.
+	if art_sequence and not art_sequence.intro_images.is_empty():
+		_set_game_ui_visible(false)
+		art_sequence.show()
+
 	quest_manager.quest_reward_triggered.connect(_on_quest_reward_triggered)
 	card_ui.request_deck_draw.connect(_on_request_deck_draw)
 	card_ui.card_effect_committed.connect(_on_card_effect_committed)
 	stats.stats_changed.connect(_on_stats_changed)
 	stats.stat_threshold_reached.connect(_on_stat_threshold_reached)
 	card_ui.card_count_reached.connect(_on_card_count_reach)
-	EventBus.buff_started.connect(_on_buff_started)
-	EventBus.buff_intro_card_shown.connect(_on_buff_intro_card_shown)
 	deck.pool_unlocked.connect(_on_pool_unlocked)
 	chief_manager.load_names()
 	survived_days.update_ui(chief_manager.current_chief_name)
@@ -77,7 +87,6 @@ func _ready() -> void:
 	character_repository = CharacterRepository.new()
 	character_repository.load_data(GameConstants.JSON_PATH_CHARACTERS)
 	await deck.load_from_file(GameConstants.JSON_PATH_CARDS)
-	buff_manager.setup(deck)
 
 	# Setup interview manager for profession hiring
 	interview_manager = InterviewManager.new()
@@ -148,14 +157,26 @@ func _ready() -> void:
 	# Connect shop signal
 	EventBus.shop_requested.connect(_on_shop_requested)
 
-	deck.begin_starter_phase()   # show Pool:"Starter" cards first
-	_on_request_deck_draw()
+	# Connect art sequence
+	if art_sequence:
+		art_sequence.sequence_finished.connect(_on_art_sequence_finished)
+
+	# Connect ending reset from death screen
+	if death_screen:
+		death_screen.ending_reset_requested.connect(_on_ending_reset)
+
+	# Start game - play intro if images exist, otherwise begin normally
+	if art_sequence and not art_sequence.intro_images.is_empty():
+		_art_sequence_active = true
+		card_ui.set_input_blocked(true)
+		art_sequence.play_sequence("intro")
+	else:
+		_set_game_ui_visible(true)
+		deck.begin_starter_phase()
+		_on_request_deck_draw()
 
 func _on_quest_reward_triggered(text: String) -> void:
 	reward_ui.play_notification(text)
-
-func _on_buff_started(buff: ActiveBuff) -> void:
-	reward_ui.play_notification("New Effect: " + buff.title)
 
 func _on_npc_hired(profession: String, npc_name: String) -> void:
 	reward_ui.play_notification("Hired: %s %s" % [profession, npc_name])
@@ -176,36 +197,14 @@ func _play_card_unlock_animation_delayed() -> void:
 	if card_unlock_animation:
 		card_unlock_animation.play_animation()
 
-func _on_buff_intro_card_shown(buff_data: Dictionary) -> void:
-	_pending_buff_intros.append(buff_data)
-
-func _dismiss_buff_intro_effect() -> void:
-	if _buff_intro_active:
-		_buff_intro_active = false
-		if buff_screen_effect:
-			buff_screen_effect.hide_effect()
-		EventBus.buff_intro_card_dismissed.emit()
-
 func _on_request_deck_draw() -> void:
-	# Skip drawing if minigame or shop is active
-	if _minigame_active or _shop_active:
+	# Skip drawing if minigame, shop, or art sequence is active
+	if _minigame_active or _shop_active or _art_sequence_active:
 		return
 
 	# A) Check for Game Over first - show death screen before reset
 	if _death_phase == DeathPhase.GAME_OVER:
 		_show_death_screen()
-		return
-
-	# B) Check for pending buff intro cards
-	if not _pending_buff_intros.is_empty():
-		var buff_data = _pending_buff_intros.pop_front()
-		
-		# Move the "Active" logic here
-		_buff_intro_active = true
-		if buff_screen_effect:
-			buff_screen_effect.show_effect()
-			
-		card_ui.receive_buff_info_card(buff_data)
 		return
 
 	# Death explanation phase 1
@@ -248,9 +247,6 @@ func _on_request_deck_draw() -> void:
 func _on_card_effect_committed(effect: Dictionary) -> void:
 	_last_card_had_effect = false
 
-	# Dismiss buff intro effect if active
-	_dismiss_buff_intro_effect()
-
 	# Progress shop restock timers
 	if item_manager:
 		item_manager.on_card_swiped()
@@ -262,16 +258,6 @@ func _on_card_effect_committed(effect: Dictionary) -> void:
 			card_has_stat_changes = true
 			break
 
-	# Only apply buff modifiers if the card has stat changes
-	if card_has_stat_changes and buff_manager:
-		var buff_modifiers = buff_manager.get_active_stat_modifiers()
-		for stat_key in buff_modifiers.keys():
-			var modifier_value = buff_modifiers[stat_key]
-			if modifier_value != 0:
-				if not effect.has(stat_key):
-					effect[stat_key] = 0
-				effect[stat_key] += modifier_value
-
 	# Check if there are any final stat changes (for day counting)
 	for key in GameConstants.ALL_STATS:
 		if effect.has(key) and effect[key] != 0:
@@ -279,21 +265,29 @@ func _on_card_effect_committed(effect: Dictionary) -> void:
 			break
 
 	stats.apply_effects(effect)
-	if buff_manager:
-		buff_manager.on_turn_passed()
 	var card_id := String(effect.get("card_id", ""))
 	var original_side := String(effect.get("original_side", ""))
 
 	if card_id != "" and original_side != "":
 		deck.on_card_committed(card_id, original_side)
 
+	# Check for ending or mid-game art sequences
+	if card_id in ENDING_CARDS and art_sequence:
+		_pending_ending_type = ENDING_CARDS[card_id]
+		_art_sequence_active = true
+		card_ui.set_input_blocked(true)
+		art_sequence.play_sequence(_pending_ending_type)
+	elif card_id == MID_SEQUENCE_CARD and art_sequence:
+		_art_sequence_active = true
+		card_ui.set_input_blocked(true)
+		art_sequence.play_sequence("mid")
+
 func _on_stats_changed(h: int, d: int, o: int, f: int) -> void:
 	stats_ui.update_stats(h, d, o, f)
 
 func _on_card_count_reach() -> void:
-	# Don't count buff intro cards as survived days
-	if _last_card_had_effect and not _buff_intro_active:
-		survived_days.on_day_survive() 
+	if _last_card_had_effect:
+		survived_days.on_day_survive()
 
 func _on_stat_threshold_reached(stat_name: String, value: int) -> void:
 	if _death_phase != DeathPhase.NONE:
@@ -420,9 +414,6 @@ func _soft_reset_game() -> void:
 	stats.reset_stats()
 	survived_days.reset_days()
 
-	# Clear all active buffs on chief death
-	if buff_manager:
-		buff_manager.clear_all_buffs()
 	# Note: chief_manager.pick_random_name() is already called in _on_death_screen_needs_new_chief_name
 	survived_days.update_ui(chief_manager.current_chief_name)
 	if _current_chief_index <= 1:
@@ -629,3 +620,83 @@ func _on_item_use_requested(item_id: String) -> void:
 		var item_data = item_manager.get_item_data(item_id)
 		var message = result.get("message", "Item used")
 		reward_ui.play_notification(message)
+
+
+# ===== Art Sequence & Ending Handling =====
+func _set_game_ui_visible(is_visible: bool) -> void:
+	# Background panels (children 0 and 1 of Container_UI)
+	var container = card_ui.get_parent()
+	if container.get_child_count() > 0:
+		container.get_child(0).visible = is_visible  # PanelContainer (bg texture)
+	if container.get_child_count() > 1:
+		container.get_child(1).visible = is_visible  # Panel (overlay)
+	card_ui.visible = is_visible
+	stats_ui.visible = is_visible
+	survived_days.visible = is_visible
+
+func _on_art_sequence_finished(sequence_type: String) -> void:
+	_art_sequence_active = false
+	card_ui.set_input_blocked(false)
+
+	match sequence_type:
+		"intro":
+			_set_game_ui_visible(true)
+			deck.begin_starter_phase()
+			_on_request_deck_draw()
+		"mid":
+			_on_request_deck_draw()
+		"volcano", "oracle", "city":
+			_show_ending_death_screen()
+
+
+func _show_ending_death_screen() -> void:
+	var death_day = _current_chief_start_day + survived_days.current_days
+	var all_chiefs: Array = _dead_chiefs_history.duplicate()
+
+	# Add current chief as the final entry
+	all_chiefs.append({
+		"name": chief_manager.current_chief_name,
+		"start_day": _current_chief_start_day,
+		"death_day": death_day,
+		"index": _current_chief_index + 1
+	})
+
+	if death_screen:
+		death_screen.show_ending_screen(all_chiefs, death_day)
+
+
+func _on_ending_reset() -> void:
+	# Full game reset
+	_dead_chiefs_history.clear()
+	_current_chief_start_day = 0
+	_current_chief_index = 0
+	_death_phase = DeathPhase.NONE
+	_death_is_storm = false
+	_pending_ending_type = ""
+
+	# Reset deck completely
+	deck.full_reset()
+	deck.set_current_chief_index(0)
+
+	# Reset stats and days
+	stats.reset_stats()
+	survived_days.current_days = 0
+	survived_days.total_days = 0
+	survived_days.reset_days()
+
+	# Pick a new chief
+	chief_manager.pick_random_name()
+	survived_days.update_ui(chief_manager.current_chief_name)
+
+	# Update UI
+	stats_ui.update_stats(stats.morale, stats.dissent, stats.authority, stats.devotion)
+
+	# Restart with intro if available
+	if art_sequence and not art_sequence.intro_images.is_empty():
+		_art_sequence_active = true
+		card_ui.set_input_blocked(true)
+		art_sequence.play_sequence("intro")
+	else:
+		_set_game_ui_visible(true)
+		deck.begin_starter_phase()
+		_on_request_deck_draw()

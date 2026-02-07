@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dnjrhsnr81xcm"]
+[gd_scene format=3 uid="uid://d4ef73fg6kdfg"]
 
-[ext_resource type="Script" uid="uid://cwl5a32flxwpi" path="res://Scripts/Buffs/effect_item.gd" id="1_n8lnb"]
+[ext_resource type="Script" path="res://Scripts/Buffs/effect_item.gd" id="1_n8lnb"]
 [ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="2_n8lnb"]
 [ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="3_46wej"]
 

@@ -1,12 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://cn31jxeya8jq7"]
+[gd_scene load_steps=18 format=3 uid="uid://cn31jxeya8jq7"]
 
 [ext_resource type="Script" uid="uid://cna0e7pkfcfu6" path="res://Scripts/Stats/stats_ui.gd" id="1_dv0x8"]
 [ext_resource type="Script" uid="uid://3rnobee1mk67" path="res://Scripts/Stats/stats_ui_button.gd" id="2_bqow0"]
-[ext_resource type="Texture2D" uid="uid://bqch5mpk6nqmo" path="res://Assets/Sprites/up.png" id="2_ftspl"]
 [ext_resource type="Texture2D" uid="uid://cfbqj41xyq81q" path="res://Assets/Sprites/Heat.png" id="2_sw22t"]
 [ext_resource type="Texture2D" uid="uid://bexr0jyftupgh" path="res://Assets/Sprites/hope.png" id="2_yvg2w"]
 [ext_resource type="Texture2D" uid="uid://ctjdvlbkx3oo4" path="res://Assets/Sprites/HeatProgress.png" id="3_bqow0"]
-[ext_resource type="Texture2D" uid="uid://sogi48ruag76" path="res://Assets/Sprites/down.png" id="3_oysga"]
 [ext_resource type="Texture2D" uid="uid://dtvklll7faloj" path="res://Assets/Sprites/hopeprogress.png" id="3_wvi1r"]
 [ext_resource type="Texture2D" uid="uid://okm7m2ikcj8i" path="res://Assets/Sprites/OrderIcon.png" id="4_8v0cf"]
 [ext_resource type="Texture2D" uid="uid://ckbedcs11irim" path="res://Assets/Sprites/OrderIconProgress.png" id="5_sw22t"]
@@ -37,8 +35,6 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_dv0x8")
-arrow_up_texture = ExtResource("2_ftspl")
-arrow_down_texture = ExtResource("3_oysga")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -84,23 +80,6 @@ offset_bottom = -12.0
 grow_horizontal = 2
 texture = SubResource("CanvasTexture_dv0x8")
 
-[node name="DevotionArrow" type="TextureRect" parent="MarginContainer/HBoxContainer/Devotion"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -9.0
-offset_right = 14.0
-offset_bottom = 9.0
-grow_horizontal = 0
-grow_vertical = 2
-texture = ExtResource("3_oysga")
-expand_mode = 1
-
 [node name="Morale" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(84, 84)
@@ -125,23 +104,6 @@ offset_right = 4.0
 offset_bottom = -12.0
 grow_horizontal = 2
 texture = SubResource("CanvasTexture_dv0x8")
-
-[node name="MoraleArrow" type="TextureRect" parent="MarginContainer/HBoxContainer/Morale"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 2.0
-offset_top = -9.0
-offset_right = 20.0
-offset_bottom = 9.0
-grow_horizontal = 0
-grow_vertical = 2
-texture = ExtResource("3_oysga")
-expand_mode = 1
 
 [node name="Authority" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -168,23 +130,6 @@ offset_bottom = -12.0
 grow_horizontal = 2
 texture = SubResource("CanvasTexture_dv0x8")
 
-[node name="AuthorityArrow" type="TextureRect" parent="MarginContainer/HBoxContainer/Authority"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 2.0
-offset_top = -9.0
-offset_right = 20.0
-offset_bottom = 9.0
-grow_horizontal = 0
-grow_vertical = 2
-texture = ExtResource("3_oysga")
-expand_mode = 1
-
 [node name="Dissent" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(84, 84)
@@ -209,23 +154,6 @@ offset_right = 2.5
 offset_bottom = -12.0
 grow_horizontal = 2
 texture = SubResource("CanvasTexture_dv0x8")
-
-[node name="DissentArrow" type="TextureRect" parent="MarginContainer/HBoxContainer/Dissent"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -9.0
-offset_top = -9.0
-offset_right = 9.0
-offset_bottom = 9.0
-grow_horizontal = 0
-grow_vertical = 2
-texture = ExtResource("3_oysga")
-expand_mode = 1
 
 [node name="MenuButton" type="Button" parent="."]
 unique_name_in_owner = true

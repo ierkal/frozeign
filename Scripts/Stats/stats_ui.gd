@@ -14,17 +14,6 @@ class_name StatsUI
 @onready var authority_point: TextureRect = %AuthorityPoint
 @onready var devotion_point: TextureRect = %DevotionPoint
 
-# --- OKLAR (Buff/Debuff Durumu İçin) ---
-# Bunlar "şu an üzerinde bir etki var" demek için (Yeni eklediklerin)
-@onready var morale_arrow: TextureRect = %MoraleArrow
-@onready var dissent_arrow: TextureRect = %DissentArrow
-@onready var authority_arrow: TextureRect = %AuthorityArrow
-@onready var devotion_arrow: TextureRect = %DevotionArrow
-
-# --- AYARLAR ---
-@export var arrow_up_texture: Texture2D 
-@export var arrow_down_texture: Texture2D
-
 var color_positive := Color("00b140") # Yeşil (İyi durum)
 var color_negative := Color("e74c3c") # Kırmızı (Kötü durum)
 
@@ -40,11 +29,7 @@ func _ready() -> void:
 	_store_default_tint(devotion)
 
 	# Başlangıç temizliği
-	clear_preview() # Noktaları gizle
-	_reset_arrows() # Okları gizle
-
-	# Buff sistemini dinle
-	EventBus.active_buff_modifiers_changed.connect(_on_buff_modifiers_changed)
+	clear_preview()
 
 	# Apply safe area for mobile notch handling
 	_apply_safe_area()
@@ -88,57 +73,6 @@ func clear_preview() -> void:
 	dissent_point.visible = false
 	authority_point.visible = false
 	devotion_point.visible = false
-
-# --------------------------------------------------------
-# 2. BÖLÜM: BUFF SİSTEMİ (OKLAR)
-# Buff başladığında veya bittiğinde çalışır
-# --------------------------------------------------------
-func _reset_arrows() -> void:
-	if morale_arrow: morale_arrow.visible = false
-	if dissent_arrow: dissent_arrow.visible = false
-	if authority_arrow: authority_arrow.visible = false
-	if devotion_arrow: devotion_arrow.visible = false
-
-func _on_buff_modifiers_changed(effects: Dictionary) -> void:
-	# Morale, Authority, Devotion: Normal mantık (Artış iyi, Azalış kötü)
-	# Dissent: Ters mantık (Artış kötü, Azalış iyi)
-
-	_update_arrow(morale_arrow, effects.get("Morale", 0), false)
-	_update_arrow(dissent_arrow, effects.get("Dissent", 0), true)
-	_update_arrow(authority_arrow, effects.get("Authority", 0), false)
-	_update_arrow(devotion_arrow, effects.get("Devotion", 0), false)
-
-func _update_arrow(arrow: TextureRect, value: int, is_inverse_stat: bool) -> void:
-	if not arrow: return
-	
-	# Eğer etki yoksa (0 ise) oku gizle
-	if value == 0:
-		arrow.visible = false
-		return
-	
-	arrow.visible = true
-	
-	# --- A. TEXTURE AYARI (Yön) ---
-	# Değer pozitifse Yukarı, negatifse Aşağı
-	if value > 0:
-		arrow.texture = arrow_up_texture
-	else:
-		arrow.texture = arrow_down_texture
-		
-	# --- B. RENK AYARI (İyi mi Kötü mü?) ---
-	var is_good_effect: bool
-	
-	if is_inverse_stat:
-		# Dissent için: Azalması (-) iyidir (Yeşil), Artması (+) kötüdür (Kırmızı)
-		is_good_effect = (value < 0)
-	else:
-		# Diğerleri için: Artması (+) iyidir (Yeşil), Azalması (-) kötüdür (Kırmızı)
-		is_good_effect = (value > 0)
-	
-	if is_good_effect:
-		arrow.modulate = color_positive
-	else:
-		arrow.modulate = color_negative
 
 # --------------------------------------------------------
 # 3. BÖLÜM: UPDATE & ANIMATION (BARLAR)

@@ -43,7 +43,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_y8epe")
 card_scene = ExtResource("2_y8epe")
-buff_info_card_scene = ExtResource("2_buffinfo")
+npcless_card_scene = ExtResource("2_buffinfo")
 card_slot_padding = Vector4(25, 20, 32.005, 15)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2134508668]
@@ -117,6 +117,7 @@ grow_vertical = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+scale = Vector2(1, 0)
 
 [node name="LeftText" type="Label" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer/ChoiceBGLeft" unique_id=491060626]
 unique_name_in_owner = true
@@ -141,6 +142,7 @@ _editor_defaults_set = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+scale = Vector2(1, 0)
 
 [node name="RightText" type="Label" parent="MarginContainer/VBoxContainer/Control/DecisionTexts/HBoxContainer/ChoiceBGRight" unique_id=531806562]
 unique_name_in_owner = true

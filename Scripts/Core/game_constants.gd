@@ -12,7 +12,6 @@ const ALL_STATS := [STAT_MORALE, STAT_DISSENT, STAT_AUTHORITY, STAT_DEVOTION]
 
 # Resource paths
 const JSON_PATH_CARDS := "res://Json/frozeign.json"
-const JSON_PATH_BUFFS := "res://Json/buffs.json"
 const JSON_PATH_QUESTS := "res://Json/quests.json"
 const JSON_PATH_NPC_NAMES := "res://Json/npcnames.json"
 const JSON_PATH_CHARACTERS := "res://Json/characters.json"

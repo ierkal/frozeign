@@ -1,5 +1,5 @@
 extends Control
-class_name BuffInfoCard
+class_name NpclessCard
 
 signal card_died
 signal card_decision(side: String)
@@ -40,16 +40,12 @@ func _ready() -> void:
 	flip_card()
 
 
-func setup_buff_info(buff_data: Dictionary) -> void:
-	if buff_data.has("title"):
-		title_label.text = buff_data["title"]
-	if buff_data.has("description"):
-		description_label.text = buff_data["description"]
-	if buff_data.has("icon_path") and buff_data["icon_path"] != "":
-		var icon = load(buff_data["icon_path"])
-		if icon:
-			icon_texture.texture = icon
-	
+func setup_npcless(presented: Dictionary) -> void:
+	title_label.text = str(presented.get("title", ""))
+	description_label.text = str(presented.get("desc", ""))
+	# Hide icon since npcless cards don't use it
+	if icon_texture:
+		icon_texture.get_parent().visible = false
 
 
 func flip_card() -> void:

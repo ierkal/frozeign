@@ -9,7 +9,7 @@ const SIDE_LEFT := "left"
 const SIDE_RIGHT := "right"
 
 @export var card_scene: PackedScene
-@export var buff_info_card_scene: PackedScene
+@export var npcless_card_scene: PackedScene
 @export var card_slot_padding: Vector4 = Vector4(0, 0, 0, 0)  ## Padding for CardSlot (left, top, right, bottom)
 
 @onready var card_owner_name: Label = %CardOwnerName
@@ -25,7 +25,7 @@ var commited_card_count : int = 0
 var _card: Node = null
 var _current_presented: Dictionary = {}
 var _preview_side: String = ""
-var _is_buff_info_card: bool = false
+var _is_npcless_card: bool = false
 var _input_blocked: bool = false
 
 var _tween_left: Tween = null
@@ -39,35 +39,41 @@ func _ready() -> void:
 	resized.connect(_on_resized)
 	get_tree().root.size_changed.connect(_on_viewport_size_changed)
 	pivot_offset = size / 2
-	
+
 # --------------------
 # External entrypoint (called by GameManager)
 # --------------------
 func receive_presented_card(presented: Dictionary) -> void:
-	_is_buff_info_card = false
+	_reset_preview_ui()
 	_current_presented = presented
 
-	card_owner_name.text = str(_current_presented.get("title", ""))
-	card_description.text = str(_current_presented.get("desc", ""))
+	var npc_image = _current_presented.get("npc_image", null)
 
-	var left_dict: Dictionary = _side_dict(SIDE_LEFT)
-	var right_dict: Dictionary = _side_dict(SIDE_RIGHT)
-	left_text.text = str(left_dict.get("text", ""))
-	right_text.text = str(right_dict.get("text", ""))
+	if npc_image == null:
+		# Npcless card: description is shown inside the card
+		_is_npcless_card = true
+		card_owner_name.text = ""
+		card_description.text = ""
 
-	_spawn_card()
+		var left_dict: Dictionary = _side_dict(SIDE_LEFT)
+		var right_dict: Dictionary = _side_dict(SIDE_RIGHT)
+		left_text.text = str(left_dict.get("text", ""))
+		right_text.text = str(right_dict.get("text", ""))
 
+		_spawn_npcless_card(presented)
+	else:
+		# Normal card with NPC
+		_is_npcless_card = false
+		card_owner_name.text = str(_current_presented.get("title", ""))
+		card_description.text = str(_current_presented.get("desc", ""))
 
-func receive_buff_info_card(buff_data: Dictionary) -> void:
-	_is_buff_info_card = true
-	_current_presented = {}
+		var left_dict: Dictionary = _side_dict(SIDE_LEFT)
+		var right_dict: Dictionary = _side_dict(SIDE_RIGHT)
+		left_text.text = str(left_dict.get("text", ""))
+		right_text.text = str(right_dict.get("text", ""))
 
-	card_owner_name.text = ""
-	card_description.text = "This will be affecting the chief until his death."
-	left_text.text = ""
-	right_text.text = ""
+		_spawn_card()
 
-	_spawn_buff_info_card(buff_data)
 
 func _spawn_card() -> void:
 	_clear_texture_parent()
@@ -90,24 +96,24 @@ func _spawn_card() -> void:
 	_sync_card_slot.call_deferred()
 
 
-func _spawn_buff_info_card(buff_data: Dictionary) -> void:
+func _spawn_npcless_card(presented: Dictionary) -> void:
 	_clear_texture_parent()
 	_reset_preview_ui()
 
-	if not buff_info_card_scene:
-		push_warning("buff_info_card_scene not set, falling back to regular card")
+	if not npcless_card_scene:
+		push_warning("npcless_card_scene not set, falling back to regular card")
 		_spawn_card()
 		return
 
-	_card = buff_info_card_scene.instantiate()
+	_card = npcless_card_scene.instantiate()
 	texture_parent.add_child(_card)
 
-	_card.setup_buff_info(buff_data)
+	_card.setup_npcless(presented)
 
 	_card.card_died.connect(_on_card_died)
 	_card.card_idle.connect(_on_card_idle)
 	_card.card_decision.connect(_on_card_decision)
-	_card.card_committed.connect(_on_buff_info_card_committed)
+	_card.card_committed.connect(_on_card_committed)
 
 	# Sync card slot background to match card texture position/size
 	_sync_card_slot.call_deferred()
@@ -209,15 +215,18 @@ func _reset_preview_ui() -> void:
 	_kill_tween(_tween_right)
 	_tween_left = null
 	_tween_right = null
+	# Deferred reset to catch any layout-triggered scale changes
+	_force_panels_hidden.call_deferred()
+
+func _force_panels_hidden() -> void:
+	if _preview_side == "":
+		choice_bg_left.scale.y = 0.0
+		choice_bg_right.scale.y = 0.0
 
 func _on_card_died() -> void:
 	request_deck_draw.emit()
 
 func _on_card_decision(side: String) -> void:
-	# Buff info cards don't have side effects, skip preview
-	if _is_buff_info_card:
-		return
-
 	if _preview_side != "" and _preview_side != side:
 		_set_side_open(_preview_side, false)
 
@@ -242,12 +251,6 @@ func _on_card_committed(side: String) -> void:
 	get_tree().call_group("StatsUI", "clear_preview")
 
 	card_count_reached.emit()
-
-
-func _on_buff_info_card_committed(_side: String) -> void:
-	# Buff info cards don't have effects, just dismiss and draw next card
-	await get_tree().create_timer(0.15).timeout
-	get_tree().call_group("StatsUI", "clear_preview")
 
 func _effect_for(side: String) -> Dictionary:
 	var base := _side_dict(side)

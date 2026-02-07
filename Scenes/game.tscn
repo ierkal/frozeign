@@ -10,17 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://cn31jxeya8jq7" path="res://Scenes/stats_ui.tscn" id="3_wowpa"]
 [ext_resource type="Script" uid="uid://jggsarlryqbj" path="res://Scripts/Characters/character_repository.gd" id="6_1phco"]
 [ext_resource type="PackedScene" uid="uid://cc1mstry25j7" path="res://Scenes/SurvivedDays.tscn" id="7_1l0tm"]
-[ext_resource type="Script" uid="uid://bmh4nygjsh62j" path="res://Scripts/Manager/buff_manager.gd" id="7_nb51f"]
 [ext_resource type="PackedScene" uid="uid://coyu4ldvimyse" path="res://Scenes/home_menu_ui.tscn" id="10_rfjv2"]
 [ext_resource type="Script" uid="uid://celo7jurvj8df" path="res://Scripts/Quest/quest_completed_notification.gd" id="10_rku1e"]
-[ext_resource type="FontFile" uid="uid://cky2yrbm1fxdy" path="res://Assets/Fonts/PIXELADE.TTF" id="11_rku1e"]
 [ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="12_1phco"]
-[ext_resource type="PackedScene" uid="uid://cvk6qqd83hay6" path="res://Scenes/buff_screen_effect.tscn" id="13_buff"]
 [ext_resource type="PackedScene" uid="uid://d1n2q0620gau0" path="res://Scenes/card_unlock_animation.tscn" id="14_unlock"]
 [ext_resource type="PackedScene" uid="uid://dovjv67r8i5dv" path="res://Scenes/death_screen.tscn" id="15_death"]
 [ext_resource type="PackedScene" uid="uid://dunl1d8c67v3r" path="res://Scenes/skill_check_minigame.tscn" id="16_minigame"]
 [ext_resource type="PackedScene" uid="uid://ds5a3tmaomtc" path="res://Scenes/radio_frequency_minigame.tscn" id="17_radio_minigame"]
+[ext_resource type="Texture2D" uid="uid://bgbksnxbim56f" path="res://Assets/Sprites/ChatGPT Image Nov 11, 2025, 01_41_27 PM.png" id="18_cwurv"]
 [ext_resource type="PackedScene" uid="uid://cvcaemna745ri" path="res://Scenes/generator_heat_minigame.tscn" id="18_generator_heat_minigame"]
+[ext_resource type="Texture2D" uid="uid://b78gsr1vnk6pu" path="res://Assets/Sprites/Backgrounds/MainScreen_bg.png" id="19_mucmn"]
 [ext_resource type="PackedScene" uid="uid://dxud5qu5fi86c" path="res://Scenes/pipe_patch_minigame.tscn" id="19_pipe_patch_minigame"]
 [ext_resource type="PackedScene" uid="uid://cb4txjam154bm" path="res://Scenes/snow_clear_minigame.tscn" id="20_snow_clear_minigame"]
 [ext_resource type="Script" uid="uid://oillaa7vx1fc" path="res://Scripts/Manager/currency_manager.gd" id="21_currency_manager"]
@@ -28,10 +27,12 @@
 [ext_resource type="PackedScene" uid="uid://e30ae74tpux4" path="res://Scenes/reward_popup.tscn" id="22_reward_popup"]
 [ext_resource type="Script" uid="uid://dxl7vnir1xwgb" path="res://Scripts/Manager/item_manager.gd" id="23_item_manager"]
 [ext_resource type="PackedScene" uid="uid://b80x8txcqw52u" path="res://Scenes/shop_panel.tscn" id="24_shop_panel"]
+[ext_resource type="PackedScene" path="res://Scenes/art_sequence.tscn" id="25_art_sequence"]
+[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="28_cwurv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rfjv2"]
-font = ExtResource("11_rku1e")
-font_size = 42
+font = ExtResource("28_cwurv")
+font_size = 28
 
 [node name="Game" type="Node2D" unique_id=309508424]
 script = ExtResource("1_3dryh")
@@ -56,10 +57,6 @@ script = ExtResource("3_v158k")
 [node name="CharacterRepository" type="Node2D" parent="." unique_id=1265787191]
 unique_name_in_owner = true
 script = ExtResource("6_1phco")
-
-[node name="BuffManager" type="Node2D" parent="." unique_id=1329635969]
-unique_name_in_owner = true
-script = ExtResource("7_nb51f")
 
 [node name="CurrencyManager" type="Node" parent="." unique_id=1562966005]
 unique_name_in_owner = true
@@ -96,15 +93,6 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 layout_mode = 1
 
-[node name="BuffScreenEffect" parent="CanvasLayer/Container_UI" unique_id=2134661079 instance=ExtResource("13_buff")]
-unique_name_in_owner = true
-layout_mode = 1
-contrast = 1.1
-saturation = 0.85
-brightness = 0.05000000000000004
-tint_color = Color(0.602431, 0.9285481, 0.99999994, 1)
-tint_strength = 0.296
-
 [node name="HomeMenuUI" parent="CanvasLayer/Container_UI" unique_id=1272587904 instance=ExtResource("10_rfjv2")]
 unique_name_in_owner = true
 visible = false
@@ -119,6 +107,13 @@ layout_mode = 1
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
+
+[node name="ArtSequence" parent="CanvasLayer/Container_UI" unique_id=2108622635 instance=ExtResource("25_art_sequence")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+intro_images = Array[Texture2D]([ExtResource("18_cwurv"), ExtResource("19_mucmn")])
+intro_subtitles = Array[String](["TESTTESTTESTTESTTESTTESTTEST", "TESTTESTTESTTESTTESTTESTTESTTESTTESTTEST"])
 
 [node name="SkillCheckMinigame" parent="CanvasLayer/Container_UI" unique_id=2072145613 instance=ExtResource("16_minigame")]
 unique_name_in_owner = true
@@ -167,7 +162,6 @@ script = ExtResource("10_rku1e")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Container_UI/QuestCompletedNotification" unique_id=789193127]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

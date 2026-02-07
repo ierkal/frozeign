@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cpgnvcic23yn7"]
+[gd_scene format=3 uid="uid://w0n8fj2g8cus"]
 
-[node name="BuffTexture" type="TextureRect"]
+[node name="BuffTexture" type="TextureRect" unique_id=1553534298]
 custom_minimum_size = Vector2(48, 48)
 anchors_preset = 8
 anchor_left = 0.5

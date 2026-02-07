@@ -1,43 +1,54 @@
 [gd_scene format=3 uid="uid://dovjv67r8i5dv"]
 
 [ext_resource type="Script" uid="uid://cspfn1x5m8y8" path="res://Scripts/Menu/death_screen.gd" id="1_death"]
-[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="2_rwas2"]
+[ext_resource type="FontFile" uid="uid://cxqub0sfewm4v" path="res://addons/font_auto_size_labels/demo/Anta-Regular.ttf" id="2_font"]
+[ext_resource type="Script" path="res://Scripts/UI/skip_circle_drawer.gd" id="3_skip_circle"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_tseak"]
-font = ExtResource("2_rwas2")
-font_size = 41
-font_color = Color(0.88235295, 0, 0.007843138, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_count"]
+font = ExtResource("2_font")
+font_size = 96
 
-[sub_resource type="LabelSettings" id="LabelSettings_amiou"]
-font = ExtResource("2_rwas2")
-font_size = 31
-font_color = Color(0.1882353, 1, 1, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_increment"]
+font = ExtResource("2_font")
+font_size = 48
+font_color = Color(0.4, 0.7, 1, 0.9)
 
-[sub_resource type="LabelSettings" id="LabelSettings_vb6s7"]
-font = ExtResource("2_rwas2")
-font_size = 31
+[sub_resource type="LabelSettings" id="LabelSettings_lived"]
+font = ExtResource("2_font")
+font_size = 24
+font_color = Color(0.6, 0.6, 0.65, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_tpvs2"]
-font = ExtResource("2_rwas2")
-font_size = 23
-font_color = Color(0.5649617, 0.5649616, 0.5649616, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_newchief"]
+font = ExtResource("2_font")
+font_color = Color(0.5, 0.5, 0.55, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tseak"]
+[sub_resource type="LabelSettings" id="LabelSettings_chief"]
+font = ExtResource("2_font")
+font_size = 32
+font_color = Color(0.3, 0.75, 0.95, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_amiou"]
+[sub_resource type="LabelSettings" id="LabelSettings_hint"]
+font = ExtResource("2_font")
+font_size = 14
+font_color = Color(0.5, 0.5, 0.55, 0.7)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l3qio"]
+[sub_resource type="LabelSettings" id="LabelSettings_reset"]
+font = ExtResource("2_font")
+font_size = 20
+font_color = Color(0.85, 0.85, 0.9, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rwas2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_popup"]
+bg_color = Color(0.12, 0.12, 0.15, 0.95)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+content_margin_left = 30.0
+content_margin_top = 25.0
+content_margin_right = 30.0
+content_margin_bottom = 25.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vb6s7"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tpvs2"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_l3qio"]
-font = ExtResource("2_rwas2")
-
-[node name="DeathScreen" type="Control" unique_id=2080835500]
+[node name="DeathScreen" type="Control" unique_id=1986564461]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,32 +57,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_death")
 
-[node name="Background" type="ColorRect" parent="." unique_id=1376433179]
+[node name="Background" type="ColorRect" parent="." unique_id=982712886]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.92)
+color = Color(0.05, 0.05, 0.07, 0.96)
 
-[node name="Banner" type="Control" parent="." unique_id=1362566269]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = -200.0
-grow_horizontal = 2
-
-[node name="BannerBg" type="ColorRect" parent="Banner" unique_id=474173343]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.12, 0.12, 0.15, 0.95)
-
-[node name="BannerLabel" type="Label" parent="Banner" unique_id=1086903485]
+[node name="ContentContainer" type="VBoxContainer" parent="." unique_id=377867166]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -79,208 +74,103 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = -30.0
-offset_right = 200.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.9, 0.2, 0.2, 1)
-theme_override_font_sizes/font_size = 36
-text = "The Chief is Dead"
-label_settings = SubResource("LabelSettings_tseak")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=983824243]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -200.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_scroll_mode = 3
-vertical_scroll_mode = 0
-
-[node name="TimelineContent" type="Control" parent="ScrollContainer" unique_id=949505923]
-custom_minimum_size = Vector2(2000, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="TimelineBarBg" type="ColorRect" parent="ScrollContainer/TimelineContent" unique_id=2090265402]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 2.0
-offset_top = 300.0
-offset_right = 2.0
-offset_bottom = 308.0
-grow_horizontal = 2
-color = Color(0.15, 0.15, 0.18, 1)
-
-[node name="MarkersContainer" type="Control" parent="ScrollContainer/TimelineContent" unique_id=881910832]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 2.0
-offset_top = 290.0
-offset_right = 2.0
-offset_bottom = 320.0
-grow_horizontal = 2
-
-[node name="FollowingLine" type="ColorRect" parent="ScrollContainer/TimelineContent" unique_id=1272254684]
-visible = false
-layout_mode = 0
-offset_left = 200.0
-offset_top = 100.0
-offset_right = 202.0
-offset_bottom = 310.0
-color = Color(0.4, 0.6, 1, 0.8)
-
-[node name="TotalDaysLabel" type="Label" parent="ScrollContainer/TimelineContent/FollowingLine" unique_id=511869954]
-layout_mode = 0
-offset_left = -40.0
-offset_top = -40.0
-offset_right = 42.0
-offset_bottom = -10.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 24
-text = "Day 0"
-horizontal_alignment = 1
-
-[node name="NewChiefIntro" type="Control" parent="ScrollContainer/TimelineContent" unique_id=415701081]
-visible = false
-anchors_preset = 0
-offset_left = 400.0
-offset_top = 313.0
-offset_right = 600.0
-offset_bottom = 443.0
-
-[node name="NewChiefLabel" type="Label" parent="ScrollContainer/TimelineContent/NewChiefIntro" unique_id=2020006582]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -40.0
-offset_right = 100.0
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.4, 0.7, 1, 1)
-theme_override_font_sizes/font_size = 22
-text = "New Chief"
-label_settings = SubResource("LabelSettings_amiou")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Footer" type="Control" parent="." unique_id=877506205]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
 offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
 
-[node name="FooterBg" type="ColorRect" parent="Footer" unique_id=627206770]
+[node name="DaysCountContainer" type="Control" parent="ContentContainer" unique_id=1124114322]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="DaysCountLabel" type="Label" parent="ContentContainer/DaysCountContainer" unique_id=558851078]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.08, 0.08, 0.1, 0.9)
-
-[node name="ChiefInfoContainer" type="Control" parent="Footer" unique_id=663894178]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 400.0
-grow_vertical = 2
-
-[node name="ChiefNameLabel" type="Label" parent="Footer/ChiefInfoContainer" unique_id=1218583030]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -50.0
-offset_right = 150.0
-offset_bottom = -10.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 28
-text = "Chief Name"
-label_settings = SubResource("LabelSettings_vb6s7")
+text = "0"
+label_settings = SubResource("LabelSettings_count")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ChiefDaysLabel" type="Label" parent="Footer/ChiefInfoContainer" unique_id=628389429]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = 10.0
-offset_right = 150.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.7, 0.7, 0.75, 1)
-theme_override_font_sizes/font_size = 20
-text = "Days 1 - 30"
-label_settings = SubResource("LabelSettings_tpvs2")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="QuestContainer" type="VBoxContainer" parent="Footer" unique_id=1290321629]
+[node name="DaysIncrementLabel" type="Label" parent="ContentContainer/DaysCountContainer" unique_id=1706047083]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -90.0
-offset_right = -20.0
-offset_bottom = 90.0
+offset_left = -80.0
+offset_top = -30.0
+offset_right = 19.99997
+offset_bottom = 30.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_constants/separation = 8
+text = "+30"
+label_settings = SubResource("LabelSettings_increment")
+vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Footer" unique_id=2040879910]
+[node name="DaysLivedLabel" type="Label" parent="ContentContainer" unique_id=796520950]
+layout_mode = 2
+text = "DAYS LIVED"
+label_settings = SubResource("LabelSettings_lived")
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="ContentContainer" unique_id=441928199]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ChiefContainer" type="VBoxContainer" parent="ContentContainer" unique_id=2013198151]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="NewChiefTitle" type="Label" parent="ContentContainer/ChiefContainer" unique_id=357773054]
+layout_mode = 2
+text = "NEW CHIEF"
+label_settings = SubResource("LabelSettings_newchief")
+horizontal_alignment = 1
+
+[node name="ChiefNameLabel" type="Label" parent="ContentContainer/ChiefContainer" unique_id=578407323]
+layout_mode = 2
+text = "Chief Name"
+label_settings = SubResource("LabelSettings_chief")
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="ContentContainer" unique_id=1409289457]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="QuestContainer" type="VBoxContainer" parent="ContentContainer" unique_id=1479677143]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="." unique_id=260509436]
+visible = false
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -250.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_right = 30
-
-[node name="AdvanceButton" type="Button" parent="Footer/MarginContainer" unique_id=1623068091]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_rwas2")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxEmpty_tseak")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_amiou")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_l3qio")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rwas2")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_vb6s7")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_tpvs2")
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.7, 0.7, 0.75, 1)
+theme_override_colors/font_pressed_color = Color(0.5, 0.5, 0.55, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
 text = "Continue"
-alignment = 2
+flat = true
 
-[node name="TapToContinue" type="Label" parent="." unique_id=858477743]
+[node name="TapHint" type="Label" parent="." unique_id=2100633739]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -289,13 +179,94 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -100.0
-offset_top = -250.0
+offset_top = -120.0
 offset_right = 100.0
-offset_bottom = -220.0
+offset_bottom = -90.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.6, 0.6, 0.65, 0.8)
-theme_override_font_sizes/font_size = 16
-text = "Tap to continue"
-label_settings = SubResource("LabelSettings_l3qio")
+text = "Tap to skip"
+label_settings = SubResource("LabelSettings_hint")
 horizontal_alignment = 1
+
+[node name="EndingSkipContainer" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -60.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="EndingSkipHint" type="Label" parent="EndingSkipContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "Hold 3 seconds to skip"
+label_settings = SubResource("LabelSettings_hint")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="EndingSkipCircle" type="Control" parent="EndingSkipContainer"]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -18.0
+offset_right = 0.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_skip_circle")
+
+[node name="ResetPopup" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -60.0
+offset_right = 140.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_popup")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ResetPopup"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="ResetLabel" type="Label" parent="ResetPopup/VBoxContainer"]
+layout_mode = 2
+text = "Game save will be reset"
+label_settings = SubResource("LabelSettings_reset")
+horizontal_alignment = 1
+
+[node name="ResetOKButton" type="Button" parent="ResetPopup/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+custom_minimum_size = Vector2(100, 36)
+theme_override_colors/font_color = Color(0.7, 0.7, 0.75, 1)
+theme_override_colors/font_pressed_color = Color(0.5, 0.5, 0.55, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "OK"
+flat = true

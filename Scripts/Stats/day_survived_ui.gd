@@ -3,8 +3,7 @@ class_name SurvivedDaysUI
 
 @onready var day_label: Label = %DaysValue
 @onready var total_day_label: Label = %TotalDaysValue # Asla resetlenmez
-@onready var chief_name_label: Label = %ChiefName # Yeni Label
-@onready var active_buffs_ui : ActiveBuffsUI = %ActiveBuffsUI
+@onready var chief_name_label: Label = %ChiefName
 var total_days: int = 0
 var current_days: int = 0
 

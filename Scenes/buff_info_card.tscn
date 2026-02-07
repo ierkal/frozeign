@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://bnq6gvx10hwgu" path="res://Scripts/Card/card_tweener.gd" id="5_tweener"]
 [ext_resource type="Shader" uid="uid://belydl7cox4uv" path="res://Assets/Shaders/rounded_corners.gdshader" id="6_shader"]
 [ext_resource type="Texture2D" uid="uid://3kfj3ysdaisq" path="res://Assets/Sprites/card.png" id="7_card"]
-[ext_resource type="Texture2D" uid="uid://dj2qnvk2vyjvr" path="res://Assets/Sprites/cardbg.png" id="8_rear"]
+[ext_resource type="Texture2D" uid="uid://yd6x8w3q6ccc" path="res://Assets/Sprites/cardbg.png" id="8_rear"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_card"]
 shader = ExtResource("6_shader")
@@ -24,7 +24,7 @@ font = ExtResource("3_xpeow")
 font_size = 32
 font_color = Color(0.8, 0.8, 0.8, 1)
 
-[node name="BuffInfoCard" type="Control" unique_id=1329080878]
+[node name="NpclessCard" type="Control" unique_id=1329080878]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,7 +56,7 @@ texture = ExtResource("7_card")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CardRear" type="TextureRect" parent="CardTexture"]
+[node name="CardRear" type="TextureRect" parent="CardTexture" unique_id=1277129892]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -96,8 +96,9 @@ stretch_mode = 5
 
 [node name="TitleLabel" type="Label" parent="CardTexture/ContentContainer" unique_id=450537771]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
-text = "Buff Title"
+text = "Card Title"
 label_settings = SubResource("LabelSettings_title")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -106,7 +107,7 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-text = "Buff description goes here. This explains what the buff does."
+text = "Card description goes here."
 label_settings = SubResource("LabelSettings_desc")
 horizontal_alignment = 1
 vertical_alignment = 1

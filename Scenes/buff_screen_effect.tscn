@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvk6qqd83hay6"]
+[gd_scene format=3 uid="uid://bs35ykourmwq7"]
 
-[ext_resource type="Shader" path="res://Assets/Shaders/screen_color_adjust.gdshader" id="1_shader"]
+[ext_resource type="Shader" uid="uid://d4a7bsmtq06c4" path="res://Assets/Shaders/screen_color_adjust.gdshader" id="1_shader"]
 [ext_resource type="Script" path="res://Scripts/Effects/buff_screen_effect.gd" id="2_script"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_buff"]
@@ -12,12 +12,12 @@ shader_parameter/tint_color = Color(1, 0.9, 0.7, 1)
 shader_parameter/tint_strength = 0.3
 shader_parameter/intensity = 0.0
 
-[node name="BuffScreenEffect" type="ColorRect"]
+[node name="BuffScreenEffect" type="ColorRect" unique_id=41754945]
+material = SubResource("ShaderMaterial_buff")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-material = SubResource("ShaderMaterial_buff")
 script = ExtResource("2_script")

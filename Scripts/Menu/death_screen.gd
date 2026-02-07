@@ -4,116 +4,121 @@ class_name DeathScreen
 signal restart_requested
 signal need_quest_data
 signal need_new_chief_name
+signal ending_reset_requested
 
 # Node references
 @onready var background: ColorRect = $Background
-@onready var banner: Control = $Banner
-@onready var banner_label: Label = $Banner/BannerLabel
-@onready var scroll_container: ScrollContainer = $ScrollContainer
-@onready var timeline_content: Control = $ScrollContainer/TimelineContent
-@onready var timeline_bar_bg: ColorRect = $ScrollContainer/TimelineContent/TimelineBarBg
-@onready var markers_container: Control = $ScrollContainer/TimelineContent/MarkersContainer
-@onready var following_line: ColorRect = $ScrollContainer/TimelineContent/FollowingLine
-@onready var total_days_label: Label = $ScrollContainer/TimelineContent/FollowingLine/TotalDaysLabel
-@onready var new_chief_intro: Control = $ScrollContainer/TimelineContent/NewChiefIntro
-@onready var new_chief_label: Label = $ScrollContainer/TimelineContent/NewChiefIntro/NewChiefLabel
-@onready var footer: Control = $Footer
-@onready var chief_info_container: Control = $Footer/ChiefInfoContainer
-@onready var chief_name_label: Label = $Footer/ChiefInfoContainer/ChiefNameLabel
-@onready var chief_days_label: Label = $Footer/ChiefInfoContainer/ChiefDaysLabel
-@onready var quest_container: VBoxContainer = $Footer/QuestContainer
-@onready var advance_button: Button = $Footer/MarginContainer/AdvanceButton
-@onready var tap_to_continue: Label = $TapToContinue
+@onready var content_container: VBoxContainer = $ContentContainer
+@onready var days_count_label: Label = $ContentContainer/DaysCountContainer/DaysCountLabel
+@onready var days_increment_label: Label = $ContentContainer/DaysCountContainer/DaysIncrementLabel
+@onready var days_lived_label: Label = $ContentContainer/DaysLivedLabel
+@onready var chief_container: VBoxContainer = $ContentContainer/ChiefContainer
+@onready var new_chief_title: Label = $ContentContainer/ChiefContainer/NewChiefTitle
+@onready var chief_name_label: Label = $ContentContainer/ChiefContainer/ChiefNameLabel
+@onready var quest_container: VBoxContainer = $ContentContainer/QuestContainer
+@onready var continue_button: Button = $ContinueButton
+@onready var tap_hint: Label = $TapHint
+@onready var ending_skip_container: Control = $EndingSkipContainer
+@onready var ending_skip_hint: Label = $EndingSkipContainer/EndingSkipHint
+@onready var ending_skip_circle: SkipCircleDrawer = $EndingSkipContainer/EndingSkipCircle
+@onready var reset_popup: Control = $ResetPopup
+@onready var reset_ok_button: Button = $ResetPopup/VBoxContainer/ResetOKButton
 
-# Visual Configuration/
-const PIXELS_PER_DAY := 15.0
-const MARKER_SIZE := Vector2(12, 12)
-const BAR_HEIGHT := 6.0
-const ANIMATION_DURATION := 2.5
-const TIMELINE_PADDING := 400.0
-const MARKER_POP_DURATION := 0.3
-const BANNER_SLIDE_DURATION := 0.8
-const FOOTER_TRANSITION_DURATION := 0.6
-const QUEST_BOX_SIZE := 50.0
-
-# Input Configuration
-const TAP_THRESHOLD := 20.0 
+# Configuration
+const COUNT_ANIMATION_DURATION := 2.0
+const POP_SCALE_UP_DURATION := 0.25
+const POP_SCALE_DOWN_DURATION := 0.15
+const POP_OVERSHOOT := 1.15
+const QUEST_POP_DELAY := 0.12
+const QUEST_CHECK_DELAY := 0.15
+const QUEST_BOX_SIZE := 40.0
 
 # Colors
-const COLOR_BAR_ACTIVE := Color(0.3, 0.5, 1.0, 1.0)
-const COLOR_BAR_HISTORY := Color(0.3, 0.4, 0.5, 1)
-const COLOR_MARKER_ACTIVE := Color(1, 1, 1, 1)
-const COLOR_MARKER_HISTORY := Color(0.5, 0.5, 0.55, 1)
-const COLOR_INFO_ACTIVE := Color(1, 1, 1, 1)
-const COLOR_INFO_HISTORY := Color(0.6, 0.6, 0.65, 1)
-const COLOR_QUEST_INCOMPLETE := Color(0.3, 0.3, 0.35, 1)
+const COLOR_QUEST_INCOMPLETE := Color(0.25, 0.25, 0.3, 1)
 const COLOR_QUEST_COMPLETE := Color(0.2, 0.7, 0.3, 1)
-
-# Camera/Scroll Logic
-const START_SCREEN_RATIO := 0.5
-const CAMERA_LOCK_RATIO := 0.6
 
 # Phase enum
 enum Phase {
 	NONE,
-	BANNER_SHOWING,
-	WAITING_INPUT,
-	BANNER_HIDING,
-	TIMELINE_PLAYING,
-	NEW_CHIEF_INTRO,
-	FOOTER_TRANSITION,
+	COUNTING,
+	CHIEF_REVEAL,
 	QUEST_DISPLAY,
-	QUEST_DISMISSAL,
-	COMPLETE
+	COMPLETE,
+	ENDING_COUNTDOWN
 }
 
 # Data
-var _dead_chiefs: Array = []
-var _current_chief_data: Dictionary = {}
+var _current_phase: int = Phase.NONE
+var _previous_total_days: int = 0
+var _current_total_days: int = 0
+var _days_this_chief: int = 0
 var _new_chief_name: String = ""
 var _quest_data: Array = []
-var _total_days: int = 0
-var _current_phase: int = Phase.NONE
-var _tween: Tween
+var _quest_items: Array = []
+
+# Animation references
+var _count_tween: Tween
 var _phase_tween: Tween
 var _checkmark_texture: Texture2D
 
-# Animation references
-var _active_bar: ColorRect
-var _active_start_marker: ColorRect
-var _active_end_marker: ColorRect
-var _quest_items: Array = []
-
-# Input Tracking
+# Input tracking
 var _touch_start_pos: Vector2
 var _is_tracking_touch: bool = false
+const TAP_THRESHOLD := 20.0
 
-# External references
-var home_menu_ui: HomeMenuUI
+# Ending mode
+var _is_ending_mode: bool = false
+var _all_chiefs_history: Array = []
+var _ending_total_days: int = 0
+var _ending_skip_hold_time: float = 0.0
+var _ending_skip_active: bool = false
+var _ending_countdown_tween: Tween
+var _sorted_chiefs_for_countdown: Array = []
+var _current_chief_display_index: int = 0
+const ENDING_SKIP_HOLD_DURATION := 3.0
 
 func _ready() -> void:
 	hide()
-	following_line.hide()
-	new_chief_intro.hide()
-	advance_button.pressed.connect(_on_advance_pressed)
-	advance_button.hide()
-	tap_to_continue.hide()
+	continue_button.pressed.connect(_on_continue_pressed)
+	continue_button.hide()
+	tap_hint.hide()
+	chief_container.visible = false
+	ending_skip_container.visible = false
+	reset_popup.visible = false
+	reset_ok_button.pressed.connect(_on_reset_ok_pressed)
 
 	_checkmark_texture = load("res://Assets/Sprites/check-mark.png")
 
-	# Mouse Filter Setup
-	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	scroll_container.mouse_filter = Control.MOUSE_FILTER_PASS
-	timeline_content.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	markers_container.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	timeline_bar_bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	following_line.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	new_chief_intro.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	
-	banner.position.y = -200
+func _process(delta: float) -> void:
+	if not visible or not _is_ending_mode:
+		return
+
+	if _ending_skip_active:
+		_ending_skip_hold_time += delta
+		ending_skip_circle.progress = _ending_skip_hold_time / ENDING_SKIP_HOLD_DURATION
+		ending_skip_circle.queue_redraw()
+
+		if _ending_skip_hold_time >= ENDING_SKIP_HOLD_DURATION:
+			_ending_skip_active = false
+			_skip_ending_countdown()
 
 func _input(event: InputEvent) -> void:
 	if not visible:
+		return
+
+	if _is_ending_mode and _current_phase == Phase.ENDING_COUNTDOWN:
+		if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_LEFT:
+				if event.pressed:
+					_ending_press_start()
+				else:
+					_ending_press_end()
+		elif event is InputEventScreenTouch:
+			if event.index == 0:
+				if event.pressed:
+					_ending_press_start()
+				else:
+					_ending_press_end()
 		return
 
 	if event is InputEventMouseButton:
@@ -122,7 +127,7 @@ func _input(event: InputEvent) -> void:
 				_handle_press(event.position)
 			else:
 				_handle_release(event.position)
-				
+
 	elif event is InputEventScreenTouch:
 		if event.index == 0:
 			if event.pressed:
@@ -137,40 +142,21 @@ func _handle_press(pos: Vector2) -> void:
 func _handle_release(pos: Vector2) -> void:
 	if not _is_tracking_touch:
 		return
-	
+
 	_is_tracking_touch = false
 	var distance = pos.distance_to(_touch_start_pos)
-	
+
 	if distance < TAP_THRESHOLD:
 		_handle_skip_input()
 
 func _handle_skip_input() -> void:
 	match _current_phase:
-		Phase.WAITING_INPUT:
-			_advance_from_waiting()
-		Phase.BANNER_SHOWING, Phase.BANNER_HIDING:
-			_skip_banner_animation()
-		Phase.TIMELINE_PLAYING:
-			_skip_timeline_animation()
-		Phase.NEW_CHIEF_INTRO:
-			_skip_new_chief_intro()
-		Phase.FOOTER_TRANSITION:
-			_skip_footer_transition()
+		Phase.COUNTING:
+			_skip_counting()
+		Phase.CHIEF_REVEAL:
+			_skip_chief_reveal()
 		Phase.QUEST_DISPLAY:
 			_skip_quest_display()
-		Phase.QUEST_DISMISSAL:
-			_skip_quest_dismissal()
-
-func _on_advance_pressed() -> void:
-	restart_requested.emit()
-	hide()
-	_current_phase = Phase.NONE
-	advance_button.hide()
-	_cleanup_markers()
-	_cleanup_quests()
-
-func setup_home_menu(hm: HomeMenuUI) -> void:
-	home_menu_ui = hm
 
 func set_quest_data(quests: Array) -> void:
 	_quest_data = quests
@@ -179,309 +165,107 @@ func set_new_chief_name(chief_name: String) -> void:
 	_new_chief_name = chief_name
 
 func show_death_screen(dead_chiefs_history: Array, current_chief: Dictionary) -> void:
-	_dead_chiefs = dead_chiefs_history.duplicate()
-	_current_chief_data = current_chief
+	# Calculate previous total (before this chief died)
+	_previous_total_days = current_chief.get("start_day", 0)
+	_current_total_days = current_chief.get("death_day", 0)
+	_days_this_chief = _current_total_days - _previous_total_days
+
+	# Reset UI
 	_current_phase = Phase.NONE
-	advance_button.hide()
-	tap_to_continue.hide()
-	new_chief_intro.hide()
+	continue_button.hide()
+	tap_hint.hide()
+	chief_container.visible = false
+	chief_container.scale = Vector2.ONE
+	days_increment_label.modulate.a = 1.0
 
-	# Calculate total days
-	_total_days = 0
-	for chief in _dead_chiefs:
-		_total_days = chief.get("death_day", 0)
+	# Set initial values
+	days_count_label.text = str(_previous_total_days)
+	days_increment_label.text = "+%d" % _days_this_chief
+	days_lived_label.text = "DAYS LIVED"
 
-	_setup_footer_info()
-	_setup_timeline()
-	_create_history_markers()
-
+	# Request data
 	need_quest_data.emit()
 	need_new_chief_name.emit()
+
+	# Clear previous quests
+	_cleanup_quests()
 
 	show()
 
 	await get_tree().process_frame
-	_start_banner_animation()
+	_start_counting_animation()
 
-func _setup_footer_info() -> void:
-	var chief_name: String = _current_chief_data.get("name", "Unknown")
-	var start_day: int = _current_chief_data.get("start_day", 0)
-	var death_day: int = _current_chief_data.get("death_day", 0)
+func _start_counting_animation() -> void:
+	_current_phase = Phase.COUNTING
+	tap_hint.show()
+	_start_tap_hint_blink()
 
-	chief_name_label.text = chief_name
-	chief_days_label.text = "Days %d - %d" % [start_day, death_day]
+	if _count_tween:
+		_count_tween.kill()
 
-	chief_info_container.position.x = 0
-	quest_container.position.x = get_viewport_rect().size.x + 400
+	_count_tween = create_tween()
 
-func _setup_timeline() -> void:
-	var screen_width := get_viewport_rect().size.x
-	var start_offset := screen_width * START_SCREEN_RATIO
-	var max_day: int = _current_chief_data.get("death_day", 0)
-	var timeline_width: float = start_offset + (max_day * PIXELS_PER_DAY) + TIMELINE_PADDING
+	# Animate the count from previous total to current total
+	_count_tween.tween_method(_update_count_display, float(_previous_total_days), float(_current_total_days), COUNT_ANIMATION_DURATION)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
-	timeline_content.custom_minimum_size.x = timeline_width
-	var content_height := scroll_container.size.y
-	var bar_y := content_height * 0.5
-	timeline_bar_bg.position.y = bar_y
-	timeline_bar_bg.size.y = BAR_HEIGHT
-	markers_container.position.y = bar_y - (MARKER_SIZE.y - BAR_HEIGHT) / 2.0
-	scroll_container.scroll_horizontal = 0
+	# Fade out the increment label during the animation
+	_count_tween.parallel().tween_property(days_increment_label, "modulate:a", 0.0, COUNT_ANIMATION_DURATION * 0.8)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 
-func _create_history_markers() -> void:
-	_cleanup_markers()
-	for chief in _dead_chiefs:
-		_create_chief_segment(chief, false)
+	_count_tween.tween_callback(_on_counting_complete)
 
-func _cleanup_markers() -> void:
-	ContainerUtils.clear_children(markers_container)
+func _update_count_display(value: float) -> void:
+	days_count_label.text = str(int(value))
 
-func _cleanup_quests() -> void:
-	ContainerUtils.clear_children(quest_container)
-	_quest_items.clear()
+func _skip_counting() -> void:
+	if _count_tween:
+		_count_tween.kill()
 
-func _create_chief_segment(chief: Dictionary, is_active: bool) -> void:
-	var screen_width := get_viewport_rect().size.x
-	var global_start_offset := screen_width * START_SCREEN_RATIO
-	var start_day: int = chief.get("start_day", 0)
-	var death_day: int = chief.get("death_day", 0)
-	var chief_name: String = chief.get("name", "Unknown")
+	days_count_label.text = str(_current_total_days)
+	days_increment_label.modulate.a = 0.0
+	_on_counting_complete()
 
-	var start_x := global_start_offset + (start_day * PIXELS_PER_DAY)
-	var end_x := global_start_offset + (death_day * PIXELS_PER_DAY)
-	var bar_width := (death_day - start_day) * PIXELS_PER_DAY
-	var bar_y := (MARKER_SIZE.y - BAR_HEIGHT) / 2.0
+func _on_counting_complete() -> void:
+	_start_chief_reveal()
 
-	var bar_color := COLOR_BAR_ACTIVE if is_active else COLOR_BAR_HISTORY
-	var marker_color := COLOR_MARKER_ACTIVE if is_active else COLOR_MARKER_HISTORY
-	var info_color := COLOR_INFO_ACTIVE if is_active else COLOR_INFO_HISTORY
+func _start_chief_reveal() -> void:
+	_current_phase = Phase.CHIEF_REVEAL
 
-	var bar := ColorRect.new()
-	bar.color = bar_color
-	bar.position = Vector2(start_x, bar_y)
-	bar.size = Vector2(bar_width if not is_active else 0.0, BAR_HEIGHT)
-	bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	markers_container.add_child(bar)
-
-	if is_active:
-		_active_bar = bar
-
-	var start_marker := ColorRect.new()
-	start_marker.color = marker_color
-	start_marker.position = Vector2(start_x - MARKER_SIZE.x / 2.0, 0)
-	start_marker.size = MARKER_SIZE
-	start_marker.pivot_offset = MARKER_SIZE / 2.0
-	start_marker.mouse_filter = Control.MOUSE_FILTER_IGNORE
-
-	if is_active:
-		start_marker.scale = Vector2.ZERO
-		_active_start_marker = start_marker
-
-	markers_container.add_child(start_marker)
-
-	var info_container := Control.new()
-	info_container.position = Vector2(start_x, -60)
-	info_container.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	markers_container.add_child(info_container)
-
-	var name_label := Label.new()
-	name_label.text = chief_name
-	name_label.add_theme_color_override("font_color", info_color)
-	name_label.add_theme_font_size_override("font_size", 16)
-	name_label.position = Vector2(-50, 0)
-	name_label.size = Vector2(100, 20)
-	name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	name_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	info_container.add_child(name_label)
-
-	var days_label := Label.new()
-	days_label.text = "%d-%d" % [start_day, death_day]
-	days_label.add_theme_color_override("font_color", info_color)
-	days_label.add_theme_font_size_override("font_size", 14)
-	days_label.position = Vector2(-50, 22)
-	days_label.size = Vector2(100, 18)
-	days_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	days_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	info_container.add_child(days_label)
-
-	if not is_active:
-		var end_marker := ColorRect.new()
-		end_marker.color = marker_color
-		end_marker.position = Vector2(end_x - MARKER_SIZE.x / 2.0, 0)
-		end_marker.size = MARKER_SIZE
-		end_marker.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		markers_container.add_child(end_marker)
-
-# ===== PHASE 1: Banner Animation =====
-func _start_banner_animation() -> void:
-	_current_phase = Phase.BANNER_SHOWING
-	banner.position.y = -200
-	if _phase_tween: _phase_tween.kill()
-	_phase_tween = create_tween()
-	_phase_tween.tween_property(banner, "position:y", 100, BANNER_SLIDE_DURATION)\
-		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	_phase_tween.tween_callback(_on_banner_shown)
-
-func _on_banner_shown() -> void:
-	_current_phase = Phase.WAITING_INPUT
-	tap_to_continue.show()
-	var blink_tween := create_tween().set_loops()
-	blink_tween.tween_property(tap_to_continue, "modulate:a", 0.3, 0.8)
-	blink_tween.tween_property(tap_to_continue, "modulate:a", 1.0, 0.8)
-
-func _skip_banner_animation() -> void:
-	if _phase_tween: _phase_tween.kill()
-	banner.position.y = 100
-	_on_banner_shown()
-
-func _advance_from_waiting() -> void:
-	tap_to_continue.hide()
-	_current_phase = Phase.BANNER_HIDING
-	if _phase_tween: _phase_tween.kill()
-	_phase_tween = create_tween()
-	_phase_tween.tween_property(banner, "position:y", -200, BANNER_SLIDE_DURATION * 0.6)\
-		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-	_phase_tween.tween_callback(_start_timeline_animation)
-
-# ===== PHASE 2: Timeline Animation =====
-func _start_timeline_animation() -> void:
-	_current_phase = Phase.TIMELINE_PLAYING
-	var screen_width := get_viewport_rect().size.x
-	var global_start_offset := screen_width * START_SCREEN_RATIO
-	var start_day: int = _current_chief_data.get("start_day", 0)
-	var death_day: int = _current_chief_data.get("death_day", 0)
-
-	_create_chief_segment(_current_chief_data, true)
-
-	var start_x := global_start_offset + (start_day * PIXELS_PER_DAY)
-	var content_height := scroll_container.size.y
-	following_line.position.x = start_x + 3
-	following_line.position.y = content_height * 0.31
-	following_line.size.y = content_height * 0.2
-	following_line.show()
-
-	_scroll_to_position(start_x)
-
-	if _tween: _tween.kill()
-	_tween = create_tween()
-	_tween.tween_property(_active_start_marker, "scale", Vector2.ONE, MARKER_POP_DURATION)\
-		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	_tween.tween_interval(0.2)
-	_tween.tween_method(_update_animation_step, float(start_day), float(death_day), ANIMATION_DURATION)\
-		.set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
-	_tween.tween_callback(_on_timeline_complete)
-
-func _skip_timeline_animation() -> void:
-	if _tween: _tween.kill()
-	var death_day: int = _current_chief_data.get("death_day", 0)
-	_update_animation_step(float(death_day))
-	if _active_start_marker: _active_start_marker.scale = Vector2.ONE
-	_on_timeline_complete()
-
-func _update_animation_step(current_day_float: float) -> void:
-	var screen_width := get_viewport_rect().size.x
-	var global_start_offset := screen_width * START_SCREEN_RATIO
-	var start_day: int = _current_chief_data.get("start_day", 0)
-	var days_passed := current_day_float - start_day
-	var current_bar_width := days_passed * PIXELS_PER_DAY
-
-	if _active_bar: _active_bar.size.x = current_bar_width
-	var tip_x := global_start_offset + (start_day * PIXELS_PER_DAY) + current_bar_width
-	following_line.position.x = tip_x - 1
-	total_days_label.text = "Day %d" % int(current_day_float)
-
-	var camera_lock_x := screen_width * CAMERA_LOCK_RATIO
-	if tip_x > camera_lock_x:
-		scroll_container.scroll_horizontal = int(tip_x - camera_lock_x)
-
-func _scroll_to_position(target_x: float) -> void:
-	var screen_width := get_viewport_rect().size.x
-	var camera_lock_x := screen_width * CAMERA_LOCK_RATIO
-	if target_x > camera_lock_x:
-		scroll_container.scroll_horizontal = int(target_x - camera_lock_x)
-	else:
-		scroll_container.scroll_horizontal = 0
-
-func _on_timeline_complete() -> void:
-	var screen_width := get_viewport_rect().size.x
-	var global_start_offset := screen_width * START_SCREEN_RATIO
-	var death_day: int = _current_chief_data.get("death_day", 0)
-	var end_x := global_start_offset + (death_day * PIXELS_PER_DAY)
-
-	_active_end_marker = ColorRect.new()
-	_active_end_marker.color = COLOR_MARKER_ACTIVE
-	_active_end_marker.position = Vector2(end_x - MARKER_SIZE.x / 2.0, 0)
-	_active_end_marker.size = MARKER_SIZE
-	_active_end_marker.pivot_offset = MARKER_SIZE / 2.0
-	_active_end_marker.scale = Vector2.ZERO
-	_active_end_marker.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	markers_container.add_child(_active_end_marker)
-
-	var pop_tween := create_tween()
-	pop_tween.tween_property(_active_end_marker, "scale", Vector2.ONE, MARKER_POP_DURATION)\
-		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	pop_tween.tween_callback(_start_new_chief_intro)
-
-# ===== PHASE 3: New Chief Intro (UPDATED) =====
-func _start_new_chief_intro() -> void:
-	_current_phase = Phase.NEW_CHIEF_INTRO
 	if _new_chief_name.is_empty():
-		_start_footer_transition()
+		_start_quest_display()
 		return
-	var screen_width := get_viewport_rect().size.x
-	var global_start_offset := screen_width * START_SCREEN_RATIO
-	var death_day: int = _current_chief_data.get("death_day", 0)
-	
-	# X Position: Death Mark
-	var end_x := global_start_offset + (death_day * PIXELS_PER_DAY)
-	
-	# Y Position: Below the timeline bar
-	var content_height := scroll_container.size.y
-	var bar_y := content_height * 0.5
-	var label_y_offset := 5.0 # Distance below the timeline
 
-	new_chief_label.text = _new_chief_name
-	
-	# Center the container
-	new_chief_intro.custom_minimum_size.x = 300
-	new_chief_intro.size.x = 300
-	new_chief_intro.position.x = end_x - (new_chief_intro.size.x / 2.0)
-	new_chief_intro.position.y = bar_y + label_y_offset
-	
-	# Ensure label is centered inside
-	new_chief_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	new_chief_label.anchors_preset = Control.PRESET_FULL_RECT
-	
-	new_chief_intro.modulate.a = 0
-	new_chief_intro.show()
+	chief_name_label.text = _new_chief_name
 
-	if _phase_tween: _phase_tween.kill()
+	# Setup for pop animation
+	chief_container.scale = Vector2.ZERO
+	chief_container.visible = true
+
+	# Wait a frame for layout to calculate, then set pivot
+	await get_tree().process_frame
+	chief_container.pivot_offset = chief_container.size / 2
+
+	if _phase_tween:
+		_phase_tween.kill()
+
+	# Pop animation: 0 -> 1.15 -> 1.0
 	_phase_tween = create_tween()
-	_phase_tween.tween_property(new_chief_intro, "modulate:a", 1.0, 0.5)\
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	_phase_tween.tween_interval(1.0)
-	_phase_tween.tween_callback(_start_footer_transition)
-
-func _skip_new_chief_intro() -> void:
-	if _phase_tween: _phase_tween.kill()
-	new_chief_intro.modulate.a = 1.0
-	_start_footer_transition()
-
-# ===== PHASE 4: Footer Transition =====
-func _start_footer_transition() -> void:
-	_current_phase = Phase.FOOTER_TRANSITION
-	if _phase_tween: _phase_tween.kill()
-	_phase_tween = create_tween()
-	_phase_tween.tween_property(chief_info_container, "position:x", -500, FOOTER_TRANSITION_DURATION)\
-		.set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN_OUT)
+	_phase_tween.tween_property(chief_container, "scale", Vector2.ONE * POP_OVERSHOOT, POP_SCALE_UP_DURATION)\
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	_phase_tween.tween_property(chief_container, "scale", Vector2.ONE, POP_SCALE_DOWN_DURATION)\
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	_phase_tween.tween_interval(0.3)
 	_phase_tween.tween_callback(_start_quest_display)
 
-func _skip_footer_transition() -> void:
-	if _phase_tween: _phase_tween.kill()
-	chief_info_container.position.x = -500
+func _skip_chief_reveal() -> void:
+	if _phase_tween:
+		_phase_tween.kill()
+
+	chief_container.visible = true
+	chief_container.scale = Vector2.ONE
 	_start_quest_display()
 
-# ===== PHASE 5: Quest Display =====
 func _start_quest_display() -> void:
 	_current_phase = Phase.QUEST_DISPLAY
 	_cleanup_quests()
@@ -491,22 +275,51 @@ func _start_quest_display() -> void:
 		_on_all_phases_complete()
 		return
 
+	# Create quest items with initial scale 0
 	for i in range(min(3, sorted_quests.size())):
 		var quest = sorted_quests[i]
 		var quest_item := _create_quest_item(quest)
+		quest_item.scale = Vector2.ZERO
 		quest_container.add_child(quest_item)
 		_quest_items.append({
 			"container": quest_item,
 			"is_completed": quest.get("is_completed", false)
 		})
 
-	quest_container.position.x = 400
-	if _phase_tween: _phase_tween.kill()
+	# Wait for layout to calculate sizes
+	await get_tree().process_frame
+
+	# Set pivot offsets now that sizes are known
+	for item in _quest_items:
+		var container: Control = item.get("container")
+		container.pivot_offset = container.size / 2
+
+	# Pop in each quest item sequentially with overshoot
+	_animate_quest_pop(0)
+
+func _animate_quest_pop(index: int) -> void:
+	if index >= _quest_items.size():
+		# All quests popped, wait a bit then animate checkmarks
+		if _phase_tween:
+			_phase_tween.kill()
+		_phase_tween = create_tween()
+		_phase_tween.tween_interval(0.2)
+		_phase_tween.tween_callback(_animate_quest_checkmarks)
+		return
+
+	var item = _quest_items[index]
+	var container: Control = item.get("container")
+
+	if _phase_tween:
+		_phase_tween.kill()
+
+	# Pop animation: 0 -> 1.15 -> 1.0
 	_phase_tween = create_tween()
-	_phase_tween.tween_property(quest_container, "position:x", 0, FOOTER_TRANSITION_DURATION)\
-		.set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
-	_phase_tween.tween_interval(0.3)
-	_phase_tween.tween_callback(_animate_quest_checkmarks)
+	_phase_tween.tween_property(container, "scale", Vector2.ONE * POP_OVERSHOOT, POP_SCALE_UP_DURATION)\
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	_phase_tween.tween_property(container, "scale", Vector2.ONE, POP_SCALE_DOWN_DURATION)\
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	_phase_tween.tween_callback(_animate_quest_pop.bind(index + 1))
 
 func _get_priority_quests() -> Array:
 	var completed := []
@@ -521,14 +334,15 @@ func _get_priority_quests() -> Array:
 func _create_quest_item(quest: Dictionary) -> HBoxContainer:
 	var container := HBoxContainer.new()
 	container.custom_minimum_size = Vector2(0, QUEST_BOX_SIZE)
-	container.add_theme_constant_override("separation", 10)
-	container.mouse_filter = Control.MOUSE_FILTER_IGNORE 
+	container.add_theme_constant_override("separation", 12)
+	container.alignment = BoxContainer.ALIGNMENT_CENTER
+	container.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	var box := ColorRect.new()
 	box.custom_minimum_size = Vector2(QUEST_BOX_SIZE, QUEST_BOX_SIZE)
-	box.color = GameConstants.Colors.QUEST_INCOMPLETE
+	box.color = COLOR_QUEST_INCOMPLETE
 	box.pivot_offset = Vector2(QUEST_BOX_SIZE / 2, QUEST_BOX_SIZE / 2)
-	box.mouse_filter = Control.MOUSE_FILTER_IGNORE 
+	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	container.add_child(box)
 
 	var checkmark := TextureRect.new()
@@ -541,18 +355,15 @@ func _create_quest_item(quest: Dictionary) -> HBoxContainer:
 	checkmark.modulate = Color(1, 1, 1, 0)
 	checkmark.pivot_offset = checkmark.size / 2
 	checkmark.scale = Vector2.ZERO
-	checkmark.mouse_filter = Control.MOUSE_FILTER_IGNORE 
+	checkmark.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	box.add_child(checkmark)
 
 	var desc_label := Label.new()
 	desc_label.text = quest.get("description", quest.get("title", "Quest"))
-	desc_label.add_theme_font_size_override("font_size", 14)
+	desc_label.add_theme_font_size_override("font_size", 16)
 	desc_label.add_theme_color_override("font_color", Color(0.8, 0.8, 0.85, 1))
-	desc_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	desc_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	desc_label.autowrap_mode = TextServer.AUTOWRAP_WORD
-	desc_label.custom_minimum_size = Vector2(200, 0)
-	desc_label.mouse_filter = Control.MOUSE_FILTER_IGNORE 
+	desc_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	container.add_child(desc_label)
 
 	box.set_meta("checkmark", checkmark)
@@ -569,87 +380,196 @@ func _animate_quest_checkmarks() -> void:
 
 			var check_tween := create_tween()
 			check_tween.tween_interval(delay)
-			check_tween.tween_property(box, "color", GameConstants.Colors.QUEST_COMPLETE, 0.3)
-			check_tween.parallel().tween_property(checkmark, "modulate:a", 1.0, 0.2)
-			check_tween.parallel().tween_property(checkmark, "scale", Vector2.ONE, MARKER_POP_DURATION)\
+			check_tween.tween_property(box, "color", COLOR_QUEST_COMPLETE, 0.25)
+			check_tween.parallel().tween_property(checkmark, "modulate:a", 1.0, 0.15)
+			check_tween.parallel().tween_property(checkmark, "scale", Vector2.ONE, 0.25)\
 				.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-			delay += 0.2
+			delay += QUEST_CHECK_DELAY
 
-	if _phase_tween: _phase_tween.kill()
+	if _phase_tween:
+		_phase_tween.kill()
 	_phase_tween = create_tween()
 	_phase_tween.tween_interval(delay + 0.5)
-	_phase_tween.tween_callback(_start_quest_dismissal)
+	_phase_tween.tween_callback(_on_all_phases_complete)
 
 func _skip_quest_display() -> void:
-	if _phase_tween: _phase_tween.kill()
-	quest_container.position.x = 0
+	if _phase_tween:
+		_phase_tween.kill()
+
 	for item in _quest_items:
+		var container: Control = item.get("container")
+		container.scale = Vector2.ONE
 		if item.get("is_completed", false):
-			var container: Control = item.get("container")
 			var box: ColorRect = container.get_meta("box")
 			var checkmark: TextureRect = box.get_meta("checkmark")
-			box.color = GameConstants.Colors.QUEST_COMPLETE
+			box.color = COLOR_QUEST_COMPLETE
 			checkmark.modulate.a = 1.0
 			checkmark.scale = Vector2.ONE
-	
-	_start_quest_dismissal()
-
-# ===== PHASE 6: Quest Dismissal =====
-func _start_quest_dismissal() -> void:
-	_current_phase = Phase.QUEST_DISMISSAL
-	var completion_found := false
-	var parallel_tween := create_tween().set_parallel(true)
-	var delay := 0.0
-
-	for item in _quest_items:
-		if item.get("is_completed", false):
-			completion_found = true
-			var container: Control = item.get("container")
-			
-			var idx = container.get_index()
-			var spacer = Control.new()
-			spacer.custom_minimum_size = container.size
-			quest_container.add_child(spacer)
-			quest_container.move_child(spacer, idx)
-			
-			var start_pos = container.global_position
-			container.top_level = true
-			container.global_position = start_pos
-			
-			parallel_tween.tween_interval(0.2)
-			parallel_tween.tween_property(spacer, "custom_minimum_size:y", 0.0, 0.4)\
-				.set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN_OUT)
-			
-			var target_x = get_viewport_rect().size.x + 50
-			parallel_tween.tween_property(container, "global_position:x", target_x, 0.6)\
-				.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN).set_delay(delay)
-			parallel_tween.tween_property(container, "modulate:a", 0.0, 0.5).set_delay(delay)
-			
-			delay += 0.1
-
-	if completion_found:
-		if _phase_tween: _phase_tween.kill()
-		_phase_tween = parallel_tween
-		_phase_tween.chain().tween_callback(_on_all_phases_complete)
-	else:
-		_on_all_phases_complete()
-
-func _skip_quest_dismissal() -> void:
-	if _phase_tween: _phase_tween.kill()
-	for item in _quest_items:
-		if item.get("is_completed", false):
-			var container: Control = item.get("container")
-			container.hide()
-			container.queue_free()
-	
-	for child in quest_container.get_children():
-		if child is Control and not child is HBoxContainer:
-			child.custom_minimum_size.y = 0
-			child.hide()
 
 	_on_all_phases_complete()
 
-# ===== Completion =====
+func _cleanup_quests() -> void:
+	for child in quest_container.get_children():
+		child.queue_free()
+	_quest_items.clear()
+
 func _on_all_phases_complete() -> void:
 	_current_phase = Phase.COMPLETE
-	advance_button.show()
+	tap_hint.hide()
+	continue_button.show()
+
+func _start_tap_hint_blink() -> void:
+	var blink_tween := create_tween().set_loops()
+	blink_tween.tween_property(tap_hint, "modulate:a", 0.3, 0.8)
+	blink_tween.tween_property(tap_hint, "modulate:a", 1.0, 0.8)
+
+func _on_continue_pressed() -> void:
+	restart_requested.emit()
+	hide()
+	_current_phase = Phase.NONE
+	_is_ending_mode = false
+	continue_button.hide()
+	_cleanup_quests()
+
+
+# ===== Ending Mode =====
+func show_ending_screen(all_chiefs: Array, total_days: int) -> void:
+	_is_ending_mode = true
+	_all_chiefs_history = all_chiefs
+	_ending_total_days = total_days
+	_ending_skip_hold_time = 0.0
+	_ending_skip_active = false
+
+	# Reset UI for ending mode
+	_current_phase = Phase.NONE
+	continue_button.hide()
+	tap_hint.hide()
+	chief_container.visible = false
+	quest_container.visible = false
+	days_increment_label.visible = false
+	ending_skip_container.visible = true
+	ending_skip_hint.visible = true
+	ending_skip_hint.modulate.a = 1.0
+	ending_skip_circle.visible = false
+	ending_skip_circle.progress = 0.0
+	reset_popup.visible = false
+
+	# Set initial display
+	days_count_label.text = str(total_days)
+	days_lived_label.text = "DAYS LIVED"
+
+	# Show current/last chief name
+	if not all_chiefs.is_empty():
+		chief_container.visible = true
+		chief_container.scale = Vector2.ONE
+		new_chief_title.text = ""
+		chief_name_label.text = all_chiefs.back().get("name", "")
+
+	show()
+
+	await get_tree().process_frame
+	_start_ending_countdown()
+
+
+func _start_ending_countdown() -> void:
+	_current_phase = Phase.ENDING_COUNTDOWN
+
+	# Sort chiefs by death_day descending for pop-animation during countdown
+	_sorted_chiefs_for_countdown = _all_chiefs_history.duplicate()
+	_sorted_chiefs_for_countdown.sort_custom(func(a, b):
+		return a.get("death_day", 0) > b.get("death_day", 0)
+	)
+	_current_chief_display_index = 0
+
+	# Calculate countdown duration (scales with total days, capped)
+	var duration := minf(_ending_total_days * 0.1, 10.0)
+	duration = maxf(duration, 2.0)
+
+	if _ending_countdown_tween:
+		_ending_countdown_tween.kill()
+
+	_ending_countdown_tween = create_tween()
+	_ending_countdown_tween.tween_method(_update_ending_count, float(_ending_total_days), 0.0, duration)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	_ending_countdown_tween.tween_callback(_on_ending_countdown_finished)
+
+	# Fade out skip hint after a few seconds
+	var hint_tween := create_tween()
+	hint_tween.tween_interval(3.0)
+	hint_tween.tween_property(ending_skip_hint, "modulate:a", 0.0, 0.5)
+
+
+func _update_ending_count(value: float) -> void:
+	var int_value := int(value)
+	days_count_label.text = str(int_value)
+
+	# Check if we crossed a chief boundary
+	if _current_chief_display_index < _sorted_chiefs_for_countdown.size():
+		var next_chief = _sorted_chiefs_for_countdown[_current_chief_display_index]
+		var boundary_day = next_chief.get("start_day", 0)
+
+		if int_value <= boundary_day:
+			_current_chief_display_index += 1
+			# Show the previous chief (the one who was chief at this day count)
+			if _current_chief_display_index < _sorted_chiefs_for_countdown.size():
+				var prev_chief = _sorted_chiefs_for_countdown[_current_chief_display_index]
+				_pop_chief_name(prev_chief.get("name", ""))
+			else:
+				# We've passed all chiefs - show first chief
+				_pop_chief_name(_sorted_chiefs_for_countdown.back().get("name", ""))
+
+
+func _pop_chief_name(chief_name: String) -> void:
+	chief_name_label.text = chief_name
+
+	# Pop animation
+	chief_container.pivot_offset = chief_container.size / 2.0
+	var pop_tween := create_tween()
+	pop_tween.tween_property(chief_container, "scale", Vector2.ONE * POP_OVERSHOOT, POP_SCALE_UP_DURATION)\
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	pop_tween.tween_property(chief_container, "scale", Vector2.ONE, POP_SCALE_DOWN_DURATION)\
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+
+
+func _on_ending_countdown_finished() -> void:
+	days_count_label.text = "0"
+	_show_reset_popup()
+
+
+func _skip_ending_countdown() -> void:
+	if _ending_countdown_tween:
+		_ending_countdown_tween.kill()
+	days_count_label.text = "0"
+	ending_skip_container.visible = false
+	_show_reset_popup()
+
+
+func _show_reset_popup() -> void:
+	_current_phase = Phase.COMPLETE
+	ending_skip_container.visible = false
+	reset_popup.visible = true
+
+
+func _ending_press_start() -> void:
+	_ending_skip_active = true
+	_ending_skip_hold_time = 0.0
+	ending_skip_hint.visible = true
+	ending_skip_hint.modulate.a = 1.0
+	ending_skip_circle.visible = true
+	ending_skip_circle.progress = 0.0
+	ending_skip_circle.queue_redraw()
+
+
+func _ending_press_end() -> void:
+	_ending_skip_active = false
+	_ending_skip_hold_time = 0.0
+	ending_skip_circle.progress = 0.0
+	ending_skip_circle.queue_redraw()
+
+
+func _on_reset_ok_pressed() -> void:
+	reset_popup.visible = false
+	_is_ending_mode = false
+	_current_phase = Phase.NONE
+	hide()
+	ending_reset_requested.emit()
